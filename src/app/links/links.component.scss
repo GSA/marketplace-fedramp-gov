@@ -1,0 +1,35 @@
+@import '../../assets/sass/elements.scss';
+
+button.fr-selection:hover {
+    background-color: #1889bc;
+    color: #fff;
+}
+
+.fr-selection  {
+    display: inline-block;
+    width: 191px;
+    margin: 0 5px;
+    text-transform: uppercase;
+}
+
+.fr-selection {
+    font-weight: 600;
+    outline: 0;
+    border: 1px solid #1889bc;
+    box-shadow: none;
+    border-radius: 0;
+    background-color: #fff;
+    color: #1889bc;
+    display: inline-block;
+    max-width: 400px;
+    height: 48px;
+}
+
+.filter-container {
+    text-align: center;
+}
+
+.active {
+    background: $teal;
+    color: #ffffff;
+}

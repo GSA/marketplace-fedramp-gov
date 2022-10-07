@@ -1,0 +1,16 @@
+@import '../../assets/sass/elements.scss';
+
+@import '../../assets/sass/standard-styles.scss';
+
+@import '../../assets/sass/search-results.scss';
+
+.company-logo-column {
+	padding: 0 4px;
+
+	img {
+		text-align: center;
+		max-width: 100px;
+		display: grid;
+		margin: auto;
+	}
+}

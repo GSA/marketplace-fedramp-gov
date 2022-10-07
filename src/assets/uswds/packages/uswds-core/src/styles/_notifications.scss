@@ -1,0 +1,56 @@
+/*  notifications.scss
+    ---
+    Adds a notification at the top of each USWDS
+    compile. Use this file for important notifications
+    and updates to the design system.
+
+    This file should started fresh at each
+    major version.
+
+*/
+
+@use "settings" as *;
+
+/* prettier-ignore */
+$uswds-notifications:
+  "\A"
++ "\A --------------------------------------------------------------------"
++ "\A \2709  USWDS Notifications"
++ "\A --------------------------------------------------------------------"
++ "\A 3.0.0"
++ "\A - Settings: We deprecated the $output-all-utilities setting."
++ "\A   Control utility output with $output-these-utilities."
++ "\A   See designsystem.digital.gov/documentation/settings for more."
++ "\A "
++ "\A --------------------------------------------------------------------"
++ "\A 3.1.0"
++ "\A - Accessibility: We added `type='button'` to all buttons that"
++ "\A   do not submit a form. All your non-form project buttons will"
++ "\A   need `type='button'`."
++ "\A - Accessibility: We updated the markup in the usa-password package"
++ "\A   to use a <button> element instead of an anchor element."
++ "\A - Accessibility: Elements that get `aria-disabled` instead of"
++ "\A   `disabled` are now styled as disabled."
++ "\A - Compatibility: We're using some CSS selectors not supported"
++ "\A   by IE11."
++ "\A - Deprecated: We deprecated the embed-container() mixin."
++ "\A - Display: We removed the outline circle from social media icons."
++ "\A - Settings: We changed the default value of $theme-hero-image."
++ "\A   Teams that use the default image (hero.png) will need to get the"
++ "\A   new image (hero.jpg) from the distribution package."
++ "\A ";
+
+/* prettier-ignore */
+$uswds-notification-disable-message:
+  "\A"
++ "\A --------------------------------------------------------------------"
++ "\A These are notifications from the USWDS team, not necessarily a"
++ "\A problem with your code."
++ "\A"
++ "\A Disable notifications using `$theme-show-notifications: false`."
++ "\A --------------------------------------------------------------------\A";
+
+@if $theme-show-notifications {
+  @warn "#{$uswds-notifications}"
+    + "#{$uswds-notification-disable-message}";
+}

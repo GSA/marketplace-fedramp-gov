@@ -1,0 +1,191 @@
+// Scss Document
+@import '../sass/elements.scss';
+
+h3 {
+    font-size: 1rem !important;
+}
+
+.authorization-status-chart {
+    p {
+        text-align: center;
+    }
+}
+
+.product-info-request-form {
+
+    font-size: .75rem;
+    font-weight: bold;
+    margin-top: 16px !important;
+    
+    a {
+        color: white;
+        background: $light-blue;
+        padding: 10px 16px;
+        height: 42px;
+        border-radius: 50px;
+        text-decoration: none;
+    }
+
+    a:hover {
+        background: $red;
+    }
+}
+
+.product-info-services {
+    column-count: 3;
+}
+
+.product-info-logo {
+    min-width: 250px;
+}
+
+.product-info-stats  {
+
+    .info-box .stats {
+            position: relative;
+            bottom: -28%;
+    }
+
+    h3 {
+        margin-bottom: 6px;      
+        margin-top: 0;  
+    }
+
+    h3.package-id {
+        color: $dark-gray;
+
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .counter {
+    height: 42px;
+    width: 80%;
+        p {
+            font-size: 1.5rem;
+            font-family: $title-font !important;
+            font-weight: bold;
+            color: #ffffff;
+            text-align: center;
+            position: relative;
+            top: 7%;
+        }
+    }   
+}
+
+.product-info-authoriaztions-number {
+    background: $light-blue;
+}
+
+.product-info-reuse-number {
+    background: $teal;
+}
+
+.authorization-status-chart {
+    background: url(../images/progress-line-bkg.svg) 50% 55% no-repeat $lightest-gray;
+    margin-bottom: 20px;
+
+    p.date {
+        background: #ffffff;
+        border-radius: 30px;
+        border: solid 1px $mid-gray;
+        margin: 0 25%;
+
+    }
+}
+
+.current-status {
+    height: 50px;
+}
+
+.auth-flow-chart {
+    height: 80px;
+    width: 80px;
+    margin: auto;
+}
+
+.auth-ready {
+    background: url(../images/product-auth-status-check.svg) no-repeat 50%;
+}
+
+.auth-process {
+    background: url(../images/product-auth-status-arrow.svg) no-repeat 50%;
+}
+
+.auth-future {
+    background: url(../images/product-auth-status-blank.svg) no-repeat 50%;
+}
+
+.product-info-details  {
+
+    h3 {
+        margin-top: 30px;
+        margin-bottom: 4px;
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+.mp-details-contact-info {
+    p {
+        margin: 0;
+    }
+}
+
+.product-info-leveraged-systems {
+    height: 50px;
+    border-top: solid 1px $light-gray;
+    border-bottom: solid 1px $light-gray;
+    padding-top: 10px;
+    width: 90%;
+}
+
+.assessor-current-clients {
+    height: 70px;
+    border-bottom: solid 1px $light-gray;
+    padding-top: 10px;
+    width: 90%;
+}
+
+h3.assessors-clients {
+    border-bottom: solid 1px $light-gray;
+    width: 90%;
+}  
+
+.assessor-status {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.mp-product-company-details {
+    background: $lightest-gray;
+
+    h3 {
+        margin-top: 30px;
+        margin-bottom: 4px;
+    }
+
+    h4 {
+        font-size: 1rem !important;
+    }
+
+    p {
+        margin: 0;
+    }
+       
+}
+
+.accredited-date {
+
+    h3 {
+        margin-bottom: 0;
+    }
+
+    p {
+        margin: 0;
+    }
+}

@@ -1,0 +1,272 @@
+<app-about-marketplace></app-about-marketplace>
+
+<app-links></app-links>
+
+
+<section>
+    <div class="grid-container mp-search-main">
+        <div class="grid-row">
+            <div class="tablet:grid-col-2 grid-offset-10 padding-0 page-display-select">
+                <p>Number of items shown at a time</p>
+                <select name="display-number" id="display-number">
+                    <option value="volvo">25</option>
+                    <option value="saab">50</option>
+                    <option value="opel">75</option>
+                    <option value="audi">100</option>
+                  </select>
+    
+
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-container padding-3 marketplace-type-container">
+       
+        <!-- Search Column-->
+        <div class="grid-row">
+            <div class="tablet:grid-col-2 padding-right-3 results-search">
+                <label>X Clear All</label>
+                <br>
+                <input type="text" id="clear-search" name="clear-search" placeholder="Search by Provider or Product" >
+
+
+
+                <p class="mp-container-total-search-results">301 results</p>
+
+                <div class="usa-accordion usa-accordion--multiselectable" data-allow-multiple aria-multiselectable="true">
+                    <h4 class="usa-accordion__heading">
+                      <button
+                        type="button"
+                        class="usa-accordion__button mp-accordian_button"
+                        aria-expanded="true"
+                        aria-controls="m-a1"
+                      >
+                        Status
+                      </button>
+                    </h4>
+                    <div id="m-a1" class="usa-accordion__content usa-prose mp-accordian_accordion">
+                        <ul>
+                            <li>Ready (40)</li>
+                            <li>In Process (20)</li>
+                            <li>Authorized (20)</li>
+                          </ul>
+                    </div>
+                    <h4 class="usa-accordion__heading">
+                      <button
+                        type="button"
+                        class="usa-accordion__button mp-accordian_button"
+                        aria-expanded="false"
+                        aria-controls="m-a2"
+                      >
+                        Business Category
+                      </button>
+                    </h4>
+                    <div id="m-a2" class="usa-accordion__content usa-prose mp-accordian_accordion">
+                      <ul>
+                        <li>This is a list item</li>
+                        <li>Another list item</li>
+                      </ul>
+                    </div>
+                    <h4 class="usa-accordion__heading">
+                      <button
+                        type="button"
+                        class="usa-accordion__button mp-accordian_button"
+                        aria-expanded="false"
+                        aria-controls="m-a3"
+                      >
+                        Service Model
+                      </button>
+                    </h4>
+                    <div id="m-a3" class="usa-accordion__content usa-prose mp-accordian_accordion">
+                        <ul>
+                            <li>This is a list item</li>
+                            <li>Another list item</li>
+                          </ul>
+                    </div>
+                    <h4 class="usa-accordion__heading">
+                      <button
+                        type="button"
+                        class="usa-accordion__button mp-accordian_button"
+                        aria-expanded="false"
+                        aria-controls="m-a4"
+                      >
+                        Impact Levels
+                      </button>
+                    </h4>
+                    <div id="m-a4" class="usa-accordion__content usa-prose mp-accordian_accordion">
+                        <ul>
+                            <li>This is a list item</li>
+                            <li>Another list item</li>
+                          </ul>
+                    </div>
+                    <h4 class="usa-accordion__heading">
+                      <button
+                        type="button"
+                        class="usa-accordion__button mp-accordian_button"
+                        aria-expanded="false"
+                        aria-controls="m-a5"
+                      >
+                        Authorization Type
+                      </button>
+                    </h4>
+                    <div id="m-a5" class="usa-accordion__content usa-prose mp-accordian_accordion">
+                        <ul>
+                            <li>This is a list item</li>
+                            <li>Another list item</li>
+                          </ul>
+                    </div>
+
+                    <h4 class="usa-accordion__heading">
+                        <button
+                          type="button"
+                          class="usa-accordion__button mp-accordian_button"
+                          aria-expanded="false"
+                          aria-controls="m-a6"
+                        >
+                          Deployment Models
+                        </button>
+                      </h4>
+                      <div id="m-a6" class="usa-accordion__content usa-prose mp-accordian_accordion">
+                          <ul>
+                              <li>This is a list item</li>
+                              <li>Another list item</li>
+                            </ul>
+                      </div>
+
+                      <h4 class="usa-accordion__heading">
+                        <button
+                          type="button"
+                          class="usa-accordion__button mp-accordian_button"
+                          aria-expanded="false"
+                          aria-controls="m-a7"
+                        >
+                          Small Business
+                        </button>
+                      </h4>
+                      <div id="m-a7" class="usa-accordion__content usa-prose mp-accordian_accordion">
+                          <ul>
+                              <li>This is a list item</li>
+                              <li>Another list item</li>
+                            </ul>
+                      </div>
+
+                      <h4 class="usa-accordion__heading">
+                        <button
+                          type="button"
+                          class="usa-accordion__button mp-accordian_button"
+                          aria-expanded="false"
+                          aria-controls="m-a8"
+                        >
+                          Assesors
+                        </button>
+                      </h4>
+                      <div id="m-a8" class="usa-accordion__content usa-prose mp-accordian_accordion">
+                          <ul>
+                              <li>This is a list item</li>
+                              <li>Another list item</li>
+                            </ul>
+                      </div>
+                 
+                </div>
+                  
+
+        
+            </div>
+            <!-- Results Column-->
+            <div class="grid-col-10">
+                <div class="grid-row search-sortable mp-sortable-column">
+                    <div class="grid-col-2 product_column-provider">
+                        <span>Provider</span>
+                    </div>
+                    <div class="grid-col-2 product_column-service_offering">
+                        <span>Service Offering</span>
+                    </div>
+                    <div class="grid-col-2 product_column-service_model">
+                        <span>Service Model</span>
+                    </div>
+                    <div class="grid-col-2 product_column-impact_level">
+                        <span>Impact Level</span>
+                    </div>
+                    <div class="grid-col-1 product_column-status">
+                        <span>Status</span>
+                    </div>
+                    <div class="grid-col-2 product_column-authorization">
+                        <span>Authorizations</span>
+                    </div>
+                    <div class="grid-col-1 product_column-reuse">
+                      <span>Reuse</span>
+                    </div>
+                </div>
+                <div class="grid-row mp-search-results">
+                 <div class="grid-col-2 company-logo-column product_column-service_offering">
+                  <a href="/product-info" target="_blank"><img src="../../assets/images/logos/cloud-gov-logo.png" alt="Cloud.gov" title="Cloud.gov" ></a>
+                    </div>
+                    <div class="grid-col-2 product_column-service_offering">
+                      <span>18F Cloud.gov</span>
+                    </div>
+                    <div class="grid-col-2 product_column-service_model">
+                      <span>PaaS</span>
+                    </div>
+                    <div class="grid-col-2 product_column-impact_level">
+                      <span>Moderate</span>
+                    </div>
+                    <div class="grid-col-1 product_column-status">
+                      <span>Ready</span>
+                    </div>
+                    <div class="grid-col-2 product_column-authorization result">
+                      <span>9</span>
+                    </div>
+                    <div class="grid-col-1 product_column-reuse result">
+                      <span>10</span>
+                    </div>
+                </div>
+                <div class="grid-row mp-search-results">
+                    <div class="grid-col-2 company-logo-column product_column-service_offering">
+                        <img src="../../assets/images/logos/1901Group.png" alt="1901 Group" title="1901 Group" >
+                    </div>
+                    <div class="grid-col-2 product_column-service_offering">
+                      <span>in3sight</span>
+                    </div>
+                    <div class="grid-col-2 product_column-service_model">
+                      <span>SaaS</span>
+                    </div>
+                    <div class="grid-col-2 product_column-impact_level">
+                      <span>Low</span>
+                    </div>
+                    <div class="grid-col-1 product_column-status">
+                      <span>In Process</span>
+                    </div>
+                    <div class="grid-col-2 product_column-authorization result">
+                      <span>2</span>
+                    </div>
+                    <div class="grid-col-1 product_column-reuse result">
+                      <span>12</span>
+                    </div>
+                </div>
+                <div class="grid-row mp-search-results">
+                    <div class="grid-col-2 company-logo-column product_column-service_offering">
+                        <img src="../../assets/images/logos/Accellion-logo.png" alt="Accellion" title="Accellion" >
+                    </div>
+                    <div class="grid-col-2 product_column-service_offering">
+                      <span>Kiteworks Federal Cloud</span>
+                    </div>
+                    <div class="grid-col-2 product_column-service_model">
+                      <span>IaaS</span>
+                    </div>
+                    <div class="grid-col-2 product_column-impact_level">
+                      <span>High</span>
+                    </div>
+                    <div class="grid-col-1 product_column-status">
+                      <span>Authorized</span>
+                    </div>
+                    <div class="grid-col-2 product_column-authorization result">
+                      <span>6</span>
+                    </div>
+                    <div class="grid-col-1 product_column-reuse result">
+                      <span>6</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>

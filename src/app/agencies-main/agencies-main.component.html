@@ -1,0 +1,169 @@
+<app-about-marketplace></app-about-marketplace>
+
+<app-links></app-links>
+
+
+<section>
+  <div class="grid-container mp-search-main">
+      <div class="grid-row">
+          <div class="tablet:grid-col-2 grid-offset-10 padding-0 page-display-select">
+              <p>Number of items shown at a time</p>
+              <select name="display-number" id="display-number">
+                  <option value="volvo">25</option>
+                  <option value="saab">50</option>
+                  <option value="opel">75</option>
+                  <option value="audi">100</option>
+                </select>
+  
+
+          </div>
+      </div>
+  </div>
+
+  <div class="grid-container padding-3 marketplace-type-container">
+     
+      <!-- Search Column-->
+      <div class="grid-row">
+          <div class="tablet:grid-col-2 padding-right-3 results-search">
+              <label>X Clear All</label>
+              <br>
+              <input type="text" id="clear-search" name="clear-search" placeholder="Search by Provider or Product" >
+
+
+
+              <p class="mp-container-total-search-results">301 results</p>
+
+              <div class="usa-accordion usa-accordion--multiselectable" data-allow-multiple aria-multiselectable="true">
+                  <h4 class="usa-accordion__heading">
+                    <button
+                      type="button"
+                      class="usa-accordion__button mp-accordian_button"
+                      aria-expanded="true"
+                      aria-controls="m-a1"
+                    >
+                      Parent Agency
+                    </button>
+                  </h4>
+                  <div id="m-a1" class="usa-accordion__content usa-prose mp-accordian_accordion">
+                      <ul>
+                          <li>Ready (40)</li>
+                          <li>In Process (20)</li>
+                          <li>Authorized (20)</li>
+                        </ul>
+                  </div>
+                  <h4 class="usa-accordion__heading">
+                    <button
+                      type="button"
+                      class="usa-accordion__button mp-accordian_button"
+                      aria-expanded="false"
+                      aria-controls="m-a2"
+                    >
+                      Authorizations
+                    </button>
+                  </h4>
+                  <div id="m-a2" class="usa-accordion__content usa-prose mp-accordian_accordion">
+                    <ul>
+                      <li>This is a list item</li>
+                      <li>Another list item</li>
+                    </ul>
+                  </div>
+                  <h4 class="usa-accordion__heading">
+                    <button
+                      type="button"
+                      class="usa-accordion__button mp-accordian_button"
+                      aria-expanded="false"
+                      aria-controls="m-a3"
+                    >
+                      Reuse
+                    </button>
+                  </h4>
+                  <div id="m-a3" class="usa-accordion__content usa-prose mp-accordian_accordion">
+                      <ul>
+                          <li>This is a list item</li>
+                          <li>Another list item</li>
+                        </ul>
+                  </div>
+                  <h4 class="usa-accordion__heading">
+                    <button
+                      type="button"
+                      class="usa-accordion__button mp-accordian_button"
+                      aria-expanded="false"
+                      aria-controls="m-a4"
+                    >
+                      Impact Levels
+                    </button>
+                  </h4>
+                  <div id="m-a4" class="usa-accordion__content usa-prose mp-accordian_accordion">
+                      <ul>
+                          <li>This is a list item</li>
+                          <li>Another list item</li>
+                        </ul>
+                  </div>
+               
+              </div>
+                
+
+      
+          </div>
+          <!-- Results Column-->
+          <div class="grid-col-10">
+              <div class="grid-row search-sortable mp-sortable-column">
+                  <div class="grid-col-4 agencies_column-parent_agency">
+                      <span>Parent Agency</span>
+                  </div>
+                  <div class="grid-col-4 agencies_column-department_agency">
+                      <span>Department/Agency</span>
+                  </div>
+                  <div class="grid-col-2 agencies_column-authorizations text-center">
+                      <span>Authorizations</span>
+                  </div>
+                  <div class="grid-col-2 agencies_column-reuse text-center">
+                      <span>Reuse</span>
+                  </div>
+              </div>
+              <div class="grid-row mp-search-results">
+                <div class="grid-col-4 agencies_column-parent_agency">
+                  <a href="/agency-info" target="_blank"><span>Department of Health and Human Services</span></a>
+                  </div>
+                  <div class="grid-col-4 agencies_column-department_agency">
+                    <span>Administration for Children & Families</span>
+                  </div>
+                  <div class="grid-col-2 agencies_column-authorizations text-center">
+                    <span>1</span>
+                  </div>
+                  <div class="grid-col-2 agencies_column-reuse text-center">
+                    <span>9</span>
+                  </div>
+              </div>
+              <div class="grid-row mp-search-results">
+                <div class="grid-col-4 agencies_column-parent_agency">
+                  <span>Department of Health and Human Services</span>
+                  </div>
+                  <div class="grid-col-4 agencies_column-department_agency">
+                    <span>Administration for Community Living</span>
+                  </div>
+                  <div class="grid-col-2 agencies_column-authorizations text-center">
+                    <span>2</span>
+                  </div>
+                  <div class="grid-col-2 agencies_column-reuse text-center">
+                    <span>2</span>
+                  </div>
+              </div>
+              <div class="grid-row mp-search-results">
+                <div class="grid-col-4 agencies_column-parent_agency">
+                  <span>Administrative Office of the United States Courts</span>
+                  </div>
+                  <div class="grid-col-4 agencies_column-department_agency">
+                    <span>Administrative Office of the United States Courts</span>
+                  </div>
+                  <div class="grid-col-2 agencies_column-authorizations text-center">
+                    <span>0</span>
+                  </div>
+                  <div class="grid-col-2 agencies_column-reuse text-center">
+                    <span>6</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </section>
