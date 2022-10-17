@@ -1,6 +1,10 @@
 // Scss Document
 @import '../sass/elements.scss';
 
+h2.detail-company-info {
+    text-align: left !important;
+}
+
 h3 {
     font-size: 1rem !important;
 }
@@ -73,6 +77,18 @@ h3 {
             top: 7%;
         }
     }   
+}
+
+@media (max-width: 640px) {
+    .product-info-stats .counter {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 640px) {
+    .product-info-stats .counter {
+        width: 50%;
+    }
 }
 
 .product-info-authoriaztions-number {

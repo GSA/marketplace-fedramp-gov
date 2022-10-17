@@ -45,21 +45,21 @@ main#main:focus {
 }
 
 @media (min-width: 1200px) {
-	.fedramp-page-container {
+	.grid-container.fedramp-page-container {
 		padding-left: 2rem;
 		padding-right: 2rem;
 	}
 }
 
 @media (min-width: 769px) and (max-width: 1200px) {
-	.fedramp-page-container {
+	.grid-container.fedramp-page-container {
 		padding-left: 3rem;
 		padding-right: 3rem;
 	}
 }
 
 @media (min-width: 0px) and (max-width: 768px) {
-	.fedramp-page-container{
+	.grid-container.fedramp-page-container{
 		padding-left: 2rem;
 		padding-right: 2rem;
 	}
@@ -67,6 +67,36 @@ main#main:focus {
 
 .usa-skipnav:focus {
 	top: 20px;
+}
+
+
+
+.usa-banner__button::after {
+	-webkit-mask: url(../images/usa-icons/expand_more.svg) no-repeat center/contain !important;
+    mask: url(../images/usa-icons/expand_more.svg) no-repeat center/contain !important;
+}
+
+.usa-banner__button[aria-expanded=true]::after {
+	-webkit-mask: url(../images/usa-icons/expand_less.svg) no-repeat center/contain !important;
+    mask: url(../images/usa-icons/expand_less.svg) no-repeat center/contain !important;
+}
+
+.usa-accordion__button {
+	background-image: url(../images/usa-icons/remove.svg), linear-gradient(transparent, transparent) !important;
+	background-repeat: no-repeat !important;
+    background-color: #f0f0f0 !important;
+    background-position: right 1.25rem center !important;
+    background-size: 1.5rem !important;
+}
+
+.usa-accordion__button[aria-expanded=false] {
+	background-image: url(../images/usa-icons/add.svg), linear-gradient(transparent, transparent) !important;
+	background-repeat: no-repeat !important;
+    background-size: 1.5rem !important; 
+}
+
+.usa-banner__button[aria-expanded=false], .usa-banner__button {
+	background-image: none !important;
 }
 
 .keyword-highlight { background-color: #FFE7A5; }
@@ -422,6 +452,7 @@ a {
 	max-width: 1200px;
 	padding: 4rem 0;
 }
+
 
 .partners-callout {
 	padding: 0;
