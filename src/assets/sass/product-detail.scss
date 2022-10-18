@@ -167,6 +167,14 @@ h3 {
     width: 90%;
 }
 
+@media (max-width: 640px) {
+    .assessor-current-clients {
+        height: auto;
+        padding-bottom: 12px;
+    }
+}
+
+
 h3.assessors-clients {
     border-bottom: solid 1px $light-gray;
     width: 90%;
