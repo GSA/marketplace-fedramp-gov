@@ -43,6 +43,7 @@ h3 {
     padding: 0em 2em;
 }
 
+
 .mp-autorized-services-main {
     display: inline-flex;
     width: 66%;
@@ -87,4 +88,42 @@ h3 {
 
 .marketplace-latest:last-child {
     margin-right: 0 !important;
+}
+
+@media all and (max-width: 767px) {
+    .total-authorizations {
+        margin-top: 40px;
+        padding: 2em;
+    }
+
+    .mp-autorized-services-main {
+        display: inline;
+        width: 100%;
+    }
+
+    .mp-autorized-services-main {
+        display: inline;
+        width: 100%;
+    }
+    
+    .authorization-count {
+        display: inline;
+        width: 100%;
+    
+        p {
+            top: -14px;
+        }
+    }
+
+    .learn-marketplace {
+        padding: 13px 36px 14px 36px;
+        margin: 0;
+    }
+
+    .marketplace-latest {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 0 0 2% 0;
+    }
 }

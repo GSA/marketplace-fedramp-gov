@@ -335,15 +335,19 @@ a.footer-brand-guide-link:visited {
  
 /*** Responsive Styles Smartphone Only ***/
 @media all and (max-width: 767px) {
+
+	footer {
+		padding: 20px 0 24px;
+	}
  	
 	.footer-container {
-		padding: 0 30px;
+		padding: 0 2rem;
 	}
-	
 	
 	.footer-col {
 		width: 100%;
 		margin-top: 20px;
+		padding: 0;
 	}
 	
 	.footer-col:first-child {
@@ -394,6 +398,11 @@ a.footer-brand-guide-link:visited {
 	
 	p.footer-follow-us {
 		margin-right: 10px !important;
+	}
+
+	.usa-identifier {
+		background: #000000;
+		padding: 0px !important;
 	}
 }
 
