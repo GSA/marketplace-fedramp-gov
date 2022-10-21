@@ -12,7 +12,6 @@
     clear: both;
 }
 
-
 :focus {
 	outline: $teal auto 1px !important;
 	box-shadow: none !important;
@@ -260,6 +259,10 @@ h5 {
 h6 {
 	font-weight: bold;
 	text-transform: none;
+}
+
+ul {
+	//padding-left: 1rem;
 }
 
 .intro-text p, .intro-text li, p.intro-text {

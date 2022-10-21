@@ -35,6 +35,8 @@
               "node_modules/uswds/dist/scss/uswds.scss",
             ],
             "scripts": [
+              "src/assets/uswds/dist/js/uswds-init.min.js",
+              "../../node_modules/uswds/dist/js/uswds-init.min.js",
             ]
           },
           "configurations": {
