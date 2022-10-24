@@ -33,3 +33,12 @@ button.fr-selection:hover {
     background: $teal;
     color: #ffffff;
 }
+
+@media all and (max-width: 767px) {
+    .fr-selection {
+        display: block;
+        margin: 0 auto 10px auto;
+        max-width: 75%;
+        min-width: 300px;
+    }
+}
