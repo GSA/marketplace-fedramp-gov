@@ -32,11 +32,10 @@
               "src/assets/sass/elements.scss",
               "src/assets/sass/search-results.scss",
               "src/assets/sass/standard-styles.scss",
-              "node_modules/uswds/dist/scss/uswds.scss",
+              "./node_modules/uswds/dist/scss/uswds.scss",
             ],
             "scripts": [
               "src/assets/uswds/dist/js/uswds-init.min.js",
-              "../../node_modules/uswds/dist/js/uswds-init.min.js",
             ]
           },
           "configurations": {

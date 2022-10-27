@@ -1,7 +1,7 @@
 @import '../../assets/sass/elements.scss';
 
 button.fr-selection:hover {
-    background-color: #1889bc;
+    background-color: $teal;
     color: #fff;
 }
 
@@ -15,7 +15,7 @@ button.fr-selection:hover {
 .fr-selection {
     font-weight: 600;
     outline: 0;
-    border: 1px solid #1889bc;
+    border: 1px solid $teal;
     box-shadow: none;
     border-radius: 0;
     background-color: #fff;

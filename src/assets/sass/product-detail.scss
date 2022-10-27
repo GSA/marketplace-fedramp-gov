@@ -9,12 +9,6 @@ h3 {
     font-size: 1rem !important;
 }
 
-.authorization-status-chart {
-    p {
-        text-align: center;
-    }
-}
-
 .product-info-request-form {
 
     font-size: .75rem;
@@ -103,6 +97,10 @@ h3 {
     background: url(../images/progress-line-bkg.svg) 50% 55% no-repeat $lightest-gray;
     margin-bottom: 20px;
 
+    p {
+        text-align: center;
+    }
+
     p.date {
         background: #ffffff;
         border-radius: 30px;
@@ -112,8 +110,25 @@ h3 {
     }
 }
 
+
+@media (max-width: 640px) {
+    .authorization-status-chart {
+        background: $lightest-gray;
+    }
+}
+
 .current-status {
     height: 50px;
+}
+
+.current-status p {
+    margin-top: 0rem;
+} 
+
+@media (max-width: 640px) {
+    .current-status p {
+        margin-top: 2rem;
+    }
 }
 
 .auth-flow-chart {
