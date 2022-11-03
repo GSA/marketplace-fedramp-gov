@@ -89,7 +89,7 @@
           </div>
           <!-- Results Column-->
           <div class="grid-col-10">
-              <div class="grid-row search-sortable mp-sortable-column">
+              <div class="grid-row search-sortable mp-sortable-column display-none desktop:display-flex">
                   <div class="grid-col-10 product_column-provider">
                       <span>Name</span>
                   </div>
@@ -98,8 +98,8 @@
                   </div>
                
               </div>
-              <div class="grid-row mp-search-results">
-                  <div class="grid-col-10 company-logo-column product_column-service_offering">
+              <div class="grid-row mp-search-results display-none desktop:display-flex">
+                  <div class="grid-col-10 company-logo-column product_column-service_offering ">
                       <div class="assessors-logo"><a href="/assessors-info" target="_blank"><img src="../../assets/images/logos/cloud-gov-logo.png" alt="Cloud.gov" title="Cloud.gov" ></a></div>  
                         
                         <div class="assessors-name"><span>18F Cloud.gov</span></div>
@@ -109,27 +109,114 @@
                     <span>10</span>
                   </div>
               </div>
-              <div class="grid-row mp-search-results">
-                  <div class="grid-col-10 company-logo-column product_column-service_offering">
-                    <div class="assessors-logo"><img src="../../assets/images/logos/1901Group.png" alt="1901 Group" title="1901 Group" ></div>
-                    
-                    <div class="assessors-name"><span>in3sight</span></div>
-                  </div>
-                  <div class="grid-col-2 product_column-reuse text-center">
-                    <span>12</span>
-                  </div>
-              </div>
-              <div class="grid-row mp-search-results">
-                  <div class="grid-col-10 company-logo-column product_column-service_offering">
-                    <div class="assessors-logo"><img src="../../assets/images/logos/Accellion-logo.png" alt="Accellion" title="Accellion" ></div>
-                    <div class="assessors-name"><span>Kiteworks Federal Cloud</span></div>
-                  </div>
-                
-                  <div class="grid-col-2 product_column-reuse text-center">
-                    <span>6</span>
-                  </div>
-              </div>
           </div>
+
       </div>
+
+
+
+                 <!-- Mobile Search Results -->
+                 <a href="/product-info" target="_blank" class="company-info-link">
+
+                 <div class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
+                  <div class="grid-col-4  product_column-service_offering assessors-company-logo">
+                   <img src="../../assets/images/logos/cloud-gov-logo.png" alt="Cloud.gov" title="Cloud.gov" >
+                   </div>
+                     <div class="grid-col-8 product_column-service_offering">
+                       <span>18F Cloud.gov</span>
+                     </div>
+                     <div class="grid-col-12 padding-0">
+                        <div class="grid-row grid-gap">
+                          <div class="grid-col-6">
+                            <div class="product_column-authorization result">
+                              <h4>Products Assessing</h4>
+                              <p><span>9</span></p>
+                            </div>
+                          </div>
+                        </div>
+                     </div>
+
+                    
+                 </div>
+                </a>
+
+                 <nav aria-label="Pagination" class="usa-pagination">
+                  <ul class="usa-pagination__list">
+                    <li class="usa-pagination__item usa-pagination__arrow">
+                      <a
+                        href="javascript:void(0);"
+                        class="usa-pagination__link usa-pagination__previous-page"
+                        aria-label="Previous page"
+                        ><svg class="usa-icon" aria-hidden="true" role="img">
+                          <use xlink:href="/assets/img/sprite.svg#navigate_before"></use>
+                        </svg>
+                        <span class="usa-pagination__link-text">Previous</span></a
+                      >
+                    </li>
+                    <li class="usa-pagination__item usa-pagination__page-no">
+                      <a
+                        href="javascript:void(0);"
+                        class="usa-pagination__button"
+                        aria-label="Page 1"
+                        >1</a
+                      >
+                    </li>
+                    <li
+                      class="usa-pagination__item usa-pagination__overflow"
+                      role="presentation"
+                    >
+                      <span>…</span>
+                    </li>
+                    <li class="usa-pagination__item usa-pagination__page-no">
+                      <a
+                        href="javascript:void(0);"
+                        class="usa-pagination__button"
+                        aria-label="Page 9"
+                        >9</a
+                      >
+                    </li>
+                    <li class="usa-pagination__item usa-pagination__page-no">
+                      <a
+                        href="javascript:void(0);"
+                        class="usa-pagination__button usa-current"
+                        aria-label="Page 10"
+                        aria-current="page"
+                        >10</a
+                      >
+                    </li>
+                    <li class="usa-pagination__item usa-pagination__page-no">
+                      <a
+                        href="javascript:void(0);"
+                        class="usa-pagination__button"
+                        aria-label="Page 11"
+                        >11</a
+                      >
+                    </li>
+                    <li
+                      class="usa-pagination__item usa-pagination__overflow"
+                      role="presentation"
+                    >
+                      <span>…</span>
+                    </li>
+                    <li class="usa-pagination__item usa-pagination__page-no">
+                      <a
+                        href="javascript:void(0);"
+                        class="usa-pagination__button"
+                        aria-label="Last page, page 24"
+                        >24</a
+                      >
+                    </li>
+                    <li class="usa-pagination__item usa-pagination__arrow">
+                      <a
+                        href="javascript:void(0);"
+                        class="usa-pagination__link usa-pagination__next-page"
+                        aria-label="Next page"
+                        ><span class="usa-pagination__link-text">Next </span
+                        ><svg class="usa-icon" aria-hidden="true" role="img">
+                          <use xlink:href="/assets/img/sprite.svg#navigate_next"></use></svg></a>
+                    </li>
+                  </ul>
+                </nav>
+                
   </div>
   </section>

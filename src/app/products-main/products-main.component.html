@@ -9,10 +9,10 @@
             <div class="tablet:grid-col-2 grid-offset-10 padding-0 page-display-select">
                 <p>Number of items shown at a time</p>
                 <select name="display-number" id="display-number">
-                    <option value="volvo">25</option>
-                    <option value="saab">50</option>
-                    <option value="opel">75</option>
-                    <option value="audi">100</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="75">75</option>
+                    <option value="100">100</option>
                   </select>
     
 
@@ -28,8 +28,6 @@
                 <label>X Clear All</label>
                 <br>
                 <input type="text" id="clear-search" name="clear-search" placeholder="Search by Provider or Product" >
-
-
 
                 <p class="mp-container-total-search-results">301 results</p>
 
@@ -166,14 +164,11 @@
                               <li>Another list item</li>
                             </ul>
                       </div>
-                 
                 </div>
-                  
-
-        
             </div>
-            <!-- Results Column-->
-            <div class="grid-col-10">
+
+            <!-- Large Monitor Results Column-->
+            <div class="grid-col-12 desktop:grid-col-10">
                 <div class="grid-row search-sortable mp-sortable-column">
                     <div class="grid-col-2 product_column-provider">
                         <span>Provider</span>
@@ -197,7 +192,9 @@
                       <span>Reuse</span>
                     </div>
                 </div>
-                <div class="grid-row mp-search-results">
+
+                <!-- Results -->
+                <div class="grid-row mp-search-results display-none desktop:display-flex">
                  <div class="grid-col-2 company-logo-column product_column-service_offering">
                   <a href="/product-info" target="_blank"><img src="../../assets/images/logos/cloud-gov-logo.png" alt="Cloud.gov" title="Cloud.gov" ></a>
                     </div>
@@ -220,53 +217,133 @@
                       <span>10</span>
                     </div>
                 </div>
-                <div class="grid-row mp-search-results">
-                    <div class="grid-col-2 company-logo-column product_column-service_offering">
-                        <img src="../../assets/images/logos/1901Group.png" alt="1901 Group" title="1901 Group" >
-                    </div>
-                    <div class="grid-col-2 product_column-service_offering">
-                      <span>in3sight</span>
-                    </div>
-                    <div class="grid-col-2 product_column-service_model">
-                      <span>SaaS</span>
-                    </div>
-                    <div class="grid-col-2 product_column-impact_level">
-                      <span>Low</span>
-                    </div>
-                    <div class="grid-col-1 product_column-status">
-                      <span>In Process</span>
-                    </div>
-                    <div class="grid-col-2 product_column-authorization result">
-                      <span>2</span>
-                    </div>
-                    <div class="grid-col-1 product_column-reuse result">
-                      <span>12</span>
-                    </div>
-                </div>
-                <div class="grid-row mp-search-results">
-                    <div class="grid-col-2 company-logo-column product_column-service_offering">
-                        <img src="../../assets/images/logos/Accellion-logo.png" alt="Accellion" title="Accellion" >
-                    </div>
-                    <div class="grid-col-2 product_column-service_offering">
-                      <span>Kiteworks Federal Cloud</span>
-                    </div>
-                    <div class="grid-col-2 product_column-service_model">
-                      <span>IaaS</span>
-                    </div>
-                    <div class="grid-col-2 product_column-impact_level">
-                      <span>High</span>
-                    </div>
-                    <div class="grid-col-1 product_column-status">
-                      <span>Authorized</span>
-                    </div>
-                    <div class="grid-col-2 product_column-authorization result">
-                      <span>6</span>
-                    </div>
-                    <div class="grid-col-1 product_column-reuse result">
-                      <span>6</span>
-                    </div>
-                </div>
+
+
+                <!-- Mobile Search Results -->
+                <a href="/product-info" target="_blank" class="company-info-link"> 
+
+                <div class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
+                  <div class="gid-col-12 desktop:grid-col-2 company-logo-column product_column-service_offering">
+                   <img src="../../assets/images/logos/cloud-gov-logo.png" alt="Cloud.gov" title="Cloud.gov" >
+                   </div>
+                     <div class="gid-col-12 desktop:grid-col-2 product_column-service_offering">
+                       <span>18F Cloud.gov</span>
+                     </div>
+                     <div class="grid-col-12 padding-0">
+                        <div class="grid-row grid-gap">
+                          <div class="grid-col-6">
+                            <div class="product_column-authorization result">
+                              <h4>Authorizations</h4>
+                              <p><span>9</span></p>
+                            </div>
+                            <div class="product_column-reuse result">
+                              <h4>Reuse</h4>
+                              <p><span>10</span></p>
+                            </div>
+
+                          </div>
+                          <div class="grid-col-6 padding-top-4">
+                            <div class="product_column-service_model">
+                              <h5>Service Model</h5>
+                              <span>PaaS</span>
+                            </div>
+                            <div class="product_column-impact_level">
+                              <h5>Impact Level</h5>
+                              <span>Moderate</span>
+                            </div>
+                            <div class="product_column-status">
+                              <h5>Status</h5>
+                              <span>Ready</span>
+                            </div>
+                          </div>
+
+                        </div>
+                     </div>
+
+                 </div>  
+                </a>    
             </div>
+
+            
         </div>
+          <!-- Pagination -->
+
+          <nav aria-label="Pagination" class="usa-pagination">
+            <ul class="usa-pagination__list">
+              <li class="usa-pagination__item usa-pagination__arrow">
+                <a
+                  href="javascript:void(0);"
+                  class="usa-pagination__link usa-pagination__previous-page"
+                  aria-label="Previous page"
+                  ><svg class="usa-icon" aria-hidden="true" role="img">
+                    <use xlink:href="/assets/img/sprite.svg#navigate_before"></use>
+                  </svg>
+                  <span class="usa-pagination__link-text">Previous</span></a
+                >
+              </li>
+              <li class="usa-pagination__item usa-pagination__page-no">
+                <a
+                  href="javascript:void(0);"
+                  class="usa-pagination__button"
+                  aria-label="Page 1"
+                  >1</a
+                >
+              </li>
+              <li
+                class="usa-pagination__item usa-pagination__overflow"
+                role="presentation"
+              >
+                <span>…</span>
+              </li>
+              <li class="usa-pagination__item usa-pagination__page-no">
+                <a
+                  href="javascript:void(0);"
+                  class="usa-pagination__button"
+                  aria-label="Page 9"
+                  >9</a
+                >
+              </li>
+              <li class="usa-pagination__item usa-pagination__page-no">
+                <a
+                  href="javascript:void(0);"
+                  class="usa-pagination__button usa-current"
+                  aria-label="Page 10"
+                  aria-current="page"
+                  >10</a
+                >
+              </li>
+              <li class="usa-pagination__item usa-pagination__page-no">
+                <a
+                  href="javascript:void(0);"
+                  class="usa-pagination__button"
+                  aria-label="Page 11"
+                  >11</a
+                >
+              </li>
+              <li
+                class="usa-pagination__item usa-pagination__overflow"
+                role="presentation"
+              >
+                <span>…</span>
+              </li>
+              <li class="usa-pagination__item usa-pagination__page-no">
+                <a
+                  href="javascript:void(0);"
+                  class="usa-pagination__button"
+                  aria-label="Last page, page 24"
+                  >24</a
+                >
+              </li>
+              <li class="usa-pagination__item usa-pagination__arrow">
+                <a
+                  href="javascript:void(0);"
+                  class="usa-pagination__link usa-pagination__next-page"
+                  aria-label="Next page"
+                  ><span class="usa-pagination__link-text">Next </span
+                  ><svg class="usa-icon" aria-hidden="true" role="img">
+                    <use xlink:href="/assets/img/sprite.svg#navigate_next"></use></svg></a>
+              </li>
+            </ul>
+          </nav>
     </div>
     </section>

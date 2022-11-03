@@ -94,11 +94,14 @@ a.latest-agency-link {
     margin-right: 0 !important;
 }
 
-@media all and (max-width: 767px) {
+@media all and (max-width: 1023px) {
     .total-authorizations {
         margin-top: 40px;
         padding: 2em;
     }
+}
+
+@media all and (max-width: 767px) {
 
     .mp-autorized-services-main {
         display: inline;
@@ -130,4 +133,13 @@ a.latest-agency-link {
         text-align: center;
         margin: 0 0 2% 0;
     }
+
+    .mp-about {
+        h3.latest-title {
+            margin-top: 48px;
+        }
+    }
+
+
+    
 }

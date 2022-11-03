@@ -45,6 +45,67 @@
 	}
 }
 
+@media (max-width: 1023px) {
+	.results-search, .page-display-select, .mp-sortable-column {
+		display: none;
+	}
+
+    a.company-info-link {
+        text-decoration: none;
+    }
+
+	.agencies_column-parent_agency {
+		font-size: 1.375rem;
+	}
+}
+
+.mp-search-results.mobile-results {
+	padding: 20px;
+	border-bottom: none;
+	margin-bottom: 10px;
+
+	div {
+		padding-left: 0;
+	}
+
+	.company-logo-column img {
+		width: 320px;
+		max-width: 450px;
+	}
+
+	.assessors-company-logo {
+		width: auto;
+	}
+
+	.product_column-service_offering {
+		font-size: 1rem;
+	}
+
+	.product_column-authorization, .product_column-reuse {
+		text-align: left;
+		h4 {
+			color: $red;
+			font-size: 1rem;
+			margin-bottom: 0;
+		}
+
+		p {
+			max-width: 200px;
+			text-align: center;
+			margin-top: 2px;
+			padding: 4px 20px;
+			color: #ffffff;
+			background-color: $light-blue;
+		}
+
+	}
+
+	h5 {
+		color: $dark-gray;
+		margin-top: 10px;
+	}
+}
+
 .result {
 	text-align: center;
 }

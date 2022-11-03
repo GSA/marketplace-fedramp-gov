@@ -23,7 +23,7 @@
   <div class="grid-container padding-3 marketplace-type-container">
      
       <!-- Search Column-->
-      <div class="grid-row">
+      <div class="grid-row display-none desktop:display-flex">
           <div class="tablet:grid-col-2 padding-right-3 results-search">
               <label>X Clear All</label>
               <br>
@@ -107,7 +107,7 @@
           </div>
           <!-- Results Column-->
           <div class="grid-col-10">
-              <div class="grid-row search-sortable mp-sortable-column">
+              <div class="grid-row search-sortable mp-sortable-column display-none desktop:display-flex">
                   <div class="grid-col-4 agencies_column-parent_agency">
                       <span>Parent Agency</span>
                   </div>
@@ -135,35 +135,124 @@
                     <span>9</span>
                   </div>
               </div>
-              <div class="grid-row mp-search-results">
-                <div class="grid-col-4 agencies_column-parent_agency">
-                  <span>Department of Health and Human Services</span>
-                  </div>
-                  <div class="grid-col-4 agencies_column-department_agency">
-                    <span>Administration for Community Living</span>
-                  </div>
-                  <div class="grid-col-2 agencies_column-authorizations text-center">
-                    <span>2</span>
-                  </div>
-                  <div class="grid-col-2 agencies_column-reuse text-center">
-                    <span>2</span>
-                  </div>
-              </div>
-              <div class="grid-row mp-search-results">
-                <div class="grid-col-4 agencies_column-parent_agency">
-                  <span>Administrative Office of the United States Courts</span>
-                  </div>
-                  <div class="grid-col-4 agencies_column-department_agency">
-                    <span>Administrative Office of the United States Courts</span>
-                  </div>
-                  <div class="grid-col-2 agencies_column-authorizations text-center">
-                    <span>0</span>
-                  </div>
-                  <div class="grid-col-2 agencies_column-reuse text-center">
-                    <span>6</span>
-                  </div>
-              </div>
+             
           </div>
+
+          
+
       </div>
+
+                <!-- Mobile Search Results -->
+                <a href="/agency-info" target="_blank" class="company-info-link">
+                <div class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
+                  <div class="grid-col-12 company-logo-column agencies_column-parent_agency">
+                  <span>Department of Health and Human Services</span>
+                     </div>
+                     <div class="grid-col-12 agencies_column-department_agency">
+                      <span>Administration for Children & Families</span>
+                     </div>
+                     <div class="grid-col-12 padding-0">
+                        <div class="grid-row grid-gap">
+                          <div class="grid-col-6">
+                            <div class="product_column-authorization result">
+                              <h4>Authorizations</h4>
+                              <p><span>9</span></p>
+                            </div>
+                            
+      
+                          </div>
+                          <div class="grid-col-6">
+                            <div class="product_column-reuse result">
+                              <h4>Reuse</h4>
+                              <p><span>10</span></p>
+                            </div>
+                          </div>
+      
+                        </div>
+                     </div>
+      
+                 </div>
+                </a>
+
+      <!-- Pagination -->
+
+      <nav aria-label="Pagination" class="usa-pagination">
+  <ul class="usa-pagination__list">
+    <li class="usa-pagination__item usa-pagination__arrow">
+      <a
+        href="javascript:void(0);"
+        class="usa-pagination__link usa-pagination__previous-page"
+        aria-label="Previous page"
+        ><svg class="usa-icon" aria-hidden="true" role="img">
+          <use xlink:href="/assets/img/sprite.svg#navigate_before"></use>
+        </svg>
+        <span class="usa-pagination__link-text">Previous</span></a
+      >
+    </li>
+    <li class="usa-pagination__item usa-pagination__page-no">
+      <a
+        href="javascript:void(0);"
+        class="usa-pagination__button"
+        aria-label="Page 1"
+        >1</a
+      >
+    </li>
+    <li
+      class="usa-pagination__item usa-pagination__overflow"
+      role="presentation"
+    >
+      <span>…</span>
+    </li>
+    <li class="usa-pagination__item usa-pagination__page-no">
+      <a
+        href="javascript:void(0);"
+        class="usa-pagination__button"
+        aria-label="Page 9"
+        >9</a
+      >
+    </li>
+    <li class="usa-pagination__item usa-pagination__page-no">
+      <a
+        href="javascript:void(0);"
+        class="usa-pagination__button usa-current"
+        aria-label="Page 10"
+        aria-current="page"
+        >10</a
+      >
+    </li>
+    <li class="usa-pagination__item usa-pagination__page-no">
+      <a
+        href="javascript:void(0);"
+        class="usa-pagination__button"
+        aria-label="Page 11"
+        >11</a
+      >
+    </li>
+    <li
+      class="usa-pagination__item usa-pagination__overflow"
+      role="presentation"
+    >
+      <span>…</span>
+    </li>
+    <li class="usa-pagination__item usa-pagination__page-no">
+      <a
+        href="javascript:void(0);"
+        class="usa-pagination__button"
+        aria-label="Last page, page 24"
+        >24</a
+      >
+    </li>
+    <li class="usa-pagination__item usa-pagination__arrow">
+      <a
+        href="javascript:void(0);"
+        class="usa-pagination__link usa-pagination__next-page"
+        aria-label="Next page"
+        ><span class="usa-pagination__link-text">Next </span
+        ><svg class="usa-icon" aria-hidden="true" role="img">
+          <use xlink:href="/assets/img/sprite.svg#navigate_next"></use></svg></a>
+    </li>
+  </ul>
+</nav>
+
   </div>
   </section>

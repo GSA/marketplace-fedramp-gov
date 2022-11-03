@@ -16,6 +16,7 @@ h3 {
     margin-top: 16px !important;
     
     a {
+        white-space: nowrap;
         color: white;
         background: $light-blue;
         padding: 10px 16px;
@@ -94,7 +95,7 @@ h3 {
 }
 
 .authorization-status-chart {
-    background: url(../images/progress-line-bkg.svg) 50% 55% no-repeat $lightest-gray;
+    background: $lightest-gray;
     margin-bottom: 20px;
 
     p {

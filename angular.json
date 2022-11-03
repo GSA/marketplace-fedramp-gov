@@ -36,6 +36,7 @@
             ],
             "scripts": [
               "src/assets/uswds/dist/js/uswds-init.min.js",
+              "src/assets/uswds/dist/js/uswds.js",
             ]
           },
           "configurations": {

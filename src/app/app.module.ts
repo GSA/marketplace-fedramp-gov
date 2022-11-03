@@ -69,3 +69,4 @@ import { AssessorsInfoComponent } from './assessors-info/assessors-info.componen
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
