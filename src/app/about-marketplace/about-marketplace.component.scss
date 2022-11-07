@@ -69,12 +69,12 @@ h3 {
 .marketplace-latest {
     background: #ffffff;
     display: inline-block;
-    width: 31.5%;
+    width: 32.66%;
+    min-height: 220px;
     text-align: center;
-    margin: 0 1%;
+    margin: 0 1% 0 0;
     padding: 1.5em 1em 1em 1em;
     vertical-align: top;
-    min-height: 190px;
 
     h4 {
         color: $light-blue;
@@ -84,15 +84,22 @@ h3 {
         font-weight: 800;
         color: $red;
     }
+
+    img.mp-latest-logo {
+        max-height: 48px;
+    }
 }
 
 a.latest-agency-link {
     text-decoration: none;
 }
 
-.marketplace-latest:last-child {
-    margin-right: 0 !important;
+a.latest-agency-link:last-child {
+    .marketplace-latest {
+        margin-right: 0;
+    }
 }
+
 
 @media all and (max-width: 1023px) {
     .total-authorizations {
