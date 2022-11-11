@@ -42,3 +42,9 @@
 	z-index: 0;
 }
 .first-order:before{display: none;}
+
+@media (min-width: 0) and (max-width: 639px) {
+	.order-tracking::before {
+		content: none;
+	}
+}

@@ -8,10 +8,10 @@
           <div class="tablet:grid-col-2 grid-offset-10 padding-0 page-display-select">
               <p>Number of items shown at a time</p>
               <select name="display-number" id="display-number">
-                  <option value="volvo">25</option>
-                  <option value="saab">50</option>
-                  <option value="opel">75</option>
-                  <option value="audi">100</option>
+                <option value="twenty-five">25</option>
+                <option value="fifty">50</option>
+                <option value="seventy-five">75</option>
+                <option value="one-hundred">100</option>
                 </select>
   
 
@@ -32,58 +32,55 @@
 
               <p class="mp-container-total-search-results">301 results</p>
 
-              <div class="usa-accordion usa-accordion--multiselectable" data-allow-multiple aria-multiselectable="true">
-                  <h4 class="usa-accordion__heading">
-                    <button
-                      type="button"
-                      class="usa-accordion__button mp-accordian_button"
-                      aria-expanded="true"
-                      aria-controls="m-a1"
-                    >
-                    Products Assessing
-                    </button>
-                  </h4>
-                  <div id="m-a1" class="usa-accordion__content usa-prose mp-accordian_accordion">
-                      <ul>
-                          <li>Ready (40)</li>
-                          <li>In Process (20)</li>
-                          <li>Authorized (20)</li>
-                        </ul>
-                  </div>
-                  <h4 class="usa-accordion__heading">
-                    <button
-                      type="button"
-                      class="usa-accordion__button mp-accordian_button"
-                      aria-expanded="false"
-                      aria-controls="m-a2"
-                    >
-                    Assessment Impact Level
-                    </button>
-                  </h4>
-                  <div id="m-a2" class="usa-accordion__content usa-prose mp-accordian_accordion">
+              <!-- Accordian -->       
+              <div class="search-container">
+
+                <label for="chk-1">
+                
+                <input id="chk-1" type="checkbox" checked/>
+                 <div class="title">
+                     <h4 class="accordian-title">Products Assessing</h4>
+                 </div>
+                  <div class="search-content">
                     <ul>
-                      <li>This is a list item</li>
-                      <li>Another list item</li>
+                      <li>0-5</li>
+                      <li>6-10</li>
+                      <li>11 +</li>
                     </ul>
                   </div>
-                  <h4 class="usa-accordion__heading">
-                    <button
-                      type="button"
-                      class="usa-accordion__button mp-accordian_button"
-                      aria-expanded="false"
-                      aria-controls="m-a3"
-                    >
-                      Offering Status
-                    </button>
-                  </h4>
-                  <div id="m-a3" class="usa-accordion__content usa-prose mp-accordian_accordion">
-                      <ul>
-                          <li>This is a list item</li>
-                          <li>Another list item</li>
-                        </ul>
-                  </div>               
-              </div>
+                </label>
                 
+                <label for="chk-2">
+                <input id="chk-2" type="checkbox" />
+                  <div class="title">
+                     <h4 class="accordian-title">Assessment Impact Level</h4>
+                 </div>
+                  
+                  <div class="search-content">
+                    <ul>
+                      <li>Low</li>
+                      <li>Moderate</li>
+                      <li>High</li>
+                    </ul>
+                  </div>
+                </label>
+
+                <label for="chk-3">
+                  <input id="chk-3" type="checkbox" />
+                    <div class="title">
+                       <h4 class="accordian-title">Offering Status</h4>
+                   </div>
+                    
+                    <div class="search-content">
+                      <ul>
+                        <li>FedRAMP Ready</li>
+                        <li>In Process</li>
+                        <li>Authorized</li>
+                      </ul>
+                    </div>
+                  </label>
+                  
+                </div>
 
       
           </div>
@@ -112,6 +109,60 @@
           </div>
 
       </div>
+
+       <!-- Mobile Accordian -->
+
+       <div class="search-container desktop:display-none">
+
+        <label for="chk-m1">
+        
+        <input id="chk-m1" type="checkbox" />
+         <div class="mobile-title">
+             <h4 class="mobile-search-title">Filter Results</h4>
+         </div>
+          <div class="search-content">
+            <div class="grid-row">
+              <div class="grid-col-12">
+                <p>Number of items shown at a time</p>
+                <select name="display-number" id="display-number">
+                  <option value="twenty-five">25</option>
+                  <option value="fifty">50</option>
+                  <option value="seventy-five">75</option>
+                  <option value="one-hundred">100</option>
+                  </select>
+              </div>
+          </div>
+          <div class="grid-row">
+            <div class="grid-col-4">
+              <p>Products Assessing</p>
+              <ul>
+                <li>0-5</li>
+                <li>6-10</li>
+                <li>11 +</li>
+              </ul>
+            </div>
+            <div class="grid-col-4">
+              <p>Assessment Impact Level</p>  
+              <ul>
+                <li>Low</li>
+                <li>Moderate</li>
+                <li>High</li>
+              </ul>           
+            </div>
+            <div class="grid-col-4">
+              <p>Offering Status</p>
+              <ul>
+                <li>FedRAMP Ready</li>
+                <li>In Process</li>
+                <li>Authorized</li>
+              </ul>
+
+            </div>
+          </div>
+          </div>
+        </label>
+          
+        </div>   
 
 
 
@@ -148,7 +199,7 @@
                         class="usa-pagination__link usa-pagination__previous-page"
                         aria-label="Previous page"
                         ><svg class="usa-icon" aria-hidden="true" role="img">
-                          <use xlink:href="./../assets/uswds/dist/img/sprite.svg#navigate_before"></use>
+                          <use xlink:href="../../assets/uswds/dist/img/sprite.svg#navigate_before"></use>
                         </svg>
                         <span class="usa-pagination__link-text">Previous</span></a
                       >
