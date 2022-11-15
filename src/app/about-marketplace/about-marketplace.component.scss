@@ -32,6 +32,13 @@ h3 {
     white-space: nowrap;
 }
 
+@media (min-width: 1025px) and (max-width: 1138px) { 
+    .learn-marketplace {
+        padding: 13px 28px 14px 28px;
+        font-size: .875rem;
+    }
+}
+
 .learn-marketplace:hover {
     background-color: #C71F25;
     transition: 0.4s;
