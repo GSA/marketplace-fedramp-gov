@@ -7,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssessorsMainComponent implements OnInit {
 
-  constructor() { }
+  data: any;
+  
+  constructor() { 
+
+    var cacheJson = localStorage.getItem('cacheJson');
+    var parseJson = JSON.parse(cacheJson!);
+    
+    this.data = parseJson.data;
+  }
 
   ngOnInit(): void {
   }
