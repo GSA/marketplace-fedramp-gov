@@ -16,6 +16,7 @@ import { AboutMarketplaceComponent } from './about-marketplace/about-marketplace
 import { ProductInfoComponent } from './product-info/product-info.component';
 import { AgencyInfoComponent } from './agency-info/agency-info.component';
 import { AssessorsInfoComponent } from './assessors-info/assessors-info.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
