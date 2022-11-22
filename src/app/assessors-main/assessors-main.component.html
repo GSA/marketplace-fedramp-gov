@@ -86,26 +86,33 @@
           </div>
           <!-- Results Column-->
           <div class="grid-col-10">
-              <div class="grid-row search-sortable mp-sortable-column display-none desktop:display-flex">
-                  <div class="grid-col-10 product_column-provider">
-                      <span>Name</span>
-                  </div>
-                  <div class="grid-col-2 product_column-service_offering text-center">
-                      <span>Products Assessing</span>
-                  </div>
-               
+            <div class="grid-row search-sortable mp-sortable-column display-none desktop:display-flex">
+              <div class="grid-col-10 product_column-provider">
+                <span>Name</span>
               </div>
+              <div class="grid-col-2 product_column-service_offering text-center">
+                <span>Products Assessing</span>
+              </div>
+            </div>
+
+            <div *ngFor="let a of data.Assessors">
               <div class="grid-row mp-search-results display-none desktop:display-flex">
-                  <div class="grid-col-10 company-logo-column product_column-service_offering ">
-                      <div class="assessors-logo"><a href="/assessors-info" target="_blank"><img src="../../assets/img/logos/CSP_logos/Cloud.gov Logo.png" alt="Cloud.gov" title="Cloud.gov" ></a></div>  
-                        
-                        <div class="assessors-name"><span>18F Cloud.gov</span></div>
+                <div class="grid-col-10 company-logo-column product_column-service_offering ">
+                    <div class="assessors-logo">
+                      <a href="/assessors-info/{{a.id}}" target="_blank">
+                        <img src="{{a.logo}}" alt="{{a.name}}" title="{{a.name}}" >
+                      </a>
+                  </div>  
+                  <div class="assessors-name">
+                    <span>{{a.name}}</span>
                   </div>
-              
-                  <div class="grid-col-2 product_column-reuse text-center">
-                    <span>10</span>
-                  </div>
+                </div>
+            
+                <div class="grid-col-2 product_column-reuse text-center">
+                  <span>{{a.products_assessing}}</span>
+                </div>
               </div>
+            </div>
           </div>
 
       </div>
@@ -167,29 +174,28 @@
 
 
                  <!-- Mobile Search Results -->
-                 <a href="/product-info" target="_blank" class="company-info-link">
-
-                 <div class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
-                  <div class="grid-col-4  product_column-service_offering assessors-company-logo">
-                   <img src="../../assets/img/logos/CSP_logos/Cloud.gov Logo.png" alt="Cloud.gov" title="Cloud.gov" >
-                   </div>
-                     <div class="grid-col-8 product_column-service_offering">
-                       <span>18F Cloud.gov</span>
-                     </div>
-                     <div class="grid-col-12 padding-0">
-                        <div class="grid-row grid-gap">
-                          <div class="grid-col-6">
-                            <div class="product_column-authorization result">
-                              <h4>Products Assessing</h4>
-                              <p><span>9</span></p>
-                            </div>
+              <div *ngFor="let a of data.Assessors">
+                <a href="/product-info/{{a.id}}" target="_blank" class="company-info-link">
+                  <div class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
+                    <div class="grid-col-4  product_column-service_offering assessors-company-logo">
+                      <img src="{{a.logo}}" alt="{{a.name}}" title="{{a.name}}" >     
+                    </div>
+                    <div class="grid-col-8 product_column-service_offering">
+                      <span>{{a.name}}</span>
+                    </div>
+                    <div class="grid-col-12 padding-0">
+                      <div class="grid-row grid-gap">
+                        <div class="grid-col-6">
+                          <div class="product_column-authorization result">
+                            <h4>Products Assessing</h4>
+                            <p><span>{{a.products_assessing}}</span></p>
                           </div>
                         </div>
-                     </div>
-
-                    
-                 </div>
+                      </div>
+                    </div>
+                  </div>
                 </a>
+              </div>
 
                  <nav aria-label="Pagination" class="usa-pagination">
                   <ul class="usa-pagination__list">
