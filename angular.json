@@ -32,7 +32,7 @@
               "src/assets/sass/elements.scss",
               "src/assets/sass/search-results.scss",
               "src/assets/sass/standard-styles.scss",
-              "./node_modules/uswds/dist/scss/uswds.scss"
+              "src/assets/uswds/dist/scss/uswds.scss"
             ],
             "scripts": [
               
