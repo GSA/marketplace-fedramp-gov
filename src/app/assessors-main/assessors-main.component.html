@@ -101,7 +101,7 @@
               <div class="grid-row mp-search-results display-none desktop:display-flex">
                 <div class="grid-col-10 company-logo-column product_column-service_offering ">
                     <div class="assessors-logo">
-                      <a href="/assessors-info/{{a.id}}" target="_blank">
+                      <a href="/assessors/{{a.id}}" target="_blank">
                         <img src="{{a.logo}}" alt="{{a.name}}" title="{{a.name}}" class="">
                       </a>
                   </div>  
@@ -180,7 +180,7 @@
 
                  <!-- Mobile Search Results -->
               <div *ngFor="let a of data.Assessors">
-                <a href="/product-info/{{a.id}}" target="_blank" class="company-info-link">
+                <a href="/assessors/{{a.id}}" target="_blank" class="company-info-link">
                   <div class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
                     <div class="desktop:grid-col-4  product_column-service_offering assessors-company-logo">
                       <img src="{{a.logo}}" alt="{{a.name}}" title="{{a.name}}" >     
