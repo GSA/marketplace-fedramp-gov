@@ -202,7 +202,7 @@
             <div *ngFor="let a of data.Agencies">
               <div class="grid-row mp-search-results">
                 <div class="grid-col-4 agencies_column-parent_agency">
-                  <a href="/agency-info/{{a.id}}" target="_blank"><span>{{a.parent}}</span></a>
+                  <a href="/agencies/{{a.id}}" target="_blank"><span>{{a.parent}}</span></a>
                 </div>
                 <div class="grid-col-4 agencies_column-department_agency">
                   <span>{{a.sub}}</span>
@@ -369,7 +369,7 @@
 
               <!-- Mobile Search Results -->
               <div *ngFor="let a of data.Agencies">
-                <a href="/agency-info/{{a.id}}" target="_blank" class="company-info-link">
+                <a href="/agencies/{{a.id}}" target="_blank" class="company-info-link">
                   <div class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
                     <div class="grid-col-12 company-logo-column agencies_column-parent_agency">
                       <span>{{a.parent}}</span>
