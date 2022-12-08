@@ -40,31 +40,10 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     RouterModule.forRoot ([
     
-      { 
-        path: 'products', component: ProductsMainComponent
-      },
-      { 
-        path: 'assessors', component: AssessorsMainComponent
-      },
-      { 
-        path: 'agencies', component: AgenciesMainComponent
-      },
-
-      { 
-        path: 'product-info', component: ProductInfoComponent
-      },
-
-      { 
-        path: 'assessors-info', component: AssessorsInfoComponent
-      },
-
-      { 
-        path: 'agency-info', component: AgencyInfoComponent
-      },
-
-      { 
-        path: 'home', component: HomeComponent
-      },
+      { path: 'products',  component: ProductsMainComponent },
+      { path: 'assessors', component: AssessorsMainComponent },
+      { path: 'agencies',  component: AgenciesMainComponent },
+      { path: 'home',      component: HomeComponent },
     ])
   ],
   providers: [],
