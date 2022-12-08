@@ -5,8 +5,8 @@
     
         <div class="grid-row">
             <div class="tablet:grid-col-9">
-                <img src="../../assets/img/logos/CSP_logos/Cloud.gov Logo.png" alt="Cloud.gov" title="Cloud.gov" class="product-info-logo" >
-                <h2 class="detail-company-info">18F Cloud.gov</h2>
+                <img src="{{assessor.logo}}" alt="{{assessor.name}}" title="{{assessor.name}}" class="product-info-logo" >
+                <h2 class="detail-company-info">{{assessor.name}}</h2>
            
             </div>
         
@@ -61,7 +61,7 @@
                                     
                                 </div>
                                 <div class="clearfix"></div>
-                                <div class="product-info-authoriaztions-number counter"><p>4</p></div>
+                                <div class="product-info-authoriaztions-number counter"><p>{{assessor.products_assessing}}</p></div>
                             </div>
                         </div>
                 </div>
@@ -69,7 +69,7 @@
                     <div class="grid-row-12">
                         <div class="accredited-date clearfix">
                             <h3>Accredited Since</h3>
-                            <p>07/16/2015</p>
+                            <p>{{assessor.accredited_since}}</p>
                         </div>
                     </div>
 
@@ -81,10 +81,10 @@
         <div class="grid-row product-info-details">
             <div class="grid-col-12 mp-details-contact-info">
                 <h3 class="tablet:margin-top-0">Contact Information</h3>
-                <p><strong>POC:</strong> N/A</p>
-                <p><strong>E-mail:</strong> inqueries@cloud.gov</p>
-                <p><strong>Founded:</strong> 2009</p>
-                <p><strong>Address:</strong> 400 N Ashley Drive Suite 1325, Tampa, FL 33602</p>
+                <p><strong>POC:</strong> {{assessor.poc}}</p>
+                <p><strong>E-mail:</strong> {{assessor.email}}</p>
+                <p><strong>Founded:</strong> {{assessor.founded}}</p>
+                <p><strong>Address:</strong> {{assessor.address}}</p>
             </div>
         </div>
 
@@ -95,34 +95,22 @@
             <div class="tablet:grid-col-6">
                 <div>
                     <h3>Assessor Description</h3>
-                    <p>As an accredited FedRAMP 3PAO, A-LIGN is able to conduct the FedRAMP pre-assessment and security assessment based on the published templates and testing guidance. A-LIGN offers a FedRAMP pre-assessment to identify potential non-conformities, prior to beginning the security assessment. A-LIGN’s security assessors and dedicated penetration testing team execute the FedRAMP assessment in accordance with the FedRAMP requirements. As an assessor firm originally accredited by FedRAMP and having performed a security assessment for a certified CSP, we have the experience required to execute a comprehenisve assessment.</p>
+                    <p style="white-space: pre-wrap;">{{assessor.desc}}</p>
                 </div>
 
                 <div>
                     <h3>Consulting Services</h3>
-                    <p>A-LIGN offers consulting services in order to prepare organizations prior to their FedRAMP assessment. Our experienced assessors can develop the required templates and supporting policies and procedures to prepare your company for the FedRAMP assessment. Additionally, A-LIGN can assist with POA&M remediation. Our consulting services help companies meet the rigorous FedRAMP requirements.</p>
+                    <p style="white-space: pre-wrap;">{{assessor.services}}</p>
                 </div>
 
                 <div>
                     <h3>CSPs providing consulting services to</h3>
-                    <ul>
-                        <li>TIBCO Software Inc</li>
-                        <li>CGI Technology and Solutions Inc</li>
-                    </ul>
+                    <p style="white-space: pre-wrap;">{{assessor.csps}}</p>
                 </div>
 
                 <div>
                     <h3>Additional Cyber Frameworks</h3>
-                    <ul>
-                        <li>PCI DSS</li>
-                        <li>ISO 27001</li>
-                        <li>HITRUST</li>
-                        <li>HIPAA/HITECH</li>
-                        <li>FISMA</li>
-                        <li>SOC 1/SSAE 16</li>
-                        <li>SOC 2/AT 101</li>
-                        <li>ISAE 3402 Inc</li>
-                    </ul>
+                    <p style="white-space: pre-wrap;">{{assessor.frameworks}}</p>
                 </div>
             </div>
 
@@ -191,4 +179,4 @@
         </div>
                 
     </div>
-    </section>
+</section>
