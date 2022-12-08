@@ -97,21 +97,24 @@
               </div>
             </div>
 
-            <div *ngFor="let a of data.Assessors">
-              <div class="grid-row mp-search-results display-none desktop:display-flex">
-                <div class="grid-col-10 company-logo-column product_column-service_offering ">
-                    <div class="assessors-logo">
-                      <a href="/assessors/{{a.id}}" target="_blank">
-                        <img src="{{a.logo}}" alt="{{a.name}}" title="{{a.name}}" class="">
-                      </a>
-                  </div>  
-                  <div class="assessors-name">
-                    <span>{{a.name}}</span>
-                  </div>
-                </div>
             
-                <div class="grid-col-2 product_column-reuse text-center">
-                  <span>{{a.products_assessing}}</span>
+            <div *ngIf="isCachePresent">
+              <div *ngFor="let a of data.Assessors">
+                <div class="grid-row mp-search-results display-none desktop:display-flex">
+                  <div class="grid-col-10 company-logo-column product_column-service_offering ">
+                      <div class="assessors-logo">
+                        <a href="/assessors/{{a.id}}" target="_blank">
+                          <img src="{{a.logo}}" alt="{{a.name}}" title="{{a.name}}" class="">
+                        </a>
+                    </div>  
+                    <div class="assessors-name">
+                      <span>{{a.name}}</span>
+                    </div>
+                  </div>
+
+                  <div class="grid-col-2 product_column-reuse text-center">
+                    <span>{{a.products_assessing}}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -179,6 +182,8 @@
 
 
                  <!-- Mobile Search Results -->
+    
+            <div *ngIf="isCachePresent">
               <div *ngFor="let a of data.Assessors">
                 <a href="/assessors/{{a.id}}" target="_blank" class="company-info-link">
                   <div class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
@@ -201,6 +206,7 @@
                   </div>
                 </a>
               </div>
+            </div>
 
                  <nav aria-label="Pagination" class="usa-pagination">
                   <ul class="usa-pagination__list">
