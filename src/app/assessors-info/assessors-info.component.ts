@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-assessors-info',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssessorsInfoComponent implements OnInit {
 
-  constructor() { }
+  assessor: any | null;
+  
+  constructor(private route: ActivatedRoute) { 
+    
+    var cacheJson = localStorage.getItem('cacheJson');
+    var parseJson = JSON.parse(cacheJson!);
 
-  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+
+      this.assessor = parseJson.data.Assessors.find((i: { id: any; }) => i.id === params['id']);
+
+      if(this.assessor == null) {
+        //route away?
+      }
+    });
   }
-
 }
