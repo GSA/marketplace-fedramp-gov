@@ -17,7 +17,7 @@ export class ProductInfoComponent implements OnInit {
 
     this.route.params.subscribe(params => {
 
-      this.product = parseJson.data.Products.find((i: { id: any; }) => i.id === params['id']);
+      this.product = parseJson.data.Products.find((i: { id: any; }) => i.id == params['id']);
 
       if(this.product == null) {
         // route away?
