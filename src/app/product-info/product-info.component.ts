@@ -24,4 +24,6 @@ export class ProductInfoComponent implements OnInit {
       }
     });
   }
+  ngOnInit(): void {
+  }
 }

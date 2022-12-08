@@ -24,4 +24,7 @@ export class AssessorsInfoComponent implements OnInit {
       }
     });
   }
+
+  ngOnInit(): void {
+  }
 }

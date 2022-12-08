@@ -23,4 +23,6 @@ export class AgencyInfoComponent implements OnInit {
       }
     });
   }
+  ngOnInit(): void {
+  }
 }
