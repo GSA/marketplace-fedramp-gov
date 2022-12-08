@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppConstants } from './app.constants';
 import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
@@ -11,28 +11,29 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class AppComponent {
-  
+
   title = 'new-fedramp-marketplace';
-  
+      
   cacheDate: string | null;
   cacheJson: string | null;
   formatDate: string | null;
+  url: string;
 
   constructor(public AppConstants: AppConstants, private dp: DatePipe, private hc: HttpClient) {
-
     this.cacheDate = localStorage.getItem('cacheDate');
     this.cacheJson = localStorage.getItem('cacheJson');
     this.formatDate = this.dp.transform(Date.now(), 'yyyy-MM-dd');
+    this.url = AppConstants.GIT_URL;
+  }
 
+  ngOnInit(): void {
     if(this.cacheDate == null || this.cacheJson == null || this.cacheDate != this.formatDate) {
-      localStorage.setItem("cacheDate", this.formatDate!)
-//         console.log("GETTING NEW CACHE!");
-        this.hc.get(AppConstants.GIT_URL).subscribe(
+      this.hc.get(this.url).subscribe(
         (resp) => {                           
-          localStorage.setItem("cacheJson", JSON.stringify(resp));
-        });
-//     } else {
-//       console.log("KEEPING OLD CACHE");
+          localStorage.setItem("cacheJson", JSON.stringify(resp));      
+          localStorage.setItem("cacheDate", this.formatDate!);
+        }
+      );
     }
   }
 }
