@@ -17,7 +17,7 @@ export class AssessorsInfoComponent implements OnInit {
 
     this.route.params.subscribe(params => {
 
-      this.assessor = parseJson.data.Assessors.find((i: { id: any; }) => i.id === params['id']);
+      this.assessor = parseJson.data.Assessors.find((i: { id: any; }) => i.id == params['id']);
 
       if(this.assessor == null) {
         //route away?
