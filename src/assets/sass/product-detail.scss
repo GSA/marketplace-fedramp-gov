@@ -36,6 +36,7 @@ h3 {
 
 .product-info-logo {
     max-width: 250px;
+    max-height: 140px;
 }
 
 .product-info-stats  {
@@ -169,7 +170,7 @@ h3 {
 }
 
 .product-info-leveraged-systems {
-    height: 50px;
+   /* height: 50px; */
     border-top: solid 1px $light-gray;
     border-bottom: solid 1px $light-gray;
     padding-top: 10px;
