@@ -207,6 +207,8 @@
                 </div>
 
                 <!-- Results -->
+              
+              <div *ngIf="isCachePresent">
                 <div *ngFor="let p of data.Products">
                   <div class="grid-row mp-search-results display-none desktop:display-flex">
                     <div class="grid-col-2 company-logo-column product_column-service_offering">
@@ -234,6 +236,7 @@
                     
                   </div>
                 </div>
+              </div>
 
                <!-- Mobile Accordian -->
 
@@ -364,46 +367,49 @@
 
 
                 <!-- Mobile Search Results -->
-              <div *ngFor="let p of data.Products">
-                <a href="/products/{{p.id}}" target="_blank" class="company-info-link"> 
-                  <div class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
-                    <div class="gid-col-12 desktop:grid-col-2 company-logo-column product_column-service_offering">
-                    <img src="{{p.logo}}" alt="{{p.name}}" title="{{p.name}}" >
-                    </div>
-                      <div class="gid-col-12 desktop:grid-col-2 product_column-service_offering">
-                        <span>{{p.service_offering}}</span>
+              
+              <div *ngIf="isCachePresent">
+                <div *ngFor="let p of data.Products">
+                  <a href="/products/{{p.id}}" target="_blank" class="company-info-link"> 
+                    <div class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
+                      <div class="gid-col-12 desktop:grid-col-2 company-logo-column product_column-service_offering">
+                      <img src="{{p.logo}}" alt="{{p.name}}" title="{{p.name}}" >
                       </div>
-                      <div class="grid-col-12 padding-0">
-                          <div class="grid-row grid-gap">
-                            <div class="grid-col-6">
-                              <div class="product_column-authorization result">
-                                <h4>Authorizations</h4>
-                                <p><span>{{p.authorization}}</span></p>
+                        <div class="gid-col-12 desktop:grid-col-2 product_column-service_offering">
+                          <span>{{p.service_offering}}</span>
+                        </div>
+                        <div class="grid-col-12 padding-0">
+                            <div class="grid-row grid-gap">
+                              <div class="grid-col-6">
+                                <div class="product_column-authorization result">
+                                  <h4>Authorizations</h4>
+                                  <p><span>{{p.authorization}}</span></p>
+                                </div>
+                                <div class="product_column-reuse result">
+                                  <h4>Reuse</h4>
+                                  <p><span>{{p.reuse}}</span></p>
+                                </div>
                               </div>
-                              <div class="product_column-reuse result">
-                                <h4>Reuse</h4>
-                                <p><span>{{p.reuse}}</span></p>
+                              <div class="grid-col-6 padding-top-4">
+                                <div class="product_column-service_model">
+                                  <h5>Service Model</h5>
+                                  <span>{{p.service_model}}</span>
+                                </div>
+                                <div class="product_column-impact_level">
+                                  <h5>Impact Level</h5>
+                                  <span>{{p.impact_level}}</span>
+                                </div>
+                                <div class="product_column-status">
+                                  <h5>Status</h5>
+                                  <span>{{p.status}}</span>
+                                </div>
                               </div>
                             </div>
-                            <div class="grid-col-6 padding-top-4">
-                              <div class="product_column-service_model">
-                                <h5>Service Model</h5>
-                                <span>{{p.service_model}}</span>
-                              </div>
-                              <div class="product_column-impact_level">
-                                <h5>Impact Level</h5>
-                                <span>{{p.impact_level}}</span>
-                              </div>
-                              <div class="product_column-status">
-                                <h5>Status</h5>
-                                <span>{{p.status}}</span>
-                              </div>
-                            </div>
-                          </div>
-                      </div>
-                  </div>  
-                </a>  
-              </div>    
+                        </div>
+                    </div>  
+                  </a>  
+                </div>  
+              </div>
             </div>
 
             
