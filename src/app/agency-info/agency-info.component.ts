@@ -16,7 +16,7 @@ export class AgencyInfoComponent implements OnInit {
     var parseJson = JSON.parse(cacheJson!);
 
     this.route.params.subscribe(params => {
-      this.agency = parseJson.data.Agencies.find((i: { id: any; }) => i.id === params['id']);
+      this.agency = parseJson.data.Agencies.find((i: { id: any; }) => i.id == params['id']);
 
       if(this.agency == null) {
         //route away?
