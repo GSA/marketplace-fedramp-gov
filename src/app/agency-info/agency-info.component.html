@@ -2,11 +2,16 @@
   <div class="grid-container fedramp-page-container">
 
       <!-- Company Inforation Column-->
-  
       <div class="grid-row">
           <div class="desktop:grid-col-8">
-            <h4 class="detail-company-info">{{agency.parent}}</h4>
-            <h2 class="detail-company-info">{{agency.sub}}</h2>
+            <div *ngIf="agency.sub === ''; then thenBlock else elseBlock"></div>
+            <ng-template #thenBlock>
+              <h2 class="detail-company-info">{{agency.parent}}</h2>
+            </ng-template>
+            <ng-template #elseBlock>
+              <h4 class="detail-company-info">{{agency.parent}}</h4>
+              <h2 class="detail-company-info">{{agency.sub}}</h2>
+            </ng-template>
           </div>
       
           <div class="desktop:grid-col-4">
