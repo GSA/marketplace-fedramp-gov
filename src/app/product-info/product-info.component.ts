@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-info',
@@ -6,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-info.component.scss']
 })
 export class ProductInfoComponent implements OnInit {
+  
+  product: any | null;
+  
+  constructor(private route: ActivatedRoute) { 
 
-  constructor() { }
+    var cacheJson = localStorage.getItem('cacheJson');
+    var parseJson = JSON.parse(cacheJson!);
 
-  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+
+      this.product = parseJson.data.Products.find((i: { id: any; }) => i.id === params['id']);
+
+      if(this.product == null) {
+        // route away?
+      }
+    });
   }
-
 }
