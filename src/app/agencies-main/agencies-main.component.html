@@ -199,19 +199,22 @@
                 </div>
             </div>
 
-            <div *ngFor="let a of data.Agencies">
-              <div class="grid-row mp-search-results">
-                <div class="grid-col-4 agencies_column-parent_agency">
-                  <a href="/agencies/{{a.id}}" target="_blank"><span>{{a.parent}}</span></a>
-                </div>
-                <div class="grid-col-4 agencies_column-department_agency">
-                  <span>{{a.sub}}</span>
-                </div>
-                <div class="grid-col-2 agencies_column-authorizations text-center">
-                  <span>{{a.authorization}}</span>
-                </div>
-                <div class="grid-col-2 agencies_column-reuse text-center">
-                  <span>{{a.reuse}}</span>
+            
+            <div *ngIf="isCachePresent">
+              <div *ngFor="let a of data.Agencies">
+                <div class="grid-row mp-search-results">
+                  <div class="grid-col-4 agencies_column-parent_agency">
+                    <a href="/agencies/{{a.id}}" target="_blank"><span>{{a.parent}}</span></a>
+                  </div>
+                  <div class="grid-col-4 agencies_column-department_agency">
+                    <span>{{a.sub}}</span>
+                  </div>
+                  <div class="grid-col-2 agencies_column-authorizations text-center">
+                    <span>{{a.authorization}}</span>
+                  </div>
+                  <div class="grid-col-2 agencies_column-reuse text-center">
+                    <span>{{a.reuse}}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -368,34 +371,37 @@
    
 
               <!-- Mobile Search Results -->
-              <div *ngFor="let a of data.Agencies">
-                <a href="/agencies/{{a.id}}" target="_blank" class="company-info-link">
-                  <div class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
-                    <div class="grid-col-12 company-logo-column agencies_column-parent_agency">
-                      <span>{{a.parent}}</span>
-                    </div>
-                    <div class="grid-col-12 agencies_column-department_agency">
-                    <span>{{a.sub}}</span>
-                    </div>
-                    <div class="grid-col-12 padding-0">
-                      <div class="grid-row grid-gap">
-                        <div class="grid-col-6">
-                          <div class="product_column-authorization result">
-                            <h4>Authorizations</h4>
-                            <p><span>{{a.authorization}}</span></p>
+    
+              <div *ngIf="isCachePresent">
+                <div *ngFor="let a of data.Agencies">
+                  <a href="/agencies/{{a.id}}" target="_blank" class="company-info-link">
+                    <div class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
+                      <div class="grid-col-12 company-logo-column agencies_column-parent_agency">
+                        <span>{{a.parent}}</span>
+                      </div>
+                      <div class="grid-col-12 agencies_column-department_agency">
+                      <span>{{a.sub}}</span>
+                      </div>
+                      <div class="grid-col-12 padding-0">
+                        <div class="grid-row grid-gap">
+                          <div class="grid-col-6">
+                            <div class="product_column-authorization result">
+                              <h4>Authorizations</h4>
+                              <p><span>{{a.authorization}}</span></p>
+                            </div>
                           </div>
-                        </div>
-                        <div class="grid-col-6">
-                          <div class="product_column-reuse result">
-                            <h4>Reuse</h4>
-                            <p><span>{{a.reuse}}</span></p>
+                          <div class="grid-col-6">
+                            <div class="product_column-reuse result">
+                              <h4>Reuse</h4>
+                              <p><span>{{a.reuse}}</span></p>
+                            </div>
                           </div>
+
                         </div>
-        
                       </div>
                     </div>
-                  </div>
-                </a>
+                  </a>
+                </div>
               </div>
 
       <!-- Pagination -->
