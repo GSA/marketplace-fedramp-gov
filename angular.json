@@ -32,7 +32,6 @@
               "src/assets/sass/elements.scss",
               "src/assets/sass/search-results.scss",
               "src/assets/sass/standard-styles.scss",
-              "src/assets/uswds/dist/scss/uswds.scss"
             ],
             "scripts": [
               
