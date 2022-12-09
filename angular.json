@@ -31,7 +31,7 @@
               "src/styles.scss",
               "src/assets/sass/elements.scss",
               "src/assets/sass/search-results.scss",
-              "src/assets/sass/standard-styles.scss",
+              "src/assets/sass/standard-styles.scss"
             ],
             "scripts": [
               
@@ -42,13 +42,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "4mb",
+              "maximumError": "6mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "4mb",
+              "maximumError": "6mb"
                 }
               ],
               "fileReplacements": [
