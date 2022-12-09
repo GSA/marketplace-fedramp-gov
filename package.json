@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "pages": "npm run build && PUBLIC_URL=$BASEURL react-snap"
+    "pages": "npm run build"
   },
   "private": true,
   "dependencies": {
