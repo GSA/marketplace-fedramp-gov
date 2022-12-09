@@ -180,7 +180,7 @@ h3 {
 .assessor-current-clients {
     height: 70px;
     border-bottom: solid 1px $light-gray;
-    padding-top: 10px;
+    padding: 10px 0 20px;
     width: 90%;
 }
 
@@ -198,7 +198,6 @@ h3.assessors-clients {
 }  
 
 .assessor-status {
-    margin-top: 20px;
     text-align: right;
 }
 
