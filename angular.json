@@ -31,10 +31,11 @@
               "src/styles.scss",
               "src/assets/sass/elements.scss",
               "src/assets/sass/search-results.scss",
-              "src/assets/sass/standard-styles.scss"
+              "src/assets/sass/standard-styles.scss",
+              "node_modules/uswds/dist/scss/uswds.scss"
             ],
             "scripts": [
-              "src/assets/uswds/dist/js/uswds.js"
+              "node_modules/uswds/dist/js/uswds.js"
             ]
           },
           "configurations": {
