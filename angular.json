@@ -34,7 +34,7 @@
               "src/assets/sass/standard-styles.scss"
             ],
             "scripts": [
-              
+              "src/assets/uswds/dist/js/uswds.js"
             ]
           },
           "configurations": {
