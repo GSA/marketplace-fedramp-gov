@@ -17,16 +17,31 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "baseHref": "/_sites/",
             "outputPath": "dist/new-fedramp-marketplace",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "allowedCommonJsDependencies": [
+              "uswds/src/js/components"
+            ],
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "*",
+                "input": "node_modules/uswds/dist/fonts",
+                "output": "assets/fonts/"
+              },
+              {
+                "glob": "*",
+                "input": "node_modules/uswds/dist/img",
+                "output": "assets/img/"
+              }
             ],
+            
             "styles": [
               "src/styles.scss",
               "src/assets/sass/elements.scss",
@@ -34,6 +49,9 @@
               "src/assets/sass/standard-styles.scss"
             ],
             "scripts": [
+              "src/assets/uswds-package/dist/js/uswds.js",
+              "src/assets/uswds-package/dist/js/uswds.min.js",
+              "node_modules/uswds/dist/js/uswds.min.js"
             ]
           },
           "configurations": {
@@ -81,7 +99,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "new-fedramp-marketplace:build:production",
+              "browserTarget": "new-fedramp-marketplace:build:production"
               },
             "development": {
               "browserTarget": "new-fedramp-marketplace:build:development"
