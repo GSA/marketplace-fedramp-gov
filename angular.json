@@ -48,9 +48,6 @@
               "src/assets/sass/standard-styles.scss"
             ],
             "scripts": [
-              "src/assets/uswds-package/dist/js/uswds.js",
-              "src/assets/uswds-package/dist/js/uswds.min.js",
-              "node_modules/uswds/dist/js/uswds.min.js"
             ]
           },
           "configurations": {
