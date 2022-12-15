@@ -401,7 +401,7 @@
           <div>
             <h3>Business Function</h3>
             <div
-              *ngIf="product.business_function.length == 0; then business_functionThenBlock else business_functionElseBlock">
+              *ngIf="product.business_function.length == 0 || product.business_function == ''; then business_functionThenBlock else business_functionElseBlock">
             </div>
             <ng-template #business_functionThenBlock>
               <p>None</p>
