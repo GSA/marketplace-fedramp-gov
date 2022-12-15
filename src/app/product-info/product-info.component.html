@@ -1,530 +1,486 @@
 <div *ngIf="isCachePresent">
-<section class="mp-product-company-info">
-  <div class="grid-container fedramp-page-container">
+  <section class="mp-product-company-info">
+    <div class="grid-container fedramp-page-container">
 
       <!-- Company Inforation Column-->
-  
+
       <div class="grid-row">
-          <div class="desktop:grid-col-6">
-              <img src="{{product.logo}}" alt="{{product.name}}" title="{{product.name}}" class="product-info-logo" >
-              <h2 class="detail-company-info">{{product.csp}}</h2>
-         
-          </div>
-      
-          <div class="desktop:grid-col-6">
-              <div class="grid-row product-info-stats">
-                      <div class="tablet:grid-col-4 info-box">
-                          <div class="request">
-                              <h3 class="package-id">Package ID</h3>
-                              <p>{{product.id}}</p>
-                              <p class="product-info-request-form"><a href="https://www.fedramp.gov/assets/resources/documents/Agency_Package_Request_Form.pdf" target="_blank">Package Request Form</a></p>
-                          </div>
+        <div class="desktop:grid-col-6">
+          <img src="{{product.logo}}" alt="{{product.name}}" title="{{product.name}}" class="product-info-logo">
+          <h2 class="detail-company-info">{{product.csp}}</h2>
 
-                      </div>
-                      <div class="tablet:grid-col-4 info-box">
-                          <div class="stats">
+        </div>
 
-                           <div>
-                              <h3 class="mp-info-title">Authorizations</h3>
-
-                               <!-- Information Modal -->
-                               <div class="mp-info-button">
-                                  <a
-                                    href="#example-modal-1"
-                                    class="usa-button"
-                                    aria-controls="example-modal-1"
-                                    data-open-modal
-                                    ><svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                                      <use xlink:href="../../assets/uswds/dist/img/sprite.svg#info"></use>
-                                    </svg></a
-                                  >
-                                  <div
-                                    class="usa-modal"
-                                    id="example-modal-1"
-                                    aria-labelledby="modal-1-heading"
-                                    aria-describedby="modal-1-description"
-                                  >
-                                    <div class="usa-modal__content">
-                                      <div class="usa-modal__main">
-                                       
-                                        <div class="usa-prose">
-                                          <p id="modal-1-description">
-                                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan aliquet risus in malesuada. Mauris sit amet odio quam. Aenean rutrum sem sit amet sapien egestas, iaculis hendrerit sapien lobortis.
-                                          </p>
-                                        </div>
-                                   
-                                      </div>
-                                      <button
-                                        type="button"
-                                        class="usa-button usa-modal__close"
-                                        aria-label="Close this window"
-                                        data-close-modal
-                                      >
-                                        <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                                          <use xlink:href="../../assets/uswds/dist/img/sprite.svg#close"></use>
-                                        </svg>
-                                      </button>
-                                    </div>
-                                  </div>
-                                </div>
-                                <!-- End Modal -->
-                              
-                          </div>
-
-                          <div class="clearfix"></div>
-                              
-                              <div class="product-info-authoriaztions-number counter"><p>{{product.authorization}}</p></div>
-                          </div>
-
-                      </div>
-                      <div class="tablet:grid-col-4 info-box">
-                          <div class="stats">
-
-                              <div>
-                                  <h3 class="mp-info-title">Reuse</h3>
-                                  <!-- Information Modal -->
-                               <div class="mp-info-button">
-                                  <a
-                                    href="#example-modal-1"
-                                    class="usa-button"
-                                    aria-controls="example-modal-1"
-                                    data-open-modal
-                                    ><svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                                      <use xlink:href="../../assets/uswds/dist/img/sprite.svg#info"></use>
-                                    </svg></a
-                                  >
-                                  <div
-                                    class="usa-modal"
-                                    id="example-modal-1"
-                                    aria-labelledby="modal-1-heading"
-                                    aria-describedby="modal-1-description"
-                                  >
-                                    <div class="usa-modal__content">
-                                      <div class="usa-modal__main">
-                                       
-                                        <div class="usa-prose">
-                                          <p id="modal-1-description">
-                                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan aliquet risus in malesuada. Mauris sit amet odio quam. Aenean rutrum sem sit amet sapien egestas, iaculis hendrerit sapien lobortis.
-                                          </p>
-                                        </div>
-                                   
-                                      </div>
-                                      <button
-                                        type="button"
-                                        class="usa-button usa-modal__close"
-                                        aria-label="Close this window"
-                                        data-close-modal
-                                      >
-                                        <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                                          <use xlink:href="../../assets/uswds/dist/img/sprite.svg#close"></use>
-                                        </svg>
-                                      </button>
-                                    </div>
-                                  </div>
-                                </div>
-                                <!-- End Modal -->
-                                  
-                              </div>
-                              <div class="clearfix"></div>
-
-                              <div class="product-info-reuse-number counter"><p>{{product.reuse}}</p></div>
-                          </div>
-                         
-
-                      </div>
+        <div class="desktop:grid-col-6">
+          <div class="grid-row product-info-stats">
+            <div class="tablet:grid-col-4 info-box">
+              <div class="request">
+                <h3 class="package-id">Package ID</h3>
+                <p>{{product.id}}</p>
+                <p class="product-info-request-form"><a
+                    href="https://www.fedramp.gov/assets/resources/documents/Agency_Package_Request_Form.pdf"
+                    target="_blank">Package Request Form</a></p>
               </div>
+
+            </div>
+            <div class="tablet:grid-col-4 info-box">
+              <div class="stats">
+
+                <div>
+                  <h3 class="mp-info-title">Authorizations</h3>
+
+                  <!-- Information Modal -->
+                  <div class="mp-info-button">
+                    <a href="#example-modal-1" class="usa-button" aria-controls="example-modal-1" data-open-modal><svg
+                        class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                        <use xlink:href="../../assets/uswds/dist/img/sprite.svg#info"></use>
+                      </svg></a>
+                    <div class="usa-modal" id="example-modal-1" aria-labelledby="modal-1-heading"
+                      aria-describedby="modal-1-description">
+                      <div class="usa-modal__content">
+                        <div class="usa-modal__main">
+
+                          <div class="usa-prose">
+                            <p id="modal-1-description">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan aliquet risus in
+                              malesuada. Mauris sit amet odio quam. Aenean rutrum sem sit amet sapien egestas, iaculis
+                              hendrerit sapien lobortis.
+                            </p>
+                          </div>
+
+                        </div>
+                        <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
+                          data-close-modal>
+                          <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                            <use xlink:href="../../assets/uswds/dist/img/sprite.svg#close"></use>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Modal -->
+
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="product-info-authoriaztions-number counter">
+                  <p>{{product.authorization}}</p>
+                </div>
+              </div>
+
+            </div>
+            <div class="tablet:grid-col-4 info-box">
+              <div class="stats">
+
+                <div>
+                  <h3 class="mp-info-title">Reuse</h3>
+                  <!-- Information Modal -->
+                  <div class="mp-info-button">
+                    <a href="#example-modal-1" class="usa-button" aria-controls="example-modal-1" data-open-modal><svg
+                        class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                        <use xlink:href="../../assets/uswds/dist/img/sprite.svg#info"></use>
+                      </svg></a>
+                    <div class="usa-modal" id="example-modal-1" aria-labelledby="modal-1-heading"
+                      aria-describedby="modal-1-description">
+                      <div class="usa-modal__content">
+                        <div class="usa-modal__main">
+
+                          <div class="usa-prose">
+                            <p id="modal-1-description">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan aliquet risus in
+                              malesuada. Mauris sit amet odio quam. Aenean rutrum sem sit amet sapien egestas, iaculis
+                              hendrerit sapien lobortis.
+                            </p>
+                          </div>
+
+                        </div>
+                        <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
+                          data-close-modal>
+                          <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                            <use xlink:href="../../assets/uswds/dist/img/sprite.svg#close"></use>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Modal -->
+
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="product-info-reuse-number counter">
+                  <p>{{product.reuse}}</p>
+                </div>
+              </div>
+
+
+            </div>
           </div>
+        </div>
       </div>
 
       <!-- Status Chart -->
-  
+
       <div class="grid-row grid-gap row justify-content-between">
-          <div class="grid-col-12">
-              <h3>Authorization Status</h3>
-              <div class="authorization-status-chart padding-y-4 desktop:padding-x-15"> 
-                      <div class="grid-row">
-                          <div class="tablet:grid-col-3 status-container">
-                              <div class="current-status"><p class=""><strong>Ready</strong></p></div>
-                              <div class="auth-flow-chart auth-ready order-tracking first-order completed"><span class="is-complete"></span></div>
-                              <p class="date">8/9/2016</p>
-                          </div>
-
-                          <div class="tablet:grid-col-3 status-container">
-                              <div class="current-status"><p class=""><strong>In Process:</strong><br>Agency Review</p></div>
-                              <div class="auth-flow-chart auth-ready order-tracking completed"><span class="is-complete"></span></div>
-                              <p class="date">10/9/2016</p>
-                          </div>
-
-                          <div class="tablet:grid-col-3 status-container">
-                              <div class="current-status"><p class=""><strong>In Process:</strong><br>PMO Review</p></div>
-                              <div class="auth-flow-chart auth-process order-tracking"><span class="is-complete"></span></div>
-                              <p class="date">8/19/2016</p>
-                          </div>
-
-                          <div class="tablet:grid-col-3 status-container">
-                              <div class="current-status"><p class=""><strong>Authorized</strong></p></div>
-                              <div class="auth-flow-chart auth-future order-tracking"><span class="is-complete"></span></div>
-                              <p class="date">12/19/2016</p>
-                          </div>
-
-                      </div>
+        <div class="grid-col-12">
+          <h3>Authorization Status</h3>
+          <div class="authorization-status-chart padding-y-4 desktop:padding-x-15">
+            <div class="grid-row">
+              <div class="tablet:grid-col-3 status-container">
+                <div class="current-status">
+                  <p class=""><strong>Ready</strong></p>
+                </div>
+                <div class="auth-flow-chart auth-ready order-tracking first-order completed"><span
+                    class="is-complete"></span></div>
+                <p class="date">8/9/2016</p>
               </div>
+
+              <div class="tablet:grid-col-3 status-container">
+                <div class="current-status">
+                  <p class=""><strong>In Process:</strong><br>Agency Review</p>
+                </div>
+                <div class="auth-flow-chart auth-ready order-tracking completed"><span class="is-complete"></span></div>
+                <p class="date">10/9/2016</p>
+              </div>
+
+              <div class="tablet:grid-col-3 status-container">
+                <div class="current-status">
+                  <p class=""><strong>In Process:</strong><br>PMO Review</p>
+                </div>
+                <div class="auth-flow-chart auth-process order-tracking"><span class="is-complete"></span></div>
+                <p class="date">8/19/2016</p>
+              </div>
+
+              <div class="tablet:grid-col-3 status-container">
+                <div class="current-status">
+                  <p class=""><strong>Authorized</strong></p>
+                </div>
+                <div class="auth-flow-chart auth-future order-tracking"><span class="is-complete"></span></div>
+                <p class="date">12/19/2016</p>
+              </div>
+
+            </div>
           </div>
+        </div>
       </div>
 
       <!-- Details -->
-  
+
       <div class="grid-row product-info-details">
-          <div class="tablet:grid-col-6">
-              <div>
-                  <h3>Authorization Details</h3>
-                  <p><strong>Authorization Type:</strong> {{product.auth_type}}</p>
-                  <p><strong>FedRAMP Ready:</strong> {{product.fedramp_ready}}</p>
-                  <p><strong>FedRAMP In Process:</strong> 8/9/2016<br>
-                      Agency Review: 8/9/2016<br>
-                      PMO Review: 12/9/2016<br>
-                      JAB Review: 8/9/2016</p>
-                  <p><strong>FedRAMP Authorized:</strong> {{product.fedramp_auth | date:'MM/dd/YYY'}}</p>
-                  <p><strong>Annual Assessment:</strong> {{product.annual_assessment | date:'MM/dd/YYY'}}</p>
-                  <p><strong>Independent Assessor:</strong> {{product.independent_assessor}}</p>
-              </div>
-
-              <div>
-                  <h3>System Profile</h3>
-                  <p><strong>Service Model:</strong> {{product.service_model}}</p>
-                  <p><strong>Deployment Model:</strong> {{product.deployment_model}}</p>
-                  <p><strong>Impact Level:</strong> {{product.impact_level}}</p>
-              </div>
-              <div>
-                  <div>
-                      <h3 class="mp-info-title">Leveraged Systems</h3>
-                      <!-- Information Modal -->
-                   <div class="mp-info-button mp-info-button-top-margin">
-                      <a
-                        href="#example-modal-1"
-                        class="usa-button"
-                        aria-controls="example-modal-1"
-                        data-open-modal
-                        ><svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                          <use xlink:href="../../assets/uswds/dist/img/sprite.svg#info"></use>
-                        </svg></a
-                      >
-                      <div
-                        class="usa-modal"
-                        id="example-modal-1"
-                        aria-labelledby="modal-1-heading"
-                        aria-describedby="modal-1-description"
-                      >
-                        <div class="usa-modal__content">
-                          <div class="usa-modal__main">
-                           
-                            <div class="usa-prose">
-                              <p id="modal-1-description">
-                                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan aliquet risus in malesuada. Mauris sit amet odio quam. Aenean rutrum sem sit amet sapien egestas, iaculis hendrerit sapien lobortis.
-                              </p>
-                            </div>
-                       
-                          </div>
-                          <button
-                            type="button"
-                            class="usa-button usa-modal__close"
-                            aria-label="Close this window"
-                            data-close-modal
-                          >
-                            <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                              <use xlink:href="../../assets/uswds/dist/img/sprite.svg#close"></use>
-                            </svg>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- End Modal -->
-                      
-                  </div>
-                  <div class="clearfix"></div>
-
-                  <div *ngIf="product.leveraged_systems.length == 0; then leveraged_systemsThenBlock else leveraged_systemsElseBlock"></div>
-                  <ng-template #leveraged_systemsThenBlock>
-                    <div class="grid-row product-info-leveraged-systems tablet:padding-bottom-2">
-                      <div class="grid-col-4 ">
-                          <p><strong>None</strong></p>
-                      </div>
-                  </div>
-                  </ng-template>
-                  <ng-template #leveraged_systemsElseBlock>
-                    <div *ngFor="let i of product.leveraged_systems" class="grid-row product-info-leveraged-systems tablet:padding-bottom-2">
-                      <div class="grid-col-4 ">
-                          <p><strong>{{i.csp}}</strong></p>
-                      </div>
-                      <div class="grid-col-4 ">
-                          <a href="/products/{{i.id}}">{{i.cso}}</a>
-                      </div>
-                      <div class="grid-col-4">
-                          {{i.status}}
-                      </div>
-                  </div>
-                  </ng-template>
-              </div>
+        <div class="tablet:grid-col-6">
+          <div>
+            <h3>Authorization Details</h3>
+            <p><strong>Authorization Type:</strong> {{product.auth_type}}</p>
+            <p><strong>FedRAMP Ready:</strong> {{product.fedramp_ready}}</p>
+            <p><strong>FedRAMP In Process:</strong> 8/9/2016<br>
+              Agency Review: 8/9/2016<br>
+              PMO Review: 12/9/2016<br>
+              JAB Review: 8/9/2016</p>
+            <p><strong>FedRAMP Authorized:</strong> {{product.fedramp_auth | date:'MM/dd/YYY'}}</p>
+            <p><strong>Annual Assessment:</strong> {{product.annual_assessment | date:'MM/dd/YYY'}}</p>
+            <p><strong>Independent Assessor:</strong> {{product.independent_assessor}}</p>
           </div>
 
-          <div class="tablet:grid-col-6">
-              <div>
-                  <div>
-                      <h3 class="mp-info-title">Agency Authorizations</h3>
-                      <!-- Information Modal -->
-                   <div class="mp-info-button mp-info-button-top-margin">
-                      <a
-                        href="#example-modal-1"
-                        class="usa-button"
-                        aria-controls="example-modal-1"
-                        data-open-modal
-                        ><svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                          <use xlink:href="../../assets/uswds/dist/img/sprite.svg#info"></use>
-                        </svg></a
-                      >
-                      <div
-                        class="usa-modal"
-                        id="example-modal-1"
-                        aria-labelledby="modal-1-heading"
-                        aria-describedby="modal-1-description"
-                      >
-                        <div class="usa-modal__content">
-                          <div class="usa-modal__main">
-                           
-                            <div class="usa-prose">
-                              <p id="modal-1-description">
-                                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan aliquet risus in malesuada. Mauris sit amet odio quam. Aenean rutrum sem sit amet sapien egestas, iaculis hendrerit sapien lobortis.
-                              </p>
-                            </div>
-                       
-                          </div>
-                          <button
-                            type="button"
-                            class="usa-button usa-modal__close"
-                            aria-label="Close this window"
-                            data-close-modal
-                          >
-                            <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                              <use xlink:href="../../assets/uswds/dist/img/sprite.svg#close"></use>
-                            </svg>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- End Modal -->
-                      
-                  </div>
-                  <div class="clearfix"></div>
-                  <div *ngIf="product.agency_authorizations.length == 0; then agency_authsThenBlock else agency_authsElseBlock"></div>
-                  <ng-template #agency_authsThenBlock>
-                    <p>None</p>
-                  </ng-template>
-                  <ng-template #agency_authsElseBlock>
-                    <div *ngFor="let i of product.agency_authorizations">
-                      <p>{{i}}</p>
-                    </div>
-                  </ng-template>
-              </div>                   
-
-              <div>
-                  <div>
-                      <h3 class="mp-info-title">Reuse</h3>
-                      <!-- Information Modal -->
-                   <div class="mp-info-button mp-info-button-top-margin">
-                      <a
-                        href="#example-modal-1"
-                        class="usa-button"
-                        aria-controls="example-modal-1"
-                        data-open-modal
-                        ><svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                          <use xlink:href="../../assets/uswds/dist/img/sprite.svg#info"></use>
-                        </svg></a
-                      >
-                      <div
-                        class="usa-modal"
-                        id="example-modal-1"
-                        aria-labelledby="modal-1-heading"
-                        aria-describedby="modal-1-description"
-                      >
-                        <div class="usa-modal__content">
-                          <div class="usa-modal__main">
-                           
-                            <div class="usa-prose">
-                              <p id="modal-1-description">
-                                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan aliquet risus in malesuada. Mauris sit amet odio quam. Aenean rutrum sem sit amet sapien egestas, iaculis hendrerit sapien lobortis.
-                              </p>
-                            </div>
-                       
-                          </div>
-                          <button
-                            type="button"
-                            class="usa-button usa-modal__close"
-                            aria-label="Close this window"
-                            data-close-modal
-                          >
-                            <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                              <use xlink:href="../../assets/uswds/dist/img/sprite.svg#close"></use>
-                            </svg>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- End Modal -->
-                      
-                  </div>
-                  <div class="clearfix"></div>
-                  <div *ngIf="product.agency_reuse.length == 0; then agency_reuseThenBlock else agency_reuseElseBlock"></div>
-                  <ng-template #agency_reuseThenBlock>
-                    <p>None</p>
-                  </ng-template>
-                  <ng-template #agency_reuseElseBlock>
-                    <div *ngFor="let i of product.agency_reuse">
-                      <p>{{i}}</p>
-                    </div>
-                  </ng-template>
-              </div>
+          <div>
+            <h3>System Profile</h3>
+            <p><strong>Service Model:</strong> {{product.service_model}}</p>
+            <p><strong>Deployment Model:</strong> {{product.deployment_model}}</p>
+            <p><strong>Impact Level:</strong> {{product.impact_level}}</p>
           </div>
+          <div>
+            <div>
+              <h3 class="mp-info-title">Leveraged Systems</h3>
+              <!-- Information Modal -->
+              <div class="mp-info-button mp-info-button-top-margin">
+                <a href="#example-modal-1" class="usa-button" aria-controls="example-modal-1" data-open-modal><svg
+                    class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="../../assets/uswds/dist/img/sprite.svg#info"></use>
+                  </svg></a>
+                <div class="usa-modal" id="example-modal-1" aria-labelledby="modal-1-heading"
+                  aria-describedby="modal-1-description">
+                  <div class="usa-modal__content">
+                    <div class="usa-modal__main">
+
+                      <div class="usa-prose">
+                        <p id="modal-1-description">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan aliquet risus in
+                          malesuada. Mauris sit amet odio quam. Aenean rutrum sem sit amet sapien egestas, iaculis
+                          hendrerit sapien lobortis.
+                        </p>
+                      </div>
+
+                    </div>
+                    <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
+                      data-close-modal>
+                      <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                        <use xlink:href="../../assets/uswds/dist/img/sprite.svg#close"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- End Modal -->
+
+            </div>
+            <div class="clearfix"></div>
+
+            <div
+              *ngIf="product.leveraged_systems.length == 0; then leveraged_systemsThenBlock else leveraged_systemsElseBlock">
+            </div>
+            <ng-template #leveraged_systemsThenBlock>
+              <div class="grid-row product-info-leveraged-systems tablet:padding-bottom-2">
+                <div class="grid-col-4 ">
+                  <p><strong>None</strong></p>
+                </div>
+              </div>
+            </ng-template>
+            <ng-template #leveraged_systemsElseBlock>
+              <div *ngFor="let i of product.leveraged_systems"
+                class="grid-row product-info-leveraged-systems tablet:padding-bottom-2">
+                <div class="grid-col-4 ">
+                  <p><strong>{{i.csp}}</strong></p>
+                </div>
+                <div class="grid-col-4 ">
+                  <a href="/products/{{i.id}}">{{i.cso}}</a>
+                </div>
+                <div class="grid-col-4">
+                  {{i.status}}
+                </div>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+
+        <div class="tablet:grid-col-6">
+          <div>
+            <div>
+              <h3 class="mp-info-title">Agency Authorizations</h3>
+              <!-- Information Modal -->
+              <div class="mp-info-button mp-info-button-top-margin">
+                <a href="#example-modal-1" class="usa-button" aria-controls="example-modal-1" data-open-modal><svg
+                    class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="../../assets/uswds/dist/img/sprite.svg#info"></use>
+                  </svg></a>
+                <div class="usa-modal" id="example-modal-1" aria-labelledby="modal-1-heading"
+                  aria-describedby="modal-1-description">
+                  <div class="usa-modal__content">
+                    <div class="usa-modal__main">
+
+                      <div class="usa-prose">
+                        <p id="modal-1-description">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan aliquet risus in
+                          malesuada. Mauris sit amet odio quam. Aenean rutrum sem sit amet sapien egestas, iaculis
+                          hendrerit sapien lobortis.
+                        </p>
+                      </div>
+
+                    </div>
+                    <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
+                      data-close-modal>
+                      <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                        <use xlink:href="../../assets/uswds/dist/img/sprite.svg#close"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- End Modal -->
+
+            </div>
+            <div class="clearfix"></div>
+            <div
+              *ngIf="product.agency_authorizations.length == 0; then agency_authsThenBlock else agency_authsElseBlock">
+            </div>
+            <ng-template #agency_authsThenBlock>
+              <p>None</p>
+            </ng-template>
+            <ng-template #agency_authsElseBlock>
+              <div *ngFor="let i of product.agency_authorizations">
+                <p>{{i}}</p>
+              </div>
+            </ng-template>
+          </div>
+
+          <div>
+            <div>
+              <h3 class="mp-info-title">Reuse</h3>
+              <!-- Information Modal -->
+              <div class="mp-info-button mp-info-button-top-margin">
+                <a href="#example-modal-1" class="usa-button" aria-controls="example-modal-1" data-open-modal><svg
+                    class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="../../assets/uswds/dist/img/sprite.svg#info"></use>
+                  </svg></a>
+                <div class="usa-modal" id="example-modal-1" aria-labelledby="modal-1-heading"
+                  aria-describedby="modal-1-description">
+                  <div class="usa-modal__content">
+                    <div class="usa-modal__main">
+
+                      <div class="usa-prose">
+                        <p id="modal-1-description">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan aliquet risus in
+                          malesuada. Mauris sit amet odio quam. Aenean rutrum sem sit amet sapien egestas, iaculis
+                          hendrerit sapien lobortis.
+                        </p>
+                      </div>
+
+                    </div>
+                    <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
+                      data-close-modal>
+                      <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                        <use xlink:href="../../assets/uswds/dist/img/sprite.svg#close"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- End Modal -->
+
+            </div>
+            <div class="clearfix"></div>
+            <div *ngIf="product.agency_reuse.length == 0; then agency_reuseThenBlock else agency_reuseElseBlock"></div>
+            <ng-template #agency_reuseThenBlock>
+              <p>None</p>
+            </ng-template>
+            <ng-template #agency_reuseElseBlock>
+              <div *ngFor="let i of product.agency_reuse">
+                <p>{{i}}</p>
+              </div>
+            </ng-template>
+          </div>
+        </div>
       </div>
-              
-  </div>
+
+    </div>
   </section>
 
   <section class="mp-product-company-details">
-      <div class="grid-container fedramp-page-container">
+    <div class="grid-container fedramp-page-container">
 
-          <div class="grid-row">
-              <div class="grid-col-12">
-                  <p><em>Disclaimer: Information below is provided by the CSP and has not been vetted by FedRAMP</em></p>
-              </div>
-          </div>
-
-  
-          <!-- Company Information Column-->
-      
-          <div class="grid-row grid-gap">
-              <div class="tablet:grid-col-6">
-                  <h3>Service Description</h3>
-                  <p style="white-space: pre-wrap;">{{product.service_desc}}</p>
-              </div>
-              <div class="tablet:grid-col-6">
-                  <div class="grid-row">
-                      <div class="grid-col-8">
-                          <h3>Contact Information</h3>
-                          <p><strong>Sales E-mail:</strong></p>
-                          <p><a href="mailto:{{product.sales_email}}">{{product.sales_email}}</a></p>
-                          <p><strong>Security E-mail:</strong></p>
-                          <p><a href="mailto:{{product.security_email}}">{{product.security_email}}</a></p>
-                          <p><strong>Website:</strong></p>
-                          <p><a href="{{product.website}}" target="_blank">{{product.website}}</a></p>
-                      </div>
-                      <div class="grid-col-4">
-                          <h3>UEI Number</h3>
-                          <p>{{product.uei}}</p>
-                          <h3>Small Business</h3>
-                          <div *ngIf="product.small_business == 'Y'; then smallThenBlock else smallElseBlock"></div>
-                          <ng-template #smallThenBlock>
-                            <p>Yes</p>
-                          </ng-template>
-                          <ng-template #smallElseBlock>
-                              <p>No</p>
-                          </ng-template>
-                      </div>
-
-                  </div>
-                  
-                  
-                  <div>
-                      <h3>Business Function</h3>
-                      <div *ngIf="product.business_function.length == 0; then business_functionThenBlock else business_functionElseBlock"></div>
-                      <ng-template #business_functionThenBlock>
-                        <p>None</p>
-                      </ng-template>
-                      <ng-template #business_functionElseBlock>
-                        <ul>
-                          <div *ngFor="let i of product.business_function">
-                          <li>{{i}}</li>
-                          </div>
-                        </ul>
-                      </ng-template>
-                  </div>
-              </div>
-          </div>
-
-          <div class="grid-row grid-gap">
-              <div class="tablet:grid-col-12">
-                  <div>
-                      <h3 class="mp-info-title">Authorized Service</h3>
-                      <!-- Information Modal -->
-                   <div class="mp-info-button mp-info-button-top-margin">
-                      <a
-                        href="#example-modal-1"
-                        class="usa-button"
-                        aria-controls="example-modal-1"
-                        data-open-modal
-                        ><svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                          <use xlink:href="../../assets/uswds/dist/img/sprite.svg#info"></use>
-                        </svg></a
-                      >
-                      <div
-                        class="usa-modal"
-                        id="example-modal-1"
-                        aria-labelledby="modal-1-heading"
-                        aria-describedby="modal-1-description"
-                      >
-                        <div class="usa-modal__content">
-                          <div class="usa-modal__main">
-                           
-                            <div class="usa-prose">
-                              <p id="modal-1-description">
-                                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan aliquet risus in malesuada. Mauris sit amet odio quam. Aenean rutrum sem sit amet sapien egestas, iaculis hendrerit sapien lobortis.
-                              </p>
-                            </div>
-                       
-                          </div>
-                          <button
-                            type="button"
-                            class="usa-button usa-modal__close"
-                            aria-label="Close this window"
-                            data-close-modal
-                          >
-                            <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                              <use xlink:href="../../assets/uswds/dist/img/sprite.svg#close"></use>
-                            </svg>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- End Modal -->
-                      
-                  </div>
-                  <div class="clearfix"></div>
-                  <h4>Service(s) Added in the last 90 days</h4>
-                  <div *ngIf="product.service_last_90.length == 0; then last90ThenBlock else last90ElseBlock"></div>
-                  <ng-template #last90ThenBlock>
-                    <p>None</p>
-                  </ng-template>
-                  <ng-template #last90ElseBlock>
-                    <ul class="90day-services">
-                      <div *ngFor="let i of product.service_last_90">
-                        <li>{{i}}</li>
-                      </div>
-                    </ul>
-                  </ng-template>
-
-                  <h4>Other Service(s)</h4>
-                  <div *ngIf="product.all_others.length == 0; then all_othersThenBlock else all_othersElseBlock"></div>
-                  <ng-template #all_othersThenBlock>
-                    <p>None</p>
-                  </ng-template>
-                  <ng-template #all_othersElseBlock>
-                    <ul class="product-info-services">
-                      <div *ngFor="let i of product.all_others">
-                        <li>{{i}}</li>
-                      </div>
-                    </ul>
-                  </ng-template>
-              </div>
-          </div>
+      <div class="grid-row">
+        <div class="grid-col-12">
+          <p><em>Disclaimer: Information below is provided by the CSP and has not been vetted by FedRAMP</em></p>
+        </div>
       </div>
+
+
+      <!-- Company Information Column-->
+
+      <div class="grid-row grid-gap">
+        <div class="tablet:grid-col-6">
+          <h3>Service Description</h3>
+          <p style="white-space: pre-wrap;">{{product.service_desc}}</p>
+        </div>
+        <div class="tablet:grid-col-6">
+          <div class="grid-row">
+            <div class="grid-col-8">
+              <h3>Contact Information</h3>
+              <p><strong>Sales E-mail:</strong></p>
+              <p><a href="mailto:{{product.sales_email}}">{{product.sales_email}}</a></p>
+              <p><strong>Security E-mail:</strong></p>
+              <p><a href="mailto:{{product.security_email}}">{{product.security_email}}</a></p>
+              <p><strong>Website:</strong></p>
+              <p><a href="{{product.website}}" target="_blank">{{product.website}}</a></p>
+            </div>
+            <div class="grid-col-4">
+              <h3>UEI Number</h3>
+              <p>{{product.uei}}</p>
+              <h3>Small Business</h3>
+              <div *ngIf="product.small_business == 'Y'; then smallThenBlock else smallElseBlock"></div>
+              <ng-template #smallThenBlock>
+                <p>Yes</p>
+              </ng-template>
+              <ng-template #smallElseBlock>
+                <p>No</p>
+              </ng-template>
+            </div>
+
+          </div>
+
+
+          <div>
+            <h3>Business Function</h3>
+            <div
+              *ngIf="product.business_function.length == 0; then business_functionThenBlock else business_functionElseBlock">
+            </div>
+            <ng-template #business_functionThenBlock>
+              <p>None</p>
+            </ng-template>
+            <ng-template #business_functionElseBlock>
+              <ul>
+                <div *ngFor="let i of product.business_function">
+                  <li>{{i}}</li>
+                </div>
+              </ul>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-row grid-gap">
+        <div class="tablet:grid-col-12">
+          <div>
+            <h3 class="mp-info-title">Authorized Service</h3>
+            <!-- Information Modal -->
+            <div class="mp-info-button mp-info-button-top-margin">
+              <a href="#example-modal-1" class="usa-button" aria-controls="example-modal-1" data-open-modal><svg
+                  class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                  <use xlink:href="../../assets/uswds/dist/img/sprite.svg#info"></use>
+                </svg></a>
+              <div class="usa-modal" id="example-modal-1" aria-labelledby="modal-1-heading"
+                aria-describedby="modal-1-description">
+                <div class="usa-modal__content">
+                  <div class="usa-modal__main">
+
+                    <div class="usa-prose">
+                      <p id="modal-1-description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan aliquet risus in
+                        malesuada. Mauris sit amet odio quam. Aenean rutrum sem sit amet sapien egestas, iaculis
+                        hendrerit sapien lobortis.
+                      </p>
+                    </div>
+
+                  </div>
+                  <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
+                    data-close-modal>
+                    <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                      <use xlink:href="../../assets/uswds/dist/img/sprite.svg#close"></use>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- End Modal -->
+
+          </div>
+          <div class="clearfix"></div>
+          <h4>Service(s) Added in the last 90 days</h4>
+          <div *ngIf="product.service_last_90.length == 0; then last90ThenBlock else last90ElseBlock"></div>
+          <ng-template #last90ThenBlock>
+            <p>None</p>
+          </ng-template>
+          <ng-template #last90ElseBlock>
+            <ul class="90day-services">
+              <div *ngFor="let i of product.service_last_90">
+                <li>{{i}}</li>
+              </div>
+            </ul>
+          </ng-template>
+
+          <h4>Other Service(s)</h4>
+          <div *ngIf="product.all_others.length == 0; then all_othersThenBlock else all_othersElseBlock"></div>
+          <ng-template #all_othersThenBlock>
+            <p>None</p>
+          </ng-template>
+          <ng-template #all_othersElseBlock>
+            <ul class="product-info-services">
+              <div *ngFor="let i of product.all_others">
+                <li>{{i}}</li>
+              </div>
+            </ul>
+          </ng-template>
+        </div>
+      </div>
+    </div>
   </section>
 </div>
