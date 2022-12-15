@@ -243,17 +243,27 @@
                   </div>
                   <div class="clearfix"></div>
 
-                  <div class="grid-row product-info-leveraged-systems tablet:padding-bottom-2">
+                  <div *ngIf="product.leveraged_systems.length == 0; then leveraged_systemsThenBlock else leveraged_systemsElseBlock"></div>
+                  <ng-template #leveraged_systemsThenBlock>
+                    <div class="grid-row product-info-leveraged-systems tablet:padding-bottom-2">
                       <div class="grid-col-4 ">
-                          <p><strong>AchieveIt Online, LLC.</strong></p>
-                      </div>
-                      <div class="grid-col-4 ">
-                          <a href="#">AchieveIt</a>
-                      </div>
-                      <div class="grid-col-4">
-                          Authroized
+                          <p><strong>None</strong></p>
                       </div>
                   </div>
+                  </ng-template>
+                  <ng-template #leveraged_systemsElseBlock>
+                    <div *ngFor="let i of product.leveraged_systems" class="grid-row product-info-leveraged-systems tablet:padding-bottom-2">
+                      <div class="grid-col-4 ">
+                          <p><strong>{{i.csp}}</strong></p>
+                      </div>
+                      <div class="grid-col-4 ">
+                          <a href="/products/{{i.id}}">{{i.cso}}</a>
+                      </div>
+                      <div class="grid-col-4">
+                          {{i.status}}
+                      </div>
+                  </div>
+                  </ng-template>
               </div>
           </div>
 
@@ -305,8 +315,15 @@
                       
                   </div>
                   <div class="clearfix"></div>
-                  <p>Defense Information Systems Agency</p>
-                  <p>Department of Agriculture</p>
+                  <div *ngIf="product.agency_authorizations.length == 0; then agency_authsThenBlock else agency_authsElseBlock"></div>
+                  <ng-template #agency_authsThenBlock>
+                    <p>None</p>
+                  </ng-template>
+                  <ng-template #agency_authsElseBlock>
+                    <div *ngFor="let i of product.agency_authorizations">
+                      <p>{{i}}</p>
+                    </div>
+                  </ng-template>
               </div>                   
 
               <div>
@@ -356,18 +373,15 @@
                       
                   </div>
                   <div class="clearfix"></div>
-                  <p>Defense Information Systems Agency</p>
-                  <p>Department of Agriculture</p>
-                  <p>Department of Defense</p>
-                  <p>Department of the Treasury</p>
-                  <p>Environmental Protection Agency</p>
-                  <p>Federal Deposit Insurance Corporation</p>
-                  <p>Federal Election Commission</p>
-                  <p>General Services Administration</p>
-                  <p>Internal Revenue Service</p>
-                  <p>National Science Foundation</p>
-                  <p>United States Agency for International Development</p>
-                  <p>United States Forest Service</p>
+                  <div *ngIf="product.agency_reuse.length == 0; then agency_reuseThenBlock else agency_reuseElseBlock"></div>
+                  <ng-template #agency_reuseThenBlock>
+                    <p>None</p>
+                  </ng-template>
+                  <ng-template #agency_reuseElseBlock>
+                    <div *ngFor="let i of product.agency_reuse">
+                      <p>{{i}}</p>
+                    </div>
+                  </ng-template>
               </div>
           </div>
       </div>
@@ -407,7 +421,13 @@
                           <h3>UEI Number</h3>
                           <p>{{product.uei}}</p>
                           <h3>Small Business</h3>
-                          <p>{{product.small_business}}</p>
+                          <div *ngIf="product.small_business == 'Y'; then smallThenBlock else smallElseBlock"></div>
+                          <ng-template #smallThenBlock>
+                            <p>Yes</p>
+                          </ng-template>
+                          <ng-template #smallElseBlock>
+                              <p>No</p>
+                          </ng-template>
                       </div>
 
                   </div>
@@ -415,12 +435,17 @@
                   
                   <div>
                       <h3>Business Function</h3>
-                      <ul>
-                          <li>Applications Advisory & Consulting Services</li>
-                          <li>Applications Architecture Services</li>
-                          <li>Applications Automation & Orchestration Services</li>
-                          <li>Applications Container Services</li>
-                      </ul>
+                      <div *ngIf="product.business_function.length == 0; then business_functionThenBlock else business_functionElseBlock"></div>
+                      <ng-template #business_functionThenBlock>
+                        <p>None</p>
+                      </ng-template>
+                      <ng-template #business_functionElseBlock>
+                        <ul>
+                          <div *ngFor="let i of product.business_function">
+                          <li>{{i}}</li>
+                          </div>
+                        </ul>
+                      </ng-template>
                   </div>
               </div>
           </div>
@@ -474,32 +499,30 @@
                   </div>
                   <div class="clearfix"></div>
                   <h4>Service(s) Added in the last 90 days</h4>
-                  <ul class="90day-services">
-                      <li>Amazon API Gateway</li>
-                      <li>Amazon AppStream 2.0</li>
-                      <li>Amazon Athena</li>
-                  </ul>
+                  <div *ngIf="product.service_last_90.length == 0; then last90ThenBlock else last90ElseBlock"></div>
+                  <ng-template #last90ThenBlock>
+                    <p>None</p>
+                  </ng-template>
+                  <ng-template #last90ElseBlock>
+                    <ul class="90day-services">
+                      <div *ngFor="let i of product.service_last_90">
+                        <li>{{i}}</li>
+                      </div>
+                    </ul>
+                  </ng-template>
 
-                  <h4>Service(s) Added in the last 90 days</h4>
-                  <ul class="product-info-services">
-                      <li>Amazon Cloud Directory</li>
-                      <li>Amazon CloudFront</li>
-                      <li>Amazon CloudWatch</li>
-                      <li>Amazon CloudWatch Logs</li>
-                      <li>AWS CloudHSM</li>
-                      <li>Amazon Cognito</li>
-                      <li>Amazon Comprehend</li>
-                      <li>Amazon Comprehend Medical</li>
-                      <li>Amazon Connect</li>
-                      <li>Amazon Detective</li>
-                      <li>Amazon DynamoDB</li>
-                      <li>Amazon ElastiCache for Redis</li>
-                      <li>Amazon Elastic Block Store (EBS)</li>
-                      <li>Amazon Elastic Container Registry (ECR)</li>
-                      <li>Amazon Elastic Container Service (ECS)</li>
-                      <li>Amazon Elastic File System (EFS)</li>
-                      <li>Amazon Elastic Compute Cloud (EC2)</li>
-                  </ul>
+                  <h4>Other Service(s)</h4>
+                  <div *ngIf="product.all_others.length == 0; then all_othersThenBlock else all_othersElseBlock"></div>
+                  <ng-template #all_othersThenBlock>
+                    <p>None</p>
+                  </ng-template>
+                  <ng-template #all_othersElseBlock>
+                    <ul class="product-info-services">
+                      <div *ngFor="let i of product.all_others">
+                        <li>{{i}}</li>
+                      </div>
+                    </ul>
+                  </ng-template>
               </div>
           </div>
       </div>

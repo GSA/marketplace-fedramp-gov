@@ -10,7 +10,6 @@ import { AppConstants } from '../app.constants';
 })
 export class AgenciesMainComponent implements OnInit {
 
-
   delay: number;
   isCachePresent = false;
 
