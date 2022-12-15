@@ -172,12 +172,11 @@
           <div>
             <h3>Authorization Details</h3>
             <p><strong>Authorization Type:</strong> {{product.auth_type}}</p>
-            <p><strong>FedRAMP Ready:</strong> {{product.fedramp_ready}}</p>
-            <p><strong>FedRAMP In Process:</strong> 8/9/2016<br>
-              Agency Review: 8/9/2016<br>
-              PMO Review: 12/9/2016<br>
-              JAB Review: 8/9/2016</p>
-            <p><strong>FedRAMP Authorized:</strong> {{product.fedramp_auth | date:'MM/dd/YYY'}}</p>
+            <p><strong>FedRAMP Ready:</strong> {{product.fedramp_ready == 'No FRR Date' ? product.fedramp_ready : product.fedramp_ready |  date:'MM/dd/YYY'}}</p>
+            <p><strong>JAB Review:</strong> {{product.ip_jab_date == 'Not Active' ? product.ip_jab_date : product.ip_jab_date |  date:'MM/dd/YYY'}}</p>
+            <p><strong>Agency Review:</strong> {{product.ip_agency_date == 'Not Agency Partnered' ? product.ip_agency_date : product.ip_agency_date |  date:'MM/dd/YYY'}}</p>
+            <p><strong>PMO Review:</strong> {{product.ip_pmo_date == 'Not In Process' ? product.ip_pmo_date : product.ip_pmo_date |  date:'MM/dd/YYY'}}</p>
+            <p><strong>FedRAMP Authorized:</strong> {{product.fedramp_auth == 'Not Authorized' ? product.fedramp_auth : product.fedramp_auth | date:'MM/dd/YYY'}}</p>
             <p><strong>Annual Assessment:</strong> {{product.annual_assessment | date:'MM/dd/YYY'}}</p>
             <p><strong>Independent Assessor:</strong> {{product.independent_assessor}}</p>
           </div>
