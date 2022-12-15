@@ -4,58 +4,251 @@
 
 
 <section>
-    <div class="grid-container mp-search-main">
-        <div class="grid-row">
-            <div class="tablet:grid-col-2 grid-offset-10 padding-0 page-display-select">
-                <p>Number of items shown at a time</p>
-                <select name="display-number" id="display-number">
-                    <option value="25">25</option>
-                    <option value="50">50</option>
-                    <option value="75">75</option>
-                    <option value="100">100</option>
-                  </select>
-    
+  <div class="grid-container mp-search-main">
+    <div class="grid-row">
+      <div class="tablet:grid-col-2 grid-offset-10 padding-0 page-display-select">
+        <p>Number of items shown at a time</p>
+        <select name="display-number" id="display-number">
+          <option value="25">25</option>
+          <option value="50">50</option>
+          <option value="75">75</option>
+          <option value="100">100</option>
+        </select>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-container padding-3 marketplace-type-container">
+
+    <!-- Search Column-->
+    <div class="grid-row">
+      <div class="tablet:grid-col-2 padding-right-3 results-search">
+        <label>X Clear All</label>
+        <br>
+        <input type="text" id="clear-search" name="clear-search" placeholder="Search by Provider or Product">
+
+        <p class="mp-container-total-search-results">{{data.Products.length}} results</p>
+
+        <!-- Accordian -->
+        <div class="search-container">
+
+          <label *ngIf="data.Filters.product.status.length != 0" for="chk-1">
+            <input id="chk-1" type="checkbox" />
+            <div class="title">
+              <h4 class="accordian-title">Status</h4>
+            </div>
+            <div class="search-content">
+              <ul>
+                <div *ngFor="let i of data.Filters.product.status">
+                  <li>{{i}}</li>
+                </div>
+              </ul>
+            </div>
+          </label>
+
+          <label *ngIf="data.Filters.product.business_function.length != 0" for="chk-2">
+            <input id="chk-2" type="checkbox" />
+            <div class="title">
+              <h4 class="accordian-title">Business Category</h4>
+            </div>
+
+            <div class="search-content">
+              <ul>
+                <div *ngFor="let i of data.Filters.product.business_function">
+                  <li>{{i}}</li>
+                </div>
+              </ul>
+            </div>
+          </label>
+
+          <label *ngIf="data.Filters.product.service_model.length != 0" for="chk-3">
+            <input id="chk-3" type="checkbox" />
+            <div class="title">
+              <h4 class="accordian-title">Service Model</h4>
+            </div>
+
+            <div class="search-content">
+              <ul>
+                <div *ngFor="let i of data.Filters.product.service_model">
+                  <li>{{i}}</li>
+                </div>
+              </ul>
+            </div>
+          </label>
+
+          <label *ngIf="data.Filters.product.impact_level.length != 0" for="chk-4">
+            <input id="chk-4" type="checkbox" />
+            <div class="title">
+              <h4 class="accordian-title">Impact Levels</h4>
+            </div>
+
+            <div class="search-content">
+              <ul>
+                <div *ngFor="let i of data.Filters.product.impact_level">
+                  <li>{{i}}</li>
+                </div>
+              </ul>
+            </div>
+          </label>
+
+          <label *ngIf="data.Filters.product.status.auth_type != 0" for="chk-5">
+            <input id="chk-5" type="checkbox" />
+            <div class="title">
+              <h4 class="accordian-title">Authorization Type</h4>
+            </div>
+
+            <div class="search-content">
+              <ul>
+                <div *ngFor="let i of data.Filters.product.auth_type">
+                  <li>{{i}}</li>
+                </div>
+              </ul>
+            </div>
+          </label>
+
+          <label *ngIf="data.Filters.product.status.deployment_models != 0" for="chk-6">
+            <input id="chk-6" type="checkbox" />
+            <div class="title">
+              <h4 class="accordian-title">Deployment Models</h4>
+            </div>
+
+            <div class="search-content">
+              <ul>
+                <div *ngFor="let i of data.Filters.product.deployment_models">
+                  <li>{{i}}</li>
+                </div>
+              </ul>
+            </div>
+          </label>
+
+          <label *ngIf="data.Filters.product.small_business.length != 0" for="chk-7">
+            <input id="chk-7" type="checkbox" />
+            <div class="title">
+              <h4 class="accordian-title">Small Business</h4>
+            </div>
+
+            <div class="search-content">
+              <ul>
+                <div *ngFor="let i of data.Filters.product.small_business">
+                  <li>{{i}}</li>
+                </div>
+              </ul>
+            </div>
+          </label>
+
+          <label *ngIf="data.Filters.product.assessor.length != 0" for="chk-8">
+            <input id="chk-8" type="checkbox" />
+            <div class="title">
+              <h4 class="accordian-title">Assessor</h4>
+            </div>
+
+            <div class="search-content">
+              <ul>
+                <div *ngFor="let i of data.Filters.product.assessor">
+                  <li>{{i}}</li>
+                </div>
+              </ul>
+            </div>
+          </label>
+
+        </div>
+      </div>
+
+      <!-- Large Monitor Results Column-->
+      <div class="grid-col-12 desktop:grid-col-10">
+        <div class="grid-row search-sortable mp-sortable-column">
+          <div class="grid-col-2 product_column-provider">
+            <span>Provider</span>
+          </div>
+          <div class="grid-col-2 product_column-service_offering">
+            <span>Service Offering</span>
+          </div>
+          <div class="grid-col-2 product_column-service_model">
+            <span>Service Model</span>
+          </div>
+          <div class="grid-col-2 product_column-impact_level">
+            <span>Impact Level</span>
+          </div>
+          <div class="grid-col-1 product_column-status">
+            <span>Status</span>
+          </div>
+          <div class="grid-col-2 text-center product_column-authorization">
+            <span>Authorizations</span>
+          </div>
+          <div class="grid-col-1 text-center product_column-reuse">
+            <span>Reuse</span>
+          </div>
+        </div>
+
+        <!-- Results -->
+
+        <div *ngIf="isCachePresent">
+          <div *ngFor="let p of data.Products">
+            <div class="grid-row mp-search-results display-none desktop:display-flex">
+              <div class="grid-col-2 company-logo-column product_column-service_offering">
+                <a href="/products/{{p.id}}" target="_blank"><img src="{{p.logo}}" alt="{{p.name}}"
+                    title="{{p.name}}"></a>
+              </div>
+
+              <div class="grid-col-2 product_column-service_offering">
+                <span>{{p.service_offering}}</span>
+              </div>
+              <div class="grid-col-2 product_column-service_model">
+                <span>{{p.service_model}}</span>
+              </div>
+              <div class="grid-col-2 product_column-impact_level">
+                <span>{{p.impact_level}}</span>
+              </div>
+              <div class="grid-col-1 product_column-status">
+                <span>{{p.status}}</span>
+              </div>
+              <div class="grid-col-2 product_column-authorization result">
+                <span>{{p.authorization}}</span>
+              </div>
+              <div class="grid-col-1 product_column-reuse result">
+                <span>{{p.reuse}}</span>
+              </div>
 
             </div>
+          </div>
         </div>
-    </div>
 
-    <div class="grid-container padding-3 marketplace-type-container">
-       
-        <!-- Search Column-->
-        <div class="grid-row">
-            <div class="tablet:grid-col-2 padding-right-3 results-search">
-                <label>X Clear All</label>
-                <br>
-                <input type="text" id="clear-search" name="clear-search" placeholder="Search by Provider or Product" >
+        <!-- Mobile Accordian -->
 
-                <p class="mp-container-total-search-results">301 results</p>
+        <div class="search-container desktop:display-none">
 
-             <!-- Accordian -->       
-             <div class="search-container">
+          <label for="chk-m1">
 
-              <label for="chk-1">
-              
-              <input id="chk-1" type="checkbox" />
-               <div class="title">
-                   <h4 class="accordian-title">Status</h4>
-               </div>
-                <div class="search-content">
+            <input id="chk-m1" type="checkbox" />
+            <div class="mobile-title">
+              <h4 class="mobile-search-title">Filter Results</h4>
+            </div>
+            <div class="search-content">
+              <div class="grid-row">
+                <div class="grid-col-12">
+                  <p>Number of items shown at a time</p>
+                  <select name="display-number" id="display-number">
+                    <option value="twenty-five">25</option>
+                    <option value="fifty">50</option>
+                    <option value="seventy-five">75</option>
+                    <option value="one-hundred">100</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid-row">
+                <div class="grid-col-3">
+                  <p>Status</p>
                   <ul>
                     <li>FedRAMP Ready</li>
                     <li>FedRAMP In Process</li>
                     <li>FedRAMP Authorized</li>
                   </ul>
                 </div>
-              </label>
-              
-              <label for="chk-2">
-              <input id="chk-2" type="checkbox" />
-                <div class="title">
-                   <h4 class="accordian-title">Business Category</h4>
-               </div>
-                
-                <div class="search-content">
+                <div class="grid-col-3">
+                  <p>Business Category</p>
                   <ul>
                     <li>Accounting</li>
                     <li>Analytics</li>
@@ -88,410 +281,157 @@
                     <li>Virtual Private Network (VPN)</li>
                   </ul>
                 </div>
-              </label>
+                <div class="grid-col-3">
+                  <p>Service Model</p>
+                  <ul>
+                    <li>IaaS</li>
+                    <li>PaaS</li>
+                    <li>SaaS</li>
+                  </ul>
 
-              <label for="chk-3">
-                <input id="chk-3" type="checkbox" />
-                  <div class="title">
-                     <h4 class="accordian-title">Service Model</h4>
-                 </div>
-                  
-                  <div class="search-content">
-                    <ul>
-                      <li>IaaS</li>
-                      <li>PaaS</li>
-                      <li>SaaS</li>
-                    </ul>
-                  </div>
-                </label>
-                <label for="chk-4">
-                  <input id="chk-4" type="checkbox" />
-                    <div class="title">
-                       <h4 class="accordian-title">Impact Levels</h4>
-                   </div>
-                    
-                    <div class="search-content">
-                      <ul>
-                        <li>Li-SaaS</li>
-                        <li>Low</li>
-                        <li>Moderate</li>
-                        <li>High</li>
-                      </ul>
-                    </div>
-                  </label>
+                </div>
+                <div class="grid-col-3">
+                  <p>Impact Level</p>
+                  <ul>
+                    <li>Li-SaaS</li>
+                    <li>Low</li>
+                    <li>Moderate</li>
+                    <li>High</li>
+                  </ul>
+                </div>
 
-                    <label for="chk-5">
-                      <input id="chk-5" type="checkbox" />
-                        <div class="title">
-                           <h4 class="accordian-title">Authorization Type</h4>
-                       </div>
-                        
-                        <div class="search-content">
-                          <ul>
-                            <li>Agency</li>
-                            <li>JAB</li>
-                          </ul>
-                        </div>
-                      </label>
+              </div>
 
-                      <label for="chk-6">
-                        <input id="chk-6" type="checkbox" />
-                          <div class="title">
-                             <h4 class="accordian-title">Deployment Models</h4>
-                         </div>
-                          
-                          <div class="search-content">
-                            <ul>
-                              <li>Government Community Cloud</li>
-                              <li>Hybrid Cloud</li>
-                              <li>Public Cloud</li>
-                            </ul>
-                          </div>
-                        </label>
+              <div class="grid-row">
+                <div class="grid-col-3">
+                  <p>Authorization Type</p>
+                  <ul>
+                    <li>Agency</li>
+                    <li>JAB</li>
+                  </ul>
 
-                        <label for="chk-7">
-                          <input id="chk-7" type="checkbox" />
-                            <div class="title">
-                               <h4 class="accordian-title">Small Business</h4>
-                           </div>
-                            
-                            <div class="search-content">
-                              <ul>
-                                <li>Yes</li>
-                                <li>No</li>
-                              </ul>
-                            </div>
-                          </label>
+                </div>
+                <div class="grid-col-3">
+                  <p>Deployment Models</p>
+                  <ul>
+                    <li>Government Community Cloud</li>
+                    <li>Hybrid Cloud</li>
+                    <li>Public Cloud</li>
+                  </ul>
 
-                          <label for="chk-8">
-                            <input id="chk-8" type="checkbox" />
-                              <div class="title">
-                                 <h4 class="accordian-title">Assessor</h4>
-                             </div>
-                              
-                              <div class="search-content">
-                                <ul>
-                                  <li>List of all Assessors</li>
-                                  <li>Show who they are currently assessing </li>
-                                </ul>
-                              </div>
-                            </label>
-                
+                </div>
+                <div class="grid-col-3">
+                  <p>Small Business</p>
+                  <ul>
+                    <li>Yes</li>
+                    <li>No</li>
+                  </ul>
+
+                </div>
+                <div class="grid-col-3">
+                  <p>Assessor</p>
+                  <ul>
+                    <li>List of all Assessors</li>
+                    <li>Show who they are currently assessing </li>
+                  </ul>
+
+                </div>
               </div>
             </div>
+          </label>
 
-            <!-- Large Monitor Results Column-->
-            <div class="grid-col-12 desktop:grid-col-10">
-                <div class="grid-row search-sortable mp-sortable-column">
-                    <div class="grid-col-2 product_column-provider">
-                        <span>Provider</span>
-                    </div>
-                    <div class="grid-col-2 product_column-service_offering">
-                        <span>Service Offering</span>
-                    </div>
-                    <div class="grid-col-2 product_column-service_model">
-                        <span>Service Model</span>
-                    </div>
-                    <div class="grid-col-2 product_column-impact_level">
-                        <span>Impact Level</span>
-                    </div>
-                    <div class="grid-col-1 product_column-status">
-                        <span>Status</span>
-                    </div>
-                    <div class="grid-col-2 text-center product_column-authorization">
-                        <span>Authorizations</span>
-                    </div>
-                    <div class="grid-col-1 text-center product_column-reuse">
-                      <span>Reuse</span>
-                    </div>
-                </div>
-
-                <!-- Results -->
-              
-              <div *ngIf="isCachePresent">
-                <div *ngFor="let p of data.Products">
-                  <div class="grid-row mp-search-results display-none desktop:display-flex">
-                    <div class="grid-col-2 company-logo-column product_column-service_offering">
-                      <a href="/products/{{p.id}}" target="_blank"><img src="{{p.logo}}" alt="{{p.name}}" title="{{p.name}}" ></a>
-                    </div>
-
-                    <div class="grid-col-2 product_column-service_offering">
-                      <span>{{p.service_offering}}</span>
-                    </div>
-                    <div class="grid-col-2 product_column-service_model">
-                      <span>{{p.service_model}}</span>
-                    </div>
-                    <div class="grid-col-2 product_column-impact_level">
-                      <span>{{p.impact_level}}</span>
-                    </div>
-                    <div class="grid-col-1 product_column-status">
-                      <span>{{p.status}}</span>
-                    </div>
-                    <div class="grid-col-2 product_column-authorization result">
-                      <span>{{p.authorization}}</span>
-                    </div>
-                    <div class="grid-col-1 product_column-reuse result">
-                      <span>{{p.reuse}}</span>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
-
-               <!-- Mobile Accordian -->
-
-             <div class="search-container desktop:display-none">
-
-              <label for="chk-m1">
-              
-              <input id="chk-m1" type="checkbox" />
-               <div class="mobile-title">
-                   <h4 class="mobile-search-title">Filter Results</h4>
-               </div>
-                <div class="search-content">
-                  <div class="grid-row">
-                    <div class="grid-col-12">
-                      <p>Number of items shown at a time</p>
-                      <select name="display-number" id="display-number">
-                        <option value="twenty-five">25</option>
-                        <option value="fifty">50</option>
-                        <option value="seventy-five">75</option>
-                        <option value="one-hundred">100</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="grid-row">
-                  <div class="grid-col-3">
-                    <p>Status</p>
-                    <ul>
-                      <li>FedRAMP Ready</li>
-                      <li>FedRAMP In Process</li>
-                      <li>FedRAMP Authorized</li>
-                    </ul>
-                  </div>
-                  <div class="grid-col-3">
-                    <p>Business Category</p>  
-                    <ul>
-                      <li>Accounting</li>
-                      <li>Analytics</li>
-                      <li>Collaboration</li>
-                      <li>Communication</li>
-                      <li>Construction</li>
-                      <li>Content Management System (CMS)</li>
-                      <li>Customer Relations Management (CRM)</li>
-                      <li>Customer Service</li>
-                      <li>Cybersecurity & Risk Management</li>
-                      <li>Data Management</li>
-                      <li>Design & Multimedia</li>
-                      <li>Development Tools</li>
-                      <li>Education & Training</li>
-                      <li>Finance</li>
-                      <li>Fleet Management</li>
-                      <li>Health & Wellness</li>
-                      <li>Human Resources</li>
-                      <li>Law Enforcement</li>
-                      <li>Legal & Policy</li>
-                      <li>Marketing & Sales</li>
-                      <li>Media</li>
-                      <li>Mobile Device Management (MDM)</li>
-                      <li>Network Management</li>
-                      <li>Operations Management</li>
-                      <li>Research</li>
-                      <li>Storage</li>
-                      <li>System Administration</li>
-                      <li>Travel Management</li>
-                      <li>Virtual Private Network (VPN)</li>
-                    </ul>           
-                  </div>
-                  <div class="grid-col-3">
-                    <p>Service Model</p>
-                    <ul>
-                      <li>IaaS</li>
-                      <li>PaaS</li>
-                      <li>SaaS</li>
-                    </ul>
-      
-                  </div>
-                  <div class="grid-col-3">
-                    <p>Impact Level</p>
-                    <ul>
-                      <li>Li-SaaS</li>
-                      <li>Low</li>
-                      <li>Moderate</li>
-                      <li>High</li>
-                    </ul>
-                  </div>
-                  
-                </div>
-
-                <div class="grid-row">
-                  <div class="grid-col-3">
-                    <p>Authorization Type</p>
-                    <ul>
-                      <li>Agency</li>
-                      <li>JAB</li>
-                    </ul>
-                                        
-                  </div>
-                  <div class="grid-col-3">
-                    <p>Deployment Models</p>  
-                    <ul>
-                      <li>Government Community Cloud</li>
-                      <li>Hybrid Cloud</li>
-                      <li>Public Cloud</li>
-                    </ul>   
-
-                  </div>
-                  <div class="grid-col-3">
-                    <p>Small Business</p>
-                    <ul>
-                      <li>Yes</li>
-                      <li>No</li>
-                    </ul>
-      
-                  </div>
-                  <div class="grid-col-3">
-                    <p>Assessor</p>
-                    <ul>
-                      <li>List of all Assessors</li>
-                      <li>Show who they are currently assessing </li>
-                    </ul>
-      
-                  </div>
-                </div>
-                </div>
-              </label>
-                
-              </div>   
-
-
-                <!-- Mobile Search Results -->
-              
-              <div *ngIf="isCachePresent">
-                <div *ngFor="let p of data.Products">
-                  <a href="/products/{{p.id}}" target="_blank" class="company-info-link"> 
-                    <div class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
-                      <div class="gid-col-12 desktop:grid-col-2 company-logo-column product_column-service_offering">
-                      <img src="{{p.logo}}" alt="{{p.name}}" title="{{p.name}}" >
-                      </div>
-                        <div class="gid-col-12 desktop:grid-col-2 product_column-service_offering">
-                          <span>{{p.service_offering}}</span>
-                        </div>
-                        <div class="grid-col-12 padding-0">
-                            <div class="grid-row grid-gap">
-                              <div class="grid-col-6">
-                                <div class="product_column-authorization result">
-                                  <h4>Authorizations</h4>
-                                  <p><span>{{p.authorization}}</span></p>
-                                </div>
-                                <div class="product_column-reuse result">
-                                  <h4>Reuse</h4>
-                                  <p><span>{{p.reuse}}</span></p>
-                                </div>
-                              </div>
-                              <div class="grid-col-6 padding-top-4">
-                                <div class="product_column-service_model">
-                                  <h5>Service Model</h5>
-                                  <span>{{p.service_model}}</span>
-                                </div>
-                                <div class="product_column-impact_level">
-                                  <h5>Impact Level</h5>
-                                  <span>{{p.impact_level}}</span>
-                                </div>
-                                <div class="product_column-status">
-                                  <h5>Status</h5>
-                                  <span>{{p.status}}</span>
-                                </div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>  
-                  </a>  
-                </div>  
-              </div>
-            </div>
-
-            
         </div>
-          <!-- Pagination -->
 
-          <nav aria-label="Pagination" class="usa-pagination">
-            <ul class="usa-pagination__list">
-              <li class="usa-pagination__item usa-pagination__arrow">
-                <a
-                  href="javascript:void(0);"
-                  class="usa-pagination__link usa-pagination__previous-page"
-                  aria-label="Previous page"
-                  ><svg class="usa-icon" aria-hidden="true" role="img">
-                    <use xlink:href="../../assets/uswds/dist/img/sprite.svg#navigate_before"></use>
-                  </svg>
-                  <span class="usa-pagination__link-text">Previous</span></a
-                >
-              </li>
-              <li class="usa-pagination__item usa-pagination__page-no">
-                <a
-                  href="javascript:void(0);"
-                  class="usa-pagination__button"
-                  aria-label="Page 1"
-                  >1</a
-                >
-              </li>
-              <li
-                class="usa-pagination__item usa-pagination__overflow"
-                role="presentation"
-              >
-                <span>…</span>
-              </li>
-              <li class="usa-pagination__item usa-pagination__page-no">
-                <a
-                  href="javascript:void(0);"
-                  class="usa-pagination__button"
-                  aria-label="Page 9"
-                  >9</a
-                >
-              </li>
-              <li class="usa-pagination__item usa-pagination__page-no">
-                <a
-                  href="javascript:void(0);"
-                  class="usa-pagination__button usa-current"
-                  aria-label="Page 10"
-                  aria-current="page"
-                  >10</a
-                >
-              </li>
-              <li class="usa-pagination__item usa-pagination__page-no">
-                <a
-                  href="javascript:void(0);"
-                  class="usa-pagination__button"
-                  aria-label="Page 11"
-                  >11</a
-                >
-              </li>
-              <li
-                class="usa-pagination__item usa-pagination__overflow"
-                role="presentation"
-              >
-                <span>…</span>
-              </li>
-              <li class="usa-pagination__item usa-pagination__page-no">
-                <a
-                  href="javascript:void(0);"
-                  class="usa-pagination__button"
-                  aria-label="Last page, page 24"
-                  >24</a
-                >
-              </li>
-              <li class="usa-pagination__item usa-pagination__arrow">
-                <a
-                  href="javascript:void(0);"
-                  class="usa-pagination__link usa-pagination__next-page"
-                  aria-label="Next page"
-                  ><span class="usa-pagination__link-text">Next </span
-                  ><svg class="usa-icon" aria-hidden="true" role="img">
-                    <use xlink:href="../../assets/uswds/dist/img/sprite.svg#navigate_next"></use></svg></a>
-              </li>
-            </ul>
-          </nav>
+
+        <!-- Mobile Search Results -->
+
+        <div *ngIf="isCachePresent">
+          <div *ngFor="let p of data.Products">
+            <a href="/products/{{p.id}}" target="_blank" class="company-info-link">
+              <div class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
+                <div class="gid-col-12 desktop:grid-col-2 company-logo-column product_column-service_offering">
+                  <img src="{{p.logo}}" alt="{{p.name}}" title="{{p.name}}">
+                </div>
+                <div class="gid-col-12 desktop:grid-col-2 product_column-service_offering">
+                  <span>{{p.service_offering}}</span>
+                </div>
+                <div class="grid-col-12 padding-0">
+                  <div class="grid-row grid-gap">
+                    <div class="grid-col-6">
+                      <div class="product_column-authorization result">
+                        <h4>Authorizations</h4>
+                        <p><span>{{p.authorization}}</span></p>
+                      </div>
+                      <div class="product_column-reuse result">
+                        <h4>Reuse</h4>
+                        <p><span>{{p.reuse}}</span></p>
+                      </div>
+                    </div>
+                    <div class="grid-col-6 padding-top-4">
+                      <div class="product_column-service_model">
+                        <h5>Service Model</h5>
+                        <span>{{p.service_model}}</span>
+                      </div>
+                      <div class="product_column-impact_level">
+                        <h5>Impact Level</h5>
+                        <span>{{p.impact_level}}</span>
+                      </div>
+                      <div class="product_column-status">
+                        <h5>Status</h5>
+                        <span>{{p.status}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+
     </div>
-    </section>
+    <!-- Pagination -->
+
+    <nav aria-label="Pagination" class="usa-pagination">
+      <ul class="usa-pagination__list">
+        <li class="usa-pagination__item usa-pagination__arrow">
+          <a href="javascript:void(0);" class="usa-pagination__link usa-pagination__previous-page"
+            aria-label="Previous page"><svg class="usa-icon" aria-hidden="true" role="img">
+              <use xlink:href="../../assets/uswds/dist/img/sprite.svg#navigate_before"></use>
+            </svg>
+            <span class="usa-pagination__link-text">Previous</span></a>
+        </li>
+        <li class="usa-pagination__item usa-pagination__page-no">
+          <a href="javascript:void(0);" class="usa-pagination__button" aria-label="Page 1">1</a>
+        </li>
+        <li class="usa-pagination__item usa-pagination__overflow" role="presentation">
+          <span>…</span>
+        </li>
+        <li class="usa-pagination__item usa-pagination__page-no">
+          <a href="javascript:void(0);" class="usa-pagination__button" aria-label="Page 9">9</a>
+        </li>
+        <li class="usa-pagination__item usa-pagination__page-no">
+          <a href="javascript:void(0);" class="usa-pagination__button usa-current" aria-label="Page 10"
+            aria-current="page">10</a>
+        </li>
+        <li class="usa-pagination__item usa-pagination__page-no">
+          <a href="javascript:void(0);" class="usa-pagination__button" aria-label="Page 11">11</a>
+        </li>
+        <li class="usa-pagination__item usa-pagination__overflow" role="presentation">
+          <span>…</span>
+        </li>
+        <li class="usa-pagination__item usa-pagination__page-no">
+          <a href="javascript:void(0);" class="usa-pagination__button" aria-label="Last page, page 24">24</a>
+        </li>
+        <li class="usa-pagination__item usa-pagination__arrow">
+          <a href="javascript:void(0);" class="usa-pagination__link usa-pagination__next-page"
+            aria-label="Next page"><span class="usa-pagination__link-text">Next </span><svg class="usa-icon"
+              aria-hidden="true" role="img">
+              <use xlink:href="../../assets/uswds/dist/img/sprite.svg#navigate_next"></use>
+            </svg></a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</section>
