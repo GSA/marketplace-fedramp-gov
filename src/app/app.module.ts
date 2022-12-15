@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LinksComponent } from './links/links.component';
 import { NavComponent } from './nav/nav.component';
+import { RefreshDataComponent } from './refresh-data/refresh-data.component';
 import { ProductsMainComponent } from './products-main/products-main.component';
 import { AgenciesMainComponent } from './agencies-main/agencies-main.component';
 import { AssessorsMainComponent } from './assessors-main/assessors-main.component';
@@ -24,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     LinksComponent,
     NavComponent,
+    RefreshDataComponent,
     ProductsMainComponent,
     AgenciesMainComponent,
     AssessorsMainComponent,
@@ -40,6 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     RouterModule.forRoot ([
     
+      { path: 'refresh', component: RefreshDataComponent },
       { path: 'products',  component: ProductsMainComponent },
       { path: 'assessors', component: AssessorsMainComponent },
       { path: 'agencies',  component: AgenciesMainComponent },
