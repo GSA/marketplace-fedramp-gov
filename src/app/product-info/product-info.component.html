@@ -33,7 +33,7 @@
                   <div class="mp-info-button">
                     <a href="#example-modal-1" class="usa-button" aria-controls="example-modal-1" data-open-modal><svg
                         class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                        <use xlink:href="../../assets/uswds/dist/img/sprite.svg#info"></use>
+                        <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
                       </svg></a>
                     <div class="usa-modal" id="example-modal-1" aria-labelledby="modal-1-heading"
                       aria-describedby="modal-1-description">
@@ -52,7 +52,7 @@
                         <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
                           data-close-modal>
                           <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                            <use xlink:href="../../assets/uswds/dist/img/sprite.svg#close"></use>
+                            <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close"></use>
                           </svg>
                         </button>
                       </div>
@@ -79,7 +79,7 @@
                   <div class="mp-info-button">
                     <a href="#example-modal-1" class="usa-button" aria-controls="example-modal-1" data-open-modal><svg
                         class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                        <use xlink:href="../../assets/uswds/dist/img/sprite.svg#info"></use>
+                        <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
                       </svg></a>
                     <div class="usa-modal" id="example-modal-1" aria-labelledby="modal-1-heading"
                       aria-describedby="modal-1-description">
@@ -98,7 +98,7 @@
                         <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
                           data-close-modal>
                           <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                            <use xlink:href="../../assets/uswds/dist/img/sprite.svg#close"></use>
+                            <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close"></use>
                           </svg>
                         </button>
                       </div>
@@ -202,6 +202,10 @@
             <p><strong>Annual Assessment:</strong> {{product.annual_assessment | date:'MM/dd/YYY'}}</p>
             <p><strong>Independent Assessor:</strong> {{product.independent_assessor}}</p>
           </div>
+        </div>
+
+
+        <div class="tablet:grid-col-6">
 
           <div>
             <h3>System Profile</h3>
@@ -212,11 +216,12 @@
           <div>
             <div>
               <h3 class="mp-info-title">Leveraged Systems</h3>
+     
               <!-- Information Modal -->
               <div class="mp-info-button mp-info-button-top-margin">
                 <a href="#example-modal-1" class="usa-button" aria-controls="example-modal-1" data-open-modal><svg
                     class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                    <use xlink:href="../../assets/uswds/dist/img/sprite.svg#info"></use>
+                    <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
                   </svg></a>
                 <div class="usa-modal" id="example-modal-1" aria-labelledby="modal-1-heading"
                   aria-describedby="modal-1-description">
@@ -235,7 +240,7 @@
                     <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
                       data-close-modal>
                       <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                        <use xlink:href="../../assets/uswds/dist/img/sprite.svg#close"></use>
+                        <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close"></use>
                       </svg>
                     </button>
                   </div>
@@ -272,16 +277,21 @@
             </ng-template>
           </div>
         </div>
+        </div>
+
+
+        <div class="grid-row product-info-details info-authorizations-reuse">
 
         <div class="tablet:grid-col-6">
           <div>
             <div>
               <h3 class="mp-info-title">Agency Authorizations</h3>
+         
               <!-- Information Modal -->
               <div class="mp-info-button mp-info-button-top-margin">
                 <a href="#example-modal-1" class="usa-button" aria-controls="example-modal-1" data-open-modal><svg
                     class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                    <use xlink:href="../../assets/uswds/dist/img/sprite.svg#info"></use>
+                    <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
                   </svg></a>
                 <div class="usa-modal" id="example-modal-1" aria-labelledby="modal-1-heading"
                   aria-describedby="modal-1-description">
@@ -300,13 +310,15 @@
                     <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
                       data-close-modal>
                       <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                        <use xlink:href="../../assets/uswds/dist/img/sprite.svg#close"></use>
+                        <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close"></use>
                       </svg>
                     </button>
                   </div>
                 </div>
               </div>
-              <!-- End Modal -->
+            
+            
+            <!-- End Modal -->
 
             </div>
             <div class="clearfix"></div>
@@ -318,11 +330,13 @@
             </ng-template>
             <ng-template #agency_authsElseBlock>
               <div *ngFor="let i of product.agency_authorizations">
-                <p>{{i}}</p>
+                <p>- {{i}}</p>
               </div>
             </ng-template>
           </div>
+          </div>
 
+          <div class="tablet:grid-col-6">
           <div>
             <div>
               <h3 class="mp-info-title">Reuse</h3>
@@ -330,7 +344,7 @@
               <div class="mp-info-button mp-info-button-top-margin">
                 <a href="#example-modal-1" class="usa-button" aria-controls="example-modal-1" data-open-modal><svg
                     class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                    <use xlink:href="../../assets/uswds/dist/img/sprite.svg#info"></use>
+                    <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
                   </svg></a>
                 <div class="usa-modal" id="example-modal-1" aria-labelledby="modal-1-heading"
                   aria-describedby="modal-1-description">
@@ -349,7 +363,7 @@
                     <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
                       data-close-modal>
                       <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                        <use xlink:href="../../assets/uswds/dist/img/sprite.svg#close"></use>
+                        <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close"></use>
                       </svg>
                     </button>
                   </div>
@@ -365,7 +379,7 @@
             </ng-template>
             <ng-template #agency_reuseElseBlock>
               <div *ngFor="let i of product.agency_reuse">
-                <p>{{i}}</p>
+                <p>- {{i}}</p>
               </div>
             </ng-template>
           </div>
@@ -446,7 +460,7 @@
             <div class="mp-info-button mp-info-button-top-margin">
               <a href="#example-modal-1" class="usa-button" aria-controls="example-modal-1" data-open-modal><svg
                   class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                  <use xlink:href="../../assets/uswds/dist/img/sprite.svg#info"></use>
+                  <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
                 </svg></a>
               <div class="usa-modal" id="example-modal-1" aria-labelledby="modal-1-heading"
                 aria-describedby="modal-1-description">
@@ -465,7 +479,7 @@
                   <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
                     data-close-modal>
                     <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                      <use xlink:href="../../assets/uswds/dist/img/sprite.svg#close"></use>
+                      <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close"></use>
                     </svg>
                   </button>
                 </div>
