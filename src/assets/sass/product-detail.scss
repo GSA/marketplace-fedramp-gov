@@ -112,6 +112,10 @@ h3 {
     }
 }
 
+.info-authorizations-reuse p {
+    margin-bottom: 10px;
+}
+
 
 @media (max-width: 640px) {
     .authorization-status-chart {
@@ -178,9 +182,8 @@ h3 {
 }
 
 .assessor-current-clients {
-    height: 70px;
     border-bottom: solid 1px $light-gray;
-    padding: 10px 0 20px;
+    padding: 10px 0 12px;
     width: 90%;
 }
 
