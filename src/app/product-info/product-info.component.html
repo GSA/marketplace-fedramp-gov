@@ -282,7 +282,7 @@
 
         <div class="grid-row product-info-details info-authorizations-reuse">
 
-        <div class="tablet:grid-col-6">
+        <div class="tablet:grid-col-12">
           <div>
             <div>
               <h3 class="mp-info-title">Agency Authorizations</h3>
@@ -322,6 +322,8 @@
 
             </div>
             <div class="clearfix"></div>
+
+            <div class="mp-product-columns">
             <div
               *ngIf="product.agency_authorizations.length == 0; then agency_authsThenBlock else agency_authsElseBlock">
             </div>
@@ -334,9 +336,10 @@
               </div>
             </ng-template>
           </div>
+        </div>
           </div>
 
-          <div class="tablet:grid-col-6">
+          <div class="tablet:grid-col-12">
           <div>
             <div>
               <h3 class="mp-info-title">Reuse</h3>
@@ -373,7 +376,9 @@
 
             </div>
             <div class="clearfix"></div>
-            <div *ngIf="product.agency_reuse.length == 0; then agency_reuseThenBlock else agency_reuseElseBlock"></div>
+
+            <div class="mp-product-columns">
+              <div *ngIf="product.agency_reuse.length == 0; then agency_reuseThenBlock else agency_reuseElseBlock"></div>
             <ng-template #agency_reuseThenBlock>
               <p>None</p>
             </ng-template>
@@ -382,6 +387,8 @@
                 <p>- {{i}}</p>
               </div>
             </ng-template>
+
+          </div>
           </div>
         </div>
       </div>
