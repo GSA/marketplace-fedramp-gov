@@ -138,35 +138,36 @@
               </select>
             </div>
           </div>
+          
           <div class="grid-row">
-            <div class="grid-col-4">
+
+            <div *ngIf="data.Filters.assessor.product_assessing.length != 0" class="grid-col-4">
               <p>Products Assessing</p>
               <ul>
-                <li>0-5</li>
-                <li>6-10</li>
-                <li>11-20</li>
-                <li>21+</li>
+                <div *ngFor="let i of data.Filters.assessor.product_assessing">
+                  <li>{{i}}</li>
+                </div>
+              </ul>
+            </div>
 
-              </ul>
-            </div>
-            <div class="grid-col-4">
-              <p>Assessment Impact Level</p>
+            <div *ngIf="data.Filters.assessor.impact_level.length != 0" class="grid-col-4">
+              <p>Impact Level</p>
               <ul>
-                <li>Li-Saas</li>
-                <li>Low</li>
-                <li>Moderate</li>
-                <li>High</li>
+                <div *ngFor="let i of data.Filters.assessor.impact_level">
+                  <li>{{i}}</li>
+                </div>
               </ul>
             </div>
-            <div class="grid-col-4">
+
+            <div *ngIf="data.Filters.assessor.status.length != 0" class="grid-col-4">
               <p>Offering Status</p>
               <ul>
-                <li>FedRAMP Ready</li>
-                <li>In Process</li>
-                <li>Authorized</li>
+                <div *ngFor="let i of data.Filters.assessor.status">
+                  <li>{{i}}</li>
+                </div>
               </ul>
-
             </div>
+
           </div>
         </div>
       </label>

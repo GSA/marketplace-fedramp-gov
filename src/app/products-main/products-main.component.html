@@ -93,7 +93,7 @@
             </div>
           </label>
 
-          <label *ngIf="data.Filters.product.status.auth_type != 0" for="chk-5">
+          <label *ngIf="data.Filters.product.auth_type != 0" for="chk-5">
             <input id="chk-5" type="checkbox" />
             <div class="title">
               <h4 class="accordian-title">Authorization Type</h4>
@@ -108,7 +108,7 @@
             </div>
           </label>
 
-          <label *ngIf="data.Filters.product.status.deployment_models != 0" for="chk-6">
+          <label *ngIf="data.Filters.product.deployment_models != 0" for="chk-6">
             <input id="chk-6" type="checkbox" />
             <div class="title">
               <h4 class="accordian-title">Deployment Models</h4>
@@ -239,104 +239,91 @@
               </div>
 
               <div class="grid-row">
-                <div class="grid-col-3">
+
+
+          <div *ngIf="data.Filters.product.status.length != 0" class="grid-col-3">
                   <p>Status</p>
                   <ul>
-                    <li>FedRAMP Ready</li>
-                    <li>FedRAMP In Process</li>
-                    <li>FedRAMP Authorized</li>
+                    <div *ngFor="let i of data.Filters.product.status">
+                      <li>{{i}}</li>
+                    </div>
                   </ul>
                 </div>
-                <div class="grid-col-3">
+
+          <div *ngIf="data.Filters.product.business_function.length != 0" class="grid-col-3">
                   <p>Business Category</p>
                   <ul>
-                    <li>Accounting</li>
-                    <li>Analytics</li>
-                    <li>Collaboration</li>
-                    <li>Communication</li>
-                    <li>Construction</li>
-                    <li>Content Management System (CMS)</li>
-                    <li>Customer Relations Management (CRM)</li>
-                    <li>Customer Service</li>
-                    <li>Cybersecurity & Risk Management</li>
-                    <li>Data Management</li>
-                    <li>Design & Multimedia</li>
-                    <li>Development Tools</li>
-                    <li>Education & Training</li>
-                    <li>Finance</li>
-                    <li>Fleet Management</li>
-                    <li>Health & Wellness</li>
-                    <li>Human Resources</li>
-                    <li>Law Enforcement</li>
-                    <li>Legal & Policy</li>
-                    <li>Marketing & Sales</li>
-                    <li>Media</li>
-                    <li>Mobile Device Management (MDM)</li>
-                    <li>Network Management</li>
-                    <li>Operations Management</li>
-                    <li>Research</li>
-                    <li>Storage</li>
-                    <li>System Administration</li>
-                    <li>Travel Management</li>
-                    <li>Virtual Private Network (VPN)</li>
+                    <div *ngFor="let i of data.Filters.product.business_function">
+                      <li>{{i}}</li>
+                    </div>
                   </ul>
                 </div>
-                <div class="grid-col-3">
+
+
+          <div *ngIf="data.Filters.product.service_model.length != 0" class="grid-col-3">
                   <p>Service Model</p>
                   <ul>
-                    <li>IaaS</li>
-                    <li>PaaS</li>
-                    <li>SaaS</li>
+                    <div *ngFor="let i of data.Filters.product.service_model">
+                      <li>{{i}}</li>
+                    </div>
                   </ul>
-
                 </div>
-                <div class="grid-col-3">
+
+
+          <div *ngIf="data.Filters.product.impact_level.length != 0" class="grid-col-3">
                   <p>Impact Level</p>
                   <ul>
-                    <li>Li-SaaS</li>
-                    <li>Low</li>
-                    <li>Moderate</li>
-                    <li>High</li>
+                    <div *ngFor="let i of data.Filters.product.impact_level">
+                      <li>{{i}}</li>
+                    </div>
                   </ul>
                 </div>
 
               </div>
 
               <div class="grid-row">
-                <div class="grid-col-3">
+
+
+          <div *ngIf="data.Filters.product.status.auth_type != 0" class="grid-col-3">
                   <p>Authorization Type</p>
                   <ul>
-                    <li>Agency</li>
-                    <li>JAB</li>
+                    <div *ngFor="let i of data.Filters.product.auth_type">
+                      <li>{{i}}</li>
+                    </div>
                   </ul>
-
                 </div>
-                <div class="grid-col-3">
+
+          <div *ngIf="data.Filters.product.status.deployment_models != 0" class="grid-col-3">
                   <p>Deployment Models</p>
                   <ul>
-                    <li>Government Community Cloud</li>
-                    <li>Hybrid Cloud</li>
-                    <li>Public Cloud</li>
+                    <div *ngFor="let i of data.Filters.product.deployment_models">
+                      <li>{{i}}</li>
+                    </div>
                   </ul>
-
                 </div>
-                <div class="grid-col-3">
+
+
+          <div *ngIf="data.Filters.product.small_business.length != 0" class="grid-col-3">
                   <p>Small Business</p>
                   <ul>
-                    <li>Yes</li>
-                    <li>No</li>
+                    <div *ngFor="let i of data.Filters.product.small_business">
+                      <li>{{i}}</li>
+                    </div>
                   </ul>
-
                 </div>
-                <div class="grid-col-3">
+
+
+          <div *ngIf="data.Filters.product.assessor.length != 0" class="grid-col-3">
                   <p>Assessor</p>
                   <ul>
-                    <li>List of all Assessors</li>
-                    <li>Show who they are currently assessing </li>
+                    <div *ngFor="let i of data.Filters.product.assessor">
+                      <li>{{i}}</li>
+                    </div>
                   </ul>
-
                 </div>
+
               </div>
+
             </div>
           </label>
 
