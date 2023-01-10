@@ -127,7 +127,9 @@
           <h3>Authorization Status</h3>
           <div class="authorization-status-chart padding-y-4 desktop:padding-x-15">
             <div class="grid-row">
-              <div class="tablet:grid-col-3 status-container">
+
+              <div class="tablet:{{ gridClass }} status-container">
+
                 <div class="current-status">
                   <p class=""><strong>Ready</strong></p>
                 </div>
@@ -161,7 +163,7 @@
               </ng-template>
 
               <ng-template #midElse>
-                <div class="tablet:grid-col-3 status-container">
+                <div class="tablet:grid-col-4 status-container">
                   <div class="current-status">
                     <p class=""><strong>In Process:</strong><br>JAB Review</p>
                   </div>
@@ -173,8 +175,7 @@
                 </div>
               </ng-template>
               
-
-              <div class="tablet:grid-col-3 status-container">
+              <div class="tablet:{{ gridClass }} status-container">
                 <div class="current-status">
                   <p class=""><strong>Authorized</strong></p>
                 </div>

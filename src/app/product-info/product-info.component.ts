@@ -23,6 +23,7 @@ export class ProductInfoComponent implements OnInit {
   formatDate: string | null;
 
   product: any | null;
+  gridClass = "grid-col-4";
   
   constructor(public AppConstants: AppConstants, private dp: DatePipe, private route: ActivatedRoute) {    
 
@@ -56,6 +57,10 @@ export class ProductInfoComponent implements OnInit {
       this.parseJson = JSON.parse(this.cacheJson!);
       this.product = this.parseJson.data.Products.find((i: { id: any; }) => i.id == this.id);
       this.isCachePresent = true;
+      
+      if(this.product.auth_type == 'Agency') {
+        this.gridClass = "grid-col-3";
+      }
     }
   }
 
@@ -69,6 +74,10 @@ export class ProductInfoComponent implements OnInit {
         this.parseJson = JSON.parse(this.cacheJson!);
         this.product = this.parseJson.data.Products.find((i: { id: any; }) => i.id == this.id);
         this.isCachePresent = true;
+        
+        if(this.product.auth_type == 'Agency') {
+          this.gridClass = "grid-col-3";
+        }
       }
       resolve();
     });
