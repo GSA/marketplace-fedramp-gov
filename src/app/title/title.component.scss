@@ -1,0 +1,39 @@
+@import '../../assets/sass/elements.scss';
+
+.page-banner-container, body .page-banner-container {
+	background: $light-blue;
+}
+
+.page-banner, body .page-banner {
+	background: $light-blue;
+	padding: 50px 0;
+	min-height: 133px;
+	max-width: 1200px;
+	margin: 0 auto;
+	h1 {
+		color: #fff;
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+		font-weight: 300;
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: 0.03rem;
+		font-size: 2.5em;
+	}
+}
+
+@media (min-width) and (max-width: 950px) {
+	.page-banner, body .page-banner {
+		h1 {
+			text-align: center;
+		}
+	}
+}
+
+@media (min-width: 0px) and (max-width: 1200px) {
+	.page-banner, body .page-banner {
+		padding-right: 5%;
+		padding-left: 5%;
+	}
+}

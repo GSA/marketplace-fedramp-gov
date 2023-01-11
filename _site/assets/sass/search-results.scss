@@ -1,0 +1,312 @@
+
+@import '../sass/elements.scss';
+
+.page-display-select {
+	width: 100%;
+	p {
+		font-size: .75em;
+		color: $intro-text;
+	}
+
+	select {
+		width: 100%;
+		font-size: .75rem;
+		padding: 4px;
+		border-radius: 0;
+	}
+}
+
+.mp-search-main {
+    padding-top: 0;
+	padding-bottom: 16px;
+}
+
+.marketplace-type-container {
+    background: $lightest-gray;
+	padding: 2em;
+}
+
+.mp-search-results {
+    background: #ffffff;
+}
+
+.results-search {
+	font-weight: 600;
+	font-size: .75rem;
+	
+	input {
+		margin-top: 8px;
+		font-size: .625rem;
+		width: 100%;
+		height: 30px;
+		border: solid 1px $mid-gray;
+		border-radius: 0;
+		padding-left: 8px;
+	}
+}
+
+@media (max-width: 1023px) {
+	.results-search, .page-display-select, .mp-sortable-column {
+		display: none;
+	}
+
+    a.company-info-link {
+        text-decoration: none;
+    }
+
+	.agencies_column-parent_agency {
+		font-size: 1.375rem;
+	}
+
+	.mp-search-results.mobile-results .company-logo-column img, .assessors-company-logo img  {
+		max-width: 190px !important;
+		max-height: fit-content;
+		height: auto !important;
+	}
+}
+
+.mp-search-results.mobile-results {
+	padding: 20px;
+	border-bottom: none;
+	margin-bottom: 10px;
+
+	div {
+		padding-left: 0;
+	}
+
+	.company-logo-column img {
+		width: 320px;
+		max-width: 450px;
+	}
+
+	.assessors-company-logo {
+		width: auto;
+	}
+
+	.product_column-service_offering {
+		font-size: 1rem;
+	}
+
+	.product_column-authorization, .product_column-reuse {
+		text-align: left;
+		h4 {
+			color: $red;
+			font-size: 1rem;
+			margin-bottom: 0;
+		}
+
+		p {
+			max-width: 200px;
+			text-align: center;
+			margin-top: 2px;
+			padding: 4px 20px;
+			color: #ffffff;
+			background-color: $light-blue;
+		}
+
+	}
+
+	h5 {
+		color: $dark-gray;
+		margin-top: 10px;
+	}
+}
+
+.assessors-name, .assessors-logo {
+	float: left;
+}
+
+.assessors-logo img {
+	max-width: 100px;
+	max-height: 70px;
+}
+
+.result {
+	text-align: center;
+}
+
+.mp-container-total-search-results {
+	font-size: 1.125rem;
+	border-bottom: solid 1px $light-gray;
+}
+
+.mp-accordian_button {
+	font-size: .8125rem;
+	font-weight: 400;
+	padding: 0;
+	background: none;
+}
+
+.mp-accordian_accordion {
+	background: none;
+	padding: 0;
+	font-weight: 400;
+
+	ul {
+		padding-left: 10px;
+	}
+
+	 li {
+		list-style: none;
+		font-size: .75rem;
+	 }
+}
+
+.mp-sortable-column {
+	padding-bottom: 4px;
+
+	div {
+		padding-bottom: 10px;
+		padding-left: 6px;
+	}
+
+	span {
+		font-size: .75rem;
+		color: $dark-gray;
+		font-weight: 600;
+	}
+}
+
+.mp-search-results {
+	border-bottom: solid 1px $light-gray;
+	padding: 20px 2px;
+	font-size: .75rem;
+	color: $mid-gray;
+	min-height: 60px;
+
+	div {
+		padding-left: 6px;
+	}
+
+	&:hover {
+		background: $light-teal;
+	}
+}
+
+.assessors-logo {
+	display: inline-block;
+	min-width: 160px;
+}
+
+.assessors-name {
+	display: inline-block;
+}
+
+// Accordian for Search //
+
+
+.accordion {
+    color: $mid-gray;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+  }
+  
+  .active, .accordion:hover {
+    background-color: #ccc; 
+  }
+  
+  .panel {
+    display: none;
+    background-color: white;
+    overflow: hidden;
+  }
+
+label {
+  display: block;
+  overflow: hidden;
+}
+
+h4.accordian-title {
+	font-size: 0.8125rem;
+	margin: 0;
+	color: $dark-gray;
+	font-weight: 400;
+	padding-right: 22px;
+	background-color: transparent;
+  }
+
+  h4.mobile-search-title {
+	text-align: center;
+	position: relative;
+	background-color: transparent;
+
+	&::after {
+		content: url('../images/usa-icons/add.svg');
+		position: absolute;
+		width: 20px;
+	}
+  }
+
+.title, .mobile-title {
+  padding: 0;
+  position: relative;
+  z-index: 599;
+  transition: all .3s linear;
+  &:hover {
+    cursor: pointer;
+    background: #f5f5f5;
+  }
+}
+
+.search-content {
+  position: relative;
+  padding: 0;
+  max-height: 0px;
+  transition: max-height .3s linear;
+
+	ul {
+		padding-left: 12px;
+	}
+
+	li {
+		position: relative;
+		font-size: 0.8125rem;
+		color: $dark-gray;
+		font-weight: 400;
+		list-style-type: none;
+		}
+  
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + .title { 
+	background-image: url(../images/usa-icons/add.svg);
+	background-color: transparent;
+	background-repeat: no-repeat !important;
+	background-position: right center !important;
+    background-size: 1.5rem !important; 
+}
+
+
+input[type="checkbox"]:checked + .title {
+	background-image: url(../images/usa-icons/remove.svg);
+	background-color: transparent;
+    background-repeat: no-repeat !important;
+    background-color: #f0f0f0 !important;
+    background-position: right center !important;
+    background-size: 1.5rem !important;
+}
+
+input[type="checkbox"]:checked + .title + .search-content, input[type="checkbox"]:checked + .mobile-title + .search-content {
+  max-height: fit-content;
+}
+
+input[type="checkbox"]:checked + .title + .search-content p {
+  transform: scale(1);
+  opacity: 1;
+}
+
+input[type="checkbox"]:checked + .mobile-title h4:after {
+	content: url('../images/usa-icons/remove.svg');
+		position: absolute;
+		width: 20px;
+}

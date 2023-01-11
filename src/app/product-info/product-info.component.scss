@@ -1,0 +1,50 @@
+@import '../../assets/sass/elements.scss';
+
+@import '../../assets/sass/standard-styles.scss';
+
+@import '../../assets/sass/search-results.scss';
+
+@import '../../assets/sass/product-detail.scss';
+
+
+.hh-grayBox {
+	background-color: #F8F8F8;
+	margin-bottom: 20px;
+	padding: 35px;
+  margin-top: 20px;
+}
+.pt45{padding-top:45px;}
+.order-tracking{
+	text-align: center;
+	width: 33.33%;
+	position: relative;
+	display: block;
+}
+
+
+.order-tracking.completed .is-complete{
+	border-color: #27aa80;
+	border-width: 0px;
+	background-color: #27aa80;
+}
+
+.order-tracking p span{font-size: 14px;}
+.order-tracking.completed p{color: #000;}
+.order-tracking::before {
+	content: '';
+	display: block;
+	height: 3px;
+	width: calc(100% + 120%);
+	background-color: #757575;
+	top: 34px;
+	position: absolute;
+	left: calc(-236% + 20px);
+	z-index: 0;
+}
+.first-order:before{display: none;}
+
+@media (min-width: 0) and (max-width: 639px) {
+	.order-tracking::before {
+		content: none;
+	}
+}

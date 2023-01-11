@@ -1,0 +1,33 @@
+// Scss Document
+
+@import '../../../node_modules/uswds/dist/css/uswds.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$base-font-family: 'Mulish', sans-serif;
+$sans-font: 	   'Mulish', sans-serif;
+$title-font:		'Montserrat', 'Helvetica Neue', 'Helvetica', 'Roboto', 'Arial', sans-serif;
+$serif-font:       'montserrat', 'Georgia', 'Cambria', 'Times New Roman', 'Times', serif;
+$base-font-size:   1.7rem;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.5;
+$black: #212121;
+$dark-blue: #162E51;
+$light-blue: #1A4480;
+$teal: #0A90B7;
+$light-teal: #bde2f9;
+$lighter-teal: #D9F1FD;
+$red: #C71F25;
+$dark-red: #A00A0F;
+$dark-gray: #454545;
+$intro-text: #4c4c4e;
+$mid-gray: #757575;
+$light-gray: #D0D0D0;
+$lightest-gray: #f2f2f2;
+$spacing-unit: 30px;
+$dark-red: #970B22;
+$darkest-blue: #131836;
+$footer-teal: #D9F1FD;
+$footer-lines: #384D6A;
+$new-home-teal: #1889BC;
+$theme-color-primary-vivid: #1889BC;

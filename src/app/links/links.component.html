@@ -1,0 +1,18 @@
+
+<div class="clearfix"></div>
+<div class="usa-nav-container filter-container">
+<div>
+    <p><strong>Click Below to Filter Marketplace by List Type:</strong></p>
+</div>
+<div class="">
+    <button [routerLinkActive]="'active'" id="filterBy" href="" class="fr-selection" routerLink="/products">
+        <span style="display:none" aria-hidden="false">FedRAMP </span>Products
+    </button>
+    <button [routerLinkActive]="'active'" id="filterByAgency" class="fr-selection" href="" routerLink="/agencies">
+        <span style="display:none" aria-hidden="false">FedRAMP </span>Agencies
+    </button>
+    <button [routerLinkActive]="'active'" id="filterBy3PAO" class="fr-selection" routerLink="/assessors">
+        <span style="display:none" aria-hidden="false">FedRAMP </span>Assessors
+    </button>
+</div>
+</div>
