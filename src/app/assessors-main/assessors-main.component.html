@@ -30,7 +30,7 @@
 
 
 
-        <p class="mp-container-total-search-results">{{data.Agencies.length}} results</p>
+        <p class="mp-container-total-search-results">{{data.Assessors.length}} results</p>
 
         <!-- Accordian -->
         <div class="search-container">
@@ -93,7 +93,7 @@
 
 
         <div *ngIf="isCachePresent">
-          <div *ngFor="let a of data.Assessors">
+          <div *ngFor="let a of data.Assessors" class="{{a.filter_classes}}">
             <div class="grid-row mp-search-results display-none desktop:display-flex">
               <div class="grid-col-10 company-logo-column product_column-service_offering ">
                 <div class="assessors-logo">
@@ -179,7 +179,7 @@
     <!-- Mobile Search Results -->
 
     <div *ngIf="isCachePresent">
-      <div *ngFor="let a of data.Assessors">
+      <div *ngFor="let a of data.Assessors" class="{{a.filter_classes}}">
         <a href="/assessors/{{a.id}}" target="_blank" class="company-info-link">
           <div class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
             <div class="desktop:grid-col-4  product_column-service_offering assessors-company-logo">

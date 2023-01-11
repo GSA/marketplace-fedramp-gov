@@ -429,13 +429,7 @@
               <h3>UEI Number</h3>
               <p>{{product.uei}}</p>
               <h3>Small Business</h3>
-              <div *ngIf="product.small_business == 'Y'; then smallThenBlock else smallElseBlock"></div>
-              <ng-template #smallThenBlock>
-                <p>Yes</p>
-              </ng-template>
-              <ng-template #smallElseBlock>
-                <p>No</p>
-              </ng-template>
+              <p>{{product.small_business}}</p>
             </div>
 
           </div>

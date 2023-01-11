@@ -113,7 +113,7 @@
 
 
         <div *ngIf="isCachePresent">
-          <div *ngFor="let a of data.Agencies">
+          <div *ngFor="let a of data.Agencies" class="{{a.filter_classes}}">
             <div class="grid-row mp-search-results">
               <div class="grid-col-4 agencies_column-parent_agency">
                 <a href="/agencies/{{a.id}}" target="_blank"><span>{{a.parent}}</span></a>
@@ -208,7 +208,7 @@
     <!-- Mobile Search Results -->
 
     <div *ngIf="isCachePresent">
-      <div *ngFor="let a of data.Agencies">
+      <div *ngFor="let a of data.Agencies" class="{{a.filter_classes}}">
         <a href="/agencies/{{a.id}}" target="_blank" class="company-info-link">
           <div class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
             <div class="grid-col-12 company-logo-column agencies_column-parent_agency">

@@ -185,7 +185,7 @@
         <!-- Results -->
 
         <div *ngIf="isCachePresent">
-          <div *ngFor="let p of data.Products">
+          <div *ngFor="let p of data.Products" class="{{p.filter_classes}}">
             <div class="grid-row mp-search-results display-none desktop:display-flex">
               <div class="grid-col-2 company-logo-column product_column-service_offering">
                 <a href="/products/{{p.id}}" target="_blank"><img src="{{p.logo}}" alt="{{p.name}}"
@@ -196,7 +196,9 @@
                 <span>{{p.service_offering}}</span>
               </div>
               <div class="grid-col-2 product_column-service_model">
-                <span>{{p.service_model}}</span>
+                <span>
+                  <div *ngFor="let i of p.service_model">{{i}}</div>
+                </span>
               </div>
               <div class="grid-col-2 product_column-impact_level">
                 <span>{{p.impact_level}}</span>
@@ -333,7 +335,7 @@
         <!-- Mobile Search Results -->
 
         <div *ngIf="isCachePresent">
-          <div *ngFor="let p of data.Products">
+          <div *ngFor="let p of data.Products" class="{{p.filter_classes}}">
             <a href="/products/{{p.id}}" target="_blank" class="company-info-link">
               <div class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
                 <div class="gid-col-12 desktop:grid-col-2 company-logo-column product_column-service_offering">
@@ -357,7 +359,7 @@
                     <div class="grid-col-6 padding-top-4">
                       <div class="product_column-service_model">
                         <h5>Service Model</h5>
-                        <span>{{p.service_model}}</span>
+                        <span *ngFor="let i of p.service_model">{{i}}<br></span>
                       </div>
                       <div class="product_column-impact_level">
                         <h5>Impact Level</h5>
