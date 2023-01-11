@@ -43,7 +43,7 @@
             <div class="search-content">
               <ul>
                 <div *ngFor="let i of data.Filters.assessor.product_assessing">
-                  <li>{{i}}</li>
+                  <li class="{{i.class_name}}">{{i.name}}</li>
                 </div>
               </ul>
             </div>
@@ -57,7 +57,7 @@
             <div class="search-content">
               <ul>
                 <div *ngFor="let i of data.Filters.assessor.impact_level">
-                  <li>{{i}}</li>
+                  <li class="{{i.class_name}}">{{i.name}}</li>
                 </div>
               </ul>
             </div>
@@ -71,7 +71,7 @@
             <div class="search-content">
               <ul>
                 <div *ngFor="let i of data.Filters.assessor.status">
-                  <li>{{i}}</li>
+                  <li class="{{i.class_name}}">{{i.name}}</li>
                 </div>
               </ul>
             </div>
@@ -145,7 +145,7 @@
               <p>Products Assessing</p>
               <ul>
                 <div *ngFor="let i of data.Filters.assessor.product_assessing">
-                  <li>{{i}}</li>
+                  <li class="{{i.class_name}}">{{i.name}}</li>
                 </div>
               </ul>
             </div>
@@ -154,7 +154,7 @@
               <p>Impact Level</p>
               <ul>
                 <div *ngFor="let i of data.Filters.assessor.impact_level">
-                  <li>{{i}}</li>
+                  <li class="{{i.class_name}}">{{i.name}}</li>
                 </div>
               </ul>
             </div>
@@ -163,7 +163,7 @@
               <p>Offering Status</p>
               <ul>
                 <div *ngFor="let i of data.Filters.assessor.status">
-                  <li>{{i}}</li>
+                  <li class="{{i.class_name}}">{{i.name}}</li>
                 </div>
               </ul>
             </div>

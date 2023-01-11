@@ -42,7 +42,7 @@
             <div class="search-content">
               <ul>
                 <div *ngFor="let i of data.Filters.agency.parent_agency">
-                  <li>{{i}}</li>
+                  <li class="{{i.class_name}}">{{i.name}}</li>
                 </div>
               </ul>
             </div>
@@ -56,7 +56,7 @@
             <div class="search-content">
               <ul>
                 <div *ngFor="let i of data.Filters.agency.authorization">
-                  <li>{{i}}</li>
+                  <li class="{{i.class_name}}">{{i.name}}</li>
                 </div>
               </ul>
             </div>
@@ -70,7 +70,7 @@
             <div class="search-content">
               <ul>
                 <div *ngFor="let i of data.Filters.agency.impact_level">
-                  <li>{{i}}</li>
+                  <li class="{{i.class_name}}">{{i.name}}</li>
                 </div>
               </ul>
             </div>
@@ -84,7 +84,7 @@
             <div class="search-content">
               <ul>
                 <div *ngFor="let i of data.Filters.agency.reuse">
-                  <li>{{i}}</li>
+                  <li class="{{i.class_name}}">{{i.name}}</li>
                 </div>
               </ul>
             </div>
@@ -165,7 +165,7 @@
               <p>Parent Agency</p>
               <ul>                
                 <div *ngFor="let i of data.Filters.agency.parent_agency">
-                  <li>{{i}}</li>
+                  <li class="{{i.class_name}}">{{i.name}}</li>
                 </div>
               </ul>
             </div>
@@ -174,7 +174,7 @@
               <p>Authorizations</p>
               <ul>
                 <div *ngFor="let i of data.Filters.agency.authorization">
-                  <li>{{i}}</li>
+                  <li class="{{i.class_name}}">{{i.name}}</li>
                 </div>
               </ul>
             </div>
@@ -183,7 +183,7 @@
               <p>Impact Level</p>
               <ul>
                 <div *ngFor="let i of data.Filters.agency.impact_level">
-                  <li>{{i}}</li>
+                  <li class="{{i.class_name}}">{{i.name}}</li>
                 </div>
               </ul>
             </div>
@@ -192,7 +192,7 @@
               <p>Reuse</p>
               <ul>
                 <div *ngFor="let i of data.Filters.agency.reuse">
-                  <li>{{i}}</li>
+                  <li class="{{i.class_name}}">{{i.name}}</li>
                 </div>
               </ul>
             </div>
