@@ -98,34 +98,34 @@
       <div class="grid-col-10">
         <div class="grid-row search-sortable mp-sortable-column display-none desktop:display-flex">
           <div class="grid-col-4 agencies_column-parent_agency">
-            <span>Parent Agency</span>
+            <span id="sort-header-0-desktop" class="sort-header-desktop" onclick="sortCol(0);" aria-sort="none" style="cursor:pointer;">Parent Agency</span>
           </div>
           <div class="grid-col-4 agencies_column-department_agency">
-            <span>Department/Agency</span>
+            <span id="sort-header-1-desktop" class="sort-header-desktop" onclick="sortCol(1);" aria-sort="none" style="cursor:pointer;">Department/Agency</span>
           </div>
           <div class="grid-col-2 agencies_column-authorizations text-center">
-            <span>Authorizations</span>
+            <span id="sort-header-2-desktop" class="sort-header-desktop" onclick="sortCol(2,true);" aria-sort="none" style="cursor:pointer;">Authorizations</span>
           </div>
           <div class="grid-col-2 agencies_column-reuse text-center">
-            <span>Reuse</span>
+            <span id="sort-header-3-desktop" class="sort-header-desktop" onclick="sortCol(3,true);" aria-sort="none" style="cursor:pointer;">Reuse</span>
           </div>
         </div>
 
 
-        <div *ngIf="isCachePresent">
+        <div *ngIf="isCachePresent" id="sort-table-desktop">
           <div *ngFor="let a of data.Agencies" class="{{a.filter_classes}}">
             <div class="grid-row mp-search-results">
               <div class="grid-col-4 agencies_column-parent_agency">
-                <a href="/agencies/{{a.id}}" target="_blank"><span>{{a.parent}}</span></a>
+                <a href="/agencies/{{a.id}}" target="_blank"><span class="sort-col-0-desktop">{{a.parent}}</span></a>
               </div>
               <div class="grid-col-4 agencies_column-department_agency">
-                <span>{{a.sub}}</span>
+                <span class="sort-col-1-desktop">{{a.sub}}</span>
               </div>
               <div class="grid-col-2 agencies_column-authorizations text-center">
-                <span>{{a.authorization}}</span>
+                <span class="sort-col-2-desktop">{{a.authorization}}</span>
               </div>
               <div class="grid-col-2 agencies_column-reuse text-center">
-                <span>{{a.reuse}}</span>
+                <span class="sort-col-3-desktop">{{a.reuse}}</span>
               </div>
             </div>
           </div>

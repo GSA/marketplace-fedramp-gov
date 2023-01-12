@@ -84,15 +84,15 @@
       <div class="grid-col-10">
         <div class="grid-row search-sortable mp-sortable-column display-none desktop:display-flex">
           <div class="grid-col-10 product_column-provider">
-            <span>Name</span>
+            <span id="sort-header-0-desktop" class="sort-header-desktop" onclick="sortCol(0);" aria-sort="none" style="cursor:pointer;">Name</span>
           </div>
           <div class="grid-col-2 product_column-service_offering text-center">
-            <span>Products Assessing</span>
+            <span id="sort-header-1-desktop" class="sort-header-desktop" onclick="sortCol(1,true);" aria-sort="none" style="cursor:pointer;">Products Assessing</span>
           </div>
         </div>
 
 
-        <div *ngIf="isCachePresent">
+        <div id="sort-table-desktop" *ngIf="isCachePresent">
           <div *ngFor="let a of data.Assessors" class="{{a.filter_classes}}">
             <div class="grid-row mp-search-results display-none desktop:display-flex">
               <div class="grid-col-10 company-logo-column product_column-service_offering ">
@@ -102,12 +102,12 @@
                   </a>
                 </div>
                 <div class="assessors-name">
-                  <span>{{a.name}}</span>
+                  <span class="sort-col-0-desktop">{{a.name}}</span>
                 </div>
               </div>
 
               <div class="grid-col-2 product_column-reuse text-center">
-                <span>{{a.products_assessing}}</span>
+                <span class="sort-col-1-desktop">{{a.products_assessing}}</span>
               </div>
             </div>
           </div>
