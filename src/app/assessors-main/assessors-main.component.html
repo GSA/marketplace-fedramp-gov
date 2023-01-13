@@ -6,6 +6,9 @@
   .d-none {
     display: none;
   }
+  .d-search-none {
+    display: none;
+  }
   .cursor-pointer {
     cursor: pointer;
   }
@@ -31,17 +34,23 @@
     <!-- Search Column-->
     <div class="grid-row">
       <div class="tablet:grid-col-2 padding-right-3 results-search">
-        <label id='clear-all-desktop' class="cursor-pointer d-none" onclick="clearFilter();">X Clear All</label>
+        <label id='clear-search-desktop' class="cursor-pointer d-none" onclick="clearSearch();">X Clear Search</label>
+        <label id='clear-filters-desktop' class="cursor-pointer d-none" onclick="clearFilter();">X Clear Filters</label>
         <br>
-        <input type="text" id="clear-search" name="clear-search" placeholder="Search by Provider or Product">
+        <input type="text" onkeyup="filterSearch(this.value);" id="clear-search" name="clear-search" placeholder="Search by Provider or Product" >
 
 
 
-        <p class="mp-container-total-search-results">{{data.Assessors.length}} results</p>
+        <p class="mp-container-total-search-results">{{data.Assessors.length}} total</p>
 
         <!-- Accordian -->
         <div class="search-container">
 
+          <!-- AVAV - this is the old one for reference -->
+          <!-- AVAV - this is the old one for reference -->
+          <!-- AVAV - this is the old one for reference -->
+          <!-- AVAV - this is the old one for reference -->
+          <!-- AVAV - this is the old one for reference -->
           <!-- AVAV - this is the old one for reference -->
           <label *ngIf="data.Filters.assessor.product_assessing.length != 0" for="chk-1">
             <input id="chk-1" type="checkbox" />
@@ -57,7 +66,12 @@
             </div>
           </label>
 
-          <!-- AVAV - this is the USWDS accordion for desktop -->
+          <!-- AVAV - NEW accordion (USWDS) desktop -->
+          <!-- AVAV - NEW accordion (USWDS) desktop -->
+          <!-- AVAV - NEW accordion (USWDS) desktop -->
+          <!-- AVAV - NEW accordion (USWDS) desktop -->
+          <!-- AVAV - NEW accordion (USWDS) desktop -->
+          <!-- AVAV - NEW accordion (USWDS) desktop -->
           <div *ngIf="data.Filters.assessor.product_assessing.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
               <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="a1">
@@ -141,7 +155,12 @@
 
     <div class="search-container desktop:display-none">
 
-      <!-- AVAV - new mobile filter accordion -->
+      <!-- AVAV - NEW mobile accordion USWDS -->
+      <!-- AVAV - NEW mobile accordion USWDS -->
+      <!-- AVAV - NEW mobile accordion USWDS -->
+      <!-- AVAV - NEW mobile accordion USWDS -->
+      <!-- AVAV - NEW mobile accordion USWDS -->
+      <!-- AVAV - NEW mobile accordion USWDS -->
       <div class="usa-accordion">
         <h4 class="usa-accordion__heading accordian-title">
 
@@ -192,7 +211,12 @@
 
 
 
-      <!-- AVAV - OLD mobile accordion -->
+      <!-- AVAV - OLD mobile accordion for reference -->
+      <!-- AVAV - OLD mobile accordion for reference -->
+      <!-- AVAV - OLD mobile accordion for reference -->
+      <!-- AVAV - OLD mobile accordion for reference -->
+      <!-- AVAV - OLD mobile accordion for reference -->
+      <!-- AVAV - OLD mobile accordion for reference -->
       <label for="chk-m1">
 
         <input id="chk-m1" type="checkbox" />
