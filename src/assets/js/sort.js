@@ -35,7 +35,7 @@ function sortCol(n, isNum = false, tableType = 'desktop') {
     }
 
     for(let i = 0; i < headers.length; i++) {
-        headers[i].className = "sort-header-" + tableType + " sort-none";
+        headers[i].className = "sort-header-" + tableType + " cursor-pointer sort-none";
     }
 
     if(isSortAsc == true) {
