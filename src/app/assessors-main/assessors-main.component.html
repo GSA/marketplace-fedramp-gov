@@ -2,6 +2,10 @@
 
 <app-links></app-links>
 
+<style>
+  .d-none { display: none; }
+</style>
+
 <section>
   <div class="grid-container mp-search-main">
     <div class="grid-row">
@@ -13,8 +17,6 @@
           <option value="seventy-five">75</option>
           <option value="one-hundred">100</option>
         </select>
-
-
       </div>
     </div>
   </div>
@@ -43,7 +45,7 @@
             <div class="search-content">
               <ul>
                 <div *ngFor="let i of data.Filters.assessor.product_assessing">
-                  <li class="{{i.class_name}}">{{i.name}}</li>
+                  <li id="{{i.class_name}}" onclick="filterRows(this.id);">{{i.name}}</li>
                 </div>
               </ul>
             </div>
@@ -84,10 +86,10 @@
       <div class="grid-col-10">
         <div class="grid-row search-sortable mp-sortable-column display-none desktop:display-flex">
           <div class="grid-col-10 product_column-provider">
-            <span id="sort-header-0-desktop" class="sort-header-desktop" onclick="sortCol(0);" aria-sort="none" style="cursor:pointer;">Name</span>
+            <span id="sort-header-0-desktop" class="sort-header-desktop sort-none" onclick="sortCol(0);" style="cursor:pointer;">Name</span>
           </div>
           <div class="grid-col-2 product_column-service_offering text-center">
-            <span id="sort-header-1-desktop" class="sort-header-desktop" onclick="sortCol(1,true);" aria-sort="none" style="cursor:pointer;">Products Assessing</span>
+            <span id="sort-header-1-desktop" class="sort-header-desktop sort-none" onclick="sortCol(1,true);" style="cursor:pointer;">Products Assessing</span>
           </div>
         </div>
 

@@ -4,8 +4,9 @@ function sortCol(n, isNum = false, tableType = 'desktop') {
     var header = document.getElementById("sort-header-" + n + "-" + tableType);
     var headers = document.getElementsByClassName("sort-header-" + tableType);
 
-    var headerSort = header.getAttribute("aria-sort");
-    var headerSortNew = "ascending";
+    var isSortNone = header.classList.contains("sort-none");
+    var isSortAsc = header.classList.contains("sort-ascending");
+    var headerSortNew = "sort-ascending";
     
     var sortCol = "sort-col-" + n + "-" + tableType;
 
@@ -19,7 +20,7 @@ function sortCol(n, isNum = false, tableType = 'desktop') {
         vals[i] = kids[i].getElementsByClassName(sortCol)[0].textContent;
     }
     
-    if(headerSort == "none") {
+    if(isSortNone == true) {
 
         if(isNum == true) {
             quickSortInt(rows, vals, 0, vals.length-1);
@@ -34,14 +35,15 @@ function sortCol(n, isNum = false, tableType = 'desktop') {
     }
 
     for(let i = 0; i < headers.length; i++) {
-        headers[i].setAttribute("aria-sort","none");
+        headers[i].className = "sort-header-" + tableType + " sort-none";
     }
 
-    if(headerSort == "ascending") {
-        headerSortNew = "descending";
+    if(isSortAsc == true) {
+        headerSortNew = "sort-descending";
     }
 
-    header.setAttribute("aria-sort", headerSortNew);
+    header.classList.remove("sort-none");
+    header.classList.add(headerSortNew);
 }
 
 

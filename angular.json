@@ -48,6 +48,7 @@
               "src/assets/sass/standard-styles.scss"
             ],
             "scripts": [
+              "src/assets/js/filter.js",
               "src/assets/js/sort.js"
             ]
           },
