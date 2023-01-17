@@ -103,7 +103,7 @@
             </h4>
             <div id="a1" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.assessor.product_assessing">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer">{{i.name}}</li>
+                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -116,7 +116,7 @@
             </h4>
             <div id="a2" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.assessor.impact_level">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer">{{i.name}}</li>
+                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -129,7 +129,7 @@
             </h4>
             <div id="a3" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.assessor.status">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer">{{i.name}}</li>
+                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -221,21 +221,21 @@
             <div *ngIf="data.Filters.assessor.product_assessing.length != 0" class="grid-col-4">
               <p>Products Assessing</p>
               <div *ngFor="let i of data.Filters.assessor.product_assessing">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');">{{i.name}}</li>
+                <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class=" filter-item-mobile">{{i.name}}</li>
               </div>
             </div>
 
             <div *ngIf="data.Filters.assessor.impact_level.length != 0" class="grid-col-4">
               <p>Impact Level</p>
               <div *ngFor="let i of data.Filters.assessor.impact_level">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');">{{i.name}}</li>
+                <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class=" filter-item-mobile">{{i.name}}</li>
               </div>
             </div>
 
             <div *ngIf="data.Filters.assessor.status.length != 0" class="grid-col-4">
               <p>Offering Status</p>
               <div *ngFor="let i of data.Filters.assessor.status">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');">{{i.name}}</li>
+                <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class=" filter-item-mobile">{{i.name}}</li>
               </div>
             </div>
 
