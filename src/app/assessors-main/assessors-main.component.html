@@ -24,7 +24,9 @@
 <section>
   <div class="grid-container mp-search-main">
     <div class="grid-row">
-      <div class="tablet:grid-col-2 grid-offset-10 padding-0 page-display-select">
+
+
+      <!-- <div class="tablet:grid-col-2 grid-offset-10 padding-0 page-display-select">
         <p>Number of items shown at a time</p>
         <select name="display-number" id="display-number">
           <option value="twenty-five">25</option>
@@ -32,7 +34,9 @@
           <option value="seventy-five">75</option>
           <option value="one-hundred">100</option>
         </select>
-      </div>
+      </div> -->
+
+
     </div>
   </div>
 
@@ -68,7 +72,10 @@
           <!-- AVAV - this is the old one for reference -->
           <!-- AVAV - this is the old one for reference -->
           <!-- AVAV - this is the old one for reference -->
-          <label *ngIf="data.Filters.assessor.product_assessing.length != 0" for="chk-1">
+          
+          
+          
+          <!-- <label *ngIf="data.Filters.assessor.product_assessing.length != 0" for="chk-1">
             <input id="chk-1" type="checkbox" />
             <div class="title">
               <h4 class="accordian-title">Products Assessing</h4>
@@ -80,7 +87,7 @@
                 </div>
               </ul>
             </div>
-          </label>
+          </label> -->
 
           <!-- AVAV - NEW accordion (USWDS) desktop -->
           <!-- AVAV - NEW accordion (USWDS) desktop -->
@@ -90,7 +97,7 @@
           <!-- AVAV - NEW accordion (USWDS) desktop -->
           <div *ngIf="data.Filters.assessor.product_assessing.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
-              <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="a1">
+              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a1">
                 Products Assessing
               </button>
             </h4>
@@ -103,7 +110,7 @@
 
           <div *ngIf="data.Filters.assessor.impact_level.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
-              <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="a2">
+              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a2">
                 Impact Level
               </button>
             </h4>
@@ -116,7 +123,7 @@
 
           <div *ngIf="data.Filters.assessor.status.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
-              <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="a3">
+              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a3">
                 Offering Status
               </button>
             </h4>
@@ -194,7 +201,9 @@
         </h4>
         <div id="m1" class="usa-accordion__content usa-prose" hidden="">
           <div class="grid-row">
-            <div class="grid-col-12">
+            
+            
+            <!-- <div class="grid-col-12">
               <p>Number of items shown at a time</p>
               <select name="display-number" id="display-number">
                 <option value="twenty-five">25</option>
@@ -202,7 +211,9 @@
                 <option value="seventy-five">75</option>
                 <option value="one-hundred">100</option>
               </select>
-            </div>
+            </div> -->
+
+
           </div>
 
           <div class="grid-row">
@@ -248,7 +259,9 @@
         </div>
         <div class="search-content">
           <div class="grid-row">
-            <div class="grid-col-12">
+            
+            
+            <!-- <div class="grid-col-12">
               <p>Number of items shown at a time</p>
               <select name="display-number" id="display-number">
                 <option value="twenty-five">25</option>
@@ -256,7 +269,9 @@
                 <option value="seventy-five">75</option>
                 <option value="one-hundred">100</option>
               </select>
-            </div>
+            </div> -->
+
+
           </div>
 
           <div class="grid-row">
@@ -323,7 +338,7 @@
       </div>
     </div>
 
-    <nav aria-label="Pagination" class="usa-pagination">
+    <!-- <nav aria-label="Pagination" class="usa-pagination">
       <ul class="usa-pagination__list">
         <li class="usa-pagination__item usa-pagination__arrow">
           <a href="javascript:void(0);" class="usa-pagination__link usa-pagination__previous-page"
@@ -362,7 +377,7 @@
             </svg></a>
         </li>
       </ul>
-    </nav>
+    </nav> -->
 
   </div>
 </section>

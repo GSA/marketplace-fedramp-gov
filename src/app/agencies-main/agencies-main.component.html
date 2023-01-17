@@ -24,7 +24,9 @@
 <section>
   <div class="grid-container mp-search-main">
     <div class="grid-row">
-      <div class="tablet:grid-col-2 grid-offset-10 padding-0 page-display-select">
+
+
+      <!-- <div class="tablet:grid-col-2 grid-offset-10 padding-0 page-display-select">
         <p>Number of items shown at a time</p>
         <select name="display-number" id="display-number">
           <option value="twenty-five">25</option>
@@ -32,9 +34,8 @@
           <option value="seventy-five">75</option>
           <option value="one-hundred">100</option>
         </select>
+      </div> -->
 
-
-      </div>
     </div>
   </div>
 
@@ -68,7 +69,7 @@
           <!-- AVAV - NEW accordions USWDS -->
           <div *ngIf="data.Filters.agency.parent_agency.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
-              <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="a1">
+              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a1">
                 Parent Agency
               </button>
             </h4>
@@ -81,7 +82,7 @@
 
           <div *ngIf="data.Filters.agency.authorization.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
-              <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="a2">
+              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a2">
                 Authorizations
               </button>
             </h4>
@@ -94,7 +95,7 @@
 
           <div *ngIf="data.Filters.agency.impact_level.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
-              <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="a3">
+              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a3">
                 Impact Level
               </button>
             </h4>
@@ -107,7 +108,7 @@
 
           <div *ngIf="data.Filters.agency.reuse.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
-              <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="a4">
+              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a4">
                 Reuse
               </button>
             </h4>
@@ -278,7 +279,7 @@
 
     <!-- Pagination -->
 
-    <nav aria-label="Pagination" class="usa-pagination">
+    <!-- <nav aria-label="Pagination" class="usa-pagination">
       <ul class="usa-pagination__list">
         <li class="usa-pagination__item usa-pagination__arrow">
           <a href="javascript:void(0);" class="usa-pagination__link usa-pagination__previous-page"
@@ -317,7 +318,7 @@
             </svg></a>
         </li>
       </ul>
-    </nav>
+    </nav> -->
 
   </div>
 </section>

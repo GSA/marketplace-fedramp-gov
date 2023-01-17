@@ -310,3 +310,33 @@ input[type="checkbox"]:checked + .mobile-title h4:after {
 		position: absolute;
 		width: 20px;
 }
+
+.sort-header-desktop.sort-descending:after {
+	content: '\25bc';
+    padding-left: 0.5em;
+}
+
+.sort-header-desktop.sort-ascending:after {
+	content: '\25b2';
+    padding-left: 0.5em;
+}
+
+button.usa-accordion__button.accordian-title {
+	padding: 0;
+	font-weight: normal;
+	margin-bottom: 10px;
+}
+
+.usa-accordion__content {
+	background-color: transparent;
+	padding: 0;
+
+	li.cursor-pointer {
+		font-size: .75rem;
+	}
+
+	li.filter-on:after {
+		content: '\2713';
+    	padding-left: 0.5em;
+	}
+}
