@@ -192,7 +192,9 @@
           </button>
         </h4>
         <div id="m1" class="usa-accordion__content usa-prose" hidden="">
-          <div class="grid-row">
+          
+          
+          <!-- <div class="grid-row">
             <div class="grid-col-12">
               <p>Number of items shown at a time</p>
               <select name="display-number" id="display-number">
@@ -202,7 +204,7 @@
                 <option value="one-hundred">100</option>
               </select>
             </div>
-          </div>
+          </div> -->
 
           <div class="grid-row">
 
@@ -212,6 +214,7 @@
                 <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class="filter-item-mobile">{{i.name}}</li>
               </div>
             </div>
+            
 
             <div *ngIf="data.Filters.agency.authorization.length != 0" class="grid-col-3">
               <p>Authorizations</p>
@@ -230,7 +233,7 @@
             <div *ngIf="data.Filters.agency.reuse.length != 0" class="grid-col-3">
               <p>Reuse</p>
               <div *ngFor="let i of data.Filters.agency.reuse">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class="filter-item-mobile">{{i.name}}</li>
+                <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
               </div>
             </div>
 
