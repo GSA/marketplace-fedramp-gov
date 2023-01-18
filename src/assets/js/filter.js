@@ -86,6 +86,8 @@ function filterRows(filterClass, tableType = 'desktop') {
 
 function clearFilter(tableType = 'desktop') {
 
+    var filters = document.getElementsByClassName("filter-item-" + tableType);
+
     var clear = document.getElementById("clear-filters-" + tableType);
     var table = document.getElementById("sort-table-" + tableType);
 
@@ -93,6 +95,10 @@ function clearFilter(tableType = 'desktop') {
 
     clear.classList.add("d-none");
     table.className = "";
+
+    for (let i = 0; i < filters.length; i++) {
+        filters[i].classList.remove("filter-on");
+    }
 
     var rows = [];
 

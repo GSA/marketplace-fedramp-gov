@@ -75,7 +75,7 @@
             </h4>
             <div id="a1" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.agency.parent_agency">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer">{{i.name}}</li>
+                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -88,7 +88,7 @@
             </h4>
             <div id="a2" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.agency.authorization">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer">{{i.name}}</li>
+                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -101,7 +101,7 @@
             </h4>
             <div id="a3" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.agency.impact_level">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer">{{i.name}}</li>
+                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -114,7 +114,7 @@
             </h4>
             <div id="a4" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.agency.reuse">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer">{{i.name}}</li>
+                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -209,28 +209,28 @@
             <div *ngIf="data.Filters.agency.parent_agency.length != 0" class="grid-col-3">
               <p>Parent Agency</p>
               <div *ngFor="let i of data.Filters.agency.parent_agency">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');">{{i.name}}</li>
+                <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class="filter-item-mobile">{{i.name}}</li>
               </div>
             </div>
 
             <div *ngIf="data.Filters.agency.authorization.length != 0" class="grid-col-3">
               <p>Authorizations</p>
               <div *ngFor="let i of data.Filters.agency.authorization">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');">{{i.name}}</li>
+                <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class="filter-item-mobile">{{i.name}}</li>
               </div>
             </div>
 
             <div *ngIf="data.Filters.agency.impact_level.length != 0" class="grid-col-3">
               <p>Impact Level</p>
               <div *ngFor="let i of data.Filters.agency.impact_level">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');">{{i.name}}</li>
+                <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class="filter-item-mobile">{{i.name}}</li>
               </div>
             </div>
 
             <div *ngIf="data.Filters.agency.reuse.length != 0" class="grid-col-3">
               <p>Reuse</p>
               <div *ngFor="let i of data.Filters.agency.reuse">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');">{{i.name}}</li>
+                <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class="filter-item-mobile">{{i.name}}</li>
               </div>
             </div>
 
