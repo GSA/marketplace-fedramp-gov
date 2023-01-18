@@ -2,18 +2,6 @@
 
 <app-links></app-links>
 
-<style>
-  .d-none {
-    display: none;
-  }
-  .d-search-none {
-    display: none;
-  }
-  .cursor-pointer {
-    cursor: pointer;
-  }
-</style>
-
 <section>
   <div class="grid-container mp-search-main">
     <div class="grid-row">
@@ -55,7 +43,7 @@
             </h4>
             <div id="a1" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.product.status">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -68,7 +56,7 @@
             </h4>
             <div id="a2" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.product.business_function">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -81,7 +69,7 @@
             </h4>
             <div id="a3" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.product.service_model">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -94,7 +82,7 @@
             </h4>
             <div id="a4" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.product.impact_level">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -107,7 +95,7 @@
             </h4>
             <div id="a5" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.product.auth_type">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -120,7 +108,7 @@
             </h4>
             <div id="a6" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.product.deployment_models">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -133,7 +121,7 @@
             </h4>
             <div id="a7" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.product.small_business">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -146,7 +134,7 @@
             </h4>
             <div id="a8" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.product.assessor">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -222,7 +210,7 @@
           <div class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
 
-              <label id='clear-all-mobile' class="cursor-pointer d-none" onclick="clearFilter('mobile');">X Clear All</label>
+              <label id='clear-filters-mobile' class="cursor-pointer d-none" onclick="clearFilter('mobile');">X Clear All</label>
               <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="m1">
                 Filter Results
               </button>
@@ -247,7 +235,7 @@
                   <p><strong>Status</strong></p>
                   <ul>
                     <div *ngFor="let i of data.Filters.product.status">
-                      <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class="filter-item-mobile">{{i.name}}</li>
+                      <li id="{{i.class_name}}-mobile" onclick="filterRows(this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
                     </div>
                   </ul>
                 </div>
@@ -256,7 +244,7 @@
                   <p><strong>Business Category</strong></p>
                   <ul>
                     <div *ngFor="let i of data.Filters.product.business_function">
-                      <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class="filter-item-mobile">{{i.name}}</li>
+                      <li id="{{i.class_name}}-mobile" onclick="filterRows(this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
                     </div>
                   </ul>
                 </div>
@@ -266,7 +254,7 @@
                   <p><strong>Service Model</strong></p>
                   <ul>
                     <div *ngFor="let i of data.Filters.product.service_model">
-                      <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class="filter-item-mobile">{{i.name}}</li>
+                      <li id="{{i.class_name}}-mobile" onclick="filterRows(this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
                     </div>
                   </ul>
                 </div>
@@ -276,7 +264,7 @@
                   <p><strong>Impact Level</strong></p>
                   <ul>
                     <div *ngFor="let i of data.Filters.product.impact_level">
-                      <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class="filter-item-mobile">{{i.name}}</li>
+                      <li id="{{i.class_name}}-mobile" onclick="filterRows(this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
                     </div>
                   </ul>
                 </div>
@@ -290,7 +278,7 @@
                   <p><strong>Authorization Type</strong></p>
                   <ul>
                     <div *ngFor="let i of data.Filters.product.auth_type">
-                      <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class="filter-item-mobile">{{i.name}}</li>
+                      <li id="{{i.class_name}}-mobile" onclick="filterRows(this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
                     </div>
                   </ul>
                 </div>
@@ -299,7 +287,7 @@
                   <p><strong>Deployment Models</strong></p>
                   <ul>
                     <div *ngFor="let i of data.Filters.product.deployment_models">
-                      <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class="filter-item-mobile">{{i.name}}</li>
+                      <li id="{{i.class_name}}-mobile" onclick="filterRows(this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
                     </div>
                   </ul>
                 </div>
@@ -309,7 +297,7 @@
                   <p><strong>Small Business</strong></p>
                   <ul>
                     <div *ngFor="let i of data.Filters.product.small_business">
-                      <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class="filter-item-mobile">{{i.name}}</li>
+                      <li id="{{i.class_name}}-mobile" onclick="filterRows(this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
                     </div>
                   </ul>
                 </div>
@@ -319,7 +307,7 @@
                   <p><strong>Assessor</strong></p>
                   <ul>
                     <div *ngFor="let i of data.Filters.product.assessor">
-                      <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class="filter-item-mobile">{{i.name}}</li>
+                      <li id="{{i.class_name}}-mobile" onclick="filterRows(this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
                     </div>
                   </ul>
                 </div>

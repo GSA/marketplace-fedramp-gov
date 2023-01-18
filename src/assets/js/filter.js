@@ -49,9 +49,11 @@ function clearSearch() {
 
 function filterRows(filterClass, tableType = 'desktop') {
 
+    filterClass = filterClass.substr(0,filterClass.lastIndexOf('-'));
+
     var clear = document.getElementById("clear-filters-" + tableType);
     var table = document.getElementById("sort-table-" + tableType);
-    var filter = document.getElementById(filterClass);
+    var filter = document.getElementById(filterClass + "-" + tableType);
 
     const kids = table.children;
     var rows = [];
