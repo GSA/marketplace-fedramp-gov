@@ -2,27 +2,9 @@
 
 <app-links></app-links>
 
-<!-- AVAV put these styles in your CSS (i dont know where that is) -->
-<!-- AVAV put these styles in your CSS (i dont know where that is) -->
-<!-- AVAV put these styles in your CSS (i dont know where that is) -->
-<!-- AVAV put these styles in your CSS (i dont know where that is) -->
-
-<style>
-  .d-none {
-    display: none;
-  }
-  .d-search-none {
-    display: none;
-  }
-  .cursor-pointer {
-    cursor: pointer;
-  }
-</style>
-
 <section>
   <div class="grid-container mp-search-main">
     <div class="grid-row">
-      
       
       <!-- <div class="tablet:grid-col-2 grid-offset-10 padding-0 page-display-select">
         <p>Number of items shown at a time</p>
@@ -43,38 +25,25 @@
     <div class="grid-row">
       <div class="tablet:grid-col-2 padding-right-3 results-search">
 
-
-      <!-- AVAV - Clear Buttons -->
-      <!-- AVAV - Clear Buttons -->
-      <!-- AVAV - Clear Buttons -->
-      <!-- AVAV - Clear Buttons -->
-      <!-- AVAV - Clear Buttons -->
-      <!-- AVAV - Clear Buttons -->
         <label id='clear-search-desktop' class="cursor-pointer d-none" onclick="clearSearch();">X Clear Search</label>
         <label id='clear-filters-desktop' class="cursor-pointer d-none" onclick="clearFilter();">X Clear Filters</label>
         <br>
-        <input type="text" id="clear-search" name="clear-search" placeholder="Search by Provider or Product">
+        <input type="text" onkeyup="filterSearch(this.value);" id="clear-search" name="clear-search" placeholder="Search by Provider or Product">
 
         <p class="mp-container-total-search-results">{{data.Products.length}} total</p>
 
         <!-- Accordian -->
         <div class="search-container">
 
-          <!-- AVAV - NEW accordions USWDS -->
-          <!-- AVAV - NEW accordions USWDS -->
-          <!-- AVAV - NEW accordions USWDS -->
-          <!-- AVAV - NEW accordions USWDS -->
-          <!-- AVAV - NEW accordions USWDS -->
-          <!-- AVAV - NEW accordions USWDS -->
           <div *ngIf="data.Filters.product.status.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
               <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a1">
-                Status
+                <strong>Status</strong>
               </button>
             </h4>
             <div id="a1" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.product.status">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -82,12 +51,12 @@
           <div *ngIf="data.Filters.product.business_function.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
               <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a2">
-                Business Category
+                <strong>Business Category</strong>
               </button>
             </h4>
             <div id="a2" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.product.business_function">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -95,12 +64,12 @@
           <div *ngIf="data.Filters.product.service_model.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
               <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a3">
-                Service Model
+                <strong>Service Model</strong>
               </button>
             </h4>
             <div id="a3" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.product.service_model">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -108,12 +77,12 @@
           <div *ngIf="data.Filters.product.impact_level.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
               <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a4">
-                Impact Levels
+                <strong>Impact Levels</strong>
               </button>
             </h4>
             <div id="a4" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.product.impact_level">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -121,12 +90,12 @@
           <div *ngIf="data.Filters.product.auth_type.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
               <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a5">
-                Authorization Type
+                <strong>Authorization Type</strong>
               </button>
             </h4>
             <div id="a5" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.product.auth_type">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -134,12 +103,12 @@
           <div *ngIf="data.Filters.product.deployment_models.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
               <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a6">
-                Deployment Models
+                <strong>Deployment Models</strong>
               </button>
             </h4>
             <div id="a6" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.product.deployment_models">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -147,12 +116,12 @@
           <div *ngIf="data.Filters.product.small_business.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
               <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a7">
-                Small Business
+                <strong>Small Business</strong>
               </button>
             </h4>
             <div id="a7" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.product.small_business">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -160,12 +129,12 @@
           <div *ngIf="data.Filters.product.assessor.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
               <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a8">
-                Assessor
+                <strong>Assessor</strong>
               </button>
             </h4>
             <div id="a8" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.product.assessor">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -238,29 +207,17 @@
 
         <div class="search-container desktop:display-none">
 
-      <!-- AVAV - NEW mobile accordion USWDS -->
-      <!-- AVAV - NEW mobile accordion USWDS -->
-      <!-- AVAV - NEW mobile accordion USWDS -->
-      <!-- AVAV - NEW mobile accordion USWDS -->
-      <!-- AVAV - NEW mobile accordion USWDS -->
-      <!-- AVAV - NEW mobile accordion USWDS -->
           <div class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
 
-      <!-- AVAV - Clear Button -->
-      <!-- AVAV - Clear Button -->
-      <!-- AVAV - Clear Button -->
-      <!-- AVAV - Clear Button -->
-      <!-- AVAV - Clear Button -->
-      <!-- AVAV - Clear Button -->
-              <label id='clear-all-mobile' class="cursor-pointer d-none" onclick="clearFilter('mobile');">X Clear All</label>
+              <label id='clear-filters-mobile' class="cursor-pointer d-none" onclick="clearFilter('mobile');">X Clear All</label>
               <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="m1">
                 Filter Results
               </button>
             </h4>
             <div id="m1" class="usa-accordion__content usa-prose" hidden="">
               <div class="grid-row">
-                <div class="grid-col-12">
+                <!-- <div class="grid-col-12">
                   <p>Number of items shown at a time</p>
                   <select name="display-number" id="display-number">
                     <option value="twenty-five">25</option>
@@ -268,46 +225,46 @@
                     <option value="seventy-five">75</option>
                     <option value="one-hundred">100</option>
                   </select>
-                </div>
+                </div> -->
               </div>
 
               <div class="grid-row">
 
 
                 <div *ngIf="data.Filters.product.status.length != 0" class="grid-col-3">
-                  <p>Status</p>
+                  <p><strong>Status</strong></p>
                   <ul>
                     <div *ngFor="let i of data.Filters.product.status">
-                      <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class="filter-item-mobile">{{i.name}}</li>
+                      <li id="{{i.class_name}}-mobile" onclick="filterRows(this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
                     </div>
                   </ul>
                 </div>
 
                 <div *ngIf="data.Filters.product.business_function.length != 0" class="grid-col-3">
-                  <p>Business Category</p>
+                  <p><strong>Business Category</strong></p>
                   <ul>
                     <div *ngFor="let i of data.Filters.product.business_function">
-                      <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class="filter-item-mobile">{{i.name}}</li>
+                      <li id="{{i.class_name}}-mobile" onclick="filterRows(this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
                     </div>
                   </ul>
                 </div>
 
 
                 <div *ngIf="data.Filters.product.service_model.length != 0" class="grid-col-3">
-                  <p>Service Model</p>
+                  <p><strong>Service Model</strong></p>
                   <ul>
                     <div *ngFor="let i of data.Filters.product.service_model">
-                      <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class="filter-item-mobile">{{i.name}}</li>
+                      <li id="{{i.class_name}}-mobile" onclick="filterRows(this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
                     </div>
                   </ul>
                 </div>
 
 
                 <div *ngIf="data.Filters.product.impact_level.length != 0" class="grid-col-3">
-                  <p>Impact Level</p>
+                  <p><strong>Impact Level</strong></p>
                   <ul>
                     <div *ngFor="let i of data.Filters.product.impact_level">
-                      <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class="filter-item-mobile">{{i.name}}</li>
+                      <li id="{{i.class_name}}-mobile" onclick="filterRows(this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
                     </div>
                   </ul>
                 </div>
@@ -318,39 +275,39 @@
 
 
                 <div *ngIf="data.Filters.product.status.auth_type != 0" class="grid-col-3">
-                  <p>Authorization Type</p>
+                  <p><strong>Authorization Type</strong></p>
                   <ul>
                     <div *ngFor="let i of data.Filters.product.auth_type">
-                      <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class="filter-item-mobile">{{i.name}}</li>
+                      <li id="{{i.class_name}}-mobile" onclick="filterRows(this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
                     </div>
                   </ul>
                 </div>
 
                 <div *ngIf="data.Filters.product.status.deployment_models != 0" class="grid-col-3">
-                  <p>Deployment Models</p>
+                  <p><strong>Deployment Models</strong></p>
                   <ul>
                     <div *ngFor="let i of data.Filters.product.deployment_models">
-                      <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class="filter-item-mobile">{{i.name}}</li>
+                      <li id="{{i.class_name}}-mobile" onclick="filterRows(this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
                     </div>
                   </ul>
                 </div>
 
 
                 <div *ngIf="data.Filters.product.small_business.length != 0" class="grid-col-3">
-                  <p>Small Business</p>
+                  <p><strong>Small Business</strong></p>
                   <ul>
                     <div *ngFor="let i of data.Filters.product.small_business">
-                      <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class="filter-item-mobile">{{i.name}}</li>
+                      <li id="{{i.class_name}}-mobile" onclick="filterRows(this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
                     </div>
                   </ul>
                 </div>
 
 
                 <div *ngIf="data.Filters.product.assessor.length != 0" class="grid-col-3">
-                  <p>Assessor</p>
+                  <p><strong>Assessor</strong></p>
                   <ul>
                     <div *ngFor="let i of data.Filters.product.assessor">
-                      <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class="filter-item-mobile">{{i.name}}</li>
+                      <li id="{{i.class_name}}-mobile" onclick="filterRows(this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
                     </div>
                   </ul>
                 </div>

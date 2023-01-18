@@ -2,29 +2,9 @@
 
 <app-links></app-links>
 
-
-<!-- AVAV put these styles in your CSS (i dont know where that is) -->
-<!-- AVAV put these styles in your CSS (i dont know where that is) -->
-<!-- AVAV put these styles in your CSS (i dont know where that is) -->
-<!-- AVAV put these styles in your CSS (i dont know where that is) -->
-<!-- AVAV put these styles in your CSS (i dont know where that is) -->
-<!-- AVAV put these styles in your CSS (i dont know where that is) -->
-<style>
-  .d-none {
-    display: none;
-  }
-  .d-search-none {
-    display: none;
-  }
-  .cursor-pointer {
-    cursor: pointer;
-  }
-</style>
-
 <section>
   <div class="grid-container mp-search-main">
     <div class="grid-row">
-
 
       <!-- <div class="tablet:grid-col-2 grid-offset-10 padding-0 page-display-select">
         <p>Number of items shown at a time</p>
@@ -36,7 +16,6 @@
         </select>
       </div> -->
 
-
     </div>
   </div>
 
@@ -46,64 +25,25 @@
     <div class="grid-row">
       <div class="tablet:grid-col-2 padding-right-3 results-search">
 
-        
-
-      <!-- AVAV - Clear Buttons -->
-      <!-- AVAV - Clear Buttons -->
-      <!-- AVAV - Clear Buttons -->
-      <!-- AVAV - Clear Buttons -->
-      <!-- AVAV - Clear Buttons -->
-      <!-- AVAV - Clear Buttons -->
         <label id='clear-search-desktop' class="cursor-pointer d-none" onclick="clearSearch();">X Clear Search</label>
         <label id='clear-filters-desktop' class="cursor-pointer d-none" onclick="clearFilter();">X Clear Filters</label>
         <br>
         <input type="text" onkeyup="filterSearch(this.value);" id="clear-search" name="clear-search" placeholder="Search by Provider or Product" >
-
-
 
         <p class="mp-container-total-search-results">{{data.Assessors.length}} total</p>
 
         <!-- Accordian -->
         <div class="search-container">
 
-          <!-- AVAV - this is the old one for reference -->
-          <!-- AVAV - this is the old one for reference -->
-          <!-- AVAV - this is the old one for reference -->
-          <!-- AVAV - this is the old one for reference -->
-          <!-- AVAV - this is the old one for reference -->
-          <!-- AVAV - this is the old one for reference -->
-          
-          
-          
-          <!-- <label *ngIf="data.Filters.assessor.product_assessing.length != 0" for="chk-1">
-            <input id="chk-1" type="checkbox" />
-            <div class="title">
-              <h4 class="accordian-title">Products Assessing</h4>
-            </div>
-            <div class="search-content">
-              <ul>
-                <div *ngFor="let i of data.Filters.assessor.product_assessing">
-                  <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer">{{i.name}}</li>
-                </div>
-              </ul>
-            </div>
-          </label> -->
-
-          <!-- AVAV - NEW accordion (USWDS) desktop -->
-          <!-- AVAV - NEW accordion (USWDS) desktop -->
-          <!-- AVAV - NEW accordion (USWDS) desktop -->
-          <!-- AVAV - NEW accordion (USWDS) desktop -->
-          <!-- AVAV - NEW accordion (USWDS) desktop -->
-          <!-- AVAV - NEW accordion (USWDS) desktop -->
           <div *ngIf="data.Filters.assessor.product_assessing.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
               <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a1">
-                Products Assessing
+                <strong>Products Assessing</strong>
               </button>
             </h4>
             <div id="a1" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.assessor.product_assessing">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -111,12 +51,12 @@
           <div *ngIf="data.Filters.assessor.impact_level.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
               <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a2">
-                Impact Level
+                <strong>Impact Level</strong>
               </button>
             </h4>
             <div id="a2" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.assessor.impact_level">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -124,12 +64,12 @@
           <div *ngIf="data.Filters.assessor.status.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
               <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a3">
-                Offering Status
+                <strong>Offering Status</strong>
               </button>
             </h4>
             <div id="a3" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.assessor.status">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows(this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
@@ -178,23 +118,10 @@
 
     <div class="search-container desktop:display-none">
 
-      <!-- AVAV - NEW mobile accordion USWDS -->
-      <!-- AVAV - NEW mobile accordion USWDS -->
-      <!-- AVAV - NEW mobile accordion USWDS -->
-      <!-- AVAV - NEW mobile accordion USWDS -->
-      <!-- AVAV - NEW mobile accordion USWDS -->
-      <!-- AVAV - NEW mobile accordion USWDS -->
       <div class="usa-accordion">
         <h4 class="usa-accordion__heading accordian-title">
 
-
-      <!-- AVAV - Clear Button -->
-      <!-- AVAV - Clear Button -->
-      <!-- AVAV - Clear Button -->
-      <!-- AVAV - Clear Button -->
-      <!-- AVAV - Clear Button -->
-      <!-- AVAV - Clear Button -->
-          <label id='clear-all-mobile' class="cursor-pointer d-none" onclick="clearFilter('mobile');">X Clear All</label>
+          <label id='clear-filters-mobile' class="cursor-pointer d-none" onclick="clearFilter('mobile');">X Clear All</label>
           <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="m1">
             Filter Results
           </button>
@@ -202,7 +129,6 @@
         <div id="m1" class="usa-accordion__content usa-prose" hidden="">
           <div class="grid-row">
             
-            
             <!-- <div class="grid-col-12">
               <p>Number of items shown at a time</p>
               <select name="display-number" id="display-number">
@@ -213,29 +139,28 @@
               </select>
             </div> -->
 
-
           </div>
 
           <div class="grid-row">
 
             <div *ngIf="data.Filters.assessor.product_assessing.length != 0" class="grid-col-4">
-              <p>Products Assessing</p>
+              <p><strong>Products Assessing</strong></p>
               <div *ngFor="let i of data.Filters.assessor.product_assessing">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class=" filter-item-mobile">{{i.name}}</li>
+                <li id="{{i.class_name}}-mobile" onclick="filterRows(this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
               </div>
             </div>
 
             <div *ngIf="data.Filters.assessor.impact_level.length != 0" class="grid-col-4">
-              <p>Impact Level</p>
+              <p><strong>Impact Level</strong></p>
               <div *ngFor="let i of data.Filters.assessor.impact_level">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class=" filter-item-mobile">{{i.name}}</li>
+                <li id="{{i.class_name}}-mobile" onclick="filterRows(this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
               </div>
             </div>
 
             <div *ngIf="data.Filters.assessor.status.length != 0" class="grid-col-4">
-              <p>Offering Status</p>
+              <p><strong>Offering Status</strong></p>
               <div *ngFor="let i of data.Filters.assessor.status">
-                <li id="{{i.class_name}}" onclick="filterRows(this.id, 'mobile');" class=" filter-item-mobile">{{i.name}}</li>
+                <li id="{{i.class_name}}-mobile" onclick="filterRows(this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
               </div>
             </div>
 
@@ -243,72 +168,7 @@
         </div>
       </div>
 
-
-
-      <!-- AVAV - OLD mobile accordion for reference -->
-      <!-- AVAV - OLD mobile accordion for reference -->
-      <!-- AVAV - OLD mobile accordion for reference -->
-      <!-- AVAV - OLD mobile accordion for reference -->
-      <!-- AVAV - OLD mobile accordion for reference -->
-      <!-- AVAV - OLD mobile accordion for reference -->
-      <label for="chk-m1">
-
-        <input id="chk-m1" type="checkbox" />
-        <div class="mobile-title">
-          <h4 class="mobile-search-title">OLD FILTER</h4>
-        </div>
-        <div class="search-content">
-          <div class="grid-row">
-            
-            
-            <!-- <div class="grid-col-12">
-              <p>Number of items shown at a time</p>
-              <select name="display-number" id="display-number">
-                <option value="twenty-five">25</option>
-                <option value="fifty">50</option>
-                <option value="seventy-five">75</option>
-                <option value="one-hundred">100</option>
-              </select>
-            </div> -->
-
-
-          </div>
-
-          <div class="grid-row">
-
-            <div *ngIf="data.Filters.assessor.product_assessing.length != 0" class="grid-col-4">
-              <p>Products Assessing</p>
-              <ul>
-                <div *ngFor="let i of data.Filters.assessor.product_assessing">
-                  <li class="{{i.class_name}}">{{i.name}}</li>
-                </div>
-              </ul>
-            </div>
-
-            <div *ngIf="data.Filters.assessor.impact_level.length != 0" class="grid-col-4">
-              <p>Impact Level</p>
-              <ul>
-                <div *ngFor="let i of data.Filters.assessor.impact_level">
-                  <li class="{{i.class_name}}">{{i.name}}</li>
-                </div>
-              </ul>
-            </div>
-
-            <div *ngIf="data.Filters.assessor.status.length != 0" class="grid-col-4">
-              <p>Offering Status</p>
-              <ul>
-                <div *ngFor="let i of data.Filters.assessor.status">
-                  <li class="{{i.class_name}}">{{i.name}}</li>
-                </div>
-              </ul>
-            </div>
-
-          </div>
-        </div>
-      </label>
-
     </div>
-
 
 
     <!-- Mobile Search Results -->

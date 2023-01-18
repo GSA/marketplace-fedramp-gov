@@ -333,6 +333,7 @@ button.usa-accordion__button.accordian-title {
 
 	li.cursor-pointer {
 		font-size: .75rem;
+		cursor: pointer;
 	}
 
 	li.filter-on:after {
@@ -343,4 +344,12 @@ button.usa-accordion__button.accordian-title {
 
 .usa-accordion__content {
 	margin-bottom: 20px;
+}
+
+
+.d-none {
+display: none;
+}
+.d-search-none {
+display: none;
 }
