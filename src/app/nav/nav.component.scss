@@ -116,11 +116,11 @@ div.usa-nav-container {
 	box-sizing: border-box;
 }
 
-@media (min-width: 1200px) and (max-width: 1239px) {
-	div.usa-nav-container {
-		padding: 40px 2rem 30px;
-	}
-}
+// @media (min-width: 1200px) and (max-width: 1239px) {
+// 	div.usa-nav-container {
+// 		padding: 40px 2rem 30px;
+// 	}
+// }
 
 @media (min-width: 1100px) and (max-width: 1199px) {
 	div.usa-nav-container {
@@ -764,9 +764,61 @@ button.usa-nav__close {
 		margin: 0 !important;
 		height: 100px;
 		width: 100px;
-		top: 120px;
+		top: 90px;
+		left: 0;
 	}	
 
+	header .usa-nav-container .usa-menu-btn {
+		position: absolute;
+		top: 80px;
+		right: 54px;
+	}
+
+	.usa-nav.is-visible {
+		background: $dark-blue;
+		top: 0px;
+		max-width: 880px;
+		width: 50%;
+	}
+
+	
+	.usa-nav__primary button {
+		color: white;
+
+		&:hover {
+			color: $red;
+		}
+	}
+
+	.usa-nav > ul > li:hover > a, .usa-nav > ul > .current-item > a {
+		color: $red !important;
+	}
+
+	.usa-nav__primary a:not(.usa-button):not(.usa-current):hover {
+		color: $red !important;
+		background: transparent;
+	}
+
+	nav.usa-nav ul li:hover {
+		background: transparent;
+	}
+
+	button.usa-nav__close {
+		background: $dark-blue !important;
+	}
+
+	.usa-nav__primary-item {
+		border-top: 0;
+		border-bottom: 0;
+	}
+
+	.usa-nav > ul > li > a {
+		color: white !important;
+	}
+
+	form#searchgovform {
+		display: none;
+	}
 
 	header.usa-header {
 	&.usa-header--basic {
@@ -1028,7 +1080,7 @@ ul.sub-sub-menu {
 @media (min-width: 950px) and (max-width: 1200px) {
 
 	ul.usa-nav__primary.usa-accordion {
-		padding: 0 28px 0 0;
+		padding: 0;
 		width: 1200px;
 		text-align: right;
 	}
@@ -1061,7 +1113,6 @@ ul.sub-sub-menu {
 
 @media (min-width:0) and (max-width: 950px) {
 .usa-nav > ul > li:hover > a, .usa-nav > ul > .current-item > a {
-		color: #fff !important;
 		opacity: 1;
 	}
 
@@ -1202,6 +1253,10 @@ img.search-button-icon {
 @media (min-width: 1100px) and (max-width: 1239px) {
 	.search-feature {
 		padding: 0 2rem;
+	}
+	
+	nav.usa-nav {
+		right: 30px;
 	}
 }
 
@@ -1575,11 +1630,6 @@ li.no-new::before {
 		max-width: 100%;
 		min-width: 285px;
 	}
-}
-
-.usa-nav.is-visible {
-	background: blue;
-	top: 50px;
 }
 
 img.desk {
