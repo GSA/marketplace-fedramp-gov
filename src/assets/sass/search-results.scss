@@ -336,9 +336,14 @@ button.usa-accordion__button.accordian-title {
 		cursor: pointer;
 	}
 
+	li.filter-on {
+		color: $teal;
+	}
+
 	li.filter-on:after {
 		content: '\2713';
     	padding-left: 0.5em;
+		color: $teal;
 	}
 }
 
