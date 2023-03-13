@@ -57,11 +57,11 @@ function partition(rows, vals, left, right) {
 
     while(i <= j) {
 
-        while(vals[i] < pivot) {
+        while(vals[i].toLowerCase() < pivot.toLowerCase()) {
             i++;
         }
 
-        while(vals[j] > pivot) {
+        while(vals[j].toLowerCase() > pivot.toLowerCase()) {
             j--;
         }
 

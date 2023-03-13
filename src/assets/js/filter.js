@@ -1,6 +1,5 @@
 function filterSearch(inVal) {
 
-
     var clear = document.getElementById("clear-search-desktop");
     var table = document.getElementById("sort-table-desktop");
 
@@ -26,6 +25,8 @@ function filterSearch(inVal) {
     if(inVal == '') {
         clear.classList.add("d-none");
     }
+
+    countResults();
 }
 
 function clearSearch() {
@@ -45,6 +46,8 @@ function clearSearch() {
     }
 
     table.innerHTML = rows.join('').replace(/d-search-none/g,'');
+
+    countResults();
 }
 
 function filterRows(filterClass, tableType = 'desktop') {
@@ -84,6 +87,8 @@ function filterRows(filterClass, tableType = 'desktop') {
     }
 
     table.innerHTML = rows.join('').replace(/=\"\"/g,'');
+
+    countResults(tableType);
 }
 
 function clearFilter(tableType = 'desktop') {
@@ -109,4 +114,31 @@ function clearFilter(tableType = 'desktop') {
     }
 
     table.innerHTML = rows.join('').replace(/d-none/g,'');
+
+    countResults(tableType);
+}
+
+function countResults(tableType = 'desktop') {
+
+    var resultsCount = document.getElementById("results-count-" + tableType);
+    var table = document.getElementById("sort-table-" + tableType);
+
+    const kids = table.children;
+
+    var exclusions = 0;
+
+    for (let i = 0; i < kids.length; i++) {
+
+        if (kids[i].classList.contains("d-search-none") || kids[i].classList.contains("d-none")) {
+            
+            exclusions++;
+        }
+    }
+
+    if (exclusions == 0) {
+        resultsCount.innerHTML = kids.length + " total";
+    } else {
+        resultsCount.innerHTML = kids.length - exclusions + " result" + (kids.length - exclusions == 1 ? "" : "s");
+    }
+
 }
