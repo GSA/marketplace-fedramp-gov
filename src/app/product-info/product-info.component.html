@@ -7,7 +7,7 @@
       <div class="grid-row">
         <div class="desktop:grid-col-6">
           <img src="{{product.logo}}" alt="{{product.name}}" title="{{product.name}}" class="product-info-logo">
-          <h2 class="detail-company-info">{{product.csp}}</h2>
+          <h2 class="detail-company-info">{{product.cso}}</h2>
 
         </div>
 
@@ -200,7 +200,7 @@
             <p><strong>Agency Review:</strong> {{product.ip_agency_date == 'Not Agency Partnered' ? product.ip_agency_date : product.ip_agency_date | date:'MM/dd/YYY'}}</p>
             <p><strong>PMO Review:</strong> {{product.ip_pmo_date == 'Not In Process' ? product.ip_pmo_date : product.ip_pmo_date | date:'MM/dd/YYY'}}</p>
             <p><strong>FedRAMP Authorized:</strong> {{product.fedramp_auth == 'Not Authorized' ? product.fedramp_auth : product.fedramp_auth | date:'MM/dd/YYY'}}</p>
-            <p><strong>Annual Assessment:</strong> {{product.annual_assessment | date:'MM/dd/YYY'}}</p>
+            <p><strong>Annual Assessment:</strong> {{product.annual_assessment | date:'MM/dd'}}</p>
             <p><strong>Independent Assessor:</strong> {{product.independent_assessor}}</p>
           </div>
         </div>
