@@ -149,7 +149,7 @@
       <div class="grid-col-12 desktop:grid-col-10">
         <div class="grid-row search-sortable mp-sortable-column">
           <div class="grid-col-2 product_column-provider">
-            <span>Provider</span>
+            <span id="sort-header-0-desktop" class="sort-header-desktop cursor-pointer sort-none" onclick="sortCol(0);">Provider</span>
           </div>
           <div class="grid-col-2 product_column-service_offering">
             <span id="sort-header-1-desktop" class="sort-header-desktop cursor-pointer sort-none" onclick="sortCol(1);">Service Offering</span>
@@ -177,6 +177,7 @@
           <div *ngFor="let p of data.Products" class="{{p.filter_classes}}">
             <div class="grid-row mp-search-results display-none desktop:display-flex">
               <div class="grid-col-2 company-logo-column product_column-service_offering">
+                <span class="sort-col-0-desktop" style="display:none;">{{p.name}}</span>
                 <a href="/products/{{p.id}}" target="_blank"><img src="{{p.logo}}" alt="{{p.name}}"
                     title="{{p.name}}"></a>
               </div>

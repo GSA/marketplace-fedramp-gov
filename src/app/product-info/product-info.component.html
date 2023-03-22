@@ -70,6 +70,7 @@
               </div>
 
             </div>
+
             <div class="tablet:grid-col-4 info-box">
               <div class="stats">
 
@@ -133,32 +134,38 @@
                 <div class="current-status">
                   <p class=""><strong>Ready</strong></p>
                 </div>
-                <div class="auth-flow-chart auth-{{ product.ready_status == 'Not Active' ? 'future' : 'ready completed' }} order-tracking first-order"><span
-                    class="is-complete"></span></div>
-                <p class="date">{{ product.ready_date == 'No FRR Date' ? 'N/A' : product.ready_date | date:'MM/dd/YYYY'}}</p>
+                <div
+                  class="auth-flow-chart auth-{{ product.ready_status == 'Not Active' ? 'future' : 'ready completed' }} order-tracking first-order">
+                  <span class="is-complete"></span></div>
+                <p class="date">{{ product.ready_date == 'No FRR Date' ? 'N/A' : product.ready_date |
+                  date:'MM/dd/YYYY'}}</p>
               </div>
 
               <div *ngIf="product.auth_type == 'Agency'; then midThen else midElse"></div>
               <ng-template #midThen>
-              
+
                 <div class="tablet:grid-col-3 status-container">
                   <div class="current-status">
                     <p class=""><strong>In Process:</strong><br>Agency Review</p>
                   </div>
-                  <div class="auth-flow-chart auth-{{ product.ip_agency_date == 'Not Agency Partnered' ? ( product.ready_status == 'Not Active' ? 'future' : 'process') : 'ready completed' }} order-tracking">
+                  <div
+                    class="auth-flow-chart auth-{{ product.ip_agency_date == 'Not Agency Partnered' ? ( product.ready_status == 'Not Active' ? 'future' : 'process') : 'ready completed' }} order-tracking">
                     <span class="is-complete"></span>
                   </div>
-                  <p class="date">{{ product.ip_agency_date == 'Not Agency Partnered' ? 'N/A' : product.ip_agency_date | date:'MM/dd/YYYY'}}</p>
+                  <p class="date">{{ product.ip_agency_date == 'Not Agency Partnered' ? 'N/A' : product.ip_agency_date |
+                    date:'MM/dd/YYYY'}}</p>
                 </div>
-              
+
                 <div class="tablet:grid-col-3 status-container">
                   <div class="current-status">
                     <p class=""><strong>In Process:</strong><br>PMO Review</p>
                   </div>
-                  <div class="auth-flow-chart auth-{{ product.ip_pmo_date == 'Not In Process' ? ( product.ip_agency_date == 'Not Agency Partnered' ? 'future' : 'process' ) : 'ready complete' }} order-tracking">
+                  <div
+                    class="auth-flow-chart auth-{{ product.ip_pmo_date == 'Not In Process' ? ( product.ip_agency_date == 'Not Agency Partnered' ? 'future' : 'process' ) : 'ready complete' }} order-tracking">
                     <span class="is-complete"></span>
                   </div>
-                  <p class="date">{{ product.ip_pmo_date == 'Not In Process' ? 'N/A' : product.ip_pmo_date | date:'MM/dd/YYYY'}}</p>
+                  <p class="date">{{ product.ip_pmo_date == 'Not In Process' ? 'N/A' : product.ip_pmo_date |
+                    date:'MM/dd/YYYY'}}</p>
                 </div>
               </ng-template>
 
@@ -171,16 +178,20 @@
                     class="auth-flow-chart auth-{{ product.ip_jab_date == 'Not Active' ? 'process' : 'ready completed' }} order-tracking ">
                     <span class="is-complete"></span>
                   </div>
-                  <p class="date">{{ product.ip_jab_date == 'Not Active' ? 'N/A' : product.ip_jab_date | date:'MM/dd/YYYY'}}</p>
+                  <p class="date">{{ product.ip_jab_date == 'Not Active' ? 'N/A' : product.ip_jab_date |
+                    date:'MM/dd/YYYY'}}</p>
                 </div>
               </ng-template>
-              
+
               <div class="tablet:{{ gridClass }} status-container">
                 <div class="current-status">
                   <p class=""><strong>Authorized</strong></p>
                 </div>
-                <div class="auth-flow-chart auth-{{ product.fedramp_auth == 'Not Authorized' ? 'future' : 'ready completed' }} order-tracking"><span class="is-complete"></span></div>
-                <p class="date">{{ product.fedramp_auth == 'Not Authorized' ? 'N/A' : product.fedramp_auth | date:'MM/dd/YYYY'}}</p>
+                <div
+                  class="auth-flow-chart auth-{{ product.fedramp_auth == 'Not Authorized' ? 'future' : 'ready completed' }} order-tracking">
+                  <span class="is-complete"></span></div>
+                <p class="date">{{ product.fedramp_auth == 'Not Authorized' ? 'N/A' : product.fedramp_auth |
+                  date:'MM/dd/YYYY'}}</p>
               </div>
 
             </div>
@@ -195,11 +206,16 @@
           <div>
             <h3>Authorization Details</h3>
             <p><strong>Authorization Type:</strong> {{product.auth_type}}</p>
-            <p><strong>FedRAMP Ready:</strong> {{product.fedramp_ready == 'No FRR Date' ? product.fedramp_ready : product.fedramp_ready | date:'MM/dd/YYY'}}</p>
-            <p><strong>JAB Review:</strong> {{product.ip_jab_date == 'Not Active' ? product.ip_jab_date : product.ip_jab_date | date:'MM/dd/YYY'}}</p>
-            <p><strong>Agency Review:</strong> {{product.ip_agency_date == 'Not Agency Partnered' ? product.ip_agency_date : product.ip_agency_date | date:'MM/dd/YYY'}}</p>
-            <p><strong>PMO Review:</strong> {{product.ip_pmo_date == 'Not In Process' ? product.ip_pmo_date : product.ip_pmo_date | date:'MM/dd/YYY'}}</p>
-            <p><strong>FedRAMP Authorized:</strong> {{product.fedramp_auth == 'Not Authorized' ? product.fedramp_auth : product.fedramp_auth | date:'MM/dd/YYY'}}</p>
+            <p><strong>FedRAMP Ready:</strong> {{product.fedramp_ready == 'No FRR Date' ? product.fedramp_ready :
+              product.fedramp_ready | date:'MM/dd/YYY'}}</p>
+            <p><strong>JAB Review:</strong> {{product.ip_jab_date == 'Not Active' ? product.ip_jab_date :
+              product.ip_jab_date | date:'MM/dd/YYY'}}</p>
+            <p><strong>Agency Review:</strong> {{product.ip_agency_date == 'Not Agency Partnered' ?
+              product.ip_agency_date : product.ip_agency_date | date:'MM/dd/YYY'}}</p>
+            <p><strong>PMO Review:</strong> {{product.ip_pmo_date == 'Not In Process' ? product.ip_pmo_date :
+              product.ip_pmo_date | date:'MM/dd/YYY'}}</p>
+            <p><strong>FedRAMP Authorized:</strong> {{product.fedramp_auth == 'Not Authorized' ? product.fedramp_auth :
+              product.fedramp_auth | date:'MM/dd/YYY'}}</p>
             <p><strong>Annual Assessment:</strong> {{product.annual_assessment | date:'MM/dd'}}</p>
             <p><strong>Independent Assessor:</strong> {{product.independent_assessor}}</p>
           </div>
@@ -217,7 +233,7 @@
           <div>
             <div>
               <h3 class="mp-info-title">Leveraged Systems</h3>
-     
+
               <!-- Information Modal -->
               <div class="mp-info-button mp-info-button-top-margin">
                 <a href="#example-modal-1" class="usa-button" aria-controls="example-modal-1" data-open-modal><svg
@@ -278,72 +294,16 @@
             </ng-template>
           </div>
         </div>
-        </div>
+      </div>
 
 
-        <div class="grid-row product-info-details info-authorizations-reuse">
+      <div class="grid-row product-info-details info-authorizations-reuse">
 
-        <!-- <div class="tablet:grid-col-12">
+        <div class="tablet:grid-col-12">
           <div>
             <div>
               <h3 class="mp-info-title">Agency Authorizations</h3>
-         
-              <!-- Information Modal 
-              <div class="mp-info-button mp-info-button-top-margin">
-                <a href="#example-modal-1" class="usa-button" aria-controls="example-modal-1" data-open-modal><svg
-                    class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                    <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
-                  </svg></a>
-                <div class="usa-modal" id="example-modal-1" aria-labelledby="modal-1-heading"
-                  aria-describedby="modal-1-description">
-                  <div class="usa-modal__content">
-                    <div class="usa-modal__main">
 
-                      <div class="usa-prose">
-                        <p id="modal-1-description">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan aliquet risus in
-                          malesuada. Mauris sit amet odio quam. Aenean rutrum sem sit amet sapien egestas, iaculis
-                          hendrerit sapien lobortis.
-                        </p>
-                      </div>
-
-                    </div>
-                    <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
-                      data-close-modal>
-                      <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                        <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close"></use>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            
-            
-            <!-- End Modal 
-
-            </div>
-            <div class="clearfix"></div>
-
-            <div class="mp-product-columns">
-            <div
-              *ngIf="product.agency_authorizations.length == 0; then agency_authsThenBlock else agency_authsElseBlock">
-            </div>
-            <ng-template #agency_authsThenBlock>
-              <p>None</p>
-            </ng-template>
-            <ng-template #agency_authsElseBlock>
-              <div *ngFor="let i of product.agency_authorizations">
-                <p>- {{i}}</p>
-              </div>
-            </ng-template>
-          </div>
-        </div>
-          </div> -->
-
-          <div class="tablet:grid-col-12">
-          <div>
-            <div>
-              <h3 class="mp-info-title">Reuse</h3>
               <!-- Information Modal -->
               <div class="mp-info-button mp-info-button-top-margin">
                 <a href="#example-modal-1" class="usa-button" aria-controls="example-modal-1" data-open-modal><svg
@@ -373,27 +333,85 @@
                   </div>
                 </div>
               </div>
+
+
               <!-- End Modal -->
 
             </div>
             <div class="clearfix"></div>
 
             <div class="mp-product-columns">
-              <div *ngIf="product.agency_reuse.length == 0; then agency_reuseThenBlock else agency_reuseElseBlock"></div>
-            <ng-template #agency_reuseThenBlock>
-              <p>None</p>
-            </ng-template>
-            <ng-template #agency_reuseElseBlock>
-              <div *ngFor="let i of product.agency_reuse">
-                <p>- {{i}}</p>
+              <div
+                *ngIf="product.agency_authorizations.length == 0; then agency_authsThenBlock else agency_authsElseBlock">
               </div>
-            </ng-template>
-
-          </div>
+              <ng-template #agency_authsThenBlock>
+                <p>None</p>
+              </ng-template>
+              <ng-template #agency_authsElseBlock>
+                <div *ngFor="let i of product.agency_authorizations">
+                  <p>- {{i}}</p>
+                </div>
+              </ng-template>
+            </div>
           </div>
         </div>
 
-        
+      <!-- 
+        <div class="tablet:grid-col-12">
+          <div>
+            <div>
+              <h3 class="mp-info-title">Reuse</h3>
+              <!-- Information Modal
+              <div class="mp-info-button mp-info-button-top-margin">
+                <a href="#example-modal-1" class="usa-button" aria-controls="example-modal-1" data-open-modal><svg
+                    class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
+                  </svg></a>
+                <div class="usa-modal" id="example-modal-1" aria-labelledby="modal-1-heading"
+                  aria-describedby="modal-1-description">
+                  <div class="usa-modal__content">
+                    <div class="usa-modal__main">
+
+                      <div class="usa-prose">
+                        <p id="modal-1-description">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan aliquet risus in
+                          malesuada. Mauris sit amet odio quam. Aenean rutrum sem sit amet sapien egestas, iaculis
+                          hendrerit sapien lobortis.
+                        </p>
+                      </div>
+
+                    </div>
+                    <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
+                      data-close-modal>
+                      <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                        <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close"></use>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- End Modal
+
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="mp-product-columns">
+              <div *ngIf="product.agency_reuse.length == 0; then agency_reuseThenBlock else agency_reuseElseBlock">
+              </div>
+              <ng-template #agency_reuseThenBlock>
+                <p>None</p>
+              </ng-template>
+              <ng-template #agency_reuseElseBlock>
+                <div *ngFor="let i of product.agency_reuse">
+                  <p>- {{i}}</p>
+                </div>
+              </ng-template>
+
+            </div>
+          </div>
+        </div>
+      -->
+
       </div>
 
     </div>
