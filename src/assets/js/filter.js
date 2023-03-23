@@ -50,45 +50,93 @@ function clearSearch() {
     countResults();
 }
 
-function filterRows(filterClass, tableType = 'desktop') {
+function filterRows(filterNum, filterClass, tableType = 'desktop') {
 
-    filterClass = filterClass.substr(0,filterClass.lastIndexOf('-'));
+    var filterClass = filterClass.substr(0,filterClass.lastIndexOf('-'));
 
     var clear = document.getElementById("clear-filters-" + tableType);
     var table = document.getElementById("sort-table-" + tableType);
     var filter = document.getElementById(filterClass + "-" + tableType);
 
-    const kids = table.children;
+    var filterChange = document.getElementById("filter-" + filterNum + "-" + tableType);
+
+    var kids = table.children;
     var rows = [];
 
     clear.classList.remove("d-none");
-    table.classList.toggle(filterClass);
+    filterChange.classList.toggle(filterClass);
+
     filter.classList.toggle("filter-on");
-    
-    var filterClass = table.getAttribute('class');
-    var filterClasses = filterClass.split(' ');
 
     for (let i = 0; i < kids.length; i++) {
 
         kids[i].classList.remove("d-none");
-
-        if(filterClass != '') {
-
-            if(filterClasses.some(filterClass => kids[i].classList.contains(filterClass) == false)) {
-
-                kids[i].classList.add("d-none");
-            }
-        }
         rows[i] = kids[i].outerHTML;
-    }
-
-    if(filterClass == '') {
-        clear.classList.add("d-none");
     }
 
     table.innerHTML = rows.join('').replace(/=\"\"/g,'');
 
+    kids = table.children;
+    
+    for (let i = 0; i < 10; i++) {
+        
+        table.innerHTML = filterOR("filter-" + i + "-" + tableType, kids);
+        kids = table.children;
+    }
+
+    var isFilterClear = true;
+
+    for (let i = 0; i < 10 && isFilterClear == true; i++) {
+        if(document.getElementById("filter-" + i + "-" + tableType).getAttribute('class') != '' 
+        && document.getElementById("filter-" + i + "-" + tableType).getAttribute('class') != null) {
+            isFilterClear = false;
+        }
+    }
+
+    if(isFilterClear == true) {
+        clear.classList.add("d-none");
+    }
+
     countResults(tableType);
+}
+
+function filterOR(filterId, kids) {
+
+    var filterClass = document.getElementById(filterId).getAttribute('class');
+
+    var filterClasses = [];
+
+    if(filterClass != null) {
+        filterClasses = filterClass.split(' ');
+    }
+
+    var rows = [];
+    var isNoneNeeded;
+
+    for (let i = 0; i < kids.length; i++) {
+
+        if(kids[i].classList.contains("d-none") == false) {
+
+            isNoneNeeded = true;
+
+            if(filterClasses.length != 0) {
+
+                for (let j = 0; j < filterClasses.length && isNoneNeeded == true; j++) {
+                    if(filterClasses[j] == "" || kids[i].classList.contains(filterClasses[j]) == true) {
+                        isNoneNeeded = false;
+                    }
+                }
+
+                if(isNoneNeeded == true) {
+                    kids[i].classList.add("d-none");
+                }
+            }
+        }
+
+        rows[i] = kids[i].outerHTML;
+    }
+
+    return rows.join('').replace(/=\"\"/g,'');
 }
 
 function clearFilter(tableType = 'desktop') {
