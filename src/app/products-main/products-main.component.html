@@ -154,31 +154,32 @@
           </div>
 
         </div>
+        <button id="csv-button" class="btn btn-primary" onclick="csvFromFilteredData('products');">Export to CSV</button>
       </div>
 
       <!-- Large Monitor Results Column-->
       <div class="grid-col-12 desktop:grid-col-10">
         <div class="grid-row search-sortable mp-sortable-column">
           <div class="grid-col-2 product_column-provider">
-            <span id="sort-header-0-desktop" class="sort-header-desktop cursor-pointer sort-none" onclick="sortCol(0);">Provider</span>
+            <span id="sort-header-0-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(0);">Provider</span>
           </div>
           <div class="grid-col-2 product_column-service_offering">
-            <span id="sort-header-1-desktop" class="sort-header-desktop cursor-pointer sort-none" onclick="sortCol(1);">Service Offering</span>
+            <span id="sort-header-1-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(1);">Service Offering</span>
           </div>
           <div class="grid-col-2 product_column-service_model">
-            <span>Service Model</span>
+            <span id="sort-header-2-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header">Service Model</span>
           </div>
           <div class="grid-col-2 product_column-impact_level">
-            <span id="sort-header-3-desktop" class="sort-header-desktop cursor-pointer sort-none" onclick="sortCol(3);">Impact Level</span>
+            <span id="sort-header-3-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(3);">Impact Level</span>
           </div>
           <div class="grid-col-1 product_column-status">
-            <span id="sort-header-4-desktop" class="sort-header-desktop cursor-pointer sort-none" onclick="sortCol(4);">Status</span>
+            <span id="sort-header-4-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(4);">Status</span>
           </div>
           <div class="grid-col-2 text-center product_column-authorization">
-            <span id="sort-header-5-desktop" class="sort-header-desktop cursor-pointer sort-none" onclick="sortCol(5,true);">Authorizations</span>
+            <span id="sort-header-5-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(5,true);">Authorizations</span>
           </div>
           <div class="grid-col-1 text-center product_column-reuse">
-            <span id="sort-header-6-desktop" class="sort-header-desktop cursor-pointer sort-none" onclick="sortCol(6,true);">Reuse</span>
+            <span id="sort-header-6-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(6,true);">Reuse</span>
           </div>
         </div>
 
@@ -189,30 +190,31 @@
             <div class="grid-row mp-search-results display-none desktop:display-flex">
               <span style="display:none;">{{p.id}} | {{p.cso}}</span>
               <div class="grid-col-2 company-logo-column product_column-service_offering">
-                <span class="sort-col-0-desktop" style="display:none;">{{p.name}}</span>
+                <span class="sort-col-0-desktop csv-data" style="display:none;">{{p.name}}</span>
                 <a href="/products/{{p.id}}" target="_blank"><img src="{{p.logo}}" alt="{{p.name}}"
                     title="{{p.name}}"></a>
               </div>
 
               <div class="grid-col-2 product_column-service_offering">
-                <span class="sort-col-1-desktop">{{p.service_offering}}</span>
+                <span class="sort-col-1-desktop csv-data">{{p.service_offering}}</span>
               </div>
               <div class="grid-col-2 product_column-service_model">
-                <span>
+                <span class="sort-col-2-desktop csv-data">
                   <div *ngFor="let i of p.service_model">{{i}}</div>
                 </span>
               </div>
               <div class="grid-col-2 product_column-impact_level">
-                <span class="sort-col-3-desktop"><span style="display:none;">{{p.impact_level_number}}"</span>{{p.impact_level}}</span>
+                <span class="sort-col-3-desktop" style="display:none;">{{p.impact_level_number}}</span>
+                <span class="csv-data">{{p.impact_level}}</span>
               </div>
               <div class="grid-col-1 product_column-status">
-                <span class="sort-col-4-desktop">{{p.status}}</span>
+                <span class="sort-col-4-desktop csv-data">{{p.status}}</span>
               </div>
               <div class="grid-col-2 product_column-authorization result">
-                <span class="sort-col-5-desktop">{{p.authorization}}</span>
+                <span class="sort-col-5-desktop csv-data">{{p.authorization}}</span>
               </div>
               <div class="grid-col-1 product_column-reuse result">
-                <span class="sort-col-6-desktop">{{p.reuse}}</span>
+                <span class="sort-col-6-desktop csv-data">{{p.reuse}}</span>
               </div>
 
             </div>
