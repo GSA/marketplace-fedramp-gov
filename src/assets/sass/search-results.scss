@@ -358,3 +358,19 @@ display: none;
 .d-search-none {
 display: none;
 }
+
+#csv-button {
+	background-color: $red;
+    padding: 6px 10px 6px 10px;
+    border-radius: 40px;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 0.025em;
+    font-weight: 800;
+    text-transform: none;
+    font-size: .675rem;
+    margin: 20px 0px 0 0;
+    cursor: pointer;
+    white-space: nowrap;
+    border: none;
+}

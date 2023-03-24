@@ -1393,13 +1393,13 @@ header.usa-banner-header {
 }
 
 
-@media (min-width: 0) and (max-width: 950px) {
+@media (min-width: 0) and (max-width: 1025px) {
 	img.desk {
 	display: none;	
 	}
 }
 
-@media (min-width: 951px) {
+@media (min-width: 1024px) {
 	img.mobile {
 		display: none;
 		}
