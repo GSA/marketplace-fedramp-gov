@@ -727,7 +727,7 @@ button.usa-nav__close {
 }
 
 
-@media (min-width: 950px) and (max-width: 5000px) {
+@media (min-width: 1025px) and (max-width: 5000px) {
 	.usa-nav-primary li.parent {
 		img {
 			display: none;
@@ -744,7 +744,7 @@ button.usa-nav__close {
 	z-index: 10000;
 }
 
-@media (min-width:580px) and (max-width:950px) {
+@media (min-width:580px) and (max-width:1024px) {
 .usa-js-mobile-nav--active nav#navigation.usa-nav.nav.is-visible {
 	width: 50%;
 }	
@@ -757,7 +757,7 @@ button.usa-nav__close {
 }
 
 
-@media (min-width:0) and (max-width: 950px) {
+@media (min-width:0) and (max-width: 1024px) {
 	.usa-nav-container div#logo.usa-logo {
 		background: none;
 		padding: 0;
@@ -926,7 +926,7 @@ button.usa-nav__close {
 }
 }
 
-@media (min-width: 768px) and (max-width: 950px) {
+@media (min-width: 768px) and (max-width: 1024px) {
 	header.usa-header {
 		.search-wrapper {
 			padding-right: 4rem !important;
@@ -943,7 +943,7 @@ button.usa-nav__close {
 	}
 }
 
-@media (min-width: 0) and (max-width: 950px) {
+@media (min-width: 0) and (max-width: 10240px) {
 	.usa-js-mobile-nav--active ul.usa-nav__primary li:hover > ul, 
 	.usa-js-mobile-nav--active ul.usa-nav__primary li:focus-within > ul, 
 	.usa-js-mobile-nav--active ul.usa-nav__primary li ul:hover, 
@@ -1077,7 +1077,7 @@ ul.sub-sub-menu {
 	max-width: 880px;
 }
 
-@media (min-width: 950px) and (max-width: 1200px) {
+@media (min-width: 1025px) and (max-width: 1200px) {
 
 	ul.usa-nav__primary.usa-accordion {
 		padding: 0;
@@ -1102,16 +1102,16 @@ ul.sub-sub-menu {
 		justify-content: space-between;	
 	}
 	
-	header .usa-nav-container .usa-menu-btn {
-		position: relative;
-		top: -50px;
-		right: 36px;
-	}
+	// header .usa-nav-container .usa-menu-btn {
+	// 	position: relative;
+	// 	top: -50px;
+	// 	right: 36px;
+	// }
 }
 
 
 
-@media (min-width:0) and (max-width: 950px) {
+@media (min-width:0) and (max-width: 1024px) {
 .usa-nav > ul > li:hover > a, .usa-nav > ul > .current-item > a {
 		opacity: 1;
 	}
@@ -1159,7 +1159,7 @@ ul.sub-sub-menu {
 	opacity: .8;
 }
 
-/* ------ Mobile Menu to display at 950px CHJ ---------- */
+/* ------ Mobile Menu to display at 950px CHJ ---------- 
 
 
 
@@ -1244,7 +1244,7 @@ img.search-button-icon {
     top: 1px;
 }
 
-@media (min-width: 0) and (max-width: 950px) {
+@media (min-width: 0) and (max-width: 10240px) {
 	img.search-button-icon {
 		top: -1px;
 	}
@@ -1355,7 +1355,7 @@ div#logo.usa-logo {
 }
 
 
-@media (min-width: 0px) and (max-width: 950px) {
+@media (min-width: 0px) and (max-width: 1024px) {
 	div#logo.usa-logo {
 		top: 0;
 		img {
