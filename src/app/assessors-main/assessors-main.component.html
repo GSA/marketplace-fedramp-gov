@@ -86,17 +86,17 @@
           </div>
 
         </div>
-
+        <button id="csv-button" class="btn btn-primary" onclick="csvFromFilteredData('assessors');">Export to CSV</button>
 
       </div>
       <!-- Results Column-->
       <div class="grid-col-10">
         <div class="grid-row search-sortable mp-sortable-column display-none desktop:display-flex">
           <div class="grid-col-10 product_column-provider">
-            <span id="sort-header-0-desktop" class="sort-header-desktop cursor-pointer sort-none" onclick="sortCol(0);">Name</span>
+            <span id="sort-header-0-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(0);">Name</span>
           </div>
           <div class="grid-col-2 product_column-service_offering text-center">
-            <span id="sort-header-1-desktop" class="sort-header-desktop cursor-pointer sort-none" onclick="sortCol(1,true);">Products Assessing</span>
+            <span id="sort-header-1-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(1,true);">Products Assessing</span>
           </div>
         </div>
 
@@ -111,12 +111,12 @@
                   </a>
                 </div>
                 <div class="assessors-name">
-                  <span class="sort-col-0-desktop">{{a.name}}</span>
+                  <span class="sort-col-0-desktop csv-data">{{a.name}}</span>
                 </div>
               </div>
 
               <div class="grid-col-2 product_column-reuse text-center">
-                <span class="sort-col-1-desktop">{{a.products_assessing}}</span>
+                <span class="sort-col-1-desktop csv-data">{{a.products_assessing}}</span>
               </div>
             </div>
           </div>
