@@ -108,11 +108,11 @@
       <!-- Results Column-->
       <div class="grid-col-10">
         <div class="grid-row search-sortable mp-sortable-column display-none desktop:display-flex">
-          <div class="grid-col-4 agencies_column-parent_agency">
+          <div class="grid-col-5 agencies_column-parent_agency">
             <span id="sort-header-0-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(0);"
               style="cursor:pointer;">Parent Agency</span>
           </div>
-          <div class="grid-col-4 agencies_column-department_agency">
+          <div class="grid-col-5 agencies_column-department_agency">
             <span id="sort-header-1-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(1);">Department/Agency</span>
           </div>
           <div class="grid-col-2 agencies_column-authorizations text-center">
@@ -129,10 +129,10 @@
         <div *ngIf="isCachePresent" id="sort-table-desktop">
           <div *ngFor="let a of data.Agencies" class="{{a.filter_classes}}">
             <div class="grid-row mp-search-results">
-              <div class="grid-col-4 agencies_column-parent_agency">
+              <div class="grid-col-5 agencies_column-parent_agency">
                 <a href="/agencies/{{a.id}}" target="_blank"><span class="sort-col-0-desktop csv-data">{{a.parent}}</span></a>
               </div>
-              <div class="grid-col-4 agencies_column-department_agency">
+              <div class="grid-col-5 agencies_column-department_agency">
                 <span class="sort-col-1-desktop csv-data">{{a.sub}}</span>
               </div>
               <div class="grid-col-2 agencies_column-authorizations text-center">
