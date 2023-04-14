@@ -598,7 +598,8 @@ a.more-info:visited {
 }
 
 .mp-info-button {
-	float: left;
+	float: none;
+	display: inline;
 	position: relative;
 
 	a {
@@ -617,7 +618,8 @@ a.more-info:visited {
 }
 
 h3.mp-info-title {
-	float: left;
+	float: none;
+	display: inline-flex;
 	padding-right: 2px !important;
 }
 
@@ -629,3 +631,5 @@ input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+
