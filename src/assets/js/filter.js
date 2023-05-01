@@ -1,3 +1,28 @@
+var global = true;
+document.addEventListener("DOMContentLoaded", function() {
+
+    if(new URLSearchParams(window.location.search).get('status') != "authorized") {
+        return;
+    }
+    if(global != true) {
+        return;
+    }
+    global = false;
+
+    filterRows('1', 'filter-status-FedRAMP-Authorized-desktop');
+    filterRows('1', 'filter-status-FedRAMP-Authorized-mobile','mobile');
+
+    var filter = document.getElementById('filter-status-header');
+
+    if(filter.getAttribute('aria-expanded') != "true") {
+
+        filter.setAttribute('aria-expanded','true');
+    }
+
+    document.getElementById('list-type').scrollIntoView(true);
+
+});
+
 function filterSearch(inVal) {
 
     var clear = document.getElementById("clear-search-desktop");
@@ -183,10 +208,11 @@ function countResults(tableType = 'desktop') {
         }
     }
 
-    if (exclusions == 0) {
-        resultsCount.innerHTML = kids.length + " total";
-    } else {
-        resultsCount.innerHTML = kids.length - exclusions + " result" + (kids.length - exclusions == 1 ? "" : "s");
+    if (tableType == 'desktop') {
+        if (exclusions == 0) {
+            resultsCount.innerHTML = kids.length + " total";
+        } else {
+            resultsCount.innerHTML = kids.length - exclusions + " result" + (kids.length - exclusions == 1 ? "" : "s");
+        }
     }
-
 }

@@ -14,15 +14,17 @@
                 </div>
                 <!-- Second Column-->
                 <div class="desktop:grid-col-8">
-                    <div class="total-authorizations">
-                        <div class="mp-autorized-services-main">
-                            <img src="../../assets/img/total-fedramp-services.svg" class="margin-right-3" />
-                            <h3>Total FedRAMP Authorized Services</h3>
+                    <a href="/products?status=authorized">
+                        <div class="total-authorizations cursor-pointer">
+                            <div class="mp-autorized-services-main">
+                                <img src="../../assets/img/total-fedramp-services.svg" class="margin-right-3" />
+                                <h3>Total FedRAMP Authorized Services</h3>
+                            </div>
+                            <div class="authorization-count">
+                                <p>{{data.Metrics.total}}</p>
+                            </div>
                         </div>
-                        <div class="authorization-count">
-                            <p>{{data.Metrics.total}}</p>
-                        </div>
-                    </div>
+                    </a>
 
                     <h3 class="latest-title">Latest on Marketplace</h3>
 
