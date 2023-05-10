@@ -216,7 +216,7 @@
                 <div
                   class="auth-flow-chart auth-{{ product.fedramp_auth == 'Not Authorized' ? 'future' : 'ready completed' }} order-tracking">
                   <span class="is-complete"></span></div>
-                <p class="date">{{ product.fedramp_auth == 'Not Authorized' || product.fedramp_auth == '#N/A' ? 'N/A' : product.fedramp_auth |
+                <p class="date">{{ product.fedramp_auth == 'Not Authorized' || product.fedramp_auth == 'Not Active' || product.fedramp_auth == '#N/A' ? 'N/A' : product.fedramp_auth |
                   date:'MM/dd/YYYY'}}</p>
               </div>
 
@@ -269,9 +269,9 @@
               product.ip_agency_date : product.ip_agency_date | date:'MM/dd/YYY'}}</p>
             <p><strong>PMO Review:</strong> {{product.ip_pmo_date == 'Not In Process' || product.ip_pmo_date == '#N/A' ? product.ip_pmo_date :
               product.ip_pmo_date | date:'MM/dd/YYY'}}</p>
-            <p><strong>FedRAMP Authorized:</strong> {{product.fedramp_auth == 'Not Authorized' || product.fedramp_auth == '#N/A' ? product.fedramp_auth :
+            <p><strong>FedRAMP Authorized:</strong> {{ product.fedramp_auth == 'Not Active' || product.fedramp_auth == '#N/A' ? product.fedramp_auth :
               product.fedramp_auth | date:'MM/dd/YYY'}}</p>
-            <p><strong>Annual Assessment:</strong> {{product.annual_assessment == '#N/A' || product.fedramp_auth == '#N/A' ? 'N/A' : product.annual_assessment | date:'MM/dd'}}</p>
+            <p><strong>Annual Assessment:</strong> {{product.annual_assessment == '#N/A' || product.annual_assessment == '#N/A' ? 'N/A' : product.annual_assessment | date:'MM/dd'}}</p>
             <p><strong>Independent Assessor:</strong> {{product.independent_assessor}}</p>
           </div>
         </div>
