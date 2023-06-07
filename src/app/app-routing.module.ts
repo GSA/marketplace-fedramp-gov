@@ -16,3 +16,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+imports: [RouterModule.forRoot(routes, { anchorScrolling: 'enabled'})]
