@@ -1,0 +1,46 @@
+<div *ngIf="isCachePresent">
+    <section class="mp-about" id="">
+        <div class="grid-container fedramp-page-container">
+            <!-- First Column-->
+            <div class="grid-row grid-gap">
+                <div class="desktop:grid-col-4">
+                    <h2>About FedRAMP Marketplace</h2>
+                    <p class="margin-bottom-4">The FedRAMP Marketplace is a searchable and sortable database of CSOs
+                        that have achieved a FedRAMP designation, a list of federal agencies using FedRAMP Authorized
+                        CSOs, and FedRAMP recognized assessors/auditors (3PAOs) that can perform a FedRAMP assessment.
+                    </p>
+                    <a class="learn-marketplace" href="https://www.fedramp.gov/about-marketplace/" target="_blank">Learn more about Marketplace</a>
+
+                </div>
+                <!-- Second Column-->
+                <div class="desktop:grid-col-8">
+                    <a href="/products?status=authorized">
+                        <div class="total-authorizations cursor-pointer">
+                            <div class="mp-autorized-services-main">
+                                <img src="../../assets/img/total-fedramp-services.svg" class="margin-right-3" />
+                                <h3>Total FedRAMP Authorized Services</h3>
+                            </div>
+                            <div class="authorization-count">
+                                <p>{{data.Metrics.total}}</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <h3 class="latest-title">Latest on Marketplace</h3>
+
+                    <a *ngFor="let l of data.Metrics.latest" class="latest-agency-link" href="/products/{{l.id}}" target="_blank">
+                        <div class="marketplace-latest">
+
+                            <div>
+                                <img src="{{l.logo}}" title="{{l.cso}}"
+                                    alt="{{l.cso}}" class="mp-latest-logo">
+                                <h4>{{l.cso}}</h4>
+                                <p>{{l.status}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,310 @@
+<app-about-marketplace></app-about-marketplace>
+
+<app-links></app-links>
+
+<section>
+  <div class="grid-container mp-search-main">
+    <div class="grid-row">
+
+      <!-- <div class="tablet:grid-col-2 grid-offset-10 padding-0 page-display-select">
+        <p>Number of items shown at a time</p>
+        <select name="display-number" id="display-number">
+          <option value="twenty-five">25</option>
+          <option value="fifty">50</option>
+          <option value="seventy-five">75</option>
+          <option value="one-hundred">100</option>
+        </select>
+      </div> -->
+
+    </div>
+  </div>
+
+  <div class="grid-container padding-3 marketplace-type-container">
+
+    <!-- Search Column-->
+    <div class="grid-row display-none desktop:display-flex">
+      <div class="tablet:grid-col-2 padding-right-3 results-search">
+
+        <label id='clear-search-desktop' class="cursor-pointer d-none" onclick="clearSearch();">X Clear Search</label>
+        <label id='clear-filters-desktop' class="cursor-pointer d-none" onclick="clearFilter();">X Clear Filters</label>
+        <br>
+        <input type="text" onkeyup="filterSearch(this.value);" id="clear-search" name="clear-search" placeholder="Search by Provider or Product">
+
+        <p id='results-count-desktop' class="mp-container-total-search-results">{{data.Agencies.length}} total</p>
+
+        <!-- Accordian -->
+        <div class="search-container">
+
+          <span id="filter-0-desktop" class style="display: none;"></span>
+          <span id="filter-1-desktop" class style="display: none;"></span>
+          <span id="filter-2-desktop" class style="display: none;"></span>
+          <span id="filter-3-desktop" class style="display: none;"></span>
+          <span id="filter-4-desktop" class style="display: none;"></span>
+          <span id="filter-5-desktop" class style="display: none;"></span>
+          <span id="filter-6-desktop" class style="display: none;"></span>
+          <span id="filter-7-desktop" class style="display: none;"></span>
+          <span id="filter-8-desktop" class style="display: none;"></span>
+          <span id="filter-9-desktop" class style="display: none;"></span>
+
+          <div *ngIf="data.Filters.agency.parent_agency.length != 0" class="usa-accordion">
+            <h4 class="usa-accordion__heading accordian-title">
+              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a1">
+                <strong>Parent Agency</strong>
+              </button>
+            </h4>
+            <div id="a1" class="usa-accordion__content usa-prose" hidden="">
+              <div *ngFor="let i of data.Filters.agency.parent_agency">
+                <li id="{{i.class_name}}-desktop" onclick="filterRows('1', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="data.Filters.agency.authorization.length != 0" class="usa-accordion">
+            <h4 class="usa-accordion__heading accordian-title">
+              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a2">
+                <strong>Authorizations</strong>
+              </button>
+            </h4>
+            <div id="a2" class="usa-accordion__content usa-prose" hidden="">
+              <div *ngFor="let i of data.Filters.agency.authorization">
+                <li id="{{i.class_name}}-desktop" onclick="filterRows('2', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="data.Filters.agency.impact_level.length != 0" class="usa-accordion">
+            <h4 class="usa-accordion__heading accordian-title">
+              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a3">
+                <strong>Impact Level</strong>
+              </button>
+            </h4>
+            <div id="a3" class="usa-accordion__content usa-prose" hidden="">
+              <div *ngFor="let i of data.Filters.agency.impact_level">
+                <li id="{{i.class_name}}-desktop" onclick="filterRows('3', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+              </div>
+            </div>
+          </div>
+
+          <!--
+            <div *ngIf="data.Filters.agency.reuse.length != 0" class="usa-accordion">
+              <h4 class="usa-accordion__heading accordian-title">
+                <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a4">
+                  <strong>Reuse</strong>
+                </button>
+              </h4>
+              <div id="a4" class="usa-accordion__content usa-prose" hidden="">
+                <div *ngFor="let i of data.Filters.agency.reuse">
+                  <li id="{{i.class_name}}-desktop" onclick="filterRows('4', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                </div>
+              </div>
+            </div>
+          -->
+
+        </div>
+        <button id="csv-button" class="btn btn-primary" onclick="csvFromFilteredData('agencies');">Export to CSV <i class="fa-solid fa-download"></i></button>
+
+      </div>
+
+      <!-- Results Column-->
+      <div class="grid-col-10">
+        <div class="grid-row search-sortable mp-sortable-column display-none desktop:display-flex">
+          <div class="grid-col-5 agencies_column-parent_agency">
+            <span id="sort-header-0-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(0);"
+              style="cursor:pointer;">Parent Agency</span>
+          </div>
+          <div class="grid-col-5 agencies_column-department_agency">
+            <span id="sort-header-1-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(1);">Department/Agency</span>
+          </div>
+          <div class="grid-col-2 agencies_column-authorizations text-center">
+            <span id="sort-header-2-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(2,true);">Authorizations</span>
+          </div>
+          <!--
+            <div class="grid-col-2 agencies_column-reuse text-center">
+              <span id="sort-header-3-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(3,true);">Reuse</span>
+            </div>
+          -->
+        </div>
+
+
+        <div *ngIf="isCachePresent" id="sort-table-desktop">
+          <div *ngFor="let a of data.Agencies" class="{{a.filter_classes}}">
+            <div class="grid-row mp-search-results">
+              <div class="grid-col-5 agencies_column-parent_agency">
+                <a href="/agencies/{{a.id}}" target="_blank"><span class="sort-col-0-desktop csv-data">{{a.parent}}</span></a>
+              </div>
+              <div class="grid-col-5 agencies_column-department_agency">
+                <span class="sort-col-1-desktop csv-data">{{a.sub}}</span>
+              </div>
+              <div class="grid-col-2 agencies_column-authorizations text-center">
+                <span class="sort-col-2-desktop csv-data">{{a.authorization}}</span>
+              </div>
+              <!--
+                <div class="grid-col-2 agencies_column-reuse text-center">
+                  <span class="sort-col-3-desktop csv-data">{{a.reuse}}</span>
+                </div>
+              -->
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <!-- Mobile Accordian -->
+
+    <div class="search-container desktop:display-none">
+
+      <span id="filter-0-mobile" class="" style="display: none;"></span>
+      <span id="filter-1-mobile" class="" style="display: none;"></span>
+      <span id="filter-2-mobile" class="" style="display: none;"></span>
+      <span id="filter-3-mobile" class="" style="display: none;"></span>
+      <span id="filter-4-mobile" class="" style="display: none;"></span>
+      <span id="filter-5-mobile" class="" style="display: none;"></span>
+      <span id="filter-6-mobile" class="" style="display: none;"></span>
+      <span id="filter-7-mobile" class="" style="display: none;"></span>
+      <span id="filter-8-mobile" class="" style="display: none;"></span>
+      <span id="filter-9-mobile" class="" style="display: none;"></span>
+
+      <div class="usa-accordion">
+        <h4 class="usa-accordion__heading accordian-title">
+
+          <label id='clear-filters-mobile' class="cursor-pointer d-none" onclick="clearFilter('mobile');">X Clear All</label>
+          <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="m1">
+            Filter Results
+          </button>
+        </h4>
+        <div id="m1" class="usa-accordion__content usa-prose" hidden="">
+          <div class="grid-row">
+            <!-- <div class="grid-col-12">
+              <p>Number of items shown at a time</p>
+              <select name="display-number" id="display-number">
+                <option value="twenty-five">25</option>
+                <option value="fifty">50</option>
+                <option value="seventy-five">75</option>
+                <option value="one-hundred">100</option>
+              </select>
+            </div> -->
+          </div>
+
+          <div class="grid-row">
+
+            <div *ngIf="data.Filters.agency.parent_agency.length != 0" class="grid-col-3">
+              <p><strong>Parent Agency</strong></p>
+              <div *ngFor="let i of data.Filters.agency.parent_agency">
+                <li id="{{i.class_name}}-mobile" onclick="filterRows('1', this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
+              </div>
+            </div>
+            
+
+            <div *ngIf="data.Filters.agency.authorization.length != 0" class="grid-col-3">
+              <p><strong>Authorizations</strong></p>
+              <div *ngFor="let i of data.Filters.agency.authorization">
+                <li id="{{i.class_name}}-mobile" onclick="filterRows('2', this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
+              </div>
+            </div>
+
+            <div *ngIf="data.Filters.agency.impact_level.length != 0" class="grid-col-3">
+              <p><strong>Impact Level</strong></p>
+              <div *ngFor="let i of data.Filters.agency.impact_level">
+                <li id="{{i.class_name}}-mobile" onclick="filterRows('3', this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
+              </div>
+            </div>
+
+            <div *ngIf="data.Filters.agency.reuse.length != 0" class="grid-col-3">
+              <p><strong>Reuse</strong></p>
+              <div *ngFor="let i of data.Filters.agency.reuse">
+                <li id="{{i.class_name}}-mobile" onclick="filterRows('4', this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+
+
+    <!-- Mobile Search Results -->
+
+    <div *ngIf="isCachePresent" id="sort-table-mobile">
+      <div *ngFor="let a of data.Agencies" class="{{a.filter_classes}}">
+        <a href="/agencies/{{a.id}}" target="_blank" class="company-info-link">
+          <div class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
+            <div class="grid-col-12 company-logo-column agencies_column-parent_agency">
+              <span>{{a.parent}}</span>
+            </div>
+            <div class="grid-col-12 agencies_column-department_agency">
+              <span>{{a.sub}}</span>
+            </div>
+            <div class="grid-col-12 padding-0">
+              <div class="grid-row grid-gap">
+                <div class="grid-col-6">
+                  <div class="product_column-authorization result">
+                    <h4>Authorizations</h4>
+                    <p><span>{{a.authorization}}</span></p>
+                  </div>
+                </div>
+                <div class="grid-col-6">
+                  <div class="product_column-reuse result">
+                    <h4>Reuse</h4>
+                    <p><span>{{a.reuse}}</span></p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Pagination -->
+
+    <!-- <nav aria-label="Pagination" class="usa-pagination">
+      <ul class="usa-pagination__list">
+        <li class="usa-pagination__item usa-pagination__arrow">
+          <a href="javascript:void(0);" class="usa-pagination__link usa-pagination__previous-page"
+            aria-label="Previous page"><svg class="usa-icon" aria-hidden="true" role="img">
+              <use xlink:href="../../assets/uswds/dist/img/sprite.svg#navigate_before"></use>
+            </svg>
+            <span class="usa-pagination__link-text">Previous</span></a>
+        </li>
+        <li class="usa-pagination__item usa-pagination__page-no">
+          <a href="javascript:void(0);" class="usa-pagination__button" aria-label="Page 1">1</a>
+        </li>
+        <li class="usa-pagination__item usa-pagination__overflow" role="presentation">
+          <span>…</span>
+        </li>
+        <li class="usa-pagination__item usa-pagination__page-no">
+          <a href="javascript:void(0);" class="usa-pagination__button" aria-label="Page 9">9</a>
+        </li>
+        <li class="usa-pagination__item usa-pagination__page-no">
+          <a href="javascript:void(0);" class="usa-pagination__button usa-current" aria-label="Page 10"
+            aria-current="page">10</a>
+        </li>
+        <li class="usa-pagination__item usa-pagination__page-no">
+          <a href="javascript:void(0);" class="usa-pagination__button" aria-label="Page 11">11</a>
+        </li>
+        <li class="usa-pagination__item usa-pagination__overflow" role="presentation">
+          <span>…</span>
+        </li>
+        <li class="usa-pagination__item usa-pagination__page-no">
+          <a href="javascript:void(0);" class="usa-pagination__button" aria-label="Last page, page 24">24</a>
+        </li>
+        <li class="usa-pagination__item usa-pagination__arrow">
+          <a href="javascript:void(0);" class="usa-pagination__link usa-pagination__next-page"
+            aria-label="Next page"><span class="usa-pagination__link-text">Next </span><svg class="usa-icon"
+              aria-hidden="true" role="img">
+              <use xlink:href="/../../assets/uswds/dist/img/sprite.svg#navigate_next"></use>
+            </svg></a>
+        </li>
+      </ul>
+    </nav> -->
+
+  </div>
+</section>

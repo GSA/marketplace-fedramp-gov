@@ -1,0 +1,170 @@
+@import '../../assets/sass/elements.scss';
+
+@import '../../assets/sass/standard-styles.scss';
+
+h3 {
+    font-weight: 400 !important;
+    color: $teal !important;
+}
+
+.mp-about {
+    background: $lightest-gray;
+
+    h3 {
+        font-size: 1.85rem !important;
+        font-weight: 400 !important;
+        margin-top: 24px;
+    }
+}
+
+.learn-marketplace {
+    background-color: $light-blue;
+    padding: 13px 48px 14px 48px;
+    border-radius: 40px;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: .025em;
+    font-weight: 800;
+    text-transform: none;
+    font-size: 1rem;
+    margin: 20px 30px 0 0;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+@media (min-width: 1025px) and (max-width: 1138px) { 
+    .learn-marketplace {
+        padding: 13px 28px 14px 28px;
+        font-size: .875rem;
+    }
+}
+
+.learn-marketplace:hover {
+    background-color: #C71F25;
+    transition: 0.4s;
+    color: #ffffff;
+}
+
+.total-authorizations {
+    background: #ffffff;
+    padding: 0em 2em;
+}
+
+
+.mp-autorized-services-main {
+    display: inline-flex;
+    width: 66%;
+}
+
+.authorization-count {
+    display: inline-flex;
+    width: 34%;
+
+    p {
+        font-family: 'Montserrat', sans-serif !important;
+        font-size: 3em;
+        color: $red;
+        font-weight: 800;
+        line-height: 1;
+        margin: 0;
+        position: relative;
+        top: -44px;
+        
+    }
+}
+
+.marketplace-latest {
+    background: #ffffff;
+    display: inline-block;
+    width: 32.66%;
+    min-height: 270px;
+    text-align: center;
+    margin: 0 1% 0 0;
+    padding: 1.5em 1em 1em 1em;
+    vertical-align: top;
+
+    h4 {
+        color: $light-blue;
+    }
+
+    p {
+        font-weight: 800;
+        color: $red;
+    }
+
+    img.mp-latest-logo {
+        max-height: 48px;
+    }
+}
+
+a.latest-agency-link {
+    text-decoration: none;
+}
+
+a.latest-agency-link:last-child {
+    .marketplace-latest {
+        margin-right: 0;
+    }
+}
+
+.mp-about {
+    h3.latest-title {
+        margin-top: 48px;
+    }
+}
+
+
+a.learn-marketplace:visited {
+    color: #ffffff !important;
+}
+
+
+@media all and (max-width: 1023px) {
+    .total-authorizations {
+        margin-top: 40px;
+        padding: 2em;
+    }
+}
+
+@media all and (max-width: 767px) {
+
+    .mp-autorized-services-main {
+        display: inline;
+        width: 100%;
+    }
+
+    .mp-autorized-services-main {
+        display: inline;
+        width: 100%;
+    }
+    
+    .authorization-count {
+        display: inline;
+        width: 100%;
+    
+        p {
+            top: -14px;
+        }
+    }
+
+    .learn-marketplace {
+        padding: 13px 36px 14px 36px;
+        margin: 0;
+    }
+
+    .marketplace-latest {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 0 0 2% 0;
+    }
+
+    .mp-about {
+        h3.latest-title {
+            margin-top: 48px;
+        }
+    }
+
+
+    
+}

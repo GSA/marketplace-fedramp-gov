@@ -1,0 +1,207 @@
+<div *ngIf="isCachePresent">
+    <section class="mp-product-company-info">
+        <div class="grid-container fedramp-page-container">
+
+            <!-- Company Inforation Column-->
+
+            <div class="grid-row">
+                <div class="tablet:grid-col-9">
+                    <img src="{{assessor.logo}}" alt="{{assessor.name}}" title="{{assessor.name}}"
+                        class="product-info-logo">
+                    <h2 class="detail-company-info">{{assessor.name}}</h2>
+
+                </div>
+
+                <div class="tablet:grid-col-3">
+                    <div class="grid-row product-info-stats">
+
+                        <div class="grid-col-12 info-box">
+                            <div class="stats">
+                                <div>
+                                    <h3 class="mp-info-title">Products Assessing</h3>
+                                    <!-- Information Modal -->
+                                    <div class="mp-info-button">
+                                        <a href="#example-modal-1" class="usa-button" aria-controls="example-modal-1"
+                                            data-open-modal><svg class="usa-icon" aria-hidden="true" focusable="false"
+                                                role="img">
+                                                <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
+                                            </svg></a>
+                                        <div class="usa-modal" id="example-modal-1" aria-labelledby="modal-1-heading"
+                                            aria-describedby="modal-1-description">
+                                            <div class="usa-modal__content">
+                                                <div class="usa-modal__main">
+
+                                                    <div class="usa-prose">
+                                                        <p id="modal-1-description">
+                                                            Number of unique systems that an assessor is currently working with for either a full assessment or readiness assessment. This number does not include all past assessments.
+                                                        </p>
+                                                    </div>
+
+                                                </div>
+                                                <button type="button" class="usa-button usa-modal__close"
+                                                    aria-label="Close this window" data-close-modal>
+                                                    <svg class="usa-icon" aria-hidden="true" focusable="false"
+                                                        role="img">
+                                                        <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close">
+                                                        </use>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Modal -->
+
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="product-info-authoriaztions-number counter">
+                                    <p>{{assessor.products_assessing}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-row">
+                        <div class="grid-row-12">
+                            <div class="accredited-date clearfix">
+                                <h3 class="mp-info-title">Accredited Since</h3>
+                                <!-- Information Modal -->
+                                <div class="mp-info-button">
+                                    <a href="#example-modal-2" class="usa-button" aria-controls="example-modal-2"
+                                        data-open-modal><svg class="usa-icon" aria-hidden="true" focusable="false"
+                                            role="img">
+                                            <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
+                                        </svg></a>
+                                    <div class="usa-modal" id="example-modal-1" aria-labelledby="modal-2-heading"
+                                        aria-describedby="modal-2-description">
+                                        <div class="usa-modal__content">
+                                            <div class="usa-modal__main">
+
+                                                <div class="usa-prose">
+                                                    <p id="modal-2-description">
+                                                        This assessor has been FedRAMP-recognized assessor since this date.
+                                                    </p>
+                                                </div>
+
+                                            </div>
+                                            <button type="button" class="usa-button usa-modal__close"
+                                                aria-label="Close this window" data-close-modal>
+                                                <svg class="usa-icon" aria-hidden="true" focusable="false"
+                                                    role="img">
+                                                    <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close">
+                                                    </use>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Modal -->
+                                <p>{{assessor.accredited_since | date:'MM/dd/YYYY'}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Inforation -->
+            <div class="grid-row product-info-details">
+                <div class="grid-col-12 mp-details-contact-info">
+                    <h3 class="tablet:margin-top-0">Contact Information</h3>
+                    
+                    <p><strong>POC:</strong> {{assessor.poc}}</p>
+                    <p><strong>E-mail:</strong> {{assessor.email}}</p>
+                    <p><strong>Founded:</strong> {{assessor.founded}}</p>
+                    <p><strong>Address:</strong> {{assessor.address}}</p>
+                </div>
+            </div>
+
+
+            <!-- Details -->
+
+            <div class="grid-row grid-gap product-info-details">
+                <div class="tablet:grid-col-6">
+                    <div>
+                        <h3>Assessor Description</h3>
+                        <p style="white-space: pre-wrap;">{{assessor.desc}}</p>
+                    </div>
+
+                    <div>
+                        <h3>Consulting Services</h3>
+                        <p style="white-space: pre-wrap;">{{assessor.services}}</p>
+                    </div>
+
+                    <div>
+                        <h3>CSPs providing consulting services to</h3>
+                        <p style="white-space: pre-wrap;">{{assessor.csps}}</p>
+                    </div>
+
+                    <div>
+                        <h3>Additional Cyber Frameworks</h3>
+                        <p style="white-space: pre-wrap;">{{assessor.frameworks}}</p>
+                    </div>
+                </div>
+
+                <div class="tablet:grid-col-6">
+
+                    <div>
+                        <h3 class="mp-info-title">Current Client(s)</h3>
+                        <!-- Information Modal -->
+                    <div class="mp-info-button">
+                        <a href="#example-modal-3" class="usa-button" aria-controls="example-modal-3"
+                            data-open-modal><svg class="usa-icon" aria-hidden="true" focusable="false"
+                                role="img">
+                                <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
+                            </svg></a>
+                        <div class="usa-modal" id="example-modal-3" aria-labelledby="modal-3-heading"
+                            aria-describedby="modal-3-description">
+                            <div class="usa-modal__content">
+                                <div class="usa-modal__main">
+
+                                    <div class="usa-prose">
+                                        <p id="modal-3-description">
+                                            Current customers of this assessor who are either under assessment or used this assessor for their most recent assessment.
+                                        </p>
+                                    </div>
+
+                                </div>
+                                <button type="button" class="usa-button usa-modal__close"
+                                    aria-label="Close this window" data-close-modal>
+                                    <svg class="usa-icon" aria-hidden="true" focusable="false"
+                                        role="img">
+                                        <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close">
+                                        </use>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Modal -->
+
+
+                        <div *ngIf="assessor.clients.length == 0; then clientsThenBlock else clientsElseBlock"></div>
+                        <ng-template #clientsThenBlock>
+                            <div class="grid-row assessor-current-clients ">
+                                <div class="grid-col-6 ">
+                                    <p><strong>None</strong></p>
+                                </div>
+                            </div>
+                        </ng-template>
+                        <ng-template #clientsElseBlock>
+                            <div *ngFor="let i of assessor.clients">
+                                <div class="grid-row assessor-current-clients ">
+                                    <div class="grid-col-6 ">
+                                        <p><strong>{{i.csp}}</strong></p>
+                                        <p><a href="products/{{i.id}}">{{i.cso}}</a></p>
+                                    </div>
+
+                                    <div class="grid-col-6 assessor-status">
+                                        {{i.status}}
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
