@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var skipButton = document.getElementById('skip-content');
 
-    skipButton.addEventListener("click", function () {
+    skipButton.addEventListener("click", function (e) {
+        e.preventDefault();
         document.getElementById('main-content').scrollIntoView();
     });
 });
