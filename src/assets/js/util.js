@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     skipButton.addEventListener("click", function (e) {
         e.preventDefault();
-        document.getElementById('main-content').scrollIntoView();
+        window.location.hash = 'main-content';
     });
 });
 
