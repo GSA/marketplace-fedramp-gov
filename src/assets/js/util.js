@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var skipButton = document.getElementById('skip-content');
 
     skipButton.addEventListener("click", function () {
-        document.getElementById('main-content').scrollIntoView();
+        location.hash = "#main-content";
     });
 });
 
