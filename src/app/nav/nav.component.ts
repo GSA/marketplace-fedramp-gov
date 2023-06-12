@@ -13,3 +13,5 @@ export class NavComponent implements OnInit {
   }
 
 }
+
+import { ViewportScroller } from '@angular/common'; @Component({ selector: 'component-selector', templateUrl: './nav.component.html' }) export class MyComponent { constructor(private viewportScroller: ViewportScroller) {} public onClick(elementId: string): void { this.viewportScroller.scrollToAnchor(elementId); } }
