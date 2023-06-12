@@ -1,5 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    var skipButton = document.getElementById('skip-content');
+
+    skipButton.addEventListener("click", function () {
+        document.getElementById('main-content').scrollIntoView();
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+
     var topButton = document.getElementById('topButton');
 
     window.onscroll = function (e) {
@@ -14,3 +23,4 @@ document.addEventListener("DOMContentLoaded", function () {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 });
+
