@@ -2,8 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var skipButton = document.getElementById('skip-content');
 
-    skipButton.addEventListener("click", function () {
-        location.hash = "#main-content";
+    skipButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        window.location.hash = 'main-content';
     });
 });
 
