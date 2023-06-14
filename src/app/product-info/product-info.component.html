@@ -214,7 +214,7 @@
                   <p class=""><strong>Authorized</strong></p>
                 </div>
                 <div
-                  class="auth-flow-chart auth-{{ product.fedramp_auth == 'Not Authorized' ? 'future' : 'ready completed' }} order-tracking">
+                  class="auth-flow-chart auth-{{ product.fedramp_auth == 'Not Authorized' || product.fedramp_auth == 'Not Active' ? 'future' : 'ready completed' }} order-tracking">
                   <span class="is-complete"></span></div>
                 <p class="date">{{ product.fedramp_auth == 'Not Authorized' || product.fedramp_auth == 'Not Active' || product.fedramp_auth == '#N/A' ? 'N/A' : product.fedramp_auth |
                   date:'MM/dd/YYYY'}}</p>
