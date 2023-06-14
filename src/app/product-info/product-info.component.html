@@ -173,10 +173,11 @@
                   <div class="current-status">
                     <p class=""><strong>In Process:</strong><br>In Agency Review</p>
                   </div>
-                  <div
-                    class="auth-flow-chart auth-{{ product.ip_agency_date == 'Not Agency Partnered' ? ( product.ready_status == 'Not Active' ? 'future' : 'process') : 'ready completed' }} order-tracking">
+
+                  <div class="auth-flow-chart auth-{{ product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active' ? 'ready completed' : ( product.ip_agency_date == 'Not Agency Partnered' || product.ip_agency_date == '#N/A' ? 'future' : 'process') }} order-tracking">
                     <span class="is-complete"></span>
                   </div>
+
                   <p class="date">{{ product.ip_agency_date == 'Not Agency Partnered' || product.ip_agency_date == '#N/A' ? 'N/A' : product.ip_agency_date |
                     date:'MM/dd/YYYY'}}</p>
 
@@ -186,10 +187,11 @@
                   <div class="current-status">
                     <p class=""><strong>In Process:</strong><br>In PMO Review</p>
                   </div>
-                  <div
-                    class="auth-flow-chart auth-{{ product.ip_pmo_date == 'Not In Process' ? ( product.ip_agency_date == 'Not Agency Partnered' ? 'future' : 'process' ) : 'ready complete' }} order-tracking">
+
+                  <div class="auth-flow-chart auth-{{ product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active' ? 'ready completed' : (product.ip_pmo_date == 'Not In Process' ||  product.ip_pmo_date == '#N/A' ? 'future' : 'process') }} order-tracking">
                     <span class="is-complete"></span>
                   </div>
+
                   <p class="date">{{ product.ip_pmo_date == 'Not In Process' ||  product.ip_pmo_date == '#N/A' ? 'N/A' : product.ip_pmo_date |
                     date:'MM/dd/YYYY'}}</p>
                 </div>
@@ -200,10 +202,11 @@
                   <div class="current-status">
                     <p class=""><strong>In Process:</strong><br>In JAB Review</p>
                   </div>
-                  <div
-                    class="auth-flow-chart auth-{{ product.ip_jab_date == 'Not Active' ? 'process' : 'ready completed' }} order-tracking ">
+                  
+                  <div class="auth-flow-chart auth-{{ product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active' ? 'ready completed' : (product.ip_jab_date == 'Not Active' || product.ip_jab_date == '#N/A' ? 'future' : 'process') }} order-tracking">
                     <span class="is-complete"></span>
                   </div>
+
                   <p class="date">{{ product.ip_jab_date == 'Not Active' || product.ip_jab_date == '#N/A' ? 'N/A' : product.ip_jab_date |
                     date:'MM/dd/YYYY'}}</p>
                 </div>
