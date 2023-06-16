@@ -1,7 +1,7 @@
 @import '../../assets/sass/elements.scss';
 
 button.fr-selection:hover {
-    background-color: $teal;
+    background-color: #07799C;
     color: #fff;
 }
 
@@ -19,7 +19,7 @@ button.fr-selection:hover {
     box-shadow: none;
     border-radius: 0;
     background-color: #fff;
-    color: #1889bc;
+    color: #07799C;
     display: inline-block;
     max-width: 400px;
     height: 48px;
@@ -30,7 +30,7 @@ button.fr-selection:hover {
 }
 
 .active {
-    background: $teal;
+    background: #07799C;
     color: #ffffff;
 }
 

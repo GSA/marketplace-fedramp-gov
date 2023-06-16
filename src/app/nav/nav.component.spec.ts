@@ -21,4 +21,3 @@ describe('NavComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-

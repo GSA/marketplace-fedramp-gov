@@ -173,10 +173,11 @@
                   <div class="current-status">
                     <p class=""><strong>In Process:</strong><br>In Agency Review</p>
                   </div>
-                  <div
-                    class="auth-flow-chart auth-{{ product.ip_agency_date == 'Not Agency Partnered' ? ( product.ready_status == 'Not Active' ? 'future' : 'process') : 'ready completed' }} order-tracking">
+
+                  <div class="auth-flow-chart auth-{{ ((product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active') || (product.ip_pmo_date != 'Not In Process' && product.ip_pmo_date != '#N/A'))  ? 'ready completed' : ( product.ip_agency_date == 'Not Agency Partnered' || product.ip_agency_date == '#N/A' ? 'future' : 'process') }} order-tracking">
                     <span class="is-complete"></span>
                   </div>
+
                   <p class="date">{{ product.ip_agency_date == 'Not Agency Partnered' || product.ip_agency_date == '#N/A' ? 'N/A' : product.ip_agency_date |
                     date:'MM/dd/YYYY'}}</p>
 
@@ -186,10 +187,11 @@
                   <div class="current-status">
                     <p class=""><strong>In Process:</strong><br>In PMO Review</p>
                   </div>
-                  <div
-                    class="auth-flow-chart auth-{{ product.ip_pmo_date == 'Not In Process' ? ( product.ip_agency_date == 'Not Agency Partnered' ? 'future' : 'process' ) : 'ready complete' }} order-tracking">
+
+                  <div class="auth-flow-chart auth-{{ product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active' ? 'ready completed' : (product.ip_pmo_date == 'Not In Process' ||  product.ip_pmo_date == '#N/A' ? 'future' : 'process') }} order-tracking">
                     <span class="is-complete"></span>
                   </div>
+
                   <p class="date">{{ product.ip_pmo_date == 'Not In Process' ||  product.ip_pmo_date == '#N/A' ? 'N/A' : product.ip_pmo_date |
                     date:'MM/dd/YYYY'}}</p>
                 </div>
@@ -200,10 +202,11 @@
                   <div class="current-status">
                     <p class=""><strong>In Process:</strong><br>In JAB Review</p>
                   </div>
-                  <div
-                    class="auth-flow-chart auth-{{ product.ip_jab_date == 'Not Active' ? 'process' : 'ready completed' }} order-tracking ">
+                  
+                  <div class="auth-flow-chart auth-{{ product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active' ? 'ready completed' : (product.ip_jab_date == 'Not Active' || product.ip_jab_date == '#N/A' ? 'future' : 'process') }} order-tracking">
                     <span class="is-complete"></span>
                   </div>
+
                   <p class="date">{{ product.ip_jab_date == 'Not Active' || product.ip_jab_date == '#N/A' ? 'N/A' : product.ip_jab_date |
                     date:'MM/dd/YYYY'}}</p>
                 </div>
@@ -214,7 +217,7 @@
                   <p class=""><strong>Authorized</strong></p>
                 </div>
                 <div
-                  class="auth-flow-chart auth-{{ product.fedramp_auth == 'Not Authorized' ? 'future' : 'ready completed' }} order-tracking">
+                  class="auth-flow-chart auth-{{ product.fedramp_auth == 'Not Authorized' || product.fedramp_auth == 'Not Active' ? 'future' : 'ready completed' }} order-tracking">
                   <span class="is-complete"></span></div>
                 <p class="date">{{ product.fedramp_auth == 'Not Authorized' || product.fedramp_auth == 'Not Active' || product.fedramp_auth == '#N/A' ? 'N/A' : product.fedramp_auth |
                   date:'MM/dd/YYYY'}}</p>
@@ -622,7 +625,7 @@
 
 
           <div>
-            <h3 class="mp-info-title">Business Function</h3>
+            <h3 class="mp-info-title">Business Category</h3>
 
             <!-- Information Modal -->
            <div class="mp-info-button mp-info-button-top-margin">
@@ -637,7 +640,7 @@
 
                   <div class="usa-prose">
                     <p id="modal-12-description">
-                      Business functions are intended to be high-level filter functions that stakeholders can sort through. FedRAMP cannot include every business function, so please ensure you review the “Service Description” which should support the information provided here. FedRAMP has only allotted up to 10 business functions to be identified per Cloud Service Offering (CSO).
+                      Business categories are intended to be high-level filter categories that stakeholders can sort through. FedRAMP cannot include every business category, so please ensure you review the “Service Description” which should support the information provided here. FedRAMP has only allotted up to 10 business categories to be identified per Cloud Service Offering (CSO).
                     </p>
                   </div>
 
