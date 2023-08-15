@@ -49,6 +49,20 @@ a.mp-search-list {
 	text-decoration: none;
 }
 
+.filter-item-desktop {
+	position: relative;
+}
+
+button.search-accordian-sub {
+	position: absolute;
+    width: 100%;
+    left: 0;
+	top: 0;
+    background: transparent;
+    border: none;
+    height: 1.25em;
+}
+
 @media (max-width: 1023px) {
 	.results-search, .page-display-select, .mp-sortable-column {
 		display: none;
