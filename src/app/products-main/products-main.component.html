@@ -187,12 +187,13 @@
 
         <div *ngIf="isCachePresent" id="sort-table-desktop">
           <div *ngFor="let p of data.Products" class="{{p.filter_classes}}">
+            <a href="/products/{{p.id}}" target="_blank" class="mp-search-list">
             <div class="grid-row mp-search-results display-none desktop:display-flex">
               <span style="display:none;">{{p.id}} | {{p.cso}}</span>
               <div class="grid-col-2 company-logo-column product_column-service_offering">
                 <span class="sort-col-0-desktop csv-data" style="display:none;">{{p.name}}</span>
-                <a href="/products/{{p.id}}" target="_blank"><img src="{{p.logo}}" alt="{{p.name}}"
-                    title="{{p.name}}"></a>
+                <img src="{{p.logo}}" alt="{{p.name}}"
+                    title="{{p.name}}">
               </div>
 
               <div class="grid-col-2 product_column-service_offering">
@@ -218,6 +219,7 @@
               </div>
 
             </div>
+          </a>
           </div>
         </div>
 

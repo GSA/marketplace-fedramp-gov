@@ -128,9 +128,10 @@
 
         <div *ngIf="isCachePresent" id="sort-table-desktop">
           <div *ngFor="let a of data.Agencies" class="{{a.filter_classes}}">
+            <a href="/agencies/{{a.id}}" target="_blank">
             <div class="grid-row mp-search-results">
               <div class="grid-col-5 agencies_column-parent_agency">
-                <a href="/agencies/{{a.id}}" target="_blank"><span class="sort-col-0-desktop csv-data">{{a.parent}}</span></a>
+                <span class="sort-col-0-desktop csv-data">{{a.parent}}</span>
               </div>
               <div class="grid-col-5 agencies_column-department_agency">
                 <span class="sort-col-1-desktop csv-data">{{a.sub}}</span>
@@ -143,8 +144,8 @@
                   <span class="sort-col-3-desktop csv-data">{{a.reuse}}</span>
                 </div>
               -->
-              
             </div>
+          </a>
           </div>
         </div>
       </div>

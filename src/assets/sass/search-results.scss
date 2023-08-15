@@ -45,6 +45,10 @@
 	}
 }
 
+a.mp-search-list {
+	text-decoration: none;
+}
+
 @media (max-width: 1023px) {
 	.results-search, .page-display-select, .mp-sortable-column {
 		display: none;
