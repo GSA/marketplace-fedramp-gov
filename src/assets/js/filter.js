@@ -23,10 +23,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
-function filterSearch(inVal) {
+function filterSearch(inVal, tableType = 'desktop') {
 
-    var clear = document.getElementById("clear-search-desktop");
-    var table = document.getElementById("sort-table-desktop");
+    var clear = document.getElementById("clear-search-" + tableType);
+    var table = document.getElementById("sort-table-" + tableType);
 
     const kids = table.children;
     var rows = [];
@@ -54,11 +54,11 @@ function filterSearch(inVal) {
     countResults();
 }
 
-function clearSearch() {
+function clearSearch(tableType = 'desktop') {
 
-    var search = document.getElementById("clear-search");
-    var clear = document.getElementById("clear-search-desktop");
-    var table = document.getElementById("sort-table-desktop");
+    var search = document.getElementById("clear-search-input-" + tableType);
+    var clear = document.getElementById("clear-search-" + tableType);
+    var table = document.getElementById("sort-table-" + tableType);
 
     search.value = "";
     clear.classList.add("d-none");

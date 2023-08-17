@@ -28,7 +28,7 @@
         <label id='clear-search-desktop' class="cursor-pointer d-none" onclick="clearSearch();">X Clear Search</label>
         <label id='clear-filters-desktop' class="cursor-pointer d-none" onclick="clearFilter();">X Clear Filters</label>
         <br>
-        <input type="text" onkeyup="filterSearch(this.value);" id="clear-search" name="clear-search" placeholder="Search by marketplace.fedramp.com">
+        <input type="text" onkeyup="filterSearch(this.value);" id="clear-search-input-desktop" name="clear-search-input-desktop" placeholder="Search by marketplace.fedramp.com">
 
         <p id='results-count-desktop' class="mp-container-total-search-results">{{data.Products.length}} total</p>
 
@@ -167,7 +167,7 @@
             <span id="sort-header-1-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(1);">Service Offering</span>
           </div>
           <div class="grid-col-2 product_column-service_model">
-            <span id="sort-header-2-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header">Service Model</span>
+            <span id="sort-header-2-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(2);">Service Model</span>
           </div>
           <div class="grid-col-2 product_column-impact_level">
             <span id="sort-header-3-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(3);">Impact Level</span>
@@ -242,7 +242,11 @@
           <div class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
 
-              <label id='clear-filters-mobile' class="cursor-pointer d-none" onclick="clearFilter('mobile');">X Clear All</label>
+              <label id='clear-search-mobile' class="cursor-pointer d-none" onclick="clearSearch('mobile');">X Clear Search</label>
+              <label id='clear-filters-mobile' class="cursor-pointer d-none" onclick="clearFilter('mobile');">X Clear Filters</label>
+              
+              <input type="text" onkeyup="filterSearch(this.value, 'mobile');" id="clear-search-input-mobile" name="clear-search-input-mobile" placeholder="Search by marketplace.fedramp.com">
+              
               <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="m1">
                 Filter Results
               </button>
@@ -389,6 +393,7 @@
                         <h5>Status</h5>
                         <span>{{p.status}}</span>
                       </div>
+                      <div style="display:none;">{{p.service_desc}}</div>
                     </div>
                   </div>
                 </div>

@@ -329,6 +329,11 @@ input[type="checkbox"]:checked + .mobile-title h4:after {
 		width: 20px;
 }
 
+.sort-header-desktop.sort-none:after {
+	content: '\2195';
+    padding-left: 0.5em;
+}
+
 .sort-header-desktop.sort-descending:after {
 	content: '\25bc';
     padding-left: 0.5em;
