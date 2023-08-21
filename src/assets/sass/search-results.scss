@@ -45,6 +45,24 @@
 	}
 }
 
+a.mp-search-list {
+	text-decoration: none;
+}
+
+.filter-item-desktop {
+	position: relative;
+}
+
+button.search-accordian-sub {
+	position: absolute;
+    width: 100%;
+    left: 0;
+	top: 0;
+    background: transparent;
+    border: none;
+    height: 100%;
+}
+
 @media (max-width: 1023px) {
 	.results-search, .page-display-select, .mp-sortable-column {
 		display: none;
@@ -309,6 +327,11 @@ input[type="checkbox"]:checked + .mobile-title h4:after {
 	content: url('../images/usa-icons/remove.svg');
 		position: absolute;
 		width: 20px;
+}
+
+.sort-header-desktop.sort-none:after {
+	content: '\2195';
+    padding-left: 0.5em;
 }
 
 .sort-header-desktop.sort-descending:after {
