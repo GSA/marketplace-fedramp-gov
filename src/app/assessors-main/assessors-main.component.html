@@ -28,7 +28,7 @@
         <label id='clear-search-desktop' class="cursor-pointer d-none" onclick="clearSearch();">X Clear Search</label>
         <label id='clear-filters-desktop' class="cursor-pointer d-none" onclick="clearFilter();">X Clear Filters</label>
         <br>
-        <input type="text" onkeyup="filterSearch(this.value);" id="clear-search-input-desktop" name="clear-search-input-desktop" placeholder="Search by marketplace.fedramp.com" >
+        <input type="text" onkeyup="filterSearch(this.value);" id="clear-search-input-desktop" name="clear-search-input-desktop" placeholder="Search Marketplace" >
 
         <p id='results-count-desktop' class="mp-container-total-search-results">{{data.Assessors.length}} total</p>
 
@@ -148,7 +148,7 @@
           <label id='clear-search-mobile' class="cursor-pointer d-none" onclick="clearSearch('mobile');">X Clear Search</label>
           <label id='clear-filters-mobile' class="cursor-pointer d-none" onclick="clearFilter('mobile');">X Clear Filters</label>
           
-          <input type="text" onkeyup="filterSearch(this.value, 'mobile');" id="clear-search-input-mobile" name="clear-search-input-mobile" placeholder="Search by marketplace.fedramp.com">
+          <input type="text" onkeyup="filterSearch(this.value, 'mobile');" id="clear-search-input-mobile" name="clear-search-input-mobile" class="search-mobile-mp" placeholder="Search Marketplace">
               
           <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="m1">
             Filter Results

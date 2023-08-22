@@ -61,7 +61,7 @@ ul.usa-nav__primary li a {
 }
 
 ul.usa-nav__primary li a {
-    color: $black !important;
+    color: $black ;
     font-size: .875rem;
     font-weight: 800;
 }
@@ -328,6 +328,15 @@ li.parent .sub-menu {
   }
 }
 
+.usa-nav__primary-item {
+	button {
+		color: $mid-gray;
+	}
+	a {
+		color: $mid-gray !important;
+	}
+}
+
 
 .usa-nav-primary a:hover {
   color: $teal;
@@ -417,7 +426,7 @@ ul.usa-nav__primary li.parent.primary-active, ul.usa-nav__primary li a.active, u
 }
 
 ul.usa-nav__primary ul.sub-sub-menu li a.active, ul.usa-nav__primary ul.sub-menu li a.active {
-	color: $dark-gray !important;
+	color: $dark-gray ;
 }
 
 ul.usa-nav__primary ul.sub-menu li a.active:before, ul.usa-nav__primary li a.active:before {
