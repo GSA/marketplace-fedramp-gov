@@ -212,6 +212,21 @@ button.search-accordian-sub {
 
 // Accordian for Search //
 
+@media (min-width: 0px) and (max-width: 590px) {
+	input.search-mobile-mp {
+		width: 90%;
+		height: 2em;
+	}
+	
+}
+
+@media (min-width: 591px) and (max-width: 1023px) {
+	input.search-mobile-mp {
+		width: 60%;
+		height: 2em;
+	}
+	
+}
 
 .accordion {
     color: $mid-gray;
