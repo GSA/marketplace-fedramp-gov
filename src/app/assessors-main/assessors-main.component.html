@@ -28,7 +28,7 @@
         <label id='clear-search-desktop' class="cursor-pointer d-none" onclick="clearSearch();">X Clear Search</label>
         <label id='clear-filters-desktop' class="cursor-pointer d-none" onclick="clearFilter();">X Clear Filters</label>
         <br>
-        <input type="text" onkeyup="filterSearch(this.value);" id="clear-search" name="clear-search" placeholder="Search by Provider or Product" >
+        <input type="text" onkeyup="filterSearch(this.value);" id="clear-search-input-desktop" name="clear-search-input-desktop" placeholder="Search by marketplace.fedramp.com" >
 
         <p id='results-count-desktop' class="mp-container-total-search-results">{{data.Assessors.length}} total</p>
 
@@ -54,7 +54,7 @@
             </h4>
             <div id="a1" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.assessor.product_assessing">
-                <li id="{{i.class_name}}-desktop" onclick="filterRows('1', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows('1', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button></li>
               </div>
             </div>
           </div>
@@ -67,7 +67,7 @@
             </h4>
             <div id="a2" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.assessor.impact_level">
-                <li id="{{i.class_name}}-desktop" onclick="filterRows('2', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows('2', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button></li>
               </div>
             </div>
           </div>
@@ -80,7 +80,7 @@
             </h4>
             <div id="a3" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.assessor.status">
-                <li id="{{i.class_name}}-desktop" onclick="filterRows('3', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows('3', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button></li>
               </div>
             </div>
           </div>
@@ -103,12 +103,13 @@
 
         <div *ngIf="isCachePresent" id="sort-table-desktop">
           <div *ngFor="let a of data.Assessors" class="{{a.filter_classes}}">
+            <a href="/assessors/{{a.id}}" target="_blank" class="mp-search-list">
             <div class="grid-row mp-search-results display-none desktop:display-flex">
               <div class="grid-col-10 company-logo-column product_column-service_offering ">
                 <div class="assessors-logo">
-                  <a href="/assessors/{{a.id}}" target="_blank">
+                  
                     <img src="{{a.logo}}" alt="{{a.name}}" title="{{a.name}}" class="">
-                  </a>
+                 
                 </div>
                 <div class="assessors-name">
                   <span class="sort-col-0-desktop csv-data">{{a.name}}</span>
@@ -119,6 +120,7 @@
                 <span class="sort-col-1-desktop csv-data">{{a.products_assessing}}</span>
               </div>
             </div>
+          </a>
           </div>
         </div>
       </div>
@@ -143,13 +145,18 @@
       <div class="usa-accordion">
         <h4 class="usa-accordion__heading accordian-title">
 
-          <label id='clear-filters-mobile' class="cursor-pointer d-none" onclick="clearFilter('mobile');">X Clear All</label>
+          <label id='clear-search-mobile' class="cursor-pointer d-none" onclick="clearSearch('mobile');">X Clear Search</label>
+          <label id='clear-filters-mobile' class="cursor-pointer d-none" onclick="clearFilter('mobile');">X Clear Filters</label>
+          
+          <input type="text" onkeyup="filterSearch(this.value, 'mobile');" id="clear-search-input-mobile" name="clear-search-input-mobile" placeholder="Search by marketplace.fedramp.com">
+              
           <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="m1">
             Filter Results
           </button>
         </h4>
         <div id="m1" class="usa-accordion__content usa-prose" hidden="">
           <div class="grid-row">
+            
             
             <!-- <div class="grid-col-12">
               <p>Number of items shown at a time</p>

@@ -28,7 +28,7 @@
         <label id='clear-search-desktop' class="cursor-pointer d-none" onclick="clearSearch();">X Clear Search</label>
         <label id='clear-filters-desktop' class="cursor-pointer d-none" onclick="clearFilter();">X Clear Filters</label>
         <br>
-        <input type="text" onkeyup="filterSearch(this.value);" id="clear-search" name="clear-search" placeholder="Search by Provider or Product">
+        <input type="text" onkeyup="filterSearch(this.value);" id="clear-search-input-desktop" name="clear-search-input-desktop" placeholder="Search by marketplace.fedramp.com">
 
         <p id='results-count-desktop' class="mp-container-total-search-results">{{data.Products.length}} total</p>
 
@@ -54,7 +54,7 @@
             </h4>
             <div id="a1" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.product.status">
-                <li id="{{i.class_name}}-desktop" onclick="filterRows('1', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows('1', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button></li>
               </div>
             </div>
           </div>
@@ -67,7 +67,7 @@
             </h4>
             <div id="a2" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.product.business_function">
-                <li id="{{i.class_name}}-desktop" onclick="filterRows('2', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows('2', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button></li>
               </div>
             </div>
           </div>
@@ -80,7 +80,7 @@
             </h4>
             <div id="a3" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.product.service_model">
-                <li id="{{i.class_name}}-desktop" onclick="filterRows('3', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows('3', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button></li>
               </div>
             </div>
           </div>
@@ -93,7 +93,7 @@
             </h4>
             <div id="a4" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.product.impact_level">
-                <li id="{{i.class_name}}-desktop" onclick="filterRows('4', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows('4', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button></li>
               </div>
             </div>
           </div>
@@ -106,7 +106,7 @@
             </h4>
             <div id="a5" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.product.auth_type">
-                <li id="{{i.class_name}}-desktop" onclick="filterRows('5', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows('5', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button></li>
               </div>
             </div>
           </div>
@@ -119,7 +119,7 @@
             </h4>
             <div id="a6" class="usa-accordion__content usa-prose" hidden="">
               <div *ngFor="let i of data.Filters.product.deployment_models">
-                <li id="{{i.class_name}}-desktop" onclick="filterRows('6', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+                <li id="{{i.class_name}}-desktop" onclick="filterRows('6', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button></li>
               </div>
             </div>
           </div>
@@ -167,7 +167,7 @@
             <span id="sort-header-1-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(1);">Service Offering</span>
           </div>
           <div class="grid-col-2 product_column-service_model">
-            <span id="sort-header-2-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header">Service Model</span>
+            <span id="sort-header-2-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(2);">Service Model</span>
           </div>
           <div class="grid-col-2 product_column-impact_level">
             <span id="sort-header-3-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(3);">Impact Level</span>
@@ -187,12 +187,13 @@
 
         <div *ngIf="isCachePresent" id="sort-table-desktop">
           <div *ngFor="let p of data.Products" class="{{p.filter_classes}}">
+            <a href="/products/{{p.id}}" target="_blank" class="mp-search-list">
             <div class="grid-row mp-search-results display-none desktop:display-flex">
               <span style="display:none;">{{p.id}} | {{p.cso}}</span>
               <div class="grid-col-2 company-logo-column product_column-service_offering">
                 <span class="sort-col-0-desktop csv-data" style="display:none;">{{p.name}}</span>
-                <a href="/products/{{p.id}}" target="_blank"><img src="{{p.logo}}" alt="{{p.name}}"
-                    title="{{p.name}}"></a>
+                <img src="{{p.logo}}" alt="{{p.name}}"
+                    title="{{p.name}}">
               </div>
 
               <div class="grid-col-2 product_column-service_offering">
@@ -216,8 +217,10 @@
               <div class="grid-col-1 product_column-reuse result">
                 <span class="sort-col-6-desktop csv-data">{{p.reuse}}</span>
               </div>
+              <div style="display:none;">{{ p.service_desc }}</div>
 
             </div>
+          </a>
           </div>
         </div>
 
@@ -239,7 +242,11 @@
           <div class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
 
-              <label id='clear-filters-mobile' class="cursor-pointer d-none" onclick="clearFilter('mobile');">X Clear All</label>
+              <label id='clear-search-mobile' class="cursor-pointer d-none" onclick="clearSearch('mobile');">X Clear Search</label>
+              <label id='clear-filters-mobile' class="cursor-pointer d-none" onclick="clearFilter('mobile');">X Clear Filters</label>
+              
+              <input type="text" onkeyup="filterSearch(this.value, 'mobile');" id="clear-search-input-mobile" name="clear-search-input-mobile" placeholder="Search by marketplace.fedramp.com">
+              
               <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="m1">
                 Filter Results
               </button>
@@ -386,6 +393,7 @@
                         <h5>Status</h5>
                         <span>{{p.status}}</span>
                       </div>
+                      <div style="display:none;">{{p.service_desc}}</div>
                     </div>
                   </div>
                 </div>
