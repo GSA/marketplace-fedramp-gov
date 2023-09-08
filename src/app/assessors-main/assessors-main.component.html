@@ -100,7 +100,11 @@
           </div>
         </div>
 
-
+        <div id="zero-results-desktop" style="display:none;" class="grid-row mp-search-results display-none desktop:display-flex">
+          <div class="grid-col-12 company-logo-column product_column-service_offering">
+            No results. Trying narrowing search or filter parameters.
+          </div>
+        </div>
         <div *ngIf="isCachePresent" id="sort-table-desktop">
           <div *ngFor="let a of data.Assessors" class="{{a.filter_classes}}">
             <a href="/assessors/{{a.id}}" target="_blank" class="mp-search-list">
@@ -201,8 +205,12 @@
 
 
     <!-- Mobile Search Results -->
-
-    <div *ngIf="isCachePresent" id="sort-table-mobile">
+    <div id="zero-results-mobile" style="display:none;" class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
+      <div class="gid-col-12 desktop:grid-col-2 company-logo-column product_column-service_offering">
+        No results. Trying narrowing search or filter parameters.
+      </div>
+    </div> 
+    <div *ngIf="isCachePresent" id="sort-table-mobile">         
       <div *ngFor="let a of data.Assessors" class="{{a.filter_classes}}">
         <a href="/assessors/{{a.id}}" target="_blank" class="company-info-link">
           <div class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
