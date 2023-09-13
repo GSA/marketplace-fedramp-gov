@@ -1,4 +1,14 @@
 <div *ngIf="isCachePresent">
+
+  <div *ngIf="agency.sub === ''; then tThenBlock else tElseBlock"></div>
+  <ng-template #tThenBlock>     
+    <div id="update-title" style="display:none;">{{agency.parent}}</div>
+  </ng-template>
+  <ng-template #tElseBlock>      
+    <div id="update-title" style="display:none;">{{agency.sub}}</div>
+  </ng-template>
+
+
   <section class="mp-product-company-info">
     <div class="grid-container fedramp-page-container">
 
