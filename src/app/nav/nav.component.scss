@@ -339,8 +339,19 @@ li.parent .sub-menu {
 	a {
 		color: $mid-gray !important;
 	}
+
+	a:hover {
+		color: $red !important;
+	}
 }
 
+ .blog-menu-item a:hover {
+	color: $red !important;
+}
+
+.usa-nav__primary button.marketplace-menu-item:hover {
+	color: #ffffff !important;
+}
 
 .usa-nav-primary a:hover {
   color: $teal;
@@ -435,6 +446,10 @@ ul.usa-nav__primary ul.sub-sub-menu li a.active, ul.usa-nav__primary ul.sub-menu
 
 ul.usa-nav__primary ul.sub-menu li a.active:before, ul.usa-nav__primary li a.active:before {
 	content: none;
+}
+
+.usa-nav__primary button:hover {
+	color: $red !important;
 }
 
 .usa-nav-container {
