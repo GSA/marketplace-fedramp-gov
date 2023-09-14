@@ -12,19 +12,40 @@
   <section class="mp-product-company-info">
     <div class="grid-container fedramp-page-container">
 
-      <!-- Company Inforation Column-->
+      <!-- Contact Inforation -->
       <div class="grid-row">
-        <div class="desktop:grid-col-8">
-          <div *ngIf="agency.sub === ''; then thenBlock else elseBlock"></div>
-          <ng-template #thenBlock>
-            <h2 class="detail-company-info">{{agency.parent}}</h2>
-          </ng-template>
-          <ng-template #elseBlock>
-            <h4 class="detail-company-info">{{agency.parent}}</h4>
-            <h2 class="detail-company-info">{{agency.sub}}</h2>
-          </ng-template>
-        </div>
+        <div class="desktop:grid-col-8 mp-details-contact-info">
+          <h3 class="mp-info-title">Agency Liaison Contact Information</h3>
+                <!-- Information Modal -->
+                <div class="mp-info-button">
+                  <a href="#example-modal-2" class="usa-button" aria-controls="example-modal-2" data-open-modal><svg
+                      class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                      <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
+                    </svg></a>
+                  <div class="usa-modal" id="example-modal-2" aria-labelledby="modal-2-heading"
+                    aria-describedby="modal-2-description">
+                    <div class="usa-modal__content">
+                      <div class="usa-modal__main">
 
+                        <div class="usa-prose">
+                          <p id="modal-2-description">
+                            If the agency has a shared inbox related to FedRAMP activities it will be listed in this section. If there is no email address listed, one has not been provided to the FedRAMP PMO by this agency.
+                          </p>
+                        </div>
+
+                      </div>
+                      <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
+                        data-close-modal>
+                        <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                          <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+          <p><strong>E-mail:</strong> {{agency.email}}</p>
+          <p><strong>Website:</strong> {{agency.website}}</p>
+        </div>
         <div class="desktop:grid-col-4">
           <div class="grid-row product-info-stats">
 
@@ -68,88 +89,8 @@
                 </div>
               </div>
             </div>
-            <!--
-            <div class="tablet:grid-col-6 info-box">
-              <div class="stats">
-                <div>
-                  <h3 class="mp-info-title">Reuse</h3>
-                  <!-- Information Modal 
-                  <div class="mp-info-button">
-                    <a href="#example-modal-1" class="usa-button" aria-controls="example-modal-1" data-open-modal><svg
-                        class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                        <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
-                      </svg></a>
-                    <div class="usa-modal" id="example-modal-1" aria-labelledby="modal-1-heading"
-                      aria-describedby="modal-1-description">
-                      <div class="usa-modal__content">
-                        <div class="usa-modal__main">
-
-                          <div class="usa-prose">
-                            <p id="modal-1-description">
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan aliquet risus in
-                              malesuada. Mauris sit amet odio quam. Aenean rutrum sem sit amet sapien egestas, iaculis
-                              hendrerit sapien lobortis.
-                            </p>
-                          </div>
-
-                        </div>
-                        <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
-                          data-close-modal>
-                          <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                            <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close"></use>
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- End Modal 
-
-                </div>
-                <div class="clearfix"></div>
-                <div class="product-info-authoriaztions-number counter">
-                  <p>{{agency.reuse}}</p>
-                </div>
-              </div>
-            </div>
-            -->
-
+            
           </div>
-        </div>
-      </div>
-
-      <!-- Contact Inforation -->
-      <div class="grid-row">
-        <div class="grid-col-12 mp-details-contact-info">
-          <h3 class="mp-info-title">Agency Liaison Contact Information</h3>
-                <!-- Information Modal -->
-                <div class="mp-info-button">
-                  <a href="#example-modal-2" class="usa-button" aria-controls="example-modal-2" data-open-modal><svg
-                      class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                      <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
-                    </svg></a>
-                  <div class="usa-modal" id="example-modal-2" aria-labelledby="modal-2-heading"
-                    aria-describedby="modal-2-description">
-                    <div class="usa-modal__content">
-                      <div class="usa-modal__main">
-
-                        <div class="usa-prose">
-                          <p id="modal-2-description">
-                            If the agency has a shared inbox related to FedRAMP activities it will be listed in this section. If there is no email address listed, one has not been provided to the FedRAMP PMO by this agency.
-                          </p>
-                        </div>
-
-                      </div>
-                      <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
-                        data-close-modal>
-                        <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                          <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close"></use>
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-          <p><strong>E-mail:</strong> {{agency.email}}</p>
-          <p><strong>Website:</strong> {{agency.website}}</p>
         </div>
       </div>
 
