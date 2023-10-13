@@ -1,4 +1,7 @@
 <div *ngIf="isCachePresent">
+    
+    <div id="update-title" style="display:none;">{{assessor.name}}</div>
+
     <section class="mp-product-company-info">
         <div class="grid-container fedramp-page-container">
 
@@ -8,8 +11,6 @@
                 <div class="tablet:grid-col-9">
                     <img src="{{assessor.logo}}" alt="{{assessor.name}}" title="{{assessor.name}}"
                         class="product-info-logo">
-                    <h2 class="detail-company-info">{{assessor.name}}</h2>
-
                 </div>
 
                 <div class="tablet:grid-col-3">
@@ -181,7 +182,7 @@
                         <ng-template #clientsThenBlock>
                             <div class="grid-row assessor-current-clients ">
                                 <div class="grid-col-6 ">
-                                    <p><strong>None</strong></p>
+                                    <p><strong>N/A</strong></p>
                                 </div>
                             </div>
                         </ng-template>

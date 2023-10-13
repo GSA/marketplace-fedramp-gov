@@ -25,3 +25,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    if(document.getElementById("update-title")) {
+
+        var t = document.getElementById("update-title").innerHTML;
+        
+        document.title = t + " | FedRAMP Marketplace";
+        document.getElementById("marketplace-title").innerHTML = t;
+    }
+});

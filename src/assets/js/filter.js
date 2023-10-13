@@ -51,7 +51,7 @@ function filterSearch(inVal, tableType = 'desktop') {
         clear.classList.add("d-none");
     }
 
-    countResults();
+    countResults(tableType);
 }
 
 function clearSearch(tableType = 'desktop') {
@@ -72,7 +72,7 @@ function clearSearch(tableType = 'desktop') {
 
     table.innerHTML = rows.join('').replace(/d-search-none/g,'');
 
-    countResults();
+    countResults(tableType);
 }
 
 function filterRows(filterNum, filterClass, tableType = 'desktop') {
@@ -195,6 +195,7 @@ function countResults(tableType = 'desktop') {
 
     var resultsCount = document.getElementById("results-count-" + tableType);
     var table = document.getElementById("sort-table-" + tableType);
+    var zeroResults = document.getElementById("zero-results-" + tableType);
 
     const kids = table.children;
 
@@ -215,4 +216,11 @@ function countResults(tableType = 'desktop') {
             resultsCount.innerHTML = kids.length - exclusions + " result" + (kids.length - exclusions == 1 ? "" : "s");
         }
     }
+
+    zeroResults.style.display = "none";
+
+    if (kids.length - exclusions == 0) {
+        zeroResults.style.display = "block";
+    }
+
 }
