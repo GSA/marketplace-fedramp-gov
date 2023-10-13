@@ -10,8 +10,6 @@
       <div class="grid-row">
         <div class="desktop:grid-col-6">
           <img src="{{product.logo}}" alt="{{product.name}}" title="{{product.name}}" class="product-info-logo">
-          <h2 class="detail-company-info">{{product.cso}}</h2>
-
         </div>
 
         <div class="desktop:grid-col-6">
@@ -368,7 +366,7 @@
             <ng-template #leveraged_systemsThenBlock>
               <div class="grid-row product-info-leveraged-systems tablet:padding-bottom-2">
                 <div class="grid-col-4 ">
-                  <p><strong>None</strong></p>
+                  <p><strong>N/A</strong></p>
                 </div>
               </div>
             </ng-template>
@@ -430,10 +428,10 @@
 
             <div class="mp-product-columns">
               <div
-                *ngIf="product.agency_authorizations.length == 0; then agency_authsThenBlock else agency_authsElseBlock">
+                *ngIf="product.agency_authorizations.length == 0 || (product.agency_authorizations.length == 1 && product.agency_authorizations[0] == ''); then agency_authsThenBlock else agency_authsElseBlock">
               </div>
               <ng-template #agency_authsThenBlock>
-                <p>None</p>
+                <p>N/A</p>
               </ng-template>
               <ng-template #agency_authsElseBlock>
                 <div *ngFor="let i of product.agency_authorizations">
@@ -623,14 +621,18 @@
             </div>
           </div>
           <!-- End Modal -->
-              <p>{{product.uei}}</p>
-              <!--
-              <h3>Small Business</h3>
-              <p>{{product.small_business}}</p>
-              -->
-            </div>
 
-          </div>
+          <div *ngIf="product.uei == ''; then ueiThen else ueiElse"></div>
+          <ng-template #ueiThen>
+            <p>N/A</p>
+          </ng-template>
+          <ng-template #ueiElse>
+            <p>{{product.uei}}</p>
+          </ng-template>
+
+
+        </div>
+      </div>
 
 
           <div>
@@ -668,7 +670,7 @@
               *ngIf="product.business_function.length == 0 || product.business_function == ''; then business_functionThenBlock else business_functionElseBlock">
             </div>
             <ng-template #business_functionThenBlock>
-              <p>None</p>
+              <p>N/A</p>
             </ng-template>
             <ng-template #business_functionElseBlock>
               <ul>
@@ -717,9 +719,9 @@
           </div>
           <div class="clearfix"></div>
           <h4>Service(s) Added in the last 90 days</h4>
-          <div *ngIf="product.service_last_90.length == 0; then last90ThenBlock else last90ElseBlock"></div>
+          <div *ngIf="product.service_last_90.length == 0 || (product.service_last_90.length == 1 && product.service_last_90[0] == ''); then last90ThenBlock else last90ElseBlock"></div>
           <ng-template #last90ThenBlock>
-            <p>None</p>
+            <p>N/A</p>
           </ng-template>
           <ng-template #last90ElseBlock>
             <ul class="90day-services three-columns">
@@ -730,9 +732,9 @@
           </ng-template>
 
           <h4>Other Service(s)</h4>
-          <div *ngIf="product.all_others.length == 0; then all_othersThenBlock else all_othersElseBlock"></div>
+          <div *ngIf="product.all_others.length == 0 || (product.all_others.length == 1 && product.all_others[0] == ''); then all_othersThenBlock else all_othersElseBlock"></div>
           <ng-template #all_othersThenBlock>
-            <p>None</p>
+            <p>N/A</p>
           </ng-template>
           <ng-template #all_othersElseBlock>
             <ul class="product-info-services">
