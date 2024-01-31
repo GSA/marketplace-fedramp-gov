@@ -216,14 +216,17 @@ export class AgenciesMainComponent implements OnInit {
           if (inSub != "") {
             if (inSub == this.data.ReuseMapping[i].sub_id) {
               iss = this.data.ReuseMapping[i].ato_date.slice(0,this.data.ReuseMapping[i].ato_date.indexOf("T"));
-              auth = this.data.ReuseMapping[i].auth_date.slice(0,this.data.ReuseMapping[i].auth_date.indexOf("T"));
+              auth = this.getAtoAuthForReuse(idProd, inSub);
+              //this.data.ReuseMapping[i].auth_date.slice(0,this.data.ReuseMapping[i].auth_date.indexOf("T"));
               exp = this.data.ReuseMapping[i].exp_date.slice(0,this.data.ReuseMapping[i].exp_date.indexOf("T"));
             }
           } else {
             if (inParent == this.data.ReuseMapping[i].agency_id) {
               iss = this.data.ReuseMapping[i].ato_date.slice(0,this.data.ReuseMapping[i].ato_date.indexOf("T"));
-              auth = this.data.ReuseMapping[i].auth_date.slice(0,this.data.ReuseMapping[i].auth_date.indexOf("T"));
+              auth = this.getAtoAuthForReuse(idProd, inParent);
+              // auth = this.data.ReuseMapping[i].auth_date.slice(0,this.data.ReuseMapping[i].auth_date.indexOf("T"));
               exp = this.data.ReuseMapping[i].exp_date.slice(0,this.data.ReuseMapping[i].exp_date.indexOf("T"));
+              
             }
           }
         }
@@ -233,7 +236,6 @@ export class AgenciesMainComponent implements OnInit {
 
       for (var i = 0; i < this.data.AtoMapping.length; i++) {
 
-        
         if (this.data.AtoMapping[i].id == idProd 
         && (this.data.AtoMapping[i].agency_id == inParent || this.data.AtoMapping[i].agency_id == inSub)) {
 
@@ -250,6 +252,17 @@ export class AgenciesMainComponent implements OnInit {
     return iss + "\",\"" + auth + "\",\"" + exp + "\"";
   }
 
+  getAtoAuthForReuse(idProd: string, idAgency: string) {
+
+    for (var i = 0; i < this.data.AtoMapping.length; i++) {
+
+      if (this.data.AtoMapping[i].id == idProd) {
+        
+          return this.data.AtoMapping[i].auth_date.slice(0,this.data.AtoMapping[i].auth_date.indexOf("T"));
+      }
+    }
+    return "";
+  }
 
   zeroPad(n: number) {
     return n < 10 ? '0' + n : n
