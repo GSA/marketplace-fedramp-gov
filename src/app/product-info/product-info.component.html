@@ -1,4 +1,5 @@
 <div *ngIf="isCachePresent">
+  <div id="product-info" style="display:none;"></div>
 
   <div id="update-title" style="display:none;">{{product.cso}}</div>
 
@@ -164,7 +165,7 @@
               <div class="tablet:{{ gridClass }} status-container">
 
                 <div class="current-status">
-                  <p class=""><strong>Ready</strong></p>
+                  <p class="current-status-title"><strong>Ready</strong></p>
                 </div>
                 <div
                   class="auth-flow-chart auth-{{ product.ready_status == 'Not Active' ? 'future' : 'ready completed' }} order-tracking first-order">
@@ -178,7 +179,7 @@
 
                 <div class="tablet:grid-col-3 status-container">
                   <div class="current-status">
-                    <p class=""><strong>In Process:</strong><br>In Agency Review</p>
+                    <p class="current-status-title"><strong>In Process:</strong><br>In Agency Review</p>
                   </div>
 
                   <div class="auth-flow-chart auth-{{ ((product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active') || (product.ip_pmo_date != 'Not In Process' && product.ip_pmo_date != '#N/A'))  ? 'ready completed' : ( product.ip_agency_date == 'Not Agency Partnered' || product.ip_agency_date == '#N/A' ? 'future' : 'process') }} order-tracking">
@@ -192,7 +193,7 @@
 
                 <div class="tablet:grid-col-3 status-container">
                   <div class="current-status">
-                    <p class=""><strong>In Process:</strong><br>In PMO Review</p>
+                    <p class="current-status-title"><strong>In Process:</strong><br>In PMO Review</p>
                   </div>
 
                   <div class="auth-flow-chart auth-{{ product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active' ? 'ready completed' : (product.ip_pmo_date == 'Not In Process' ||  product.ip_pmo_date == '#N/A' ? 'future' : 'process') }} order-tracking">
@@ -207,7 +208,7 @@
               <ng-template #midElse>
                 <div class="tablet:grid-col-4 status-container">
                   <div class="current-status">
-                    <p class=""><strong>In Process:</strong><br>In JAB Review</p>
+                    <p class="current-status-title"><strong>In Process:</strong><br>In JAB Review</p>
                   </div>
                   
                   <div class="auth-flow-chart auth-{{ product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active' ? 'ready completed' : (product.ip_jab_date == 'Not Active' || product.ip_jab_date == '#N/A' ? 'future' : 'process') }} order-tracking">
@@ -221,7 +222,7 @@
 
               <div class="tablet:{{ gridClass }} status-container">
                 <div class="current-status">
-                  <p class=""><strong>Authorized</strong></p>
+                  <p class="current-status-title"><strong>Authorized</strong></p>
                 </div>
                 <div
                   class="auth-flow-chart auth-{{ product.fedramp_auth == 'Not Authorized' || product.fedramp_auth == 'Not Active' ? 'future' : 'ready completed' }} order-tracking">
