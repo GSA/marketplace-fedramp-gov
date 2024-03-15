@@ -86,8 +86,9 @@ export class ProductsMainComponent implements OnInit {
     let agencyIndex = 0;
 
     // headers
-    // csv += "\"FedRAMP ID\",\"Cloud Service Provider\",\"Cloud Service Offering\",\"Service Description\",\"Business Categories\",\"Service Model\",\"Status\",\"Independent Assessor\",\"Parent ID\",\"Parent Agency\",\"Sub ID\",\"Sub Agency\",\"ATO\",\"ATO Issuance Date\",\"Authorization Date\",\"ATO Expiration Date\"\r\n";
-    csv += "\"FedRAMP ID\",\"Cloud Service Provider\",\"Cloud Service Offering\",\"Service Description\",\"Business Categories\",\"Service Model\",\"Status\",\"Independent Assessor\",\"Parent Agency\",\"Sub Agency\",\"ATO\",\"ATO Issuance Date\",\"Authorization Date\",\"ATO Expiration Date\"\r\n";
+    // for a deep dive, the parent agency and sub agency IDs can be added by uncommenting the //ID tag
+    //ID csv += "\"FedRAMP ID\",\"Cloud Service Provider\",\"Cloud Service Offering\",\"Service Description\",\"Business Categories\",\"Service Model\",\"Status\",\"Independent Assessor\",\"Parent ID\",\"Parent Agency\",\"Sub ID\",\"Sub Agency\",\"ATO\",\"ATO Issuance Date\",\"FedRAMP Authorization Date\",\"ATO Expiration Date\"\r\n";
+    csv += "\"FedRAMP ID\",\"Cloud Service Provider\",\"Cloud Service Offering\",\"Service Description\",\"Business Categories\",\"Service Model\",\"Status\",\"Independent Assessor\",\"Parent Agency\",\"Sub Agency\",\"ATO\",\"ATO Issuance Date\",\"FedRAMP Authorization Date\",\"ATO Expiration Date\"\r\n";
 
     // for all products
     for (var i = 0; i < this.data.Products.length; i++) {
@@ -106,6 +107,7 @@ export class ProductsMainComponent implements OnInit {
 
             agencyIndex = this.getCorrectAgencyIndex(subId == "", this.data.Products[i].agency_authorizations[j]);
 
+            // found?
             if (agencyIndex != -1) {
 
               ato = this.getAto(this.data.Products[i].id, parentId, subId);
@@ -118,9 +120,9 @@ export class ProductsMainComponent implements OnInit {
                 this.data.Products[i].service_model.join(',').replace(/"/g, '""') + "\",\"" +
                 this.data.Products[i].status.replace(/"/g, '""') + "\",\"" +
                 this.data.Products[i].independent_assessor.replace(/"/g, '""') + "\",\"" +
-                // parentId + "\",\"" +
+                //ID parentId + "\",\"" +
                 this.data.Agencies[agencyIndex].parent.replace(/"/g, '""') + "\",\"" +
-                // subId + "\",\"" +
+                //ID subId + "\",\"" +
                 this.data.Agencies[agencyIndex].sub.replace(/"/g, '""') + "\",\"" +
                 ato + "\",\"" + // get ATOs from new data
                 this.getAtoDates(ato, this.data.Products[i].id, parentId, subId) +

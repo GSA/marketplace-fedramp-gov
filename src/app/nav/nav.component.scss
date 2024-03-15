@@ -345,9 +345,18 @@ li.parent .sub-menu {
 	}
 }
 
- .blog-menu-item a:hover {
-	color: $red !important;
+.blog-menu-item {
+
+	a {
+		font-weight: 700 !important;
+		color: $mid-gray;
+	}
+
+	a:hover {
+		color: $red !important;
+	}
 }
+
 
 .usa-nav__primary button.marketplace-menu-item:hover {
 	color: #ffffff !important;
