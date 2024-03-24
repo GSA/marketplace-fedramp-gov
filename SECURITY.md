@@ -7,15 +7,11 @@ currently being supported with security updates.
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| ~14.0.1  |  Angular CLI    |
+| ~4.7.2  |  Typescript      |
+| ~6.3.0   |  Karma           |
+| ~14.0.1  |  Angular Devkit     |
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
-
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+To report a vulnerability, please contact the project maintainers directly via . We appreciate your responsible disclosure and will work to address any vulnerabilities promptly. Please provide detailed information about the vulnerability, including steps to reproduce and potential impact.
