@@ -8,6 +8,7 @@ import { AppConstants } from '../app.constants';
   styleUrls: ['./agencies-main.component.scss'],
   providers: [AppConstants, DatePipe]
 })
+
 export class AgenciesMainComponent implements OnInit {
 
   delay: number;
@@ -64,30 +65,23 @@ export class AgenciesMainComponent implements OnInit {
     });
   }
 
-  PARENT = true;
-  SUB = false;
   atoLabel = "Export ATO Data"
   atoButtonDisabled = false;
 
   get isAtoDisabled(): boolean { 
     return this.atoButtonDisabled; 
   }
-
+  
   csvFromAtoData() {
 
     this.atoLabel = "Downloading...";
     this.atoButtonDisabled = true;
 
     let csv = "data:text/csv;charset=utf-8,";
-    let ato = "";
-    let parentId = "";
-    let subId = "";
-    let agencyIndex = 0;
+    let ato: Array<{ label: string, parent: string, sub: string, iss: string, auth: string, assess: string, exp: string }> = [];
 
     // headers
-    // for a deep dive, the parent agency and sub agency IDs can be added by uncommenting the //ID tag
-    //ID csv += "\"FedRAMP ID\",\"Cloud Service Provider\",\"Cloud Service Offering\",\"Service Description\",\"Business Categories\",\"Service Model\",\"Status\",\"Independent Assessor\",\"Parent ID\",\"Parent Agency\",\"Sub ID\",\"Sub Agency\",\"ATO\",\"ATO Issuance Date\",\"FedRAMP Authorization Date\",\"ATO Expiration Date\"\r\n";
-    csv += "\"FedRAMP ID\",\"Cloud Service Provider\",\"Cloud Service Offering\",\"Service Description\",\"Business Categories\",\"Service Model\",\"Status\",\"Independent Assessor\",\"Parent Agency\",\"Sub Agency\",\"ATO\",\"ATO Issuance Date\",\"FedRAMP Authorization Date\",\"ATO Expiration Date\"\r\n";
+    csv += "\"FedRAMP ID\",\"Cloud Service Provider\",\"Cloud Service Offering\",\"Service Description\",\"Business Categories\",\"Service Model\",\"Status\",\"Independent Assessor\",\"Parent Agency\",\"Sub Agency\",\"ATO\",\"ATO Issuance Date\",\"FedRAMP Authorization Date\",\"Annual Assessment Date\",\"ATO Expiration Date\"\r\n";
 
     // for all products
     for (var i = 0; i < this.data.Products.length; i++) {
@@ -95,39 +89,28 @@ export class AgenciesMainComponent implements OnInit {
       // skip products that have one blank agency
       if (this.data.Products[i].status == "FedRAMP Authorized") {
 
-        // for all agencies in a FedRAMP Authorized product
-        for (var j = 0; j < this.data.Products[i].agency_authorizations.length; j++) {
-          
-          // if the agency isn't blank
-          if(this.data.Products[i].agency_authorizations[j] != "") {
-
-            parentId = this.getIdFromAgencyName(this.PARENT, this.data.Products[i].agency_authorizations[j]);
-            subId = this.getIdFromAgencyName(this.SUB, this.data.Products[i].agency_authorizations[j]);
-
-            agencyIndex = this.getCorrectAgencyIndex(subId == "", this.data.Products[i].agency_authorizations[j]);
-
-            // found?
-            if (agencyIndex != -1) {
-
-              ato = this.getAto(this.data.Products[i].id, parentId, subId);
-
-              csv += "\"" + this.data.Products[i].id.replace(/"/g, '""') + "\",\"" +
-                this.data.Products[i].csp.replace(/"/g, '""') + "\",\"" +
-                this.data.Products[i].cso.replace(/"/g, '""') + "\",\"" +
-                this.data.Products[i].service_desc.replace(/"/g, '""').replace(/#/g, '%23') + "\",\"" +
-                this.data.Products[i].business_function.join(',').replace(/"/g, '""') + "\",\"" +
-                this.data.Products[i].service_model.join(',').replace(/"/g, '""') + "\",\"" +
-                this.data.Products[i].status.replace(/"/g, '""') + "\",\"" +
-                this.data.Products[i].independent_assessor.replace(/"/g, '""') + "\",\"" +
-                //ID parentId + "\",\"" +
-                this.data.Agencies[agencyIndex].parent.replace(/"/g, '""') + "\",\"" +
-                //ID subId + "\",\"" +
-                this.data.Agencies[agencyIndex].sub.replace(/"/g, '""') + "\",\"" +
-                ato + "\",\"" + // get ATOs from new data
-                this.getAtoDates(ato, this.data.Products[i].id, parentId, subId) +
-                "\r\n";
-            }
-          }
+        // go build an array of "initial" and "resue" ATOs
+        ato = this.getAtoDateArray(this.data.Products[i].id);
+        
+        // loop through ato array, writing one product line for each
+        for (let k = 0; k < ato.length; k++) {
+      
+          csv += "\"" + this.data.Products[i].id.replace(/"/g, '""') + "\",\"" +
+            this.data.Products[i].csp.replace(/"/g, '""') + "\",\"" +
+            this.data.Products[i].cso.replace(/"/g, '""') + "\",\"" +
+            this.data.Products[i].service_desc.replace(/"/g, '""').replace(/#/g, '%23') + "\",\"" +
+            this.data.Products[i].business_function.join(',').replace(/"/g, '""') + "\",\"" +
+            this.data.Products[i].service_model.join(',').replace(/"/g, '""') + "\",\"" +
+            this.data.Products[i].status.replace(/"/g, '""') + "\",\"" +
+            this.data.Products[i].independent_assessor.replace(/"/g, '""') + "\",\"" +
+            ato[k].parent.replace(/"/g, '""') + "\",\"" +
+            ato[k].sub.replace(/"/g, '""') + "\",\"" +
+            ato[k].label + "\",\"" +
+            ato[k].iss + "\",\"" +
+            ato[k].auth + "\",\"" +
+            ato[k].assess + "\",\"" +
+            ato[k].exp + "\"" +
+            "\r\n";
         }
       }
     }
@@ -154,117 +137,64 @@ export class AgenciesMainComponent implements OnInit {
     this.atoButtonDisabled = false;
   }
 
-  getCorrectAgencyIndex(isParent: boolean, inAgency: string) {
+  getAtoDateArray(idProd: string) {
 
-    for (let k = 0; k < this.data.Agencies.length; k++) {     
-
-      if (isParent == true) {
-        if (inAgency == this.data.Agencies[k].parent && this.data.Agencies[k].sub == "") {
-          return k;
-        }
-      } else {
-        if (inAgency == this.data.Agencies[k].sub) {
-          return k;
-        }
-      }
-    }
-    return -1;
-  }
-
-  getIdFromAgencyName(isParent: boolean, inAgency: string) {
-
-    for (var k = 0; k < this.data.Agencies.length; k++) {
-      if (isParent == true) {
-        if (inAgency == this.data.Agencies[k].parent && this.data.Agencies[k].sub == "") {
-          return this.data.Agencies[k].id;
-        }
-      } else {
-        if (inAgency == this.data.Agencies[k].sub) {
-          return this.data.Agencies[k].sub_id;
-        }
-      }
-    }
-    return "";
-  }
-
-  getAto(idProd: string, parentId: string, subId: string) {
-  
-    for (var i = 0; i < this.data.ReuseMapping.length; i++) {
-      if (this.data.ReuseMapping[i].id == idProd) {
-        if (subId == "") {
-          if (this.data.ReuseMapping[i].agency_id == parentId) {
-            return "Reuse";
-          }
-        } else {
-          if (this.data.ReuseMapping[i].sub_id == subId) {
-            return "Reuse";
-          }
-        }
-      }
-    }
-    return "Initial";
-  }
-
-  getAtoDates(ato: string, idProd: string, inParent: string, inSub: string) {
+    let list: Array<{ label: string, parent: string, sub: string, iss: string, auth: string, assess: string, exp: string }> = [];
 
     let iss = "";
     let auth = "";
+    let assess = "";
     let exp = "";
 
-    if (ato == "Reuse") {
-
-      for (var i = 0; i < this.data.ReuseMapping.length; i++) {
-
-        if (this.data.ReuseMapping[i].id == idProd) {
-          if (inSub != "") {
-            if (inSub == this.data.ReuseMapping[i].sub_id) {
-              iss = this.data.ReuseMapping[i].ato_date.slice(0,this.data.ReuseMapping[i].ato_date.indexOf("T"));
-              auth = this.getAtoAuthForReuse(idProd, inSub);
-              //this.data.ReuseMapping[i].auth_date.slice(0,this.data.ReuseMapping[i].auth_date.indexOf("T"));
-              exp = this.data.ReuseMapping[i].exp_date.slice(0,this.data.ReuseMapping[i].exp_date.indexOf("T"));
-            }
-          } else {
-            if (inParent == this.data.ReuseMapping[i].agency_id) {
-              iss = this.data.ReuseMapping[i].ato_date.slice(0,this.data.ReuseMapping[i].ato_date.indexOf("T"));
-              auth = this.getAtoAuthForReuse(idProd, inParent);
-              // auth = this.data.ReuseMapping[i].auth_date.slice(0,this.data.ReuseMapping[i].auth_date.indexOf("T"));
-              exp = this.data.ReuseMapping[i].exp_date.slice(0,this.data.ReuseMapping[i].exp_date.indexOf("T"));
-              
-            }
-          }
-        }
-      }
-
-    } else {
-
-      for (var i = 0; i < this.data.AtoMapping.length; i++) {
-
-        if (this.data.AtoMapping[i].id == idProd 
-        && (this.data.AtoMapping[i].agency_id == inParent || this.data.AtoMapping[i].agency_id == inSub)) {
-
-          iss = this.data.AtoMapping[i].ato_date.slice(0,this.data.AtoMapping[i].ato_date.indexOf("T"));
-          auth = this.data.AtoMapping[i].auth_date.slice(0,this.data.AtoMapping[i].auth_date.indexOf("T"));
-          exp = this.data.AtoMapping[i].exp_date.slice(0,this.data.AtoMapping[i].exp_date.indexOf("T"));
-        }
-      }
-    }
-    
-    if (iss != "" && exp == "") {
-      exp = "Continuous ATO";
-    }
-    return iss + "\",\"" + auth + "\",\"" + exp + "\"";
-  }
-
-  getAtoAuthForReuse(idProd: string, idAgency: string) {
-
+    // find initial
     for (var i = 0; i < this.data.AtoMapping.length; i++) {
-
+      
       if (this.data.AtoMapping[i].id == idProd) {
         
-          return this.data.AtoMapping[i].auth_date.slice(0,this.data.AtoMapping[i].auth_date.indexOf("T"));
+        // these fall through to reuse
+        auth = this.getDateTimeField(this.data.AtoMapping[i].auth_date);
+        assess = this.reformatSomeDates(this.data.AtoMapping[i].assessment_date);
+
+        iss = this.getDateTimeField(this.data.AtoMapping[i].ato_date);
+        exp = this.getDateTimeField(this.data.AtoMapping[i].exp_date);
+
+        if (iss != "" && exp == "") {
+          exp = "Continuous ATO";
+        }
+
+        list.push({label: "Initial", parent: this.data.AtoMapping[i].parent, sub: this.data.AtoMapping[i].sub, iss, auth, assess, exp});
+        break;
       }
     }
-    return "";
+
+    // find all reuse
+    for (var i = 0; i < this.data.ReuseMapping.length; i++) {
+
+      if (this.data.ReuseMapping[i].id == idProd) {
+
+          iss = this.getDateTimeField(this.data.ReuseMapping[i].ato_date);
+          exp = this.getDateTimeField(this.data.ReuseMapping[i].exp_date);
+
+          if (iss != "" && exp == "") {
+            exp = "Continuous ATO";
+          }
+
+          list.push({label: "Reuse", parent: this.data.ReuseMapping[i].parent, sub: this.data.ReuseMapping[i].sub, iss, auth, assess, exp});
+      }
+    }
+
+    return list;
+  }
+
+  // depending how the Apps Script feels, it either grabs the string 01/24 (which we want) or
+  // a date 2024-01-24T20:00:00.000Z (which we can format into MM/DD)
+  reformatSomeDates(inField: string) {
+    return (inField.indexOf("T") == -1) ? inField : inField.slice(5,7) + "/" + inField.slice(8,10);
+  }
+
+  // slice the end of the date if it's present
+  getDateTimeField(inField: string) {
+    return (inField.indexOf("T") == -1) ? "" : inField.slice(0,inField.indexOf("T"));
   }
 
   zeroPad(n: number) {
