@@ -81,7 +81,7 @@ export class AgenciesMainComponent implements OnInit {
     let ato: Array<{ label: string, parent: string, sub: string, iss: string, auth: string, assess: string, exp: string }> = [];
 
     // headers
-    csv += "\"FedRAMP ID\",\"Cloud Service Provider\",\"Cloud Service Offering\",\"Service Description\",\"Business Categories\",\"Service Model\",\"Status\",\"Independent Assessor\",\"Parent Agency\",\"Sub Agency\",\"ATO\",\"ATO Issuance Date\",\"FedRAMP Authorization Date\",\"Annual Assessment Date\",\"ATO Expiration Date\"\r\n";
+    csv += "\"FedRAMP ID\",\"Cloud Service Provider\",\"Cloud Service Offering\",\"Service Description\",\"Business Categories\",\"Service Model\",\"Status\",\"Independent Assessor\",\"Parent Agency\",\"Sub Agency\",\"ATO Issuance Date\",\"FedRAMP Authorization Date\",\"Annual Assessment Date\",\"ATO Expiration Date\"\r\n";
 
     // for all products
     for (var i = 0; i < this.data.Products.length; i++) {
@@ -105,7 +105,7 @@ export class AgenciesMainComponent implements OnInit {
             this.data.Products[i].independent_assessor.replace(/"/g, '""') + "\",\"" +
             ato[k].parent.replace(/"/g, '""') + "\",\"" +
             ato[k].sub.replace(/"/g, '""') + "\",\"" +
-            ato[k].label + "\",\"" +
+            // ato[k].label + "\",\"" +
             ato[k].iss + "\",\"" +
             ato[k].auth + "\",\"" +
             ato[k].assess + "\",\"" +
