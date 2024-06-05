@@ -13,11 +13,12 @@ import { AppConstants } from '../app.constants';
 export class AssessorsInfoComponent implements OnInit {
   
   id: string | null;
+
   delay: number;
   isCachePresent = false;
 
-  cacheJson: any | null;
-  parseJson: any | null;
+  cacheAssessors: any | null;
+  Assessors: any | null;
 
   cacheDate: string | null;
   formatDate: string | null;
@@ -25,11 +26,13 @@ export class AssessorsInfoComponent implements OnInit {
   assessor: any | null;
   
   constructor(public AppConstants: AppConstants, private dp: DatePipe, private route: ActivatedRoute) {    
+    
+    this.delay = AppConstants.CACHE_DELAY;
 
-    this.cacheJson = localStorage.getItem('cacheJson');
     this.cacheDate = localStorage.getItem('cacheDate');
     this.formatDate = this.dp.transform(Date.now(), 'yyyy-MM-dd');
-    this.delay = AppConstants.CACHE_DELAY;
+
+    this.cacheAssessors = localStorage.getItem('cacheAssessors');
 
     this.id = null;
     
@@ -40,21 +43,25 @@ export class AssessorsInfoComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {    
 
-    if(this.cacheDate == null || this.cacheJson == null || this.cacheDate != this.formatDate) {
+    if(this.cacheDate == null  || this.cacheDate != this.formatDate
+      || this.cacheAssessors == null) {
 
       await this.getJsonData();
 
       for(let i = 0; !this.isCachePresent; i++) {
 
-        if(this.cacheDate == null || this.cacheJson == null || this.cacheDate != this.formatDate) {
+        if(this.cacheDate == null || this.cacheDate != this.formatDate
+          || this.cacheAssessors == null) {
 
-          await new Promise(p => setTimeout(p,1000));
+          await new Promise(p => setTimeout(p,this.delay));
           await this.getJsonData();
         }
       }
     } else {
-      this.parseJson = JSON.parse(this.cacheJson!);
-      this.assessor = this.parseJson.data.Assessors.find((i: { id: any; }) => i.id == this.id);
+
+      this.Assessors = JSON.parse(this.cacheAssessors!);
+      this.assessor = this.Assessors.find((i: { id: any; }) => i.id == this.id);
+
       this.isCachePresent = true;
     }
   }
@@ -62,12 +69,15 @@ export class AssessorsInfoComponent implements OnInit {
   getJsonData(): Promise<void> {
     return new Promise((resolve, reject) => {
 
-      this.cacheJson = localStorage.getItem('cacheJson');
       this.cacheDate = localStorage.getItem('cacheDate');
+      this.cacheAssessors = localStorage.getItem('cacheJson');
 
-      if(this.cacheDate != null && this.cacheJson != null && this.cacheDate == this.formatDate) {
-        this.parseJson = JSON.parse(this.cacheJson!);
-        this.assessor = this.parseJson.data.Assessors.find((i: { id: any; }) => i.id == this.id);
+      if(this.cacheDate != null && this.cacheDate == this.formatDate
+        && this.cacheAssessors != null) {
+
+        this.Assessors = JSON.parse(this.cacheAssessors!);
+        this.assessor = this.Assessors.find((i: { id: any; }) => i.id == this.id);
+
         this.isCachePresent = true;
       }
       resolve();
