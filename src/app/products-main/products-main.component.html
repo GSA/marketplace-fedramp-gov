@@ -5,17 +5,6 @@
 <section>
   <div class="grid-container mp-search-main">
     <div class="grid-row">
-      
-      <!-- <div class="tablet:grid-col-2 grid-offset-10 padding-0 page-display-select">
-        <p>Number of items shown at a time</p>
-        <select name="display-number" id="display-number">
-          <option value="25">25</option>
-          <option value="50">50</option>
-          <option value="75">75</option>
-          <option value="100">100</option>
-        </select>
-      </div> -->
-
     </div>
   </div>
 
@@ -28,9 +17,10 @@
         <label id='clear-search-desktop' class="cursor-pointer d-none" onclick="clearSearch();">X Clear Search</label>
         <label id='clear-filters-desktop' class="cursor-pointer d-none" onclick="clearFilter();">X Clear Filters</label>
         <br>
-        <input type="text" onkeyup="filterSearch(this.value);" id="clear-search-input-desktop" name="clear-search-input-desktop" placeholder="Search Marketplace">
+        <input type="text" onkeyup="filterSearch(this.value);" id="clear-search-input-desktop"
+          name="clear-search-input-desktop" placeholder="Search Marketplace">
 
-        <p id='results-count-desktop' class="mp-container-total-search-results">{{data.Products.length}} total</p>
+        <p id='results-count-desktop' class="mp-container-total-search-results">{{Products.length}} total</p>
 
         <!-- Accordian -->
         <div class="search-container">
@@ -46,191 +36,220 @@
           <span id="filter-8-desktop" class style="display: none;"></span>
           <span id="filter-9-desktop" class style="display: none;"></span>
 
-          <div *ngIf="data.Filters.product.status.length != 0" class="usa-accordion">
+          <div *ngIf="Filters.product.status.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
-              <button id="filter-status-header" type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a1">
+              <button id="filter-status-header" type="button" class="usa-accordion__button accordian-title"
+                aria-expanded="false" aria-controls="a1">
                 <strong>Status</strong>
               </button>
             </h4>
             <div id="a1" class="usa-accordion__content usa-prose" hidden="">
-              <div *ngFor="let i of data.Filters.product.status">
-                <li id="{{i.class_name}}-desktop" onclick="filterRows('1', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button></li>
+              <div *ngFor="let i of Filters.product.status">
+                <li id="{{i.class_name}}-desktop" onclick="filterRows('1', this.id);"
+                  class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button>
+                </li>
               </div>
             </div>
           </div>
 
-          <div *ngIf="data.Filters.product.business_function.length != 0" class="usa-accordion">
+          <div *ngIf="Filters.product.business_function.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
-              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a2">
+              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false"
+                aria-controls="a2">
                 <strong>Business Category</strong>
               </button>
             </h4>
             <div id="a2" class="usa-accordion__content usa-prose" hidden="">
-              <div *ngFor="let i of data.Filters.product.business_function">
-                <li id="{{i.class_name}}-desktop" onclick="filterRows('2', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button></li>
+              <div *ngFor="let i of Filters.product.business_function">
+                <li id="{{i.class_name}}-desktop" onclick="filterRows('2', this.id);"
+                  class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button>
+                </li>
               </div>
             </div>
           </div>
 
-          <div *ngIf="data.Filters.product.service_model.length != 0" class="usa-accordion">
+          <div *ngIf="Filters.product.service_model.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
-              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a3">
+              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false"
+                aria-controls="a3">
                 <strong>Service Model</strong>
               </button>
             </h4>
             <div id="a3" class="usa-accordion__content usa-prose" hidden="">
-              <div *ngFor="let i of data.Filters.product.service_model">
-                <li id="{{i.class_name}}-desktop" onclick="filterRows('3', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button></li>
+              <div *ngFor="let i of Filters.product.service_model">
+                <li id="{{i.class_name}}-desktop" onclick="filterRows('3', this.id);"
+                  class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button>
+                </li>
               </div>
             </div>
           </div>
 
-          <div *ngIf="data.Filters.product.impact_level.length != 0" class="usa-accordion">
+          <div *ngIf="Filters.product.impact_level.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
-              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a4">
+              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false"
+                aria-controls="a4">
                 <strong>Impact Level</strong>
               </button>
             </h4>
             <div id="a4" class="usa-accordion__content usa-prose" hidden="">
-              <div *ngFor="let i of data.Filters.product.impact_level">
-                <li id="{{i.class_name}}-desktop" onclick="filterRows('4', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button></li>
+              <div *ngFor="let i of Filters.product.impact_level">
+                <li id="{{i.class_name}}-desktop" onclick="filterRows('4', this.id);"
+                  class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button>
+                </li>
               </div>
             </div>
           </div>
 
-          <div *ngIf="data.Filters.product.auth_type.length != 0" class="usa-accordion">
+          <div *ngIf="Filters.product.auth_type.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
-              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a5">
+              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false"
+                aria-controls="a5">
                 <strong>Authorization Type</strong>
               </button>
             </h4>
             <div id="a5" class="usa-accordion__content usa-prose" hidden="">
-              <div *ngFor="let i of data.Filters.product.auth_type">
-                <li id="{{i.class_name}}-desktop" onclick="filterRows('5', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button></li>
+              <div *ngFor="let i of Filters.product.auth_type">
+                <li id="{{i.class_name}}-desktop" onclick="filterRows('5', this.id);"
+                  class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button>
+                </li>
               </div>
             </div>
           </div>
 
-          <div *ngIf="data.Filters.product.deployment_models.length != 0" class="usa-accordion">
+          <div *ngIf="Filters.product.deployment_models.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
-              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a6">
+              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false"
+                aria-controls="a6">
                 <strong>Deployment Model</strong>
               </button>
             </h4>
             <div id="a6" class="usa-accordion__content usa-prose" hidden="">
-              <div *ngFor="let i of data.Filters.product.deployment_models">
-                <li id="{{i.class_name}}-desktop" onclick="filterRows('6', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button></li>
+              <div *ngFor="let i of Filters.product.deployment_models">
+                <li id="{{i.class_name}}-desktop" onclick="filterRows('6', this.id);"
+                  class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button>
+                </li>
               </div>
             </div>
           </div>
 
-          <!--
-            
-          <div *ngIf="data.Filters.product.small_business.length != 0" class="usa-accordion">
+          <div *ngIf="Filters.product.assessor.length != 0" class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
-              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a7">
-                <strong>Small Business</strong>
-              </button>
-            </h4>
-            <div id="a7" class="usa-accordion__content usa-prose" hidden="">
-              <div *ngFor="let i of data.Filters.product.small_business">
-                <li id="{{i.class_name}}-desktop" onclick="filterRows('7', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
-              </div>
-            </div>
-          </div>
-          -->
-
-          <div *ngIf="data.Filters.product.assessor.length != 0" class="usa-accordion">
-            <h4 class="usa-accordion__heading accordian-title">
-              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false" aria-controls="a8">
+              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false"
+                aria-controls="a8">
                 <strong>Assessor</strong>
               </button>
             </h4>
             <div id="a8" class="usa-accordion__content usa-prose" hidden="">
-              <div *ngFor="let i of data.Filters.product.assessor">
-                <li id="{{i.class_name}}-desktop" onclick="filterRows('8', this.id);" class="cursor-pointer filter-item-desktop">{{i.name}}</li>
+              <div *ngFor="let i of Filters.product.assessor">
+                <li id="{{i.class_name}}-desktop" onclick="filterRows('8', this.id);"
+                  class="cursor-pointer filter-item-desktop">{{i.name}}</li>
               </div>
             </div>
           </div>
-
         </div>
-        <button id="csv-button" class="btn btn-primary" onclick="csvFromFilteredData('products');">Export to CSV <i class="fa-solid fa-download"></i></button>
-        <button id="csv-ato-button" [disabled]="isAtoDisabled" (click)="csvFromAtoData()" class="btn btn-primary">{{atoLabel}}<i class="fa-solid fa-download"></i></button>
+
+        <button id="csv-button" class="btn btn-primary" onclick="csvFromFilteredData('products');">Export to CSV <i
+            class="fa-solid fa-download"></i></button>
+        <button id="csv-ato-button" [disabled]="isAtoDisabled" (click)="csvFromAtoData()"
+          class="btn btn-primary">{{atoLabel}}<i class="fa-solid fa-download"></i></button>
       </div>
 
       <!-- Large Monitor Results Column-->
       <div class="grid-col-12 desktop:grid-col-10">
         <div class="grid-row search-sortable mp-sortable-column">
+
           <div class="grid-col-2 product_column-provider">
-            <span id="sort-header-0-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(0);">Provider</span>
+            <span id="sort-header-0-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header"
+              onclick="sortCol(0);">Provider</span>
           </div>
+
           <div class="grid-col-2 product_column-service_offering">
-            <span id="sort-header-1-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(1);">Service Offering</span>
+            <span id="sort-header-1-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header"
+              onclick="sortCol(1);">Service Offering</span>
           </div>
+
           <div class="grid-col-2 product_column-service_model">
-            <span id="sort-header-2-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(2);">Service Model</span>
+            <span id="sort-header-2-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header"
+              onclick="sortCol(2);">Service Model</span>
           </div>
+
           <div class="grid-col-2 product_column-impact_level">
-            <span id="sort-header-3-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(3);">Impact Level</span>
+            <span id="sort-header-3-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header"
+              onclick="sortCol(3);">Impact Level</span>
           </div>
+
           <div class="grid-col-1 product_column-status">
-            <span id="sort-header-4-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(4);">Status</span>
+            <span id="sort-header-4-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header"
+              onclick="sortCol(4);">Status</span>
           </div>
+
           <div class="grid-col-2 text-center product_column-authorization">
-            <span id="sort-header-5-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(5,true);">Authorizations</span>
+            <span id="sort-header-5-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header"
+              onclick="sortCol(5,true);">Authorizations</span>
           </div>
+
           <div class="grid-col-1 text-center product_column-reuse">
-            <span id="sort-header-6-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header" onclick="sortCol(6,true);">Reuse</span>
+            <span id="sort-header-6-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header"
+              onclick="sortCol(6,true);">Reuse</span>
           </div>
         </div>
 
         <!-- Results -->
-        <div id="zero-results-desktop" style="display:none;" class="grid-row mp-search-results display-none desktop:display-flex">
+        <div id="zero-results-desktop" style="display:none;"
+          class="grid-row mp-search-results display-none desktop:display-flex">
           <div class="grid-col-12 company-logo-column product_column-service_offering">
             No results found for your search. Try refining your search or filter parameters.
           </div>
         </div>
+
         <div *ngIf="isCachePresent" id="sort-table-desktop">
-          <div *ngFor="let p of data.Products" class="{{p.filter_classes}}">
+          <div *ngFor="let p of Products" class="{{p.filter_classes}}">
             <a href="/products/{{p.id}}" target="_blank" class="mp-search-list">
-            <div class="grid-row mp-search-results display-none desktop:display-flex">
-              <span style="display:none;">{{p.id}} | {{p.cso}}</span>
-              <div class="grid-col-2 company-logo-column product_column-service_offering">
-                <span class="sort-col-0-desktop csv-data" style="display:none;">{{p.name}}</span>
-                <img src="{{p.logo}}" alt="{{p.name}}"
-                    title="{{p.name}}">
-              </div>
 
-              <div class="grid-col-2 product_column-service_offering">
-                <span class="sort-col-1-desktop csv-data">{{p.service_offering}}</span>
-              </div>
-              <div class="grid-col-2 product_column-service_model">
-                <span class="sort-col-2-desktop csv-data">
-                  <div *ngFor="let i of p.service_model">{{i}}</div>
-                </span>
-              </div>
-              <div class="grid-col-2 product_column-impact_level">
-                <span class="sort-col-3-desktop" style="display:none;">{{p.impact_level_number}}</span>
-                <span class="csv-data">{{p.impact_level}}</span>
-              </div>
-              <div class="grid-col-1 product_column-status">
-                <span class="sort-col-4-desktop csv-data">{{p.status}}</span>
-              </div>
-              <div class="grid-col-2 product_column-authorization result">
-                <span class="sort-col-5-desktop csv-data">{{p.authorization}}</span>
-              </div>
-              <div class="grid-col-1 product_column-reuse result">
-                <span class="sort-col-6-desktop csv-data">{{p.reuse}}</span>
-              </div>
-              <div style="display:none;">{{ p.service_desc }}</div>
+              <div class="grid-row mp-search-results display-none desktop:display-flex">
 
-            </div>
-          </a>
+                <span style="display:none;">{{p.id}} | {{p.cso}}</span>
+
+                <div class="grid-col-2 company-logo-column product_column-service_offering">
+                  <span class="sort-col-0-desktop csv-data" style="display:none;">{{p.name}}</span>
+                  <img src="{{p.logo}}" alt="{{p.name}}" title="{{p.name}}">
+                </div>
+
+                <div class="grid-col-2 product_column-service_offering">
+                  <span class="sort-col-1-desktop csv-data">{{p.service_offering}}</span>
+                </div>
+
+                <div class="grid-col-2 product_column-service_model">
+                  <span class="sort-col-2-desktop csv-data">
+                    <div *ngFor="let i of p.service_model">{{i}}</div>
+                  </span>
+                </div>
+
+                <div class="grid-col-2 product_column-impact_level">
+                  <span class="sort-col-3-desktop" style="display:none;">{{p.impact_level_number}}</span>
+                  <span class="csv-data">{{p.impact_level}}</span>
+                </div>
+
+                <div class="grid-col-1 product_column-status">
+                  <span class="sort-col-4-desktop csv-data">{{p.status}}</span>
+                </div>
+
+                <div class="grid-col-2 product_column-authorization result">
+                  <span class="sort-col-5-desktop csv-data">{{p.authorization}}</span>
+                </div>
+
+                <div class="grid-col-1 product_column-reuse result">
+                  <span class="sort-col-6-desktop csv-data">{{p.reuse}}</span>
+                </div>
+
+                <div style="display:none;">{{ p.service_desc }}</div>
+
+              </div>
+            </a>
           </div>
         </div>
 
         <!-- Mobile Accordian -->
-
         <div class="search-container desktop:display-none">
 
           <span id="filter-0-mobile" class="" style="display: none;"></span>
@@ -247,128 +266,113 @@
           <div class="usa-accordion">
             <h4 class="usa-accordion__heading accordian-title">
 
-              <label id='clear-search-mobile' class="cursor-pointer d-none" onclick="clearSearch('mobile');">X Clear Search</label>
-              <label id='clear-filters-mobile' class="cursor-pointer d-none" onclick="clearFilter('mobile');">X Clear Filters</label>
-              
-              <input type="text" onkeyup="filterSearch(this.value, 'mobile');" id="clear-search-input-mobile" name="clear-search-input-mobile" class="search-mobile-mp" placeholder="Search Marketplace">
-              
+              <label id='clear-search-mobile' class="cursor-pointer d-none" onclick="clearSearch('mobile');">X Clear
+                Search</label>
+              <label id='clear-filters-mobile' class="cursor-pointer d-none" onclick="clearFilter('mobile');">X Clear
+                Filters</label>
+
+              <input type="text" onkeyup="filterSearch(this.value, 'mobile');" id="clear-search-input-mobile"
+                name="clear-search-input-mobile" class="search-mobile-mp" placeholder="Search Marketplace">
+
               <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="m1">
                 Filter Results
               </button>
             </h4>
+
             <div id="m1" class="usa-accordion__content usa-prose" hidden="">
               <div class="grid-row">
-                <!-- <div class="grid-col-12">
-                  <p>Number of items shown at a time</p>
-                  <select name="display-number" id="display-number">
-                    <option value="twenty-five">25</option>
-                    <option value="fifty">50</option>
-                    <option value="seventy-five">75</option>
-                    <option value="one-hundred">100</option>
-                  </select>
-                </div> -->
               </div>
 
               <div class="grid-row">
-
-
-                <div *ngIf="data.Filters.product.status.length != 0" class="grid-col-3">
+                <div *ngIf="Filters.product.status.length != 0" class="grid-col-3">
                   <p><strong>Status</strong></p>
                   <ul>
-                    <div *ngFor="let i of data.Filters.product.status">
-                      <li id="{{i.class_name}}-mobile" onclick="filterRows('1', this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
+                    <div *ngFor="let i of Filters.product.status">
+                      <li id="{{i.class_name}}-mobile" onclick="filterRows('1', this.id, 'mobile');"
+                        class="cursor-pointer filter-item-mobile">{{i.name}}</li>
                     </div>
                   </ul>
                 </div>
 
-                <div *ngIf="data.Filters.product.business_function.length != 0" class="grid-col-3">
+                <div *ngIf="Filters.product.business_function.length != 0" class="grid-col-3">
                   <p><strong>Business Category</strong></p>
                   <ul>
-                    <div *ngFor="let i of data.Filters.product.business_function">
-                      <li id="{{i.class_name}}-mobile" onclick="filterRows('2', this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
+                    <div *ngFor="let i of Filters.product.business_function">
+                      <li id="{{i.class_name}}-mobile" onclick="filterRows('2', this.id, 'mobile');"
+                        class="cursor-pointer filter-item-mobile">{{i.name}}</li>
                     </div>
                   </ul>
                 </div>
 
 
-                <div *ngIf="data.Filters.product.service_model.length != 0" class="grid-col-3">
+                <div *ngIf="Filters.product.service_model.length != 0" class="grid-col-3">
                   <p><strong>Service Model</strong></p>
                   <ul>
-                    <div *ngFor="let i of data.Filters.product.service_model">
-                      <li id="{{i.class_name}}-mobile" onclick="filterRows('3', this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
+                    <div *ngFor="let i of Filters.product.service_model">
+                      <li id="{{i.class_name}}-mobile" onclick="filterRows('3', this.id, 'mobile');"
+                        class="cursor-pointer filter-item-mobile">{{i.name}}</li>
                     </div>
                   </ul>
                 </div>
 
 
-                <div *ngIf="data.Filters.product.impact_level.length != 0" class="grid-col-3">
+                <div *ngIf="Filters.product.impact_level.length != 0" class="grid-col-3">
                   <p><strong>Impact Level</strong></p>
                   <ul>
-                    <div *ngFor="let i of data.Filters.product.impact_level">
-                      <li id="{{i.class_name}}-mobile" onclick="filterRows('4', this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
+                    <div *ngFor="let i of Filters.product.impact_level">
+                      <li id="{{i.class_name}}-mobile" onclick="filterRows('4', this.id, 'mobile');"
+                        class="cursor-pointer filter-item-mobile">{{i.name}}</li>
                     </div>
                   </ul>
                 </div>
-
               </div>
 
               <div class="grid-row">
 
-
-                <div *ngIf="data.Filters.product.status.auth_type != 0" class="grid-col-3">
+                <div *ngIf="Filters.product.status.auth_type != 0" class="grid-col-3">
                   <p><strong>Authorization Type</strong></p>
                   <ul>
-                    <div *ngFor="let i of data.Filters.product.auth_type">
-                      <li id="{{i.class_name}}-mobile" onclick="filterRows('5', this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
+                    <div *ngFor="let i of Filters.product.auth_type">
+                      <li id="{{i.class_name}}-mobile" onclick="filterRows('5', this.id, 'mobile');"
+                        class="cursor-pointer filter-item-mobile">{{i.name}}</li>
                     </div>
                   </ul>
                 </div>
 
-                <div *ngIf="data.Filters.product.status.deployment_models != 0" class="grid-col-3">
+                <div *ngIf="Filters.product.status.deployment_models != 0" class="grid-col-3">
                   <p><strong>Deployment Models</strong></p>
                   <ul>
-                    <div *ngFor="let i of data.Filters.product.deployment_models">
-                      <li id="{{i.class_name}}-mobile" onclick="filterRows('6', this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
+                    <div *ngFor="let i of Filters.product.deployment_models">
+                      <li id="{{i.class_name}}-mobile" onclick="filterRows('6', this.id, 'mobile');"
+                        class="cursor-pointer filter-item-mobile">{{i.name}}</li>
                     </div>
                   </ul>
                 </div>
 
-              <!--
-                <div *ngIf="data.Filters.product.small_business.length != 0" class="grid-col-3">
-                  <p><strong>Small Business</strong></p>
-                  <ul>
-                    <div *ngFor="let i of data.Filters.product.small_business">
-                      <li id="{{i.class_name}}-mobile" onclick="filterRows('7', this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
-                    </div>
-                  </ul>
-                </div>
-              -->
-
-                <div *ngIf="data.Filters.product.assessor.length != 0" class="grid-col-3">
+                <div *ngIf="Filters.product.assessor.length != 0" class="grid-col-3">
                   <p><strong>Assessor</strong></p>
                   <ul>
-                    <div *ngFor="let i of data.Filters.product.assessor">
-                      <li id="{{i.class_name}}-mobile" onclick="filterRows('8', this.id, 'mobile');" class="cursor-pointer filter-item-mobile">{{i.name}}</li>
+                    <div *ngFor="let i of Filters.product.assessor">
+                      <li id="{{i.class_name}}-mobile" onclick="filterRows('8', this.id, 'mobile');"
+                        class="cursor-pointer filter-item-mobile">{{i.name}}</li>
                     </div>
                   </ul>
                 </div>
-
               </div>
-
             </div>
           </div>
-
         </div>
 
 
         <!-- Mobile Search Results -->
-        <div id="zero-results-mobile" style="display:none;" class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
+        <div id="zero-results-mobile" style="display:none;"
+          class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
           <div class="gid-col-12 desktop:grid-col-2 company-logo-column product_column-service_offering">
             No results found for your search. Try refining your search or filter parameters.
           </div>
         </div>
         <div *ngIf="isCachePresent" id="sort-table-mobile">
-          <div *ngFor="let p of data.Products" class="{{p.filter_classes}}">
+          <div *ngFor="let p of Products" class="{{p.filter_classes}}">
             <a href="/products/{{p.id}}" target="_blank" class="company-info-link">
               <div class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
                 <div class="gid-col-12 desktop:grid-col-2 company-logo-column product_column-service_offering">
@@ -411,52 +415,6 @@
           </div>
         </div>
       </div>
-
-
     </div>
-    <!-- Pagination -->
-<!-- 
-    <nav aria-label="Pagination" class="usa-pagination">
-      <ul class="usa-pagination__list">
-        <li class="usa-pagination__item usa-pagination__arrow">
-          <a href="javascript:void(0);" class="usa-pagination__link usa-pagination__previous-page"
-            aria-label="Previous page"><svg class="usa-icon" aria-hidden="true" role="img">
-              <use xlink:href="../../assets/uswds/dist/img/sprite.svg#navigate_before"></use>
-            </svg>
-            <span class="usa-pagination__link-text">Previous</span></a>
-        </li>
-        <li class="usa-pagination__item usa-pagination__page-no">
-          <a href="javascript:void(0);" class="usa-pagination__button" aria-label="Page 1">1</a>
-        </li>
-        <li class="usa-pagination__item usa-pagination__overflow" role="presentation">
-          <span>…</span>
-        </li>
-        <li class="usa-pagination__item usa-pagination__page-no">
-          <a href="javascript:void(0);" class="usa-pagination__button" aria-label="Page 9">9</a>
-        </li>
-        <li class="usa-pagination__item usa-pagination__page-no">
-          <a href="javascript:void(0);" class="usa-pagination__button usa-current" aria-label="Page 10"
-            aria-current="page">10</a>
-        </li>
-        <li class="usa-pagination__item usa-pagination__page-no">
-          <a href="javascript:void(0);" class="usa-pagination__button" aria-label="Page 11">11</a>
-        </li>
-        <li class="usa-pagination__item usa-pagination__overflow" role="presentation">
-          <span>…</span>
-        </li>
-        <li class="usa-pagination__item usa-pagination__page-no">
-          <a href="javascript:void(0);" class="usa-pagination__button" aria-label="Last page, page 24">24</a>
-        </li>
-        <li class="usa-pagination__item usa-pagination__arrow">
-          <a href="javascript:void(0);" class="usa-pagination__link usa-pagination__next-page"
-            aria-label="Next page"><span class="usa-pagination__link-text">Next </span><svg class="usa-icon"
-              aria-hidden="true" role="img">
-              <use xlink:href="../../assets/uswds/dist/img/sprite.svg#navigate_next"></use>
-            </svg></a>
-        </li>
-      </ul>
-    </nav> -->
-
-
   </div>
 </section>

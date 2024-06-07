@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("load", function () {
 
     var skipButton = document.getElementById('skip-content');
 
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("load", function () {
 
     var topButton = document.getElementById('topButton');
 
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-document.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("load", function () {
 
     if(document.getElementById("update-title")) {
 
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-document.addEventListener("DOMContentLoaded", function(event) { 
+window.addEventListener("load", function(event) { 
 
     if(document.getElementById("product-info") == null) {
         return;
