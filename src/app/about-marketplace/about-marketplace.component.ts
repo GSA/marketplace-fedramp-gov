@@ -8,42 +8,90 @@ import { AppConstants } from '../app.constants';
   styleUrls: ['./about-marketplace.component.scss'],
   providers: [AppConstants, DatePipe]
 })
+
 export class AboutMarketplaceComponent implements OnInit {
+
   delay: number;
+  
   isCachePresent = false;
 
-  cacheJson: any | null;
-  parseJson: any | null;
+  cacheProducts: any | null;
+  cacheAgencies: any | null;
+  cacheAssessors: any | null;
+  cacheFilters: any | null;
+  cacheMetrics: any | null;
 
+  cacheAtoMapping: any | null;
+  cacheReuseMapping: any | null;
+  
   cacheDate: string | null;
   formatDate: string | null;
 
-  data: any | null;
-  
-  constructor(public AppConstants: AppConstants, private dp: DatePipe) {    
-    this.cacheJson = localStorage.getItem('cacheJson');
+  Products: any | null;
+  Agencies: any | null;
+  Assessors: any | null;
+  Filters: any | null;
+  Metrics: any | null;
+
+  AtoMapping: any | null;
+  ReuseMapping: any | null;
+
+  constructor(public AppConstants: AppConstants, private dp: DatePipe) {
+    
+    this.delay = AppConstants.CACHE_DELAY;
+
     this.cacheDate = localStorage.getItem('cacheDate');
     this.formatDate = this.dp.transform(Date.now(), 'yyyy-MM-dd');
-    this.delay = AppConstants.CACHE_DELAY;
+
+    this.cacheProducts = localStorage.getItem('cacheProducts');
+    this.cacheAgencies = localStorage.getItem('cacheAgencies');
+    this.cacheAssessors = localStorage.getItem('cacheAssessors');
+    this.cacheFilters = localStorage.getItem('cacheFilters');
+    this.cacheMetrics = localStorage.getItem('cacheMetrics');
+
+    this.cacheAtoMapping = sessionStorage.getItem('cacheAtoMapping');
+    this.cacheReuseMapping = sessionStorage.getItem('cacheReuseMapping');
   }
 
-  async ngOnInit(): Promise<void> {    
+  async ngOnInit(): Promise<void> {
 
-    if(this.cacheDate == null || this.cacheJson == null || this.cacheDate != this.formatDate) {
+    if(this.cacheDate == null || this.cacheDate != this.formatDate
+      || this.cacheProducts == null 
+      || this.cacheAgencies == null 
+      || this.cacheAssessors == null 
+      || this.cacheFilters == null 
+      || this.cacheMetrics == null
+      || this.cacheAtoMapping == null 
+      || this.cacheReuseMapping == null) {
 
       await this.getJsonData();
 
-      for(let i = 0; !this.isCachePresent; i++) {
+      for (let i = 0; !this.isCachePresent; i++) {
 
-        if(this.cacheDate == null || this.cacheJson == null || this.cacheDate != this.formatDate) {
+        if(this.cacheDate == null || this.cacheDate != this.formatDate
+          || this.cacheProducts == null 
+          || this.cacheAgencies == null 
+          || this.cacheAssessors == null 
+          || this.cacheFilters == null 
+          || this.cacheMetrics == null
+          || this.cacheAtoMapping == null 
+          || this.cacheReuseMapping == null) {
 
-          await new Promise(p => setTimeout(p,1000));
+          await new Promise(p => setTimeout(p, this.delay));
           await this.getJsonData();
         }
       }
     } else {
-      this.parseJson = JSON.parse(this.cacheJson!);
-      this.data = this.parseJson.data;
+
+      this.Products = JSON.parse(this.cacheProducts!);
+      this.Agencies =  JSON.parse(this.cacheAgencies!);
+      this.Assessors =  JSON.parse(this.cacheAssessors!);
+      this.Filters =  JSON.parse(this.cacheFilters!);
+      this.Metrics =  JSON.parse(this.cacheMetrics!);
+
+      this.AtoMapping =  JSON.parse(this.cacheAtoMapping!);
+      this.ReuseMapping =  JSON.parse(this.cacheReuseMapping!);
+
       this.isCachePresent = true;
     }
   }
@@ -51,12 +99,35 @@ export class AboutMarketplaceComponent implements OnInit {
   getJsonData(): Promise<void> {
     return new Promise((resolve, reject) => {
 
-      this.cacheJson = localStorage.getItem('cacheJson');
       this.cacheDate = localStorage.getItem('cacheDate');
 
-      if(this.cacheDate != null && this.cacheJson != null && this.cacheDate == this.formatDate) {
-        this.parseJson = JSON.parse(this.cacheJson!);
-        this.data = this.parseJson.data;
+      this.cacheProducts = localStorage.getItem('cacheProducts');
+      this.cacheAgencies = localStorage.getItem('cacheAgencies');
+      this.cacheAssessors = localStorage.getItem('cacheAssessors');
+      this.cacheFilters = localStorage.getItem('cacheFilters');
+      this.cacheMetrics = localStorage.getItem('cacheMetrics');
+
+      this.cacheAtoMapping = sessionStorage.getItem('cacheAtoMapping');
+      this.cacheReuseMapping = sessionStorage.getItem('cacheReuseMapping');
+
+      if (this.cacheDate != null && this.cacheDate == this.formatDate
+        && this.cacheProducts != null 
+        && this.cacheAgencies != null 
+        && this.cacheAssessors != null 
+        && this.cacheFilters != null 
+        && this.cacheMetrics != null 
+        && this.cacheAtoMapping != null 
+        && this.cacheReuseMapping != null) {
+
+          this.Products = JSON.parse(this.cacheProducts!);
+          this.Agencies =  JSON.parse(this.cacheAgencies!);
+          this.Assessors =  JSON.parse(this.cacheAssessors!);
+          this.Filters =  JSON.parse(this.cacheFilters!);
+          this.Metrics =  JSON.parse(this.cacheMetrics!);
+
+          this.AtoMapping =  JSON.parse(this.cacheAtoMapping!);
+          this.ReuseMapping =  JSON.parse(this.cacheReuseMapping!);
+
         this.isCachePresent = true;
       }
       resolve();

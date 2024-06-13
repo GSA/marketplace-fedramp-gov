@@ -12,40 +12,86 @@ import { AppConstants } from '../app.constants';
 export class AgenciesMainComponent implements OnInit {
 
   delay: number;
+  
   isCachePresent = false;
 
-  cacheJson: any | null;
-  parseJson: any | null;
+  cacheProducts: any | null;
+  cacheAgencies: any | null;
+  cacheAssessors: any | null;
+  cacheFilters: any | null;
+  cacheMetrics: any | null;
 
+  cacheAtoMapping: any | null;
+  cacheReuseMapping: any | null;
+  
   cacheDate: string | null;
   formatDate: string | null;
 
-  data: any | null;
-  
-  constructor(public AppConstants: AppConstants, private dp: DatePipe) {    
-    this.cacheJson = localStorage.getItem('cacheJson');
+  Products: any | null;
+  Agencies: any | null;
+  Assessors: any | null;
+  Filters: any | null;
+  Metrics: any | null;
+
+  AtoMapping: any | null;
+  ReuseMapping: any | null;
+
+  constructor(public AppConstants: AppConstants, private dp: DatePipe) {
+    
+    this.delay = AppConstants.CACHE_DELAY;
+
     this.cacheDate = localStorage.getItem('cacheDate');
     this.formatDate = this.dp.transform(Date.now(), 'yyyy-MM-dd');
-    this.delay = AppConstants.CACHE_DELAY;
+
+    this.cacheProducts = localStorage.getItem('cacheProducts');
+    this.cacheAgencies = localStorage.getItem('cacheAgencies');
+    this.cacheAssessors = localStorage.getItem('cacheAssessors');
+    this.cacheFilters = localStorage.getItem('cacheFilters');
+    this.cacheMetrics = localStorage.getItem('cacheMetrics');
+
+    this.cacheAtoMapping = sessionStorage.getItem('cacheAtoMapping');
+    this.cacheReuseMapping = sessionStorage.getItem('cacheReuseMapping');
   }
 
-  async ngOnInit(): Promise<void> {    
+  async ngOnInit(): Promise<void> {
 
-    if(this.cacheDate == null || this.cacheJson == null || this.cacheDate != this.formatDate) {
+    if(this.cacheDate == null || this.cacheDate != this.formatDate
+      || this.cacheProducts == null 
+      || this.cacheAgencies == null 
+      || this.cacheAssessors == null 
+      || this.cacheFilters == null 
+      || this.cacheMetrics == null
+      || this.cacheAtoMapping == null 
+      || this.cacheReuseMapping == null) {
 
       await this.getJsonData();
 
-      for(let i = 0; !this.isCachePresent; i++) {
+      for (let i = 0; !this.isCachePresent; i++) {
 
-        if(this.cacheDate == null || this.cacheJson == null || this.cacheDate != this.formatDate) {
+        if(this.cacheDate == null || this.cacheDate != this.formatDate
+          || this.cacheProducts == null 
+          || this.cacheAgencies == null 
+          || this.cacheAssessors == null 
+          || this.cacheFilters == null 
+          || this.cacheMetrics == null
+          || this.cacheAtoMapping == null 
+          || this.cacheReuseMapping == null) {
 
-          await new Promise(p => setTimeout(p,1000));
+          await new Promise(p => setTimeout(p, this.delay));
           await this.getJsonData();
         }
       }
     } else {
-      this.parseJson = JSON.parse(this.cacheJson!);
-      this.data = this.parseJson.data;
+
+      this.Products = JSON.parse(this.cacheProducts!);
+      this.Agencies =  JSON.parse(this.cacheAgencies!);
+      this.Assessors =  JSON.parse(this.cacheAssessors!);
+      this.Filters =  JSON.parse(this.cacheFilters!);
+      this.Metrics =  JSON.parse(this.cacheMetrics!);
+
+      this.AtoMapping =  JSON.parse(this.cacheAtoMapping!);
+      this.ReuseMapping =  JSON.parse(this.cacheReuseMapping!);
+
       this.isCachePresent = true;
     }
   }
@@ -53,12 +99,35 @@ export class AgenciesMainComponent implements OnInit {
   getJsonData(): Promise<void> {
     return new Promise((resolve, reject) => {
 
-      this.cacheJson = localStorage.getItem('cacheJson');
       this.cacheDate = localStorage.getItem('cacheDate');
 
-      if(this.cacheDate != null && this.cacheJson != null && this.cacheDate == this.formatDate) {
-        this.parseJson = JSON.parse(this.cacheJson!);
-        this.data = this.parseJson.data;
+      this.cacheProducts = localStorage.getItem('cacheProducts');
+      this.cacheAgencies = localStorage.getItem('cacheAgencies');
+      this.cacheAssessors = localStorage.getItem('cacheAssessors');
+      this.cacheFilters = localStorage.getItem('cacheFilters');
+      this.cacheMetrics = localStorage.getItem('cacheMetrics');
+
+      this.cacheAtoMapping = sessionStorage.getItem('cacheAtoMapping');
+      this.cacheReuseMapping = sessionStorage.getItem('cacheReuseMapping');
+
+      if (this.cacheDate != null && this.cacheDate == this.formatDate
+        && this.cacheProducts != null 
+        && this.cacheAgencies != null 
+        && this.cacheAssessors != null 
+        && this.cacheFilters != null 
+        && this.cacheMetrics != null 
+        && this.cacheAtoMapping != null 
+        && this.cacheReuseMapping != null) {
+
+          this.Products = JSON.parse(this.cacheProducts!);
+          this.Agencies =  JSON.parse(this.cacheAgencies!);
+          this.Assessors =  JSON.parse(this.cacheAssessors!);
+          this.Filters =  JSON.parse(this.cacheFilters!);
+          this.Metrics =  JSON.parse(this.cacheMetrics!);
+
+          this.AtoMapping =  JSON.parse(this.cacheAtoMapping!);
+          this.ReuseMapping =  JSON.parse(this.cacheReuseMapping!);
+
         this.isCachePresent = true;
       }
       resolve();
@@ -68,10 +137,10 @@ export class AgenciesMainComponent implements OnInit {
   atoLabel = "Export ATO Data"
   atoButtonDisabled = false;
 
-  get isAtoDisabled(): boolean { 
-    return this.atoButtonDisabled; 
+  get isAtoDisabled(): boolean {
+    return this.atoButtonDisabled;
   }
-  
+
   csvFromAtoData() {
 
     this.atoLabel = "Downloading...";
@@ -84,28 +153,27 @@ export class AgenciesMainComponent implements OnInit {
     csv += "\"FedRAMP ID\",\"Cloud Service Provider\",\"Cloud Service Offering\",\"Service Description\",\"Business Categories\",\"Service Model\",\"Status\",\"Independent Assessor\",\"Parent Agency\",\"Sub Agency\",\"ATO Issuance Date\",\"FedRAMP Authorization Date\",\"Annual Assessment Date\",\"ATO Expiration Date\"\r\n";
 
     // for all products
-    for (var i = 0; i < this.data.Products.length; i++) {
+    for (var i = 0; i < this.Products.length; i++) {
 
       // skip products that have one blank agency
-      if (this.data.Products[i].status == "FedRAMP Authorized") {
+      if (this.Products[i].status == "FedRAMP Authorized") {
 
         // go build an array of "initial" and "resue" ATOs
-        ato = this.getAtoDateArray(this.data.Products[i].id);
-        
+        ato = this.getAtoDateArray(this.Products[i].id);
+
         // loop through ato array, writing one product line for each
         for (let k = 0; k < ato.length; k++) {
-      
-          csv += "\"" + this.data.Products[i].id.replace(/"/g, '""') + "\",\"" +
-            this.data.Products[i].csp.replace(/"/g, '""') + "\",\"" +
-            this.data.Products[i].cso.replace(/"/g, '""') + "\",\"" +
-            this.data.Products[i].service_desc.replace(/"/g, '""').replace(/#/g, '%23') + "\",\"" +
-            this.data.Products[i].business_function.join(',').replace(/"/g, '""') + "\",\"" +
-            this.data.Products[i].service_model.join(',').replace(/"/g, '""') + "\",\"" +
-            this.data.Products[i].status.replace(/"/g, '""') + "\",\"" +
-            this.data.Products[i].independent_assessor.replace(/"/g, '""') + "\",\"" +
+
+          csv += "\"" + this.Products[i].id.replace(/"/g, '""') + "\",\"" +
+            this.Products[i].csp.replace(/"/g, '""') + "\",\"" +
+            this.Products[i].cso.replace(/"/g, '""') + "\",\"" +
+            this.Products[i].service_desc.replace(/"/g, '""').replace(/#/g, '%23') + "\",\"" +
+            this.Products[i].business_function.join(',').replace(/"/g, '""') + "\",\"" +
+            this.Products[i].service_model.join(',').replace(/"/g, '""') + "\",\"" +
+            this.Products[i].status.replace(/"/g, '""') + "\",\"" +
+            this.Products[i].independent_assessor.replace(/"/g, '""') + "\",\"" +
             ato[k].parent.replace(/"/g, '""') + "\",\"" +
             ato[k].sub.replace(/"/g, '""') + "\",\"" +
-            // ato[k].label + "\",\"" +
             ato[k].iss + "\",\"" +
             ato[k].auth + "\",\"" +
             ato[k].assess + "\",\"" +
@@ -147,39 +215,39 @@ export class AgenciesMainComponent implements OnInit {
     let exp = "";
 
     // find initial
-    for (var i = 0; i < this.data.AtoMapping.length; i++) {
-      
-      if (this.data.AtoMapping[i].id == idProd) {
-        
-        // these fall through to reuse
-        auth = this.getDateTimeField(this.data.AtoMapping[i].auth_date);
-        assess = this.reformatSomeDates(this.data.AtoMapping[i].assessment_date);
+    for (var i = 0; i < this.AtoMapping.length; i++) {
 
-        iss = this.getDateTimeField(this.data.AtoMapping[i].ato_date);
-        exp = this.getDateTimeField(this.data.AtoMapping[i].exp_date);
+      if (this.AtoMapping[i].id == idProd) {
+
+        // these fall through to reuse
+        auth = this.getDateTimeField(this.AtoMapping[i].auth_date);
+        assess = this.reformatSomeDates(this.AtoMapping[i].assessment_date);
+
+        iss = this.getDateTimeField(this.AtoMapping[i].ato_date);
+        exp = this.getDateTimeField(this.AtoMapping[i].exp_date);
 
         if (iss != "" && exp == "") {
           exp = "Continuous ATO";
         }
 
-        list.push({label: "Initial", parent: this.data.AtoMapping[i].parent, sub: this.data.AtoMapping[i].sub, iss, auth, assess, exp});
+        list.push({ label: "Initial", parent: this.AtoMapping[i].parent, sub: this.AtoMapping[i].sub, iss, auth, assess, exp });
         break;
       }
     }
 
     // find all reuse
-    for (var i = 0; i < this.data.ReuseMapping.length; i++) {
+    for (var i = 0; i < this.ReuseMapping.length; i++) {
 
-      if (this.data.ReuseMapping[i].id == idProd) {
+      if (this.ReuseMapping[i].id == idProd) {
 
-          iss = this.getDateTimeField(this.data.ReuseMapping[i].ato_date);
-          exp = this.getDateTimeField(this.data.ReuseMapping[i].exp_date);
+        iss = this.getDateTimeField(this.ReuseMapping[i].ato_date);
+        exp = this.getDateTimeField(this.ReuseMapping[i].exp_date);
 
-          if (iss != "" && exp == "") {
-            exp = "Continuous ATO";
-          }
+        if (iss != "" && exp == "") {
+          exp = "Continuous ATO";
+        }
 
-          list.push({label: "Reuse", parent: this.data.ReuseMapping[i].parent, sub: this.data.ReuseMapping[i].sub, iss, auth, assess, exp});
+        list.push({ label: "Reuse", parent: this.ReuseMapping[i].parent, sub: this.ReuseMapping[i].sub, iss, auth, assess, exp });
       }
     }
 
@@ -189,12 +257,12 @@ export class AgenciesMainComponent implements OnInit {
   // depending how the Apps Script feels, it either grabs the string 01/24 (which we want) or
   // a date 2024-01-24T20:00:00.000Z (which we can format into MM/DD)
   reformatSomeDates(inField: string) {
-    return (inField.indexOf("T") == -1) ? inField : inField.slice(5,7) + "/" + inField.slice(8,10);
+    return (inField.indexOf("T") == -1) ? inField : inField.slice(5, 7) + "/" + inField.slice(8, 10);
   }
 
   // slice the end of the date if it's present
   getDateTimeField(inField: string) {
-    return (inField.indexOf("T") == -1) ? "" : inField.slice(0,inField.indexOf("T"));
+    return (inField.indexOf("T") == -1) ? "" : inField.slice(0, inField.indexOf("T"));
   }
 
   zeroPad(n: number) {

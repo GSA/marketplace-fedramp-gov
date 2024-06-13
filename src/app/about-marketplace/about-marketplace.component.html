@@ -1,8 +1,9 @@
 <div *ngIf="isCachePresent">
     <section class="mp-about" id="">
         <div class="grid-container fedramp-page-container">
-            <!-- First Column-->
+            
             <div class="grid-row grid-gap">
+
                 <div class="desktop:grid-col-4">
                     <h2>About FedRAMP Marketplace</h2>
                     <p class="margin-bottom-4">The FedRAMP Marketplace is a searchable and sortable database of CSOs
@@ -21,14 +22,14 @@
                                 <h3>Total FedRAMP Authorized Services</h3>
                             </div>
                             <div class="authorization-count">
-                                <p>{{data.Metrics.total}}</p>
+                                <p>{{Metrics.total}}</p>
                             </div>
                         </div>
                     </a>
 
                     <h3 class="latest-title">Latest on Marketplace</h3>
 
-                    <a *ngFor="let l of data.Metrics.latest" class="latest-agency-link" href="/products/{{l.id}}" target="_blank">
+                    <a *ngFor="let l of Metrics.latest" class="latest-agency-link" href="/products/{{l.id}}" target="_blank">
                         <div class="marketplace-latest">
 
                             <div>
