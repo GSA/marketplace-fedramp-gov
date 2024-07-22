@@ -136,15 +136,13 @@
                 <div class="usa-modal__main">
 
                   <div class="usa-prose">
-                    <p id="modal-3-description">
-                      Please review the <a href="https://www.fedramp.gov/about-marketplace/" target="_blank">About FedRAMP Marketplace</a> page for more information about these designations.  Definitions for status designations are:</p>
-                       <p><b>Ready</b> - A Readiness Assessment Report (RAR) has been reviewed and deemed acceptable by the FedRAMP PMO on the associated date.</p>
-                       <p><b>In Process (In Agency Review)</b> - A federal agency has partnered with a Cloud Service Offering (CSO) and the CSO has achieved the criteria to be listed upon the Marketplace on the associated date</p>
-                       <p><b>In Process (In PMO Review)</b> - A federal agency has issued an Authority to Operate (ATO) on the associated date and the CSO package is now with the FedRAMP PMO to review and approve for FedRAMP Authorized status</p>
-                       <p><b>In Process (In JAB Review)</b> - A CSO achieves a “go” decision by the Joint Authorization Board (JAB) on the associated date and the CSO package is now with the JAB to review and approve for FedRAMP Authorized status</p>
-                       <p><b>Authorized</b> - The CSO has been reviewed and deemed acceptable to be listed as FedRAMP Authorized by either the FedRAMP PMO or the JAB on the associated date
-
-                    </p>
+                    <p id="modal-3-description">Please review the <a href="https://www.fedramp.gov/about-marketplace/" target="_blank">About FedRAMP Marketplace</a> page for more information about these designations.  Definitions for status designations are:</p>
+                    <p><b>Ready</b> - A Readiness Assessment Report (RAR) has been reviewed and deemed acceptable by the FedRAMP PMO on the associated date.</p>
+                    <p><b>In Process (In Agency Review)</b> - A federal agency has partnered with a Cloud Service Offering (CSO) and the CSO has achieved the criteria to be listed upon the Marketplace on the associated date</p>
+                    <p><b>In Process (In PMO Review)</b> - A federal agency has issued an Authority to Operate (ATO) on the associated date and the CSO package is now with the FedRAMP PMO to review and approve for FedRAMP Authorized status</p>
+                    <p><b>In Process (In JAB Review)</b> - A CSO achieves a “go” decision by the Joint Authorization Board (JAB) on the associated date and the CSO package is now with the JAB to review and approve for FedRAMP Authorized status</p>
+                    <p><b>In Process (In Program Review)</b> - FedRAMP partners with a Cloud Service Offering (CSO) and the CSO has achieved the criteria to be listed upon the Marketplace on the associated date</p>
+                    <p><b>Authorized</b> - The CSO has been reviewed and deemed acceptable to be listed as FedRAMP Authorized by either the FedRAMP PMO or the JAB on the associated date</p>
                   </div>
 
                 </div>
@@ -158,6 +156,7 @@
             </div>
           </div>
           <!-- End Modal -->
+
 
           <div class="authorization-status-chart padding-y-4 desktop:padding-x-15">
             <div class="grid-row">
@@ -174,51 +173,49 @@
                   date:'MM/dd/YYYY'}}</p>
               </div>
 
-              <div *ngIf="product.auth_type == 'Agency'; then midThen else midElse"></div>
-              <ng-template #midThen>
-
-                <div class="tablet:grid-col-3 status-container">
-                  <div class="current-status">
-                    <p class="current-status-title"><strong>In Process:</strong><br>In Agency Review</p>
-                  </div>
-
-                  <div class="auth-flow-chart auth-{{ ((product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active') || (product.ip_pmo_date != 'Not In Process' && product.ip_pmo_date != '#N/A'))  ? 'ready completed' : ( product.ip_agency_date == 'Not Agency Partnered' || product.ip_agency_date == '#N/A' ? 'future' : 'process') }} order-tracking">
-                    <span class="is-complete"></span>
-                  </div>
-
-                  <p class="date">{{ product.ip_agency_date == 'Not Agency Partnered' || product.ip_agency_date == '#N/A' ? 'N/A' : product.ip_agency_date |
-                    date:'MM/dd/YYYY'}}</p>
+              <ng-container [ngSwitch]="product.auth_type">
+                <div *ngSwitchCase="'Agency'" class="tablet:grid-col-3 status-container">
+                    <div class="current-status">
+                      <p class="current-status-title"><strong>In Process:</strong><br>In Agency Review</p>
+                    </div>
+  
+                    <div class="auth-flow-chart auth-{{ ((product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active') || (product.ip_pmo_date != 'Not In Process' && product.ip_pmo_date != '#N/A'))  ? 'ready completed' : ( product.ip_agency_date == 'Not Agency Partnered' || product.ip_agency_date == '#N/A' ? 'future' : 'process') }} order-tracking">
+                      <span class="is-complete"></span>
+                    </div>
+  
+                    <p class="date">{{ product.ip_agency_date == 'Not Agency Partnered' || product.ip_agency_date == '#N/A' ? 'N/A' : product.ip_agency_date |
+                      date:'MM/dd/YYYY'}}</p>
 
                 </div>
 
-                <div class="tablet:grid-col-3 status-container">
-                  <div class="current-status">
-                    <p class="current-status-title"><strong>In Process:</strong><br>In PMO Review</p>
-                  </div>
+                <div *ngSwitchCase="'JAB'" class="tablet:grid-col-4 status-container">
+                    <div class="current-status">
+                      <p class="current-status-title"><strong>In Process:</strong><br>In JAB Review</p>
+                    </div>
+                    
+                    <div class="auth-flow-chart auth-{{ product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active' ? 'ready completed' : (product.ip_jab_date == 'Not Active' || product.ip_jab_date == '#N/A' ? 'future' : 'process') }} order-tracking">
+                      <span class="is-complete"></span>
+                    </div>
+  
+                    <p class="date">{{ product.ip_jab_date == 'Not Active' || product.ip_jab_date == '#N/A' ? 'N/A' : product.ip_jab_date |
+                      date:'MM/dd/YYYY'}}</p>
 
-                  <div class="auth-flow-chart auth-{{ product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active' ? 'ready completed' : (product.ip_pmo_date == 'Not In Process' ||  product.ip_pmo_date == '#N/A' ? 'future' : 'process') }} order-tracking">
-                    <span class="is-complete"></span>
-                  </div>
-
-                  <p class="date">{{ product.ip_pmo_date == 'Not In Process' ||  product.ip_pmo_date == '#N/A' ? 'N/A' : product.ip_pmo_date |
-                    date:'MM/dd/YYYY'}}</p>
                 </div>
-              </ng-template>
 
-              <ng-template #midElse>
-                <div class="tablet:grid-col-4 status-container">
-                  <div class="current-status">
-                    <p class="current-status-title"><strong>In Process:</strong><br>In JAB Review</p>
-                  </div>
-                  
-                  <div class="auth-flow-chart auth-{{ product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active' ? 'ready completed' : (product.ip_jab_date == 'Not Active' || product.ip_jab_date == '#N/A' ? 'future' : 'process') }} order-tracking">
-                    <span class="is-complete"></span>
-                  </div>
-
-                  <p class="date">{{ product.ip_jab_date == 'Not Active' || product.ip_jab_date == '#N/A' ? 'N/A' : product.ip_jab_date |
-                    date:'MM/dd/YYYY'}}</p>
+                <div *ngSwitchCase="'Program'" class="tablet:grid-col-4 status-container">
+                    <div class="current-status">
+                      <p class="current-status-title"><strong>In Process:</strong><br>In Program Review</p>
+                    </div>
+                    
+                    <div class="auth-flow-chart auth-{{ product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active' ? 'ready completed' : (product.ip_prog_date == 'Not Active' || product.ip_prog_date == '#N/A' ? 'future' : 'process') }} order-tracking">
+                      <span class="is-complete"></span>
+                    </div>
+  
+                    <p class="date">{{ product.ip_prog_date == 'Not Active' || product.ip_prog_date == '#N/A' ? 'N/A' : product.ip_prog_date |
+                      date:'MM/dd/YYYY'}}</p>
                 </div>
-              </ng-template>
+              </ng-container>
+
 
               <div class="tablet:{{ gridClass }} status-container">
                 <div class="current-status">
@@ -233,6 +230,7 @@
 
             </div>
           </div>
+
         </div>
       </div>
 
@@ -271,12 +269,20 @@
               </div>
               <!-- End Modal -->
 
-            <p><strong>Authorization Type:</strong> {{product.auth_type}}</p>
+            <p><strong>Authorization Path:</strong> {{product.auth_type}}</p>
             <p><strong>FedRAMP Ready:</strong> {{product.fedramp_ready == 'No FRR Date' || product.fedramp_ready == '#N/A' ? product.fedramp_ready :
               product.fedramp_ready | date:'MM/dd/YYY'}}</p>
-            <p><strong>JAB Review:</strong> {{product.ip_jab_date == 'Not Active' || product.ip_jab_date == '#N/A' ? product.ip_jab_date :
+
+            <div *ngIf="product.auth_type == 'Program'; then reviewBlock else reviewElse"></div>
+            <ng-template #reviewBlock>
+              <p><strong>Program Review:</strong> {{product.ip_prog_date == 'Not Active' || product.ip_prog_date == '#N/A' ? product.ip_prog_date :
+                product.ip_prog_date | date:'MM/dd/YYY'}}</p>
+            </ng-template>
+            <ng-template #reviewElse>
+              <p><strong>JAB Review:</strong> {{product.ip_jab_date == 'Not Active' || product.ip_jab_date == '#N/A' ? product.ip_jab_date :
               product.ip_jab_date | date:'MM/dd/YYY'}}</p>
-            <p><strong>Agency Review:</strong> {{product.ip_agency_date == 'Not Agency Partnered' || product.ip_agency_date == '#N/A' ?
+            </ng-template>
+            <p><strong>Authorizing Entity Review:</strong> {{product.ip_agency_date == 'Not Agency Partnered' || product.ip_agency_date == '#N/A' ?
               product.ip_agency_date : product.ip_agency_date | date:'MM/dd/YYY'}}</p>
             <p><strong>PMO Review:</strong> {{product.ip_pmo_date == 'Not In Process' || product.ip_pmo_date == '#N/A' ? product.ip_pmo_date :
               product.ip_pmo_date | date:'MM/dd/YYY'}}</p>

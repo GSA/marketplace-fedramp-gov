@@ -104,7 +104,7 @@
             <h4 class="usa-accordion__heading accordian-title">
               <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false"
                 aria-controls="a5">
-                <strong>Authorization Type</strong>
+                <strong>Authorization Path</strong>
               </button>
             </h4>
             <div id="a5" class="usa-accordion__content usa-prose" hidden="">
@@ -330,7 +330,7 @@
               <div class="grid-row">
 
                 <div *ngIf="Filters.product.status.auth_type != 0" class="grid-col-3">
-                  <p><strong>Authorization Type</strong></p>
+                  <p><strong>Authorization Path</strong></p>
                   <ul>
                     <div *ngFor="let i of Filters.product.auth_type">
                       <li id="{{i.class_name}}-mobile" onclick="filterRows('5', this.id, 'mobile');"
