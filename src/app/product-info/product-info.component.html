@@ -185,7 +185,18 @@
   
                     <p class="date">{{ product.ip_agency_date == 'Not Agency Partnered' || product.ip_agency_date == '#N/A' ? 'N/A' : product.ip_agency_date |
                       date:'MM/dd/YYYY'}}</p>
-
+                </div>
+                <div *ngSwitchCase="'Agency'" class="tablet:grid-col-3 status-container">
+                        <div class="current-status">
+                          <p class="current-status-title"><strong>In Process:</strong><br>In PMO Review</p>
+                        </div>
+      
+                        <div class="auth-flow-chart auth-{{ product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active' ? 'ready completed' : (product.ip_pmo_date == 'Not In Process' ||  product.ip_pmo_date == '#N/A' ? 'future' : 'process') }} order-tracking">
+                          <span class="is-complete"></span>
+                        </div>
+      
+                        <p class="date">{{ product.ip_pmo_date == 'Not In Process' ||  product.ip_pmo_date == '#N/A' ? 'N/A' : product.ip_pmo_date |
+                          date:'MM/dd/YYYY'}}</p>
                 </div>
 
                 <div *ngSwitchCase="'JAB'" class="tablet:grid-col-4 status-container">
