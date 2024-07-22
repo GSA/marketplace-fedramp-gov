@@ -283,20 +283,13 @@
             <p><strong>Authorization Path:</strong> {{product.auth_type}}</p>
             <p><strong>FedRAMP Ready:</strong> {{product.fedramp_ready == 'No FRR Date' || product.fedramp_ready == '#N/A' ? product.fedramp_ready :
               product.fedramp_ready | date:'MM/dd/YYY'}}</p>
-
-            <div *ngIf="product.auth_type == 'Program'; then reviewBlock else reviewElse"></div>
-            <ng-template #reviewBlock>
-              <p><strong>Program Review:</strong> {{product.ip_prog_date == 'Not Active' || product.ip_prog_date == '#N/A' ? product.ip_prog_date :
-                product.ip_prog_date | date:'MM/dd/YYY'}}</p>
-            </ng-template>
-            <ng-template #reviewElse>
-              <p><strong>JAB Review:</strong> {{product.ip_jab_date == 'Not Active' || product.ip_jab_date == '#N/A' ? product.ip_jab_date :
-              product.ip_jab_date | date:'MM/dd/YYY'}}</p>
-            </ng-template>
             <p><strong>Authorizing Entity Review:</strong> {{product.ip_agency_date == 'Not Agency Partnered' || product.ip_agency_date == '#N/A' ?
               product.ip_agency_date : product.ip_agency_date | date:'MM/dd/YYY'}}</p>
-            <p><strong>PMO Review:</strong> {{product.ip_pmo_date == 'Not In Process' || product.ip_pmo_date == '#N/A' ? product.ip_pmo_date :
-              product.ip_pmo_date | date:'MM/dd/YYY'}}</p>
+            <div *ngIf="product.auth_type == 'Agency'; then reviewBlock"></div>
+            <ng-template #reviewBlock>
+              <p><strong>PMO Review:</strong> {{product.ip_pmo_date == 'Not In Process' || product.ip_pmo_date == '#N/A' ? product.ip_pmo_date :
+                product.ip_pmo_date | date:'MM/dd/YYY'}}</p>
+            </ng-template>
             <p><strong>FedRAMP Authorized:</strong> {{ product.fedramp_auth == 'Not Active' || product.fedramp_auth == '#N/A' ? product.fedramp_auth :
               product.fedramp_auth | date:'MM/dd/YYY'}}</p>
             <p><strong>Annual Assessment:</strong> {{product.annual_assessment == '#N/A' || product.annual_assessment == '' ? 'N/A' : product.annual_assessment }}</p>
