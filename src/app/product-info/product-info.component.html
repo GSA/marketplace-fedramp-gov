@@ -280,7 +280,10 @@
               </div>
               <!-- End Modal -->
 
-            <!-- <p><strong>Authorization Path:</strong> {{product.auth_type}}</p> -->
+            <div *ngIf="product.auth_type == 'Agency' || product.auth_type == 'JAB'">
+              <p><strong>Authorization Path:</strong> {{product.auth_type}}</p>
+            </div>
+
             <p><strong>FedRAMP Ready:</strong> {{product.fedramp_ready == 'No FRR Date' || product.fedramp_ready == '#N/A' ? product.fedramp_ready :
               product.fedramp_ready | date:'MM/dd/YYY'}}</p>
             
