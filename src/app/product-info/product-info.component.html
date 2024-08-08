@@ -179,11 +179,11 @@
                       <p class="current-status-title"><strong>In Process:</strong><br>In Agency Review</p>
                     </div>
   
-                    <div class="auth-flow-chart auth-{{ ((product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active') || (product.ip_pmo_date != 'Not In Process' && product.ip_pmo_date != '#N/A'))  ? 'ready completed' : ( product.ip_agency_date == 'Not Agency Partnered' || product.ip_agency_date == '#N/A' ? 'future' : 'process') }} order-tracking">
+                    <div class="auth-flow-chart auth-{{ ((product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active') || (product.ip_pmo_date != 'Not In Process' && product.ip_pmo_date != '#N/A'))  ? 'ready completed' : ( product.ip_agency_date == 'Not Active' || product.ip_agency_date == '#N/A' ? 'future' : 'process') }} order-tracking">
                       <span class="is-complete"></span>
                     </div>
   
-                    <p class="date">{{ product.ip_agency_date == 'Not Agency Partnered' || product.ip_agency_date == '#N/A' ? 'N/A' : product.ip_agency_date |
+                    <p class="date">{{ product.ip_agency_date == 'Not Active' || product.ip_agency_date == '#N/A' ? 'N/A' : product.ip_agency_date |
                       date:'MM/dd/YYYY'}}</p>
                 </div>
                 <div *ngSwitchCase="'Agency'" class="tablet:grid-col-3 status-container">
@@ -292,7 +292,7 @@
                 product.ip_jab_date : product.ip_jab_date | date:'MM/dd/YYY'}}</p>
               <p *ngSwitchCase="'Program'"><strong>Authorizing Entity Review:</strong> {{product.ip_prog_date == 'Not Active' || product.ip_prog_date == '#N/A' ?
                 product.ip_prog_date : product.ip_prog_date | date:'MM/dd/YYY'}}</p>  
-              <p *ngSwitchCase="'Agency'"><strong>Authorizing Entity Review:</strong> {{product.ip_agency_date == 'Not Agency Partnered' || product.ip_agency_date == '#N/A' ?
+              <p *ngSwitchCase="'Agency'"><strong>Authorizing Entity Review:</strong> {{product.ip_agency_date == 'Not Active' || product.ip_agency_date == '#N/A' ?
                 product.ip_agency_date : product.ip_agency_date | date:'MM/dd/YYY'}}</p>
             </ng-container>
 
