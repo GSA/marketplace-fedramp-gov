@@ -176,7 +176,7 @@
               <ng-container [ngSwitch]="product.auth_type">
                 <div *ngSwitchCase="'Agency'" class="tablet:grid-col-3 status-container">
                     <div class="current-status">
-                      <p class="current-status-title"><strong>In Process:</strong><br>In Agency Review</p>
+                      <p class="current-status-title"><strong>In Process:</strong><br>Review</p>
                     </div>
   
                     <div class="auth-flow-chart auth-{{ ((product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active') || (product.ip_pmo_date != 'Not In Process' && product.ip_pmo_date != '#N/A'))  ? 'ready completed' : ( product.ip_agency_date == 'Not Active' || product.ip_agency_date == '#N/A' ? 'future' : 'process') }} order-tracking">
@@ -188,7 +188,7 @@
                 </div>
                 <div *ngSwitchCase="'Agency'" class="tablet:grid-col-3 status-container">
                         <div class="current-status">
-                          <p class="current-status-title"><strong>In Process:</strong><br>In PMO Review</p>
+                          <p class="current-status-title"><strong>In Process:</strong><br>Finalization</p>
                         </div>
       
                         <div class="auth-flow-chart auth-{{ product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active' ? 'ready completed' : (product.ip_pmo_date == 'Not In Process' ||  product.ip_pmo_date == '#N/A' ? 'future' : 'process') }} order-tracking">
@@ -201,7 +201,7 @@
 
                 <div *ngSwitchCase="'JAB'" class="tablet:grid-col-4 status-container">
                     <div class="current-status">
-                      <p class="current-status-title"><strong>In Process:</strong><br>In JAB Review</p>
+                      <p class="current-status-title"><strong>In Process:</strong><br>Review</p>
                     </div>
                     
                     <div class="auth-flow-chart auth-{{ product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active' ? 'ready completed' : (product.ip_jab_date == 'Not Active' || product.ip_jab_date == '#N/A' ? 'future' : 'process') }} order-tracking">
@@ -213,9 +213,9 @@
 
                 </div>
 
-                <div *ngSwitchCase="'Program'" class="tablet:grid-col-4 status-container">
+                <div *ngSwitchCase="'Program'" class="tablet:grid-col-3 status-container">
                     <div class="current-status">
-                      <p class="current-status-title"><strong>In Process:</strong><br>In Program Review</p>
+                      <p class="current-status-title"><strong>In Process:</strong><br>Review</p>
                     </div>
                     
                     <div class="auth-flow-chart auth-{{ product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active' ? 'ready completed' : (product.ip_prog_date == 'Not Active' || product.ip_prog_date == '#N/A' ? 'future' : 'process') }} order-tracking">
@@ -224,6 +224,18 @@
   
                     <p class="date">{{ product.ip_prog_date == 'Not Active' || product.ip_prog_date == '#N/A' ? 'N/A' : product.ip_prog_date |
                       date:'MM/dd/YYYY'}}</p>
+                </div>
+                <div *ngSwitchCase="'Program'" class="tablet:grid-col-3 status-container">
+                  <div class="current-status">
+                    <p class="current-status-title"><strong>In Process:</strong><br>Finalization</p>
+                  </div>
+
+                  <div class="auth-flow-chart auth-{{ product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active' ? 'ready completed' : (product.ip_pmo_date == 'Not In Process' ||  product.ip_pmo_date == '#N/A' ? 'future' : 'process') }} order-tracking">
+                    <span class="is-complete"></span>
+                  </div>
+
+                  <p class="date">{{ product.ip_pmo_date == 'Not In Process' ||  product.ip_pmo_date == '#N/A' ? 'N/A' : product.ip_pmo_date |
+                    date:'MM/dd/YYYY'}}</p>
                 </div>
               </ng-container>
 
@@ -280,9 +292,9 @@
               </div>
               <!-- End Modal -->
 
-            <div *ngIf="product.auth_type == 'Agency' || product.auth_type == 'JAB'">
+            <!-- <div *ngIf="product.auth_type == 'Agency' || product.auth_type == 'JAB'">
               <p><strong>Authorization Path:</strong> {{product.auth_type}}</p>
-            </div>
+            </div> -->
 
             <p><strong>FedRAMP Ready:</strong> {{product.fedramp_ready == 'No FRR Date' || product.fedramp_ready == '#N/A' ? product.fedramp_ready :
               product.fedramp_ready | date:'MM/dd/YYY'}}</p>

@@ -84,8 +84,10 @@
             </div>
           </div>
         </div>
-        <button id="csv-button" class="btn btn-primary" onclick="csvFromFilteredData('assessors');">Export to CSV <i
-            class="fa-solid fa-download"></i></button>
+        <!-- <button id="csv-button" class="btn btn-primary" onclick="csvFromFilteredData('assessors');">Export to CSV <i
+            class="fa-solid fa-download"></i></button> -->
+            <button id="csv-ato-button" [disabled]="isAtoDisabled" (click)="csvFromAtoData()"
+            class="btn btn-primary">{{atoLabel}}<i class="fa-solid fa-download"></i></button>
       </div>
 
       <!-- Results Column-->
