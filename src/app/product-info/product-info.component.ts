@@ -66,7 +66,7 @@ export class ProductInfoComponent implements OnInit {
 
       this.isCachePresent = true;
       
-      if(this.product.auth_type == 'Agency' || this.product.auth_type == 'Program') {
+      if(this.product.auth_type == 'Agency') {
         this.gridClass = "grid-col-3";
       }
     }
@@ -93,5 +93,4 @@ export class ProductInfoComponent implements OnInit {
       resolve();
     });
   }
-  
 }

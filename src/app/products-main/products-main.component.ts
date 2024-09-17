@@ -134,7 +134,7 @@ export class ProductsMainComponent implements OnInit {
     });
   }
 
-  atoLabel = "Export CSV Data"
+  atoLabel = "Export ATO Data"
   atoButtonDisabled = false;
 
   get isAtoDisabled(): boolean {
@@ -150,15 +150,16 @@ export class ProductsMainComponent implements OnInit {
     let ato: Array<{ label: string, parent: string, sub: string, iss: string, auth: string, assess: string, exp: string }> = [];
 
     // headers
-    csv += "\"FedRAMP ID\",\"Cloud Service Provider\",\"Cloud Service Offering\",\"Service Description\",\"Business Categories\",\"Service Model\",\"Status\",\"Independent Assessor\",\"Authorizations\",\"Reuse\",\"Parent Agency\",\"Sub Agency\",\"ATO Issuance Date\",\"FedRAMP Authorization Date\",\"Annual Assessment Date\",\"ATO Expiration Date\"\r\n";
+    csv += "\"FedRAMP ID\",\"Cloud Service Provider\",\"Cloud Service Offering\",\"Service Description\",\"Business Categories\",\"Service Model\",\"Status\",\"Independent Assessor\",\"Parent Agency\",\"Sub Agency\",\"ATO Issuance Date\",\"FedRAMP Authorization Date\",\"Annual Assessment Date\",\"ATO Expiration Date\"\r\n";
 
     // for all products
     for (var i = 0; i < this.Products.length; i++) {
 
-      // go build an array of "initial" and "resue" ATOs
-      ato = this.getAtoDateArray(this.Products[i].id);
-
+      // skip products that have one blank agency
       if (this.Products[i].status == "FedRAMP Authorized") {
+
+        // go build an array of "initial" and "resue" ATOs
+        ato = this.getAtoDateArray(this.Products[i].id);
 
         // loop through ato array, writing one product line for each
         for (let k = 0; k < ato.length; k++) {
@@ -171,8 +172,6 @@ export class ProductsMainComponent implements OnInit {
             this.Products[i].service_model.join(',').replace(/"/g, '""') + "\",\"" +
             this.Products[i].status.replace(/"/g, '""') + "\",\"" +
             this.Products[i].independent_assessor.replace(/"/g, '""') + "\",\"" +
-            this.Products[i].authorization + "\",\"" +
-            this.Products[i].reuse + "\",\"" +
             ato[k].parent.replace(/"/g, '""') + "\",\"" +
             ato[k].sub.replace(/"/g, '""') + "\",\"" +
             ato[k].iss + "\",\"" +
@@ -181,20 +180,6 @@ export class ProductsMainComponent implements OnInit {
             ato[k].exp + "\"" +
             "\r\n";
         }
-      } else {
-
-        csv += "\"" + this.Products[i].id.replace(/"/g, '""') + "\",\"" +
-        this.Products[i].csp.replace(/"/g, '""') + "\",\"" +
-        this.Products[i].cso.replace(/"/g, '""') + "\",\"" +
-        this.Products[i].service_desc.replace(/"/g, '""').replace(/#/g, '%23') + "\",\"" +
-        this.Products[i].business_function.join(',').replace(/"/g, '""') + "\",\"" +
-        this.Products[i].service_model.join(',').replace(/"/g, '""') + "\",\"" +
-        this.Products[i].status.replace(/"/g, '""') + "\",\"" +
-        this.Products[i].independent_assessor.replace(/"/g, '""') + "\",\"" +
-        this.Products[i].authorization + "\",\"" +
-        this.Products[i].reuse + "\",\"" +
-         "\",\"" + "\",\"" + "\",\"" + "\",\"" + "\",\"" + "\",\"" + "\"" +
-        "\r\n";
       }
     }
 
@@ -216,7 +201,7 @@ export class ProductsMainComponent implements OnInit {
     csvDownload.click();
     document.body.removeChild(csvDownload);
 
-    this.atoLabel = "Export CSV Data";
+    this.atoLabel = "Export ATO Data";
     this.atoButtonDisabled = false;
   }
 
@@ -277,7 +262,7 @@ export class ProductsMainComponent implements OnInit {
 
   // slice the end of the date if it's present
   getDateTimeField(inField: string) {
-    return (inField.indexOf("T") == -1) ? inField : inField.slice(0, inField.indexOf("T"));
+    return (inField.indexOf("T") == -1) ? "" : inField.slice(0, inField.indexOf("T"));
   }
 
   zeroPad(n: number) {
