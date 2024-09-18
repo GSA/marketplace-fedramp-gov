@@ -210,7 +210,7 @@ export class ProductsMainComponent implements OnInit {
 
     var csvDownload = document.createElement("a");
     csvDownload.setAttribute("href", uri);
-    csvDownload.setAttribute("download", "ato-" + stamp + ".csv");
+    csvDownload.setAttribute("download", "marketplace-" + stamp + ".csv");
 
     document.body.appendChild(csvDownload);
     csvDownload.click();
