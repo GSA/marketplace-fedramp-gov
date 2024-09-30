@@ -44,7 +44,9 @@
 
                           <div class="usa-prose">
                             <p id="modal-1-description">
-                              Total number of Authority to Operate (ATO) or Authority to Use (ATU) letters on file with the FedRAMP PMO. This includes the initial ATO and any direct reuse ATO/ATUs issued by a federal agency.
+                              Total number of Authority to Operate (ATO) or Authority to Use (ATU) letters on file with
+                              the FedRAMP PMO. This includes the initial ATO and any direct reuse ATO/ATUs issued by a
+                              federal agency.
                             </p>
                           </div>
 
@@ -89,7 +91,10 @@
 
                           <div class="usa-prose">
                             <p id="modal-2-description">
-                              Total number reuse ATOs on file in addition to the total number of times this system is used by another FedRAMP Authorized product for each unique Provisional Authority to Operate (P-ATO), Authority to Operate (ATO) or Authority to Use (ATU) on file with FedRAMP.
+                              Total number reuse ATOs on file in addition to the total number of times this system is
+                              used by another FedRAMP Authorized product for each unique Provisional Authority to
+                              Operate (P-ATO), Authority to Operate (ATO) or Authority to Use (ATU) on file with
+                              FedRAMP.
                             </p>
                           </div>
 
@@ -124,8 +129,8 @@
       <div class="grid-row grid-gap row justify-content-between">
         <div class="grid-col-12">
           <h3 class="mp-info-title">Authorization Status</h3>
-           <!-- Information Modal -->
-           <div class="mp-info-button mp-info-button-top-margin">
+          <!-- Information Modal -->
+          <div class="mp-info-button mp-info-button-top-margin">
             <a href="#example-modal-3" class="usa-button" aria-controls="example-modal-3" data-open-modal><svg
                 class="usa-icon" aria-hidden="true" focusable="false" role="img">
                 <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
@@ -136,13 +141,20 @@
                 <div class="usa-modal__main">
 
                   <div class="usa-prose">
-                    <p id="modal-3-description">Please review the <a href="https://www.fedramp.gov/about-marketplace/" target="_blank">About FedRAMP Marketplace</a> page for more information about these designations.  Definitions for status designations are:</p>
-                    <p><b>Ready</b> - A Readiness Assessment Report (RAR) has been reviewed and deemed acceptable by the FedRAMP PMO on the associated date.</p>
-                    <p><b>In Process (In Agency Review)</b> - A federal agency has partnered with a Cloud Service Offering (CSO) and the CSO has achieved the criteria to be listed upon the Marketplace on the associated date</p>
-                    <p><b>In Process (In PMO Review)</b> - A federal agency has issued an Authority to Operate (ATO) on the associated date and the CSO package is now with the FedRAMP PMO to review and approve for FedRAMP Authorized status</p>
-                    <p><b>In Process (In JAB Review)</b> - A CSO achieves a “go” decision by the Joint Authorization Board (JAB) on the associated date and the CSO package is now with the JAB to review and approve for FedRAMP Authorized status</p>
-                    <p><b>In Process (In Program Review)</b> - FedRAMP partners with a Cloud Service Offering (CSO) and the CSO has achieved the criteria to be listed upon the Marketplace on the associated date</p>
-                    <p><b>Authorized</b> - The CSO has been reviewed and deemed acceptable to be listed as FedRAMP Authorized by either the FedRAMP PMO or the JAB on the associated date</p>
+                    <p id="modal-3-description">Please review the <a href="https://www.fedramp.gov/about-marketplace/"
+                        target="_blank">About FedRAMP Marketplace</a> page for more information about these
+                      designations. Definitions for status designations are:</p>
+                    <p><b>Ready</b> - A Readiness Assessment Report (RAR) has been reviewed and deemed acceptable by the
+                      FedRAMP PMO on the associated date.</p>
+                    <p><b>In Process (Review)</b> - One of the following has occurred:<br>- A federal agency has
+                      partnered with a Cloud Service Offering (CSO) and the CSO has achieved the criteria to be listed
+                      on the Marketplace on the associated date<br>- A CSO achieved a “go” decision by the Legacy Joint
+                      Authorization Board (JAB) on the associated date and the CSO package is went to the JAB for review
+                      & approval for Authorized status</p>
+                    <p><b>In Process (Finalization)</b> - FedRAMP partners with a CSO and the CSO has achieved the
+                      criteria to be listed on the Marketplace on the associated date</p>
+                    <p><b>Authorized</b> - The CSO has been reviewed and deemed acceptable to be listed as FedRAMP
+                      Authorized by either the FedRAMP PMO or the JAB on the associated date</p>
                   </div>
 
                 </div>
@@ -168,62 +180,86 @@
                 </div>
                 <div
                   class="auth-flow-chart auth-{{ product.ready_status == 'Not Active' ? 'future' : 'ready completed' }} order-tracking first-order">
-                  <span class="is-complete"></span></div>
-                <p class="date">{{ product.ready_date == 'No FRR Date' || product.ready_date == '#N/A' ? 'N/A' : product.ready_date |
+                  <span class="is-complete"></span>
+                </div>
+                <p class="date">{{ product.ready_date == 'No FRR Date' || product.ready_date == '#N/A' ? 'N/A' :
+                  product.ready_date |
                   date:'MM/dd/YYYY'}}</p>
               </div>
 
               <ng-container [ngSwitch]="product.auth_type">
                 <div *ngSwitchCase="'Agency'" class="tablet:grid-col-3 status-container">
-                    <div class="current-status">
-                      <p class="current-status-title"><strong>In Process:</strong><br>In Agency Review</p>
-                    </div>
-  
-                    <div class="auth-flow-chart auth-{{ ((product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active') || (product.ip_pmo_date != 'Not In Process' && product.ip_pmo_date != '#N/A'))  ? 'ready completed' : ( product.ip_agency_date == 'Not Active' || product.ip_agency_date == '#N/A' ? 'future' : 'process') }} order-tracking">
-                      <span class="is-complete"></span>
-                    </div>
-  
-                    <p class="date">{{ product.ip_agency_date == 'Not Active' || product.ip_agency_date == '#N/A' ? 'N/A' : product.ip_agency_date |
-                      date:'MM/dd/YYYY'}}</p>
+                  <div class="current-status">
+                    <p class="current-status-title"><strong>In Process:</strong><br>Review</p>
+                  </div>
+
+                  <div
+                    class="auth-flow-chart auth-{{ ((product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active') || (product.ip_pmo_date != 'Not In Process' && product.ip_pmo_date != '#N/A'))  ? 'ready completed' : ( product.ip_agency_date == 'Not Active' || product.ip_agency_date == '#N/A' ? 'future' : 'process') }} order-tracking">
+                    <span class="is-complete"></span>
+                  </div>
+
+                  <p class="date">{{ product.ip_agency_date == 'Not Active' || product.ip_agency_date == '#N/A' ? 'N/A'
+                    : product.ip_agency_date |
+                    date:'MM/dd/YYYY'}}</p>
                 </div>
                 <div *ngSwitchCase="'Agency'" class="tablet:grid-col-3 status-container">
-                        <div class="current-status">
-                          <p class="current-status-title"><strong>In Process:</strong><br>In PMO Review</p>
-                        </div>
-      
-                        <div class="auth-flow-chart auth-{{ product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active' ? 'ready completed' : (product.ip_pmo_date == 'Not In Process' ||  product.ip_pmo_date == '#N/A' ? 'future' : 'process') }} order-tracking">
-                          <span class="is-complete"></span>
-                        </div>
-      
-                        <p class="date">{{ product.ip_pmo_date == 'Not In Process' ||  product.ip_pmo_date == '#N/A' ? 'N/A' : product.ip_pmo_date |
-                          date:'MM/dd/YYYY'}}</p>
+                  <div class="current-status">
+                    <p class="current-status-title"><strong>In Process:</strong><br>Finalization</p>
+                  </div>
+
+                  <div
+                    class="auth-flow-chart auth-{{ product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active' ? 'ready completed' : (product.ip_pmo_date == 'Not In Process' ||  product.ip_pmo_date == '#N/A' ? 'future' : 'process') }} order-tracking">
+                    <span class="is-complete"></span>
+                  </div>
+
+                  <p class="date">{{ product.ip_pmo_date == 'Not In Process' || product.ip_pmo_date == '#N/A' ? 'N/A' :
+                    product.ip_pmo_date |
+                    date:'MM/dd/YYYY'}}</p>
                 </div>
 
                 <div *ngSwitchCase="'JAB'" class="tablet:grid-col-4 status-container">
-                    <div class="current-status">
-                      <p class="current-status-title"><strong>In Process:</strong><br>In JAB Review</p>
-                    </div>
-                    
-                    <div class="auth-flow-chart auth-{{ product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active' ? 'ready completed' : (product.ip_jab_date == 'Not Active' || product.ip_jab_date == '#N/A' ? 'future' : 'process') }} order-tracking">
-                      <span class="is-complete"></span>
-                    </div>
-  
-                    <p class="date">{{ product.ip_jab_date == 'Not Active' || product.ip_jab_date == '#N/A' ? 'N/A' : product.ip_jab_date |
-                      date:'MM/dd/YYYY'}}</p>
+                  <div class="current-status">
+                    <p class="current-status-title"><strong>In Process:</strong><br>Review</p>
+                  </div>
+
+                  <div
+                    class="auth-flow-chart auth-{{ product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active' ? 'ready completed' : (product.ip_jab_date == 'Not Active' || product.ip_jab_date == '#N/A' ? 'future' : 'process') }} order-tracking">
+                    <span class="is-complete"></span>
+                  </div>
+
+                  <p class="date">{{ product.ip_jab_date == 'Not Active' || product.ip_jab_date == '#N/A' ? 'N/A' :
+                    product.ip_jab_date |
+                    date:'MM/dd/YYYY'}}</p>
 
                 </div>
 
-                <div *ngSwitchCase="'Program'" class="tablet:grid-col-4 status-container">
-                    <div class="current-status">
-                      <p class="current-status-title"><strong>In Process:</strong><br>In Program Review</p>
-                    </div>
-                    
-                    <div class="auth-flow-chart auth-{{ product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active' ? 'ready completed' : (product.ip_prog_date == 'Not Active' || product.ip_prog_date == '#N/A' ? 'future' : 'process') }} order-tracking">
-                      <span class="is-complete"></span>
-                    </div>
-  
-                    <p class="date">{{ product.ip_prog_date == 'Not Active' || product.ip_prog_date == '#N/A' ? 'N/A' : product.ip_prog_date |
-                      date:'MM/dd/YYYY'}}</p>
+                <div *ngSwitchCase="'Program'" class="tablet:grid-col-3 status-container">
+                  <div class="current-status">
+                    <p class="current-status-title"><strong>In Process:</strong><br>Review</p>
+                  </div>
+
+                  <div
+                    class="auth-flow-chart auth-{{ product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active' ? 'ready completed' : (product.ip_prog_date == 'Not Active' || product.ip_prog_date == '#N/A' ? 'future' : 'process') }} order-tracking">
+                    <span class="is-complete"></span>
+                  </div>
+
+                  <p class="date">{{ product.ip_prog_date == 'Not Active' || product.ip_prog_date == '#N/A' ? 'N/A' :
+                    product.ip_prog_date |
+                    date:'MM/dd/YYYY'}}</p>
+                </div>
+                <div *ngSwitchCase="'Program'" class="tablet:grid-col-3 status-container">
+                  <div class="current-status">
+                    <p class="current-status-title"><strong>In Process:</strong><br>Finalization</p>
+                  </div>
+
+                  <div
+                    class="auth-flow-chart auth-{{ product.fedramp_auth != 'Not Authorized' && product.fedramp_auth != 'Not Active' ? 'ready completed' : (product.ip_pmo_date2 == 'Not In Process' ||  product.ip_pmo_date2 == '#N/A' ? 'future' : 'process') }} order-tracking">
+                    <span class="is-complete"></span>
+                  </div>
+
+                  <p class="date">{{ product.ip_prog_date2 == 'Not Active' || product.ip_prog_date2 == '#N/A' ? 'N/A' :
+                    product.ip_prog_date2 |
+                    date:'MM/dd/YYYY'}}</p>
                 </div>
               </ng-container>
 
@@ -234,8 +270,10 @@
                 </div>
                 <div
                   class="auth-flow-chart auth-{{ product.fedramp_auth == 'Not Authorized' || product.fedramp_auth == 'Not Active' ? 'future' : 'ready completed' }} order-tracking">
-                  <span class="is-complete"></span></div>
-                <p class="date">{{ product.fedramp_auth == 'Not Authorized' || product.fedramp_auth == 'Not Active' || product.fedramp_auth == '#N/A' ? 'N/A' : product.fedramp_auth |
+                  <span class="is-complete"></span>
+                </div>
+                <p class="date">{{ product.fedramp_auth == 'Not Authorized' || product.fedramp_auth == 'Not Active' ||
+                  product.fedramp_auth == '#N/A' ? 'N/A' : product.fedramp_auth |
                   date:'MM/dd/YYYY'}}</p>
               </div>
 
@@ -251,59 +289,67 @@
         <div class="tablet:grid-col-6">
           <div>
             <h3 class="mp-info-title">Authorization Details</h3>
-              <!-- Information Modal -->
-              <div class="mp-info-button mp-info-button-top-margin">
-                <a href="#example-modal-4" class="usa-button" aria-controls="example-modal-4" data-open-modal><svg
-                    class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                    <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
-                  </svg></a>
-                <div class="usa-modal" id="example-modal-4" aria-labelledby="modal-4-heading"
-                  aria-describedby="modal-4-description">
-                  <div class="usa-modal__content">
-                    <div class="usa-modal__main">
+            <!-- Information Modal -->
+            <div class="mp-info-button mp-info-button-top-margin">
+              <a href="#example-modal-4" class="usa-button" aria-controls="example-modal-4" data-open-modal><svg
+                  class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                  <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
+                </svg></a>
+              <div class="usa-modal" id="example-modal-4" aria-labelledby="modal-4-heading"
+                aria-describedby="modal-4-description">
+                <div class="usa-modal__content">
+                  <div class="usa-modal__main">
 
-                      <div class="usa-prose">
-                        <p id="modal-4-description">
-                          This information is captured by FedRAMP as the Cloud Service Offering (CSO) proceeds through the FedRAMP process. Not all information may be applicable to this CSO.
-                        </p>
-                      </div>
-
+                    <div class="usa-prose">
+                      <p id="modal-4-description">
+                        This information is captured by FedRAMP as the Cloud Service Offering (CSO) proceeds through the
+                        FedRAMP process. Not all information may be applicable to this CSO.
+                      </p>
                     </div>
-                    <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
-                      data-close-modal>
-                      <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                        <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close"></use>
-                      </svg>
-                    </button>
+
                   </div>
+                  <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
+                    data-close-modal>
+                    <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                      <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close"></use>
+                    </svg>
+                  </button>
                 </div>
               </div>
-              <!-- End Modal -->
-
-            <div *ngIf="product.auth_type == 'Agency' || product.auth_type == 'JAB'">
-              <p><strong>Authorization Path:</strong> {{product.auth_type}}</p>
             </div>
+            <!-- End Modal -->
 
-            <p><strong>FedRAMP Ready:</strong> {{product.fedramp_ready == 'No FRR Date' || product.fedramp_ready == '#N/A' ? product.fedramp_ready :
+            <!-- <div *ngIf="product.auth_type == 'Agency' || product.auth_type == 'JAB'">
+              <p><strong>Authorization Path:</strong> {{product.auth_type}}</p>
+            </div> -->
+
+            <p><strong>FedRAMP Ready:</strong> {{product.fedramp_ready == 'No FRR Date' || product.fedramp_ready ==
+              '#N/A' ? product.fedramp_ready :
               product.fedramp_ready | date:'MM/dd/YYY'}}</p>
-            
+
             <ng-container [ngSwitch]="product.auth_type">
-              <p *ngSwitchCase="'JAB'"><strong>Authorizing Entity Review:</strong> {{product.ip_jab_date == 'Not Active' || product.ip_jab_date == '#N/A' ?
+              <p *ngSwitchCase="'JAB'"><strong>Authorizing Entity Review:</strong> {{product.ip_jab_date == 'Not Active'
+                || product.ip_jab_date == '#N/A' ?
                 product.ip_jab_date : product.ip_jab_date | date:'MM/dd/YYY'}}</p>
-              <p *ngSwitchCase="'Program'"><strong>Authorizing Entity Review:</strong> {{product.ip_prog_date == 'Not Active' || product.ip_prog_date == '#N/A' ?
-                product.ip_prog_date : product.ip_prog_date | date:'MM/dd/YYY'}}</p>  
-              <p *ngSwitchCase="'Agency'"><strong>Authorizing Entity Review:</strong> {{product.ip_agency_date == 'Not Active' || product.ip_agency_date == '#N/A' ?
+              <p *ngSwitchCase="'Program'"><strong>Authorizing Entity Review:</strong> {{product.ip_prog_date == 'Not
+                Active' || product.ip_prog_date == '#N/A' ?
+                product.ip_prog_date : product.ip_prog_date | date:'MM/dd/YYY'}}</p>
+              <p *ngSwitchCase="'Agency'"><strong>Authorizing Entity Review:</strong> {{product.ip_agency_date == 'Not
+                Active' || product.ip_agency_date == '#N/A' ?
                 product.ip_agency_date : product.ip_agency_date | date:'MM/dd/YYY'}}</p>
             </ng-container>
 
             <div *ngIf="product.auth_type == 'Agency'; then reviewBlock"></div>
             <ng-template #reviewBlock>
-              <p><strong>PMO Review:</strong> {{product.ip_pmo_date == 'Not In Process' || product.ip_pmo_date == '#N/A' ? product.ip_pmo_date :
+              <p><strong>PMO Review:</strong> {{product.ip_pmo_date == 'Not In Process' || product.ip_pmo_date == '#N/A'
+                ? product.ip_pmo_date :
                 product.ip_pmo_date | date:'MM/dd/YYY'}}</p>
             </ng-template>
-            <p><strong>FedRAMP Authorized:</strong> {{ product.fedramp_auth == 'Not Active' || product.fedramp_auth == '#N/A' ? product.fedramp_auth :
+            <p><strong>FedRAMP Authorized:</strong> {{ product.fedramp_auth == 'Not Active' || product.fedramp_auth ==
+              '#N/A' ? product.fedramp_auth :
               product.fedramp_auth | date:'MM/dd/YYY'}}</p>
-            <p><strong>Annual Assessment:</strong> {{ product.annual_assessment == '#N/A' || product.annual_assessment == '' ? 'N/A' : product.annual_assessment | date:'MM/dd' }}</p>
+            <p><strong>Annual Assessment:</strong> {{ product.annual_assessment == '#N/A' || product.annual_assessment
+              == '' ? 'N/A' : product.annual_assessment | date:'MM/dd' }}</p>
             <p><strong>Independent Assessor:</strong> {{ product.independent_assessor }}</p>
           </div>
         </div>
@@ -313,34 +359,35 @@
 
           <div>
             <h3 class="mp-info-title">System Profile</h3>
-              <!-- Information Modal -->
-              <div class="mp-info-button mp-info-button-top-margin">
-                <a href="#example-modal-5" class="usa-button" aria-controls="example-modal-5" data-open-modal><svg
-                    class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                    <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
-                  </svg></a>
-                <div class="usa-modal" id="example-modal-5" aria-labelledby="modal-5-heading"
-                  aria-describedby="modal-5-description">
-                  <div class="usa-modal__content">
-                    <div class="usa-modal__main">
+            <!-- Information Modal -->
+            <div class="mp-info-button mp-info-button-top-margin">
+              <a href="#example-modal-5" class="usa-button" aria-controls="example-modal-5" data-open-modal><svg
+                  class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                  <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
+                </svg></a>
+              <div class="usa-modal" id="example-modal-5" aria-labelledby="modal-5-heading"
+                aria-describedby="modal-5-description">
+                <div class="usa-modal__content">
+                  <div class="usa-modal__main">
 
-                      <div class="usa-prose">
-                        <p id="modal-5-description">
-                          This information is captured by FedRAMP as the Cloud Service Offering (CSO) proceeds through the FedRAMP process.
-                        </p>
-                      </div>
-
+                    <div class="usa-prose">
+                      <p id="modal-5-description">
+                        This information is captured by FedRAMP as the Cloud Service Offering (CSO) proceeds through the
+                        FedRAMP process.
+                      </p>
                     </div>
-                    <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
-                      data-close-modal>
-                      <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                        <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close"></use>
-                      </svg>
-                    </button>
+
                   </div>
+                  <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
+                    data-close-modal>
+                    <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                      <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close"></use>
+                    </svg>
+                  </button>
                 </div>
               </div>
-              <!-- End Modal -->
+            </div>
+            <!-- End Modal -->
 
             <p><strong>Service Model:</strong> {{product.service_model}}</p>
             <p><strong>Deployment Model:</strong> {{product.deployment_model}}</p>
@@ -429,7 +476,9 @@
 
                       <div class="usa-prose">
                         <p id="modal-7-description">
-                          Name(s) of organization(s) that has/have issued a unique Provisional Authority to Operate (P-ATO), Authority to Operate (ATO) or Authority to Use (ATU) for this Cloud Service Offering (CSO).
+                          Name(s) of organization(s) that has/have issued a unique Provisional Authority to Operate
+                          (P-ATO), Authority to Operate (ATO) or Authority to Use (ATU) for this Cloud Service Offering
+                          (CSO).
                         </p>
                       </div>
 
@@ -470,6 +519,13 @@
 
   <section class="mp-product-company-details">
     <div class="grid-container fedramp-page-container">
+      <div *ngIf="product.fedramp_msg != 'N/A'" class="grid-row">
+        <div class="grid-col-12">
+          <h3 class="mp-info-title">Information From FedRAMP</h3>
+          <p style="white-space: pre-wrap;">{{product.fedramp_msg}}</p>
+          <br><br>
+        </div>
+      </div>
 
       <div class="grid-row">
         <div class="grid-col-12">
@@ -483,8 +539,8 @@
       <div class="grid-row grid-gap">
         <div class="tablet:grid-col-6">
           <h3 class="mp-info-title">Service Description</h3>
-           <!-- Information Modal -->
-           <div class="mp-info-button mp-info-button-top-margin">
+          <!-- Information Modal -->
+          <div class="mp-info-button mp-info-button-top-margin">
             <a href="#example-modal-8" class="usa-button" aria-controls="example-modal-8" data-open-modal><svg
                 class="usa-icon" aria-hidden="true" focusable="false" role="img">
                 <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
@@ -496,7 +552,10 @@
 
                   <div class="usa-prose">
                     <p id="modal-8-description">
-                      The service description is provided by the Cloud Service Provider (CSP) and is intended to be a description that provides an understanding of the components, functions, and features of the Cloud Service Offering (CSO). The service description should incorporate the functional and non-functional characteristics of the CSO.
+                      The service description is provided by the Cloud Service Provider (CSP) and is intended to be a
+                      description that provides an understanding of the components, functions, and features of the Cloud
+                      Service Offering (CSO). The service description should incorporate the functional and
+                      non-functional characteristics of the CSO.
                     </p>
                   </div>
 
@@ -515,39 +574,42 @@
 
           <p style="white-space: pre-wrap;">{{product.service_desc}}</p>
         </div>
+
         <div class="tablet:grid-col-6">
           <div class="grid-row">
             <div class="grid-col-8">
               <h3 class="mp-info-title">Contact Information</h3>
 
               <!-- Information Modal -->
-           <div class="mp-info-button mp-info-button-top-margin">
-            <a href="#example-modal-10" class="usa-button" aria-controls="example-modal-10" data-open-modal><svg
-                class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
-              </svg></a>
-            <div class="usa-modal" id="example-modal-10" aria-labelledby="modal-10-heading"
-              aria-describedby="modal-10-description">
-              <div class="usa-modal__content">
-                <div class="usa-modal__main">
+              <div class="mp-info-button mp-info-button-top-margin">
+                <a href="#example-modal-10" class="usa-button" aria-controls="example-modal-10" data-open-modal><svg
+                    class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
+                  </svg></a>
+                <div class="usa-modal" id="example-modal-10" aria-labelledby="modal-10-heading"
+                  aria-describedby="modal-10-description">
+                  <div class="usa-modal__content">
+                    <div class="usa-modal__main">
 
-                  <div class="usa-prose">
-                    <p id="modal-10-description">
-                      For all security related questions/concerns please reach out to the security email provided. For sales related inquiries please use the sales email provided. External website URLs do not necessarily operate under the same laws, regulations, and policies as federal websites.
-                    </p>
+                      <div class="usa-prose">
+                        <p id="modal-10-description">
+                          For all security related questions/concerns please reach out to the security email provided.
+                          For sales related inquiries please use the sales email provided. External website URLs do not
+                          necessarily operate under the same laws, regulations, and policies as federal websites.
+                        </p>
+                      </div>
+
+                    </div>
+                    <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
+                      data-close-modal>
+                      <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                        <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close"></use>
+                      </svg>
+                    </button>
                   </div>
-
                 </div>
-                <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
-                  data-close-modal>
-                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                    <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close"></use>
-                  </svg>
-                </button>
               </div>
-            </div>
-          </div>
-          <!-- End Modal -->
+              <!-- End Modal -->
               <p><strong>Sales E-mail:</strong></p>
               <p><a href="mailto:{{product.sales_email}}">{{product.sales_email}}</a></p>
               <p><strong>Security E-mail:</strong></p>
@@ -559,78 +621,88 @@
               <h3 class="mp-info-title">UEI Number</h3>
 
               <!-- Information Modal -->
-           <div class="mp-info-button mp-info-button-top-margin">
-            <a href="#example-modal-11" class="usa-button" aria-controls="example-modal-11" data-open-modal><svg
-                class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
-              </svg></a>
-            <div class="usa-modal" id="example-modal-11" aria-labelledby="modal-11-heading"
-              aria-describedby="modal-11-description">
-              <div class="usa-modal__content">
-                <div class="usa-modal__main">
+              <div class="mp-info-button mp-info-button-top-margin">
+                <a href="#example-modal-11" class="usa-button" aria-controls="example-modal-11" data-open-modal><svg
+                    class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
+                  </svg></a>
+                <div class="usa-modal" id="example-modal-11" aria-labelledby="modal-11-heading"
+                  aria-describedby="modal-11-description">
+                  <div class="usa-modal__content">
+                    <div class="usa-modal__main">
 
-                  <div class="usa-prose">
-                    <p id="modal-11-description">
-                      The <a href="https://www.gsa.gov/about-us/organization/federal-acquisition-service/technology-transformation-services/integrated-award-environment-iae/iae-systems-information-kit/unique-entity-identifier-update" target="_blank">Unique Entity Identifier (UEI)</a> replaced the Data Universal Numbering System (DUNS) number for entities who sell their product directly to the U.S. Government. Not all vendors will have a UEI number. For vendors who are interested in registering for a UEI, <a href="https://www.gsa.gov/about-us/organization/federal-acquisition-service/technology-transformation-services/integrated-award-environment-iae/iae-systems-information-kit/unique-entity-identifier-update" target="_blank">Please visit here</a>. The UEI numbers listed in this section have been provided by the Cloud Service Offering (CSO).
-                    </p>
+                      <div class="usa-prose">
+                        <p id="modal-11-description">
+                          The <a
+                            href="https://www.gsa.gov/about-us/organization/federal-acquisition-service/technology-transformation-services/integrated-award-environment-iae/iae-systems-information-kit/unique-entity-identifier-update"
+                            target="_blank">Unique Entity Identifier (UEI)</a> replaced the Data Universal Numbering
+                          System (DUNS) number for entities who sell their product directly to the U.S. Government. Not
+                          all vendors will have a UEI number. For vendors who are interested in registering for a UEI,
+                          <a href="https://www.gsa.gov/about-us/organization/federal-acquisition-service/technology-transformation-services/integrated-award-environment-iae/iae-systems-information-kit/unique-entity-identifier-update"
+                            target="_blank">Please visit here</a>. The UEI numbers listed in this section have been
+                          provided by the Cloud Service Offering (CSO).
+                        </p>
+                      </div>
+
+                    </div>
+                    <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
+                      data-close-modal>
+                      <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                        <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close"></use>
+                      </svg>
+                    </button>
                   </div>
-
                 </div>
-                <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
-                  data-close-modal>
-                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                    <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close"></use>
-                  </svg>
-                </button>
               </div>
+              <!-- End Modal -->
+
+              <div *ngIf="product.uei == ''; then ueiThen else ueiElse"></div>
+              <ng-template #ueiThen>
+                <p>N/A</p>
+              </ng-template>
+              <ng-template #ueiElse>
+                <p>{{product.uei}}</p>
+              </ng-template>
+
+
             </div>
           </div>
-          <!-- End Modal -->
-
-          <div *ngIf="product.uei == ''; then ueiThen else ueiElse"></div>
-          <ng-template #ueiThen>
-            <p>N/A</p>
-          </ng-template>
-          <ng-template #ueiElse>
-            <p>{{product.uei}}</p>
-          </ng-template>
-
-
-        </div>
-      </div>
 
 
           <div>
             <h3 class="mp-info-title">Business Category</h3>
 
             <!-- Information Modal -->
-           <div class="mp-info-button mp-info-button-top-margin">
-            <a href="#example-modal-12" class="usa-button" aria-controls="example-modal-12" data-open-modal><svg
-                class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
-              </svg></a>
-            <div class="usa-modal" id="example-modal-12" aria-labelledby="modal-12-heading"
-              aria-describedby="modal-12-description">
-              <div class="usa-modal__content">
-                <div class="usa-modal__main">
+            <div class="mp-info-button mp-info-button-top-margin">
+              <a href="#example-modal-12" class="usa-button" aria-controls="example-modal-12" data-open-modal><svg
+                  class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                  <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
+                </svg></a>
+              <div class="usa-modal" id="example-modal-12" aria-labelledby="modal-12-heading"
+                aria-describedby="modal-12-description">
+                <div class="usa-modal__content">
+                  <div class="usa-modal__main">
 
-                  <div class="usa-prose">
-                    <p id="modal-12-description">
-                      Business categories are intended to be high-level filter categories that stakeholders can sort through. FedRAMP cannot include every business category, so please ensure you review the “Service Description” which should support the information provided here. FedRAMP has only allotted up to 10 business categories to be identified per Cloud Service Offering (CSO).
-                    </p>
+                    <div class="usa-prose">
+                      <p id="modal-12-description">
+                        Business categories are intended to be high-level filter categories that stakeholders can sort
+                        through. FedRAMP cannot include every business category, so please ensure you review the
+                        “Service Description” which should support the information provided here. FedRAMP has only
+                        allotted up to 10 business categories to be identified per Cloud Service Offering (CSO).
+                      </p>
+                    </div>
+
                   </div>
-
+                  <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
+                    data-close-modal>
+                    <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                      <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close"></use>
+                    </svg>
+                  </button>
                 </div>
-                <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
-                  data-close-modal>
-                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                    <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close"></use>
-                  </svg>
-                </button>
               </div>
             </div>
-          </div>
-          <!-- End Modal -->
+            <!-- End Modal -->
             <div
               *ngIf="product.business_function.length == 0 || product.business_function == ''; then business_functionThenBlock else business_functionElseBlock">
             </div>
@@ -650,7 +722,7 @@
 
       <div class="grid-row grid-gap">
         <div class="tablet:grid-col-12">
-          <div>          
+          <div>
             <h3 class="mp-info-title">Authorized Service</h3>
             <!-- Information Modal -->
             <div class="mp-info-button mp-info-button-top-margin">
@@ -665,7 +737,9 @@
 
                     <div class="usa-prose">
                       <p id="modal-13-description">
-                        If there are microservices or applications included within this Cloud Service Offerings (CSO) authorization boundary, they should be listed within this section. This may be more applicable to the Infrastructure-as-a-Service model vendors.
+                        If there are microservices or applications included within this Cloud Service Offerings (CSO)
+                        authorization boundary, they should be listed within this section. This may be more applicable
+                        to the Infrastructure-as-a-Service model vendors.
                       </p>
                     </div>
 
@@ -684,7 +758,9 @@
           </div>
           <div class="clearfix"></div>
           <h4>Service(s) Added in the last 90 days</h4>
-          <div *ngIf="product.service_last_90.length == 0 || (product.service_last_90.length == 1 && product.service_last_90[0] == ''); then last90ThenBlock else last90ElseBlock"></div>
+          <div
+            *ngIf="product.service_last_90.length == 0 || (product.service_last_90.length == 1 && product.service_last_90[0] == ''); then last90ThenBlock else last90ElseBlock">
+          </div>
           <ng-template #last90ThenBlock>
             <p>N/A</p>
           </ng-template>
@@ -697,7 +773,9 @@
           </ng-template>
 
           <h4>Other Service(s)</h4>
-          <div *ngIf="product.all_others.length == 0 || (product.all_others.length == 1 && product.all_others[0] == ''); then all_othersThenBlock else all_othersElseBlock"></div>
+          <div
+            *ngIf="product.all_others.length == 0 || (product.all_others.length == 1 && product.all_others[0] == ''); then all_othersThenBlock else all_othersElseBlock">
+          </div>
           <ng-template #all_othersThenBlock>
             <p>N/A</p>
           </ng-template>
