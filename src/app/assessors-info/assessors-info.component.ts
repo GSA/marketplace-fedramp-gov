@@ -29,10 +29,10 @@ export class AssessorsInfoComponent implements OnInit {
     
     this.delay = AppConstants.CACHE_DELAY;
 
-    this.cacheDate = localStorage.getItem('cacheDate');
+    this.cacheDate = sessionStorage.getItem('cacheDate');
     this.formatDate = this.dp.transform(Date.now(), 'yyyy-MM-dd');
 
-    this.cacheAssessors = localStorage.getItem('cacheAssessors');
+    this.cacheAssessors = sessionStorage.getItem('cacheAssessors');
 
     this.id = null;
     

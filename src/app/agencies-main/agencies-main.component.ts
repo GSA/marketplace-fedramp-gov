@@ -40,15 +40,15 @@ export class AgenciesMainComponent implements OnInit {
     
     this.delay = AppConstants.CACHE_DELAY;
 
-    this.cacheDate = localStorage.getItem('cacheDate');
+    this.cacheProducts = localStorage.getItem('cacheProducts');
+
+    this.cacheDate = sessionStorage.getItem('cacheDate');
     this.formatDate = this.dp.transform(Date.now(), 'yyyy-MM-dd');
 
-    this.cacheProducts = localStorage.getItem('cacheProducts');
-    this.cacheAgencies = localStorage.getItem('cacheAgencies');
-    this.cacheAssessors = localStorage.getItem('cacheAssessors');
-    this.cacheFilters = localStorage.getItem('cacheFilters');
-    this.cacheMetrics = localStorage.getItem('cacheMetrics');
-
+    this.cacheAgencies = sessionStorage.getItem('cacheAgencies');
+    this.cacheAssessors = sessionStorage.getItem('cacheAssessors');
+    this.cacheFilters = sessionStorage.getItem('cacheFilters');
+    this.cacheMetrics = sessionStorage.getItem('cacheMetrics');
     this.cacheAtoMapping = sessionStorage.getItem('cacheAtoMapping');
     this.cacheReuseMapping = sessionStorage.getItem('cacheReuseMapping');
   }
@@ -99,14 +99,13 @@ export class AgenciesMainComponent implements OnInit {
   getJsonData(): Promise<void> {
     return new Promise((resolve, reject) => {
 
-      this.cacheDate = localStorage.getItem('cacheDate');
-
       this.cacheProducts = localStorage.getItem('cacheProducts');
-      this.cacheAgencies = localStorage.getItem('cacheAgencies');
-      this.cacheAssessors = localStorage.getItem('cacheAssessors');
-      this.cacheFilters = localStorage.getItem('cacheFilters');
-      this.cacheMetrics = localStorage.getItem('cacheMetrics');
 
+      this.cacheDate = sessionStorage.getItem('cacheDate');
+      this.cacheAgencies = sessionStorage.getItem('cacheAgencies');
+      this.cacheAssessors = sessionStorage.getItem('cacheAssessors');
+      this.cacheFilters = sessionStorage.getItem('cacheFilters');
+      this.cacheMetrics = sessionStorage.getItem('cacheMetrics');
       this.cacheAtoMapping = sessionStorage.getItem('cacheAtoMapping');
       this.cacheReuseMapping = sessionStorage.getItem('cacheReuseMapping');
 
