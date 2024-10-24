@@ -31,7 +31,7 @@ export class ProductInfoComponent implements OnInit {
     
     this.delay = AppConstants.CACHE_DELAY;
 
-    this.cacheDate = localStorage.getItem('cacheDate');
+    this.cacheDate = sessionStorage.getItem('cacheDate');
     this.formatDate = this.dp.transform(Date.now(), 'yyyy-MM-dd');
 
     this.cacheProducts = localStorage.getItem('cacheProducts');
@@ -75,7 +75,7 @@ export class ProductInfoComponent implements OnInit {
   getJsonData(): Promise<void> {
     return new Promise((resolve, reject) => {
 
-      this.cacheDate = localStorage.getItem('cacheDate');
+      this.cacheDate = sessionStorage.getItem('cacheDate');
       this.cacheProducts = localStorage.getItem('cacheProducts');
 
       if(this.cacheDate != null && this.cacheDate == this.formatDate
