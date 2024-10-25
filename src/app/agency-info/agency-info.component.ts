@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { AppConstants } from '../app.constants';
+import * as LZString from 'lz-string';
 
 @Component({
   selector: 'app-agency-info',
@@ -27,11 +28,11 @@ export class AgencyInfoComponent implements OnInit {
   constructor(public AppConstants: AppConstants, private dp: DatePipe, private route: ActivatedRoute) {    
 
     this.delay = AppConstants.CACHE_DELAY;
-
-    this.cacheDate = sessionStorage.getItem('cacheDate');
+    
+    this.cacheDate = localStorage.getItem('cacheDate');
     this.formatDate = this.dp.transform(Date.now(), 'yyyy-MM-dd');
 
-    this.cacheAgencies = sessionStorage.getItem('cacheAgencies');
+    this.cacheAgencies = LZString.decompressFromUTF16(localStorage.getItem('cacheAgencies') || '{}');
 
     this.id = null;
     
@@ -68,8 +69,8 @@ export class AgencyInfoComponent implements OnInit {
   getJsonData(): Promise<void> {
     return new Promise((resolve, reject) => {
 
-      this.cacheAgencies = sessionStorage.getItem('cacheAgencies');
-      this.cacheDate = sessionStorage.getItem('cacheDate');
+      this.cacheDate = localStorage.getItem('cacheDate');
+      this.cacheAgencies = LZString.decompressFromUTF16(localStorage.getItem('cacheAgencies') || '{}');
 
       if(this.cacheDate != null && this.cacheDate == this.formatDate
         && this.cacheAgencies != null) {

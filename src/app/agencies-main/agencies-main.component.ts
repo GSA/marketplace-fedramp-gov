@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { AppConstants } from '../app.constants';
+import * as LZString from 'lz-string';
 
 @Component({
   selector: 'app-agencies-main',
@@ -40,17 +41,16 @@ export class AgenciesMainComponent implements OnInit {
     
     this.delay = AppConstants.CACHE_DELAY;
 
-    this.cacheProducts = localStorage.getItem('cacheProducts');
-
-    this.cacheDate = sessionStorage.getItem('cacheDate');
+    this.cacheDate = localStorage.getItem('cacheDate');
     this.formatDate = this.dp.transform(Date.now(), 'yyyy-MM-dd');
 
-    this.cacheAgencies = sessionStorage.getItem('cacheAgencies');
-    this.cacheAssessors = sessionStorage.getItem('cacheAssessors');
-    this.cacheFilters = sessionStorage.getItem('cacheFilters');
-    this.cacheMetrics = sessionStorage.getItem('cacheMetrics');
-    this.cacheAtoMapping = sessionStorage.getItem('cacheAtoMapping');
-    this.cacheReuseMapping = sessionStorage.getItem('cacheReuseMapping');
+    this.cacheProducts = LZString.decompressFromUTF16(localStorage.getItem('cacheProducts') || '{}');
+    this.cacheAgencies = LZString.decompressFromUTF16(localStorage.getItem('cacheAgencies') || '{}');
+    this.cacheAssessors = LZString.decompressFromUTF16(localStorage.getItem('cacheAssessors') || '{}');
+    this.cacheFilters = LZString.decompressFromUTF16(localStorage.getItem('cacheFilters') || '{}');
+    this.cacheMetrics = LZString.decompressFromUTF16(localStorage.getItem('cacheMetrics') || '{}');
+    this.cacheAtoMapping = LZString.decompressFromUTF16(localStorage.getItem('cacheAtoMapping') || '{}');
+    this.cacheReuseMapping = LZString.decompressFromUTF16(localStorage.getItem('cacheReuseMapping') || '{}');
   }
 
   async ngOnInit(): Promise<void> {
@@ -99,15 +99,15 @@ export class AgenciesMainComponent implements OnInit {
   getJsonData(): Promise<void> {
     return new Promise((resolve, reject) => {
 
-      this.cacheProducts = localStorage.getItem('cacheProducts');
-
-      this.cacheDate = sessionStorage.getItem('cacheDate');
-      this.cacheAgencies = sessionStorage.getItem('cacheAgencies');
-      this.cacheAssessors = sessionStorage.getItem('cacheAssessors');
-      this.cacheFilters = sessionStorage.getItem('cacheFilters');
-      this.cacheMetrics = sessionStorage.getItem('cacheMetrics');
-      this.cacheAtoMapping = sessionStorage.getItem('cacheAtoMapping');
-      this.cacheReuseMapping = sessionStorage.getItem('cacheReuseMapping');
+      this.cacheDate = localStorage.getItem('cacheDate');
+  
+      this.cacheProducts = LZString.decompressFromUTF16(localStorage.getItem('cacheProducts') || '{}');
+      this.cacheAgencies = LZString.decompressFromUTF16(localStorage.getItem('cacheAgencies') || '{}');
+      this.cacheAssessors = LZString.decompressFromUTF16(localStorage.getItem('cacheAssessors') || '{}');
+      this.cacheFilters = LZString.decompressFromUTF16(localStorage.getItem('cacheFilters') || '{}');
+      this.cacheMetrics = LZString.decompressFromUTF16(localStorage.getItem('cacheMetrics') || '{}');
+      this.cacheAtoMapping = LZString.decompressFromUTF16(localStorage.getItem('cacheAtoMapping') || '{}');
+      this.cacheReuseMapping = LZString.decompressFromUTF16(localStorage.getItem('cacheReuseMapping') || '{}');
 
       if (this.cacheDate != null && this.cacheDate == this.formatDate
         && this.cacheProducts != null 

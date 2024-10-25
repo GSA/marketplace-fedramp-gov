@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppConstants } from './app.constants';
 import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import * as LZString from 'lz-string';
 
 @Component({
   selector: 'app-root',
@@ -41,21 +42,21 @@ export class AppComponent {
 
     this.url = AppConstants.GIT_URL;
 
-    this.cacheProducts = localStorage.getItem('cacheProducts');
-    
-    this.cacheDate = sessionStorage.getItem('cacheDate');
+    this.cacheDate = localStorage.getItem('cacheDate');
     this.formatDate = this.dp.transform(Date.now(), 'yyyy-MM-dd');
 
-    this.cacheAgencies = sessionStorage.getItem('cacheAgencies');
-    this.cacheAssessors = sessionStorage.getItem('cacheAssessors');
-    this.cacheFilters = sessionStorage.getItem('cacheFilters');
-    this.cacheMetrics = sessionStorage.getItem('cacheMetrics');
-    this.cacheAtoMapping = sessionStorage.getItem('cacheAtoMapping');
-    this.cacheReuseMapping = sessionStorage.getItem('cacheReuseMapping');
+    this.cacheProducts = LZString.decompressFromUTF16(localStorage.getItem('cacheProducts') || '{}');
+    this.cacheAgencies = LZString.decompressFromUTF16(localStorage.getItem('cacheAgencies') || '{}');
+    this.cacheAssessors = LZString.decompressFromUTF16(localStorage.getItem('cacheAssessors') || '{}');
+    this.cacheFilters = LZString.decompressFromUTF16(localStorage.getItem('cacheFilters') || '{}');
+    this.cacheMetrics = LZString.decompressFromUTF16(localStorage.getItem('cacheMetrics') || '{}');
+    this.cacheAtoMapping = LZString.decompressFromUTF16(localStorage.getItem('cacheAtoMapping') || '{}');
+    this.cacheReuseMapping = LZString.decompressFromUTF16(localStorage.getItem('cacheReuseMapping') || '{}');
 
   }
 
   ngOnInit(): void {
+
     if(this.cacheDate == null || this.cacheDate != this.formatDate
       || this.cacheProducts == null 
       || this.cacheAgencies == null 
@@ -69,24 +70,16 @@ export class AppComponent {
         (resp) => {
     
           let json = JSON.parse(JSON.stringify(resp));
-
-
-          localStorage.removeItem('cacheDate'); 
-          localStorage.removeItem('cacheAgencies');
-          localStorage.removeItem('cacheAssessors');
-          localStorage.removeItem('cacheFilters');
-          localStorage.removeItem('cacheMetrics');
-
-          localStorage.setItem("cacheProducts", JSON.stringify(json.data.Products));
-
-          sessionStorage.setItem("cacheDate", this.formatDate!);
-          sessionStorage.setItem("cacheAgencies",  JSON.stringify(json.data.Agencies));
-          sessionStorage.setItem("cacheAssessors",  JSON.stringify(json.data.Assessors));
-          sessionStorage.setItem("cacheFilters",  JSON.stringify(json.data.Filters));
-          sessionStorage.setItem("cacheMetrics",  JSON.stringify(json.data.Metrics));
-          sessionStorage.setItem("cacheAtoMapping",  JSON.stringify(json.data.AtoMapping).replace(/\r/g,'').replace(/T20:00:00.000Z/g,''));
-          sessionStorage.setItem("cacheReuseMapping", JSON.stringify(json.data.ReuseMapping).replace(/\r/g,'').replace(/T20:00:00.000Z/g,''));
           
+          localStorage.setItem("cacheDate", this.formatDate!);
+          localStorage.setItem("cacheProducts", LZString.compressToUTF16(JSON.stringify(json.data.Products) || '{}'));
+          localStorage.setItem("cacheAgencies",  LZString.compressToUTF16(JSON.stringify(json.data.Agencies) || '{}'));
+          localStorage.setItem("cacheAssessors",  LZString.compressToUTF16(JSON.stringify(json.data.Assessors) || '{}'));
+          localStorage.setItem("cacheFilters",  LZString.compressToUTF16(JSON.stringify(json.data.Filters) || '{}'));
+          localStorage.setItem("cacheMetrics",  LZString.compressToUTF16(JSON.stringify(json.data.Metrics) || '{}'));
+          localStorage.setItem("cacheAtoMapping",  LZString.compressToUTF16(JSON.stringify(json.data.AtoMapping).replace(/\r/g,'').replace(/T20:00:00.000Z/g,'') || '{}'));
+          localStorage.setItem("cacheReuseMapping", LZString.compressToUTF16(JSON.stringify(json.data.ReuseMapping).replace(/\r/g,'').replace(/T20:00:00.000Z/g,'') || '{}'));
+
        }
       );
     }
