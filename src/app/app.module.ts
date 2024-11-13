@@ -19,6 +19,10 @@ import { AgencyInfoComponent } from './agency-info/agency-info.component';
 import { AssessorsInfoComponent } from './assessors-info/assessors-info.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import { APP_INITIALIZER } from '@angular/core';
+import { CacheFactory } from './cache-factory';
+import { DatePipe } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
     AboutMarketplaceComponent,
     ProductInfoComponent,
     AgencyInfoComponent,
-    AssessorsInfoComponent
+    AssessorsInfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,8 +53,15 @@ import { HttpClientModule } from '@angular/common/http';
       { path: 'home',      component: HomeComponent },
     ])
   ],
-  providers: [],
+  providers: [CacheFactory, DatePipe,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (cf: CacheFactory) => () => cf.init(),
+      deps: [CacheFactory],
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {}
 
