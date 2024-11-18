@@ -1,240 +1,240 @@
-<div *ngIf="isCachePresent">
-<app-about-marketplace></app-about-marketplace>
+<div *ngIf="cf.isCachePresent()">
+  <app-about-marketplace></app-about-marketplace>
 
-<app-links></app-links>
+  <app-links></app-links>
 
-<section>
-  <div class="grid-container mp-search-main">
-    <div class="grid-row">
-    </div>
-  </div>
-
-  <div class="grid-container padding-3 marketplace-type-container">
-
-    <!-- Search Column-->
-    <div class="grid-row">
-      <div class="tablet:grid-col-2 padding-right-3 results-search">
-
-        <label id='clear-search-desktop' class="cursor-pointer d-none" onclick="clearSearch();">X Clear Search</label>
-        <label id='clear-filters-desktop' class="cursor-pointer d-none" onclick="clearFilter();">X Clear Filters</label>
-        <br>
-        <input type="text" onkeyup="filterSearch(this.value);" id="clear-search-input-desktop"
-          name="clear-search-input-desktop" placeholder="Search Marketplace">
-
-        <p id='results-count-desktop' class="mp-container-total-search-results">{{Assessors.length}} total</p>
-
-        <!-- Accordian -->
-        <div class="search-container">
-
-          <span id="filter-0-desktop" class style="display: none;"></span>
-          <span id="filter-1-desktop" class style="display: none;"></span>
-          <span id="filter-2-desktop" class style="display: none;"></span>
-          <span id="filter-3-desktop" class style="display: none;"></span>
-          <span id="filter-4-desktop" class style="display: none;"></span>
-          <span id="filter-5-desktop" class style="display: none;"></span>
-          <span id="filter-6-desktop" class style="display: none;"></span>
-          <span id="filter-7-desktop" class style="display: none;"></span>
-          <span id="filter-8-desktop" class style="display: none;"></span>
-          <span id="filter-9-desktop" class style="display: none;"></span>
-
-          <div *ngIf="Filters.assessor.product_assessing.length != 0" class="usa-accordion">
-            <h4 class="usa-accordion__heading accordian-title">
-              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false"
-                aria-controls="a1">
-                <strong>Products Assessing</strong>
-              </button>
-            </h4>
-            <div id="a1" class="usa-accordion__content usa-prose" hidden="">
-              <div *ngFor="let i of Filters.assessor.product_assessing">
-                <li id="{{i.class_name}}-desktop" onclick="filterRows('1', this.id);"
-                  class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button>
-                </li>
-              </div>
-            </div>
-          </div>
-
-          <div *ngIf="Filters.assessor.impact_level.length != 0" class="usa-accordion">
-            <h4 class="usa-accordion__heading accordian-title">
-              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false"
-                aria-controls="a2">
-                <strong>Impact Level</strong>
-              </button>
-            </h4>
-            <div id="a2" class="usa-accordion__content usa-prose" hidden="">
-              <div *ngFor="let i of Filters.assessor.impact_level">
-                <li id="{{i.class_name}}-desktop" onclick="filterRows('2', this.id);"
-                  class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button>
-                </li>
-              </div>
-            </div>
-          </div>
-
-          <div *ngIf="Filters.assessor.status.length != 0" class="usa-accordion">
-            <h4 class="usa-accordion__heading accordian-title">
-              <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false"
-                aria-controls="a3">
-                <strong>Offering Status</strong>
-              </button>
-            </h4>
-            <div id="a3" class="usa-accordion__content usa-prose" hidden="">
-              <div *ngFor="let i of Filters.assessor.status">
-                <li id="{{i.class_name}}-desktop" onclick="filterRows('3', this.id);"
-                  class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button>
-                </li>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- <button id="csv-button" class="btn btn-primary" onclick="csvFromFilteredData('assessors');">Export to CSV <i
-            class="fa-solid fa-download"></i></button> -->
-            <button id="csv-ato-button" [disabled]="isAtoDisabled" (click)="csvFromAtoData()"
-            class="btn btn-primary">{{atoLabel}}<i class="fa-solid fa-download"></i></button>
-      </div>
-
-      <!-- Results Column-->
-      <div class="grid-col-10">
-        <div class="grid-row search-sortable mp-sortable-column display-none desktop:display-flex">
-
-          <div class="grid-col-10 product_column-provider">
-            <span id="sort-header-0-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header"
-              onclick="sortCol(0);">Name</span>
-          </div>
-
-          <div class="grid-col-2 product_column-service_offering text-center">
-            <span id="sort-header-1-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header"
-              onclick="sortCol(1,true);">Products Assessing</span>
-          </div>
-        </div>
-
-        <div id="zero-results-desktop" style="display:none;"
-          class="grid-row mp-search-results display-none desktop:display-flex">
-          <div class="grid-col-12 company-logo-column product_column-service_offering">
-            No results found for your search. Try refining your search or filter parameters.
-          </div>
-        </div>
-
-        <div *ngIf="isCachePresent" id="sort-table-desktop">
-          <div *ngFor="let a of Assessors" class="{{a.filter_classes}}">
-            <a href="/assessors/{{a.id}}" target="_blank" class="mp-search-list">
-              <div class="grid-row mp-search-results display-none desktop:display-flex">
-                <div class="grid-col-10 company-logo-column product_column-service_offering ">
-                  <div class="assessors-logo">
-                    <img src="{{a.logo}}" alt="{{a.name}}" title="{{a.name}}" class="">
-                  </div>
-                  <div class="assessors-name">
-                    <span class="sort-col-0-desktop csv-data">{{a.name}}</span>
-                  </div>
-                </div>
-
-                <div class="grid-col-2 product_column-reuse text-center">
-                  <span class="sort-col-1-desktop csv-data">{{a.products_assessing}}</span>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
+  <section>
+    <div class="grid-container mp-search-main">
+      <div class="grid-row">
       </div>
     </div>
 
-    <!-- Mobile Accordian -->
-    <div class="search-container desktop:display-none">
+    <div class="grid-container padding-3 marketplace-type-container">
 
-      <span id="filter-0-mobile" class="" style="display: none;"></span>
-      <span id="filter-1-mobile" class="" style="display: none;"></span>
-      <span id="filter-2-mobile" class="" style="display: none;"></span>
-      <span id="filter-3-mobile" class="" style="display: none;"></span>
-      <span id="filter-4-mobile" class="" style="display: none;"></span>
-      <span id="filter-5-mobile" class="" style="display: none;"></span>
-      <span id="filter-6-mobile" class="" style="display: none;"></span>
-      <span id="filter-7-mobile" class="" style="display: none;"></span>
-      <span id="filter-8-mobile" class="" style="display: none;"></span>
-      <span id="filter-9-mobile" class="" style="display: none;"></span>
+      <!-- Search Column-->
+      <div class="grid-row">
+        <div class="tablet:grid-col-2 padding-right-3 results-search">
 
-      <div class="usa-accordion">
-        <h4 class="usa-accordion__heading accordian-title">
-
-          <label id='clear-search-mobile' class="cursor-pointer d-none" onclick="clearSearch('mobile');">X Clear
-            Search</label>
-          <label id='clear-filters-mobile' class="cursor-pointer d-none" onclick="clearFilter('mobile');">X Clear
+          <label id='clear-search-desktop' class="cursor-pointer d-none" onclick="clearSearch();">X Clear Search</label>
+          <label id='clear-filters-desktop' class="cursor-pointer d-none" onclick="clearFilter();">X Clear
             Filters</label>
+          <br>
+          <input type="text" onkeyup="filterSearch(this.value);" id="clear-search-input-desktop"
+            name="clear-search-input-desktop" placeholder="Search Marketplace">
 
-          <input type="text" onkeyup="filterSearch(this.value, 'mobile');" id="clear-search-input-mobile"
-            name="clear-search-input-mobile" class="search-mobile-mp" placeholder="Search Marketplace">
+          <p id='results-count-desktop' class="mp-container-total-search-results">{{cf.Assessors.length}} total</p>
 
-          <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="m1">
-            Filter Results
-          </button>
-        </h4>
+          <!-- Accordian -->
+          <div class="search-container">
 
-        <div id="m1" class="usa-accordion__content usa-prose" hidden="">
-          <div class="grid-row">
-          </div>
+            <span id="filter-0-desktop" class style="display: none;"></span>
+            <span id="filter-1-desktop" class style="display: none;"></span>
+            <span id="filter-2-desktop" class style="display: none;"></span>
+            <span id="filter-3-desktop" class style="display: none;"></span>
+            <span id="filter-4-desktop" class style="display: none;"></span>
+            <span id="filter-5-desktop" class style="display: none;"></span>
+            <span id="filter-6-desktop" class style="display: none;"></span>
+            <span id="filter-7-desktop" class style="display: none;"></span>
+            <span id="filter-8-desktop" class style="display: none;"></span>
+            <span id="filter-9-desktop" class style="display: none;"></span>
 
-          <div class="grid-row">
-
-            <div *ngIf="Filters.assessor.product_assessing.length != 0" class="grid-col-4">
-              <p><strong>Products Assessing</strong></p>
-              <div *ngFor="let i of Filters.assessor.product_assessing">
-                <li id="{{i.class_name}}-mobile" onclick="filterRows('1', this.id, 'mobile');"
-                  class="cursor-pointer filter-item-mobile">{{i.name}}</li>
+            <div *ngIf="cf.Filters.assessor.product_assessing.length != 0" class="usa-accordion">
+              <h4 class="usa-accordion__heading accordian-title">
+                <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false"
+                  aria-controls="a1">
+                  <strong>Products Assessing</strong>
+                </button>
+              </h4>
+              <div id="a1" class="usa-accordion__content usa-prose" hidden="">
+                <div *ngFor="let i of cf.Filters.assessor.product_assessing">
+                  <li id="{{i.class_name}}-desktop" onclick="filterRows('1', this.id);"
+                    class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button>
+                  </li>
+                </div>
               </div>
             </div>
 
-            <div *ngIf="Filters.assessor.impact_level.length != 0" class="grid-col-4">
-              <p><strong>Impact Level</strong></p>
-              <div *ngFor="let i of Filters.assessor.impact_level">
-                <li id="{{i.class_name}}-mobile" onclick="filterRows('2', this.id, 'mobile');"
-                  class="cursor-pointer filter-item-mobile">{{i.name}}</li>
+            <div *ngIf="cf.Filters.assessor.impact_level.length != 0" class="usa-accordion">
+              <h4 class="usa-accordion__heading accordian-title">
+                <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false"
+                  aria-controls="a2">
+                  <strong>Impact Level</strong>
+                </button>
+              </h4>
+              <div id="a2" class="usa-accordion__content usa-prose" hidden="">
+                <div *ngFor="let i of cf.Filters.assessor.impact_level">
+                  <li id="{{i.class_name}}-desktop" onclick="filterRows('2', this.id);"
+                    class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button>
+                  </li>
+                </div>
               </div>
             </div>
 
-            <div *ngIf="Filters.assessor.status.length != 0" class="grid-col-4">
-              <p><strong>Offering Status</strong></p>
-              <div *ngFor="let i of Filters.assessor.status">
-                <li id="{{i.class_name}}-mobile" onclick="filterRows('3', this.id, 'mobile');"
-                  class="cursor-pointer filter-item-mobile">{{i.name}}</li>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- Mobile Search Results -->
-    <div id="zero-results-mobile" style="display:none;"
-      class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
-      <div class="gid-col-12 desktop:grid-col-2 company-logo-column product_column-service_offering">
-        No results found for your search. Try refining your search or filter parameters.
-      </div>
-    </div>
-
-    <div *ngIf="isCachePresent" id="sort-table-mobile">
-      <div *ngFor="let a of Assessors" class="{{a.filter_classes}}">
-        <a href="/assessors/{{a.id}}" target="_blank" class="company-info-link">
-          <div class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
-            <div class="desktop:grid-col-4  product_column-service_offering assessors-company-logo">
-              <img src="{{a.logo}}" alt="{{a.name}}" title="{{a.name}}">
-            </div>
-            <div class="desktop:grid-col-8 product_column-service_offering">
-              <span>{{a.name}}</span>
-            </div>
-            <div class="grid-col-12 padding-0">
-              <div class="grid-row grid-gap">
-                <div class="grid-col-6">
-                  <div class="product_column-authorization result">
-                    <h4>Products Assessing</h4>
-                    <p><span>{{a.products_assessing}}</span></p>
-                  </div>
+            <div *ngIf="cf.Filters.assessor.status.length != 0" class="usa-accordion">
+              <h4 class="usa-accordion__heading accordian-title">
+                <button type="button" class="usa-accordion__button accordian-title" aria-expanded="false"
+                  aria-controls="a3">
+                  <strong>Offering Status</strong>
+                </button>
+              </h4>
+              <div id="a3" class="usa-accordion__content usa-prose" hidden="">
+                <div *ngFor="let i of cf.Filters.assessor.status">
+                  <li id="{{i.class_name}}-desktop" onclick="filterRows('3', this.id);"
+                    class="cursor-pointer filter-item-desktop">{{i.name}}<button class="search-accordian-sub"></button>
+                  </li>
                 </div>
               </div>
             </div>
           </div>
-        </a>
+
+          <button id="csv-ato-button" [disabled]="cf.isAtoDisabled" (click)="cf.csvFromAtoData()"
+            class="btn btn-primary">{{cf.atoLabel}}<i class="fa-solid fa-download"></i></button>
+        </div>
+
+        <!-- Results Column-->
+        <div class="grid-col-10">
+          <div class="grid-row search-sortable mp-sortable-column display-none desktop:display-flex">
+
+            <div class="grid-col-10 product_column-provider">
+              <span id="sort-header-0-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header"
+                onclick="sortCol(0);">Name</span>
+            </div>
+
+            <div class="grid-col-2 product_column-service_offering text-center">
+              <span id="sort-header-1-desktop" class="sort-header-desktop cursor-pointer sort-none csv-header"
+                onclick="sortCol(1,true);">Products Assessing</span>
+            </div>
+          </div>
+
+          <div id="zero-results-desktop" style="display:none;"
+            class="grid-row mp-search-results display-none desktop:display-flex">
+            <div class="grid-col-12 company-logo-column product_column-service_offering">
+              No results found for your search. Try refining your search or filter parameters.
+            </div>
+          </div>
+
+          <div id="sort-table-desktop">
+            <div *ngFor="let a of cf.Assessors" class="{{a.filter_classes}}">
+              <a href="/assessors/{{a.id}}" target="_blank" class="mp-search-list">
+                <div class="grid-row mp-search-results display-none desktop:display-flex">
+                  <div class="grid-col-10 company-logo-column product_column-service_offering ">
+                    <div class="assessors-logo">
+                      <img src="{{a.logo}}" alt="{{a.name}}" title="{{a.name}}" class="">
+                    </div>
+                    <div class="assessors-name">
+                      <span class="sort-col-0-desktop csv-data">{{a.name}}</span>
+                    </div>
+                  </div>
+
+                  <div class="grid-col-2 product_column-reuse text-center">
+                    <span class="sort-col-1-desktop csv-data">{{a.products_assessing}}</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Accordian -->
+      <div class="search-container desktop:display-none">
+
+        <span id="filter-0-mobile" class="" style="display: none;"></span>
+        <span id="filter-1-mobile" class="" style="display: none;"></span>
+        <span id="filter-2-mobile" class="" style="display: none;"></span>
+        <span id="filter-3-mobile" class="" style="display: none;"></span>
+        <span id="filter-4-mobile" class="" style="display: none;"></span>
+        <span id="filter-5-mobile" class="" style="display: none;"></span>
+        <span id="filter-6-mobile" class="" style="display: none;"></span>
+        <span id="filter-7-mobile" class="" style="display: none;"></span>
+        <span id="filter-8-mobile" class="" style="display: none;"></span>
+        <span id="filter-9-mobile" class="" style="display: none;"></span>
+
+        <div class="usa-accordion">
+          <h4 class="usa-accordion__heading accordian-title">
+
+            <label id='clear-search-mobile' class="cursor-pointer d-none" onclick="clearSearch('mobile');">X Clear
+              Search</label>
+            <label id='clear-filters-mobile' class="cursor-pointer d-none" onclick="clearFilter('mobile');">X Clear
+              Filters</label>
+
+            <input type="text" onkeyup="filterSearch(this.value, 'mobile');" id="clear-search-input-mobile"
+              name="clear-search-input-mobile" class="search-mobile-mp" placeholder="Search Marketplace">
+
+            <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="m1">
+              Filter Results
+            </button>
+          </h4>
+
+          <div id="m1" class="usa-accordion__content usa-prose" hidden="">
+            <div class="grid-row">
+            </div>
+
+            <div class="grid-row">
+
+              <div *ngIf="cf.Filters.assessor.product_assessing.length != 0" class="grid-col-4">
+                <p><strong>Products Assessing</strong></p>
+                <div *ngFor="let i of cf.Filters.assessor.product_assessing">
+                  <li id="{{i.class_name}}-mobile" onclick="filterRows('1', this.id, 'mobile');"
+                    class="cursor-pointer filter-item-mobile">{{i.name}}</li>
+                </div>
+              </div>
+
+              <div *ngIf="cf.Filters.assessor.impact_level.length != 0" class="grid-col-4">
+                <p><strong>Impact Level</strong></p>
+                <div *ngFor="let i of cf.Filters.assessor.impact_level">
+                  <li id="{{i.class_name}}-mobile" onclick="filterRows('2', this.id, 'mobile');"
+                    class="cursor-pointer filter-item-mobile">{{i.name}}</li>
+                </div>
+              </div>
+
+              <div *ngIf="cf.Filters.assessor.status.length != 0" class="grid-col-4">
+                <p><strong>Offering Status</strong></p>
+                <div *ngFor="let i of cf.Filters.assessor.status">
+                  <li id="{{i.class_name}}-mobile" onclick="filterRows('3', this.id, 'mobile');"
+                    class="cursor-pointer filter-item-mobile">{{i.name}}</li>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Mobile Search Results -->
+      <div id="zero-results-mobile" style="display:none;"
+        class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
+        <div class="gid-col-12 desktop:grid-col-2 company-logo-column product_column-service_offering">
+          No results found for your search. Try refining your search or filter parameters.
+        </div>
+      </div>
+
+      <div id="sort-table-mobile">
+        <div *ngFor="let a of cf.Assessors" class="{{a.filter_classes}}">
+          <a href="/assessors/{{a.id}}" target="_blank" class="company-info-link">
+            <div class="grid-row mp-search-results mobile-results padding-4 display-flex desktop:display-none">
+              <div class="desktop:grid-col-4  product_column-service_offering assessors-company-logo">
+                <img src="{{a.logo}}" alt="{{a.name}}" title="{{a.name}}">
+              </div>
+              <div class="desktop:grid-col-8 product_column-service_offering">
+                <span>{{a.name}}</span>
+              </div>
+              <div class="grid-col-12 padding-0">
+                <div class="grid-row grid-gap">
+                  <div class="grid-col-6">
+                    <div class="product_column-authorization result">
+                      <h4>Products Assessing</h4>
+                      <p><span>{{a.products_assessing}}</span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-  
+  </section>
+
 </div>

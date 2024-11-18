@@ -1,4 +1,4 @@
-<div *ngIf="isCachePresent">
+<div *ngIf="cf.isCachePresent()">
     <section class="mp-about" id="">
         <div class="grid-container fedramp-page-container">
             
@@ -22,16 +22,15 @@
                                 <h3>Total FedRAMP Authorized Services</h3>
                             </div>
                             <div class="authorization-count">
-                                <p>{{Metrics.total}}</p>
+                                <p>{{cf.Metrics.total}}</p>
                             </div>
                         </div>
                     </a>
 
                     <h3 class="latest-title">Latest on Marketplace</h3>
 
-                    <a *ngFor="let l of Metrics.latest" class="latest-agency-link" href="/products/{{l.id}}" target="_blank">
+                    <a *ngFor="let l of cf.Metrics.latest" class="latest-agency-link" href="/products/{{l.id}}" target="_blank">
                         <div class="marketplace-latest">
-
                             <div>
                                 <img src="{{l.logo}}" title="{{l.cso}}"
                                     alt="{{l.cso}}" class="mp-latest-logo">
@@ -41,6 +40,7 @@
                         </div>
                     </a>
                 </div>
+                
             </div>
         </div>
     </section>

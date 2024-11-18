@@ -1,10 +1,10 @@
-<div *ngIf="isCachePresent">
+<div *ngIf="cf.isCachePresent()">
 
   <div *ngIf="agency.sub === ''; then tThenBlock else tElseBlock"></div>
-  <ng-template #tThenBlock>     
+  <ng-template #tThenBlock>
     <div id="update-title" style="display:none;">{{agency.parent}}</div>
   </ng-template>
-  <ng-template #tElseBlock>      
+  <ng-template #tElseBlock>
     <div id="update-title" style="display:none;">{{agency.sub}}</div>
   </ng-template>
 
@@ -16,33 +16,34 @@
       <div class="grid-row">
         <div class="desktop:grid-col-8 mp-details-contact-info">
           <h3 class="mp-info-title">Agency Liaison Contact Information</h3>
-                <!-- Information Modal -->
-                <div class="mp-info-button">
-                  <a href="#example-modal-2" class="usa-button" aria-controls="example-modal-2" data-open-modal><svg
-                      class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                      <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
-                    </svg></a>
-                  <div class="usa-modal" id="example-modal-2" aria-labelledby="modal-2-heading"
-                    aria-describedby="modal-2-description">
-                    <div class="usa-modal__content">
-                      <div class="usa-modal__main">
+          <!-- Information Modal -->
+          <div class="mp-info-button">
+            <a href="#example-modal-2" class="usa-button" aria-controls="example-modal-2" data-open-modal><svg
+                class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
+              </svg></a>
+            <div class="usa-modal" id="example-modal-2" aria-labelledby="modal-2-heading"
+              aria-describedby="modal-2-description">
+              <div class="usa-modal__content">
+                <div class="usa-modal__main">
 
-                        <div class="usa-prose">
-                          <p id="modal-2-description">
-                            If the agency has a shared inbox related to FedRAMP activities it will be listed in this section. If there is no email address listed, one has not been provided to the FedRAMP PMO by this agency.
-                          </p>
-                        </div>
-
-                      </div>
-                      <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
-                        data-close-modal>
-                        <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
-                          <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close"></use>
-                        </svg>
-                      </button>
-                    </div>
+                  <div class="usa-prose">
+                    <p id="modal-2-description">
+                      If the agency has a shared inbox related to FedRAMP activities it will be listed in this section.
+                      If there is no email address listed, one has not been provided to the FedRAMP PMO by this agency.
+                    </p>
                   </div>
+
                 </div>
+                <button type="button" class="usa-button usa-modal__close" aria-label="Close this window"
+                  data-close-modal>
+                  <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                    <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close"></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
           <p><strong>E-mail:</strong> {{agency.email}}</p>
           <p><strong>Website:</strong> {{agency.website}}</p>
         </div>
@@ -66,7 +67,8 @@
 
                           <div class="usa-prose">
                             <p id="modal-1-description">
-                              Total number of Authority to Operate (ATO) or Authority to Use (ATU) letters on file with FedRAMP by this agency.
+                              Total number of Authority to Operate (ATO) or Authority to Use (ATU) letters on file with
+                              FedRAMP by this agency.
                             </p>
                           </div>
 
@@ -89,7 +91,7 @@
                 </div>
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>
@@ -116,7 +118,8 @@
 
                       <div class="usa-prose">
                         <p id="modal-3-description">
-                          Names of Cloud Service Offerings that this federal agency has provided a copy of their Authority to Operate (ATO) or Authority to Use (ATU) letters to FedRAMP.
+                          Names of Cloud Service Offerings that this federal agency has provided a copy of their
+                          Authority to Operate (ATO) or Authority to Use (ATU) letters to FedRAMP.
                         </p>
                       </div>
 
@@ -162,36 +165,6 @@
         </div>
 
         <div class="tablet:grid-col-6">
-
-          <!--
-          <div>
-            <h3 class="assessors-clients">Reuse</h3>
-
-            <div *ngIf="agency.reuses.length == 0; then reusesThenBlock else reusesElseBlock"></div>
-            <ng-template #reusesThenBlock>
-              <div class="grid-row assessor-current-clients ">
-                <div class="grid-col-6 ">
-                  <p><strong>None</strong></p>
-                </div>
-              </div>
-            </ng-template>
-            <ng-template #reusesElseBlock>
-              <div *ngFor="let i of agency.reuses">
-                <div class="grid-row assessor-current-clients ">
-                  <div class="grid-col-6 ">
-                    <p><strong>{{i.csp}}</strong></p>
-                    <p><a href="products/{{i.id}}">{{i.cso}}</a></p>
-                  </div>
-
-                  <div class="grid-col-6 assessor-status">
-                    {{i.status}}
-                  </div>
-                </div>
-              </div>
-            </ng-template>
-          </div>
-          -->
-
           <div>
             <h3 class="mp-info-title">In Process</h3>
             <!-- Information Modal -->
@@ -207,7 +180,8 @@
 
                     <div class="usa-prose">
                       <p id="modal-4-description">
-                        Names of Cloud Service Offerings that this federal agency is working with towards an initial authorization.
+                        Names of Cloud Service Offerings that this federal agency is working with towards an initial
+                        authorization.
                       </p>
                     </div>
 

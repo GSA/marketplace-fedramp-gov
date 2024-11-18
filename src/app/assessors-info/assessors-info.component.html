@@ -1,5 +1,5 @@
-<div *ngIf="isCachePresent">
-    
+<div *ngIf="cf.isCachePresent()">
+
     <div id="update-title" style="display:none;">{{assessor.name}}</div>
 
     <section class="mp-product-company-info">
@@ -25,7 +25,8 @@
                                         <a href="#example-modal-1" class="usa-button" aria-controls="example-modal-1"
                                             data-open-modal><svg class="usa-icon" aria-hidden="true" focusable="false"
                                                 role="img">
-                                                <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
+                                                <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info">
+                                                </use>
                                             </svg></a>
                                         <div class="usa-modal" id="example-modal-1" aria-labelledby="modal-1-heading"
                                             aria-describedby="modal-1-description">
@@ -34,7 +35,10 @@
 
                                                     <div class="usa-prose">
                                                         <p id="modal-1-description">
-                                                            Number of unique systems that an assessor is currently working with for either a full assessment or readiness assessment. This number does not include all past assessments.
+                                                            Number of unique systems that an assessor is currently
+                                                            working with for either a full assessment or readiness
+                                                            assessment. This number does not include all past
+                                                            assessments.
                                                         </p>
                                                     </div>
 
@@ -43,7 +47,8 @@
                                                     aria-label="Close this window" data-close-modal>
                                                     <svg class="usa-icon" aria-hidden="true" focusable="false"
                                                         role="img">
-                                                        <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close">
+                                                        <use
+                                                            xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close">
                                                         </use>
                                                     </svg>
                                                 </button>
@@ -78,16 +83,17 @@
 
                                                 <div class="usa-prose">
                                                     <p id="modal-2-description">
-                                                        This assessor has been FedRAMP-recognized assessor since this date.
+                                                        This assessor has been FedRAMP-recognized assessor since this
+                                                        date.
                                                     </p>
                                                 </div>
 
                                             </div>
                                             <button type="button" class="usa-button usa-modal__close"
                                                 aria-label="Close this window" data-close-modal>
-                                                <svg class="usa-icon" aria-hidden="true" focusable="false"
-                                                    role="img">
-                                                    <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close">
+                                                <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                                                    <use
+                                                        xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close">
                                                     </use>
                                                 </svg>
                                             </button>
@@ -107,7 +113,7 @@
             <div class="grid-row product-info-details">
                 <div class="grid-col-12 mp-details-contact-info">
                     <h3 class="tablet:margin-top-0">Contact Information</h3>
-                    
+
                     <p><strong>POC:</strong> {{assessor.poc}}</p>
                     <p><strong>E-mail:</strong> {{assessor.email}}</p>
                     <p><strong>Founded:</strong> {{assessor.founded}}</p>
@@ -146,36 +152,35 @@
                     <div>
                         <h3 class="mp-info-title">Current Client(s)</h3>
                         <!-- Information Modal -->
-                    <div class="mp-info-button">
-                        <a href="#example-modal-3" class="usa-button" aria-controls="example-modal-3"
-                            data-open-modal><svg class="usa-icon" aria-hidden="true" focusable="false"
-                                role="img">
-                                <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
-                            </svg></a>
-                        <div class="usa-modal" id="example-modal-3" aria-labelledby="modal-3-heading"
-                            aria-describedby="modal-3-description">
-                            <div class="usa-modal__content">
-                                <div class="usa-modal__main">
+                        <div class="mp-info-button">
+                            <a href="#example-modal-3" class="usa-button" aria-controls="example-modal-3"
+                                data-open-modal><svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                                    <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#info"></use>
+                                </svg></a>
+                            <div class="usa-modal" id="example-modal-3" aria-labelledby="modal-3-heading"
+                                aria-describedby="modal-3-description">
+                                <div class="usa-modal__content">
+                                    <div class="usa-modal__main">
 
-                                    <div class="usa-prose">
-                                        <p id="modal-3-description">
-                                            Current customers of this assessor who are either under assessment or used this assessor for their most recent assessment.
-                                        </p>
+                                        <div class="usa-prose">
+                                            <p id="modal-3-description">
+                                                Current customers of this assessor who are either under assessment or
+                                                used this assessor for their most recent assessment.
+                                            </p>
+                                        </div>
+
                                     </div>
-
+                                    <button type="button" class="usa-button usa-modal__close"
+                                        aria-label="Close this window" data-close-modal>
+                                        <svg class="usa-icon" aria-hidden="true" focusable="false" role="img">
+                                            <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close">
+                                            </use>
+                                        </svg>
+                                    </button>
                                 </div>
-                                <button type="button" class="usa-button usa-modal__close"
-                                    aria-label="Close this window" data-close-modal>
-                                    <svg class="usa-icon" aria-hidden="true" focusable="false"
-                                        role="img">
-                                        <use xlink:href="../../assets/uswds-package/dist/img/sprite.svg#close">
-                                        </use>
-                                    </svg>
-                                </button>
                             </div>
                         </div>
-                    </div>
-                    <!-- End Modal -->
+                        <!-- End Modal -->
 
 
                         <div *ngIf="assessor.clients.length == 0; then clientsThenBlock else clientsElseBlock"></div>
