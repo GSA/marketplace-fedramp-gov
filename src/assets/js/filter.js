@@ -173,6 +173,10 @@ function clearFilter(tableType = 'desktop') {
 
     const kids = table.children;
 
+    for (let i = 0; i < 10; i++) {
+        document.getElementById("filter-" + i + "-" + tableType).classList = "";
+    }
+
     clear.classList.add("d-none");
     table.className = "";
 
