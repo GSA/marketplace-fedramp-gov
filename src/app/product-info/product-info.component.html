@@ -349,7 +349,7 @@
               '#N/A' ? product.fedramp_auth :
               product.fedramp_auth | date:'MM/dd/YYY'}}</p>
             <p><strong>Annual Assessment:</strong> {{ product.annual_assessment == '#N/A' || product.annual_assessment
-              == '' ? 'N/A' : product.annual_assessment | date:'MM/dd' }}</p>
+              == '' ? 'N/A' : product.annual_assessment }}</p>
             <p><strong>Independent Assessor:</strong> {{ product.independent_assessor }}</p>
           </div>
         </div>
