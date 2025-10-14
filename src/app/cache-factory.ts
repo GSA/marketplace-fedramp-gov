@@ -28,8 +28,16 @@ export class CacheFactory {
   private dataInitialized!: Promise<void>;
 
   async init(): Promise<void> {
-    return this.dataInitialized;
-  }
+    const needsReload = !this.isCachePresent();
+    await this.dataInitialized;
+
+    if (needsReload) {
+      // Only reload if this isn't already a reload
+      if (!window.location.search.includes('cache')) {
+        window.location.search = '?cache=true';
+      }
+    }
+    return;  }
 
   constructor(private hc: HttpClient, private dp: DatePipe) {
     // delete old local storage from previously split-cache due to Safari's 5mb limit
@@ -344,4 +352,8 @@ export class CacheFactory {
   zeroPad(n: number) {
     return n < 10 ? '0' + n : n;
   }
+
+
+
+  
 }
