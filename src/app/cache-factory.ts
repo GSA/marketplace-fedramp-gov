@@ -27,11 +27,10 @@ export class CacheFactory {
 
     private cacheDate: any | null;
     private formatDate: any | null;
+    private dataInitialized!: Promise<void>;
 
     async init(): Promise<void> {
-      return new Promise(resolve => {
-          resolve();
-      });
+      return this.dataInitialized;
     }
 
     constructor(private hc: HttpClient, private dp: DatePipe) { 
@@ -45,7 +44,7 @@ export class CacheFactory {
       this.removeCacheItem("cacheAtoMapping");
       this.removeCacheItem("cacheReuseMapping");
 
-      this.buildData(dp);
+      this.dataInitialized = this.buildData(dp);
     }
 
     removeCacheItem(inKey: string) {
@@ -54,7 +53,7 @@ export class CacheFactory {
       }
     }
 
-    async buildData(dp: DatePipe) {
+    async buildData(dp: DatePipe): Promise<void> {
 
         this.formatDate = dp.transform(Date.now(), 'yyyy-MM-dd');
 
@@ -112,9 +111,12 @@ export class CacheFactory {
                     
                     this.populateCache();
                     this.parseCache();
+                    resolve();
+                },
+                (error) => {
+                    reject(error);
                 }
             );
-            resolve();
         });
     }
 
