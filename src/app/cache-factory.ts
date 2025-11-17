@@ -11,18 +11,14 @@ export class CacheFactory {
   // for ato export to csv
   atoLabel = 'Export CSV Data';
   atoButtonDisabled = false;
-
   Products: any | null;
   Agencies: any | null;
   Assessors: any | null;
   Filters: any | null;
   Metrics: any | null;
-
   AtoMapping: any | null;
   ReuseMapping: any | null;
-
   private cacheJson!: string | null;
-
   private cacheDate: any | null;
   private formatDate: any | null;
   private dataInitialized!: Promise<void>;
@@ -30,14 +26,14 @@ export class CacheFactory {
   async init(): Promise<void> {
     const needsReload = !this.isCachePresent();
     await this.dataInitialized;
-
     if (needsReload) {
       // Only reload if this isn't already a reload
       if (!window.location.search.includes('cache')) {
         window.location.search = '?cache=true';
       }
     }
-    return;  }
+    return;
+  }
 
   constructor(private hc: HttpClient, private dp: DatePipe) {
     // delete old local storage from previously split-cache due to Safari's 5mb limit
@@ -48,6 +44,22 @@ export class CacheFactory {
     this.removeCacheItem('cacheMetrics');
     this.removeCacheItem('cacheAtoMapping');
     this.removeCacheItem('cacheReuseMapping');
+
+    // --- START: One-time global cache refresh logic (corrected) ---
+    // This block will clear the main data cache ONLY ONCE per user on the specified 'targetClearDate'.
+    // On subsequent visits on the same day, or on any other day, the regular caching logic will apply.
+    const today = this.dp.transform(Date.now(), 'yyyy-MM-dd');
+    const targetClearDate = '2025-11-17'; 
+    const oneTimeClearFlagKey = `oneTimeClear_${targetClearDate}`; // Unique key for this specific clear event
+
+    // Check if it's the target clear date AND if this specific one-time clear hasn't been done for this user yet
+    if (today === targetClearDate && !localStorage.getItem(oneTimeClearFlagKey)) {
+      console.log('USAi Chat: Performing one-time cache clear for all users on', targetClearDate);
+      localStorage.removeItem('cacheDate'); // Clears the last cached date
+      localStorage.removeItem('cacheJson'); // Clears the compressed data itself
+      localStorage.setItem(oneTimeClearFlagKey, 'true'); // Mark that this one-time clear has been performed for this user
+    }
+    // --- END: One-time global cache refresh logic ---
 
     this.dataInitialized = this.buildData(dp);
   }
@@ -60,9 +72,7 @@ export class CacheFactory {
 
   async buildData(dp: DatePipe): Promise<void> {
     this.formatDate = dp.transform(Date.now(), 'yyyy-MM-dd');
-
     this.populateCache();
-
     if (this.isJsonNeeded() == true) {
       await this.getJson();
     } else {
@@ -97,13 +107,11 @@ export class CacheFactory {
 
   parseCache() {
     let j = JSON.parse(this.cacheJson!);
-
     this.Metrics = j.Metrics;
     this.Filters = j.Filters;
     this.Products = j.Products;
     this.Agencies = j.Agencies;
     this.Assessors = j.Assessors;
-
     this.AtoMapping = j.AtoMapping;
     this.ReuseMapping = j.ReuseMapping;
   }
@@ -113,7 +121,6 @@ export class CacheFactory {
       this.hc.get(AppConstants.GIT_URL).subscribe({
         next: (resp) => {
           let json = JSON.parse(JSON.stringify(resp));
-
           localStorage.setItem('cacheDate', this.formatDate!);
           localStorage.setItem(
             'cacheJson',
@@ -123,7 +130,6 @@ export class CacheFactory {
                 .replace(/T20:00:00.000Z/g, '') || '{}'
             )
           );
-
           this.populateCache();
           this.parseCache();
           resolve(); // Move resolve() inside the subscription callback
@@ -136,7 +142,6 @@ export class CacheFactory {
   }
 
   // the following is for ATO export to CSV
-
   get isAtoDisabled(): boolean {
     return this.atoButtonDisabled;
   }
@@ -144,7 +149,6 @@ export class CacheFactory {
   csvFromAtoData() {
     this.atoLabel = 'Downloading...';
     this.atoButtonDisabled = true;
-
     let csv = 'data:text/csv;charset=utf-8,';
     let ato: Array<{
       label: string;
@@ -155,16 +159,13 @@ export class CacheFactory {
       assess: string;
       exp: string;
     }> = [];
-
     // headers
     csv +=
       '"FedRAMP ID","Cloud Service Provider","Cloud Service Offering","Service Description","Business Categories","Service Model","Status","Independent Assessor","Authorizations","Reuse","Parent Agency","Sub Agency","ATO Issuance Date","FedRAMP Authorization Date","Annual Assessment Date","ATO Expiration Date"\r\n';
-
     // for all products
     for (var i = 0; i < this.Products.length; i++) {
       // go build an array of "initial" and "resue" ATOs
       ato = this.getAtoDateArray(this.Products[i].id);
-
       if (this.Products[i].status == 'FedRAMP Authorized') {
         // loop through ato array, writing one product line for each
         for (let k = 0; k < ato.length; k++) {
@@ -241,7 +242,6 @@ export class CacheFactory {
           '\r\n';
       }
     }
-
     var date = new Date();
     var stamp =
       date.getFullYear().toString() +
@@ -251,17 +251,13 @@ export class CacheFactory {
       this.zeroPad(date.getHours()) +
       this.zeroPad(date.getMinutes()) +
       this.zeroPad(date.getSeconds());
-
     var uri = encodeURI(csv);
-
     var csvDownload = document.createElement('a');
     csvDownload.setAttribute('href', uri);
     csvDownload.setAttribute('download', 'marketplace-' + stamp + '.csv');
-
     document.body.appendChild(csvDownload);
     csvDownload.click();
     document.body.removeChild(csvDownload);
-
     this.atoLabel = 'Export CSV Data';
     this.atoButtonDisabled = false;
   }
@@ -276,26 +272,21 @@ export class CacheFactory {
       assess: string;
       exp: string;
     }> = [];
-
     let iss = '';
     let auth = '';
     let assess = '';
     let exp = '';
-
     // find initial
     for (var i = 0; i < this.AtoMapping.length; i++) {
       if (this.AtoMapping[i].id == idProd) {
         // these fall through to reuse
         auth = this.getDateTimeField(this.AtoMapping[i].auth_date);
         assess = this.reformatSomeDates(this.AtoMapping[i].assessment_date);
-
         iss = this.getDateTimeField(this.AtoMapping[i].ato_date);
         exp = this.getDateTimeField(this.AtoMapping[i].exp_date);
-
         if (iss != '' && exp == '') {
           exp = 'Continuous ATO';
         }
-
         list.push({
           label: 'Initial',
           parent: this.AtoMapping[i].parent,
@@ -308,17 +299,14 @@ export class CacheFactory {
         break;
       }
     }
-
     // find all reuse
     for (var i = 0; i < this.ReuseMapping.length; i++) {
       if (this.ReuseMapping[i].id == idProd) {
         iss = this.getDateTimeField(this.ReuseMapping[i].ato_date);
         exp = this.getDateTimeField(this.ReuseMapping[i].exp_date);
-
         if (iss != '' && exp == '') {
           exp = 'Continuous ATO';
         }
-
         list.push({
           label: 'Reuse',
           parent: this.ReuseMapping[i].parent,
@@ -330,7 +318,6 @@ export class CacheFactory {
         });
       }
     }
-
     return list;
   }
 
@@ -352,8 +339,4 @@ export class CacheFactory {
   zeroPad(n: number) {
     return n < 10 ? '0' + n : n;
   }
-
-
-
-  
 }
