@@ -49,7 +49,7 @@ export class CacheFactory {
     // This block will clear the main data cache ONLY ONCE per user on the specified 'targetClearDate'.
     // On subsequent visits on the same day, or on any other day, the regular caching logic will apply.
     const today = this.dp.transform(Date.now(), 'yyyy-MM-dd');
-    const targetClearDate = '2025-11-17'; 
+    const targetClearDate = '2025-11-20'; 
     const oneTimeClearFlagKey = `oneTimeClear_${targetClearDate}`; // Unique key for this specific clear event
 
     // Check if it's the target clear date AND if this specific one-time clear hasn't been done for this user yet
